@@ -10,11 +10,11 @@
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                            {{ session('status') }} 
                         </div>
                     @endif
 
-                    Hello User!
+                    Hello User! h
                 </div>
             </div>
         </div>
