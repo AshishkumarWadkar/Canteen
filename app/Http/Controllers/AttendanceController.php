@@ -17,7 +17,11 @@ class AttendanceController extends Controller
     public function index()
     {
         //
-        return view('mess.attendance');
+        $todays_punch = Attendance::join('users','attendance.user_id','users.id')
+        // ->where('punch_time', Carbon::today())
+        ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type']);
+
+        return view('mess.attendance',compact('todays_punch'));
     }
 
     /**
@@ -60,6 +64,9 @@ class AttendanceController extends Controller
         }
 
         $flag = Attendance::whereDate('created_at', Carbon::today())->where("meal_type",$request->meal_type)->get();
+        $todays_punch = Attendance::join('users','attendance.user_id','users.id')
+        // ->where('punch_time', Carbon::today())
+        ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type']);
         if(count($flag)==0)
         {
             $attendance = new Attendance;
@@ -69,14 +76,14 @@ class AttendanceController extends Controller
             $attendance->save();
             $student->points = $balance = $student->points - $points;
             $student->save();
-            return view('mess.attendance',compact('student','balance'))->with('success', 'Happy Meal :)');
+            return view('mess.attendance',compact('student','balance','todays_punch'))->with('success', 'Happy Meal :)');
 
 
         }
         else
         {
 
-            return view('mess.attendance',compact('student'))->with('error', 'Sorry You Had meal !');
+            return view('mess.attendance',compact('student','todays_punch'))->with('error', 'Sorry You Had meal !');
         }
 
 

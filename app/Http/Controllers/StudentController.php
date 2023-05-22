@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Classes;
 use App\Models\User;
 use App\Models\Division;
-
+use Auth;
 class StudentController extends Controller
 {
     /**
@@ -16,10 +16,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $class = Classes::all();
-        $division = Division::all();
-        $generated_barcode = $this->generateBarcodeNumber();
-        return view('mess.add_student',compact('generated_barcode','class','division'));
+
+        $students = User::all();
+        return view('mess.studentslist',compact('students'))->with('success', 'thank you');;
     }
 
     /**
@@ -29,7 +28,10 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $class = Classes::all();
+        $division = Division::all();
+        $generated_barcode = $this->generateBarcodeNumber();
+        return view('mess.add_student',compact('generated_barcode','class','division'));
     }
 
     /**
@@ -47,6 +49,7 @@ class StudentController extends Controller
         $student->class_id = $request->class;
         $student->division_id = $request->division;
         $student->email = $request->phone;
+        $student->created_by = Auth::user()->ide;
         $student->password = \Hash::make($request->phone);
         $student->save();
 
@@ -89,6 +92,11 @@ class StudentController extends Controller
     public function edit($id)
     {
         //
+        $class = Classes::all();
+        $division = Division::all();
+        $student = User::find($id);
+        return view('mess.update_student',compact('student','class','division'));
+
     }
 
     /**

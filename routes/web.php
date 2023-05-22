@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,6 +51,11 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::resource('student',StudentController::class);
     Route::resource('attendance',AttendanceController::class);
 });
+
+
+Route::get('/payment', [PaymentController::class, 'index']);
+Route::post('/payment-initiate-request/{id}', [PaymentController::class, 'initiate']);
+Route::post('/payment-complete', [PaymentController::class, 'complete']);
 
 
 
