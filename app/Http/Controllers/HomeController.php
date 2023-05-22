@@ -40,7 +40,7 @@ class HomeController extends Controller
             $topups = Topup::where('user_id',Auth::id())
             ->join('topup_master','topup_master.id','topup.topup_id')
             ->orderBy('topup.id','desc')->get();
-            $attendance = Attendance::
+            // $attendance = Attendance::
             return view('userdashobard',compact('students','topups'));
         }
     }
