@@ -42,6 +42,28 @@ class LoginController extends Controller
         $this->middleware('guest:mess')->except('logout');
     }
 
+
+    public function user_check(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+
+        if (\Auth::guard('admin')->attempt($request->only(['email','password']), $request->get('remember'))){
+            return redirect()->intended('/admin/dashboard');
+            // return "admin";
+        }
+        else if (\Auth::guard('mess')->attempt($request->only(['email','password']), $request->get('remember'))){
+            return redirect()->intended('/admin/dashboard');
+
+        }
+        else{
+            return redirect()->intended('/dashboard');
+        }
+    }
+
     public function showAdminLoginForm()
     {
         return view('auth.login', ['url' => route('admin.login-view'), 'title'=>'Admin', ]);
