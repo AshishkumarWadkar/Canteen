@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\MenuMasterController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\WeeklyMenuController;
+use App\Models\WeeklyMenu;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,6 +56,8 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
 {
     Route::resource('student',StudentController::class);
     Route::resource('attendance',AttendanceController::class);
+    Route::resource('menu_master',MenuMasterController::class);
+    Route::resource('weekly_menu',WeeklyMenuController::class);
 });
 
 
