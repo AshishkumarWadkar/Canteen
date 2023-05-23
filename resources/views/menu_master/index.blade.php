@@ -18,6 +18,7 @@
                                 {{ session('error') }}
                             </div>
                         @endif
+                        <a href="{{ route('menu_master.create') }}"><button class="btn btn-xs btn-primary py-0 mx-2">Add Menu</button></a>
 
                         <table class="table table-striped table-responsive">
                             <thead class="thead-dark ">

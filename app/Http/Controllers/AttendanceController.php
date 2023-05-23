@@ -18,7 +18,7 @@ class AttendanceController extends Controller
     {
         //
         $todays_punch = Attendance::join('users','attendance.user_id','users.id')
-        // ->where('punch_time', Carbon::today())
+        ->where('punch_time', Carbon::today())
         ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type']);
 
         return view('mess.attendance',compact('todays_punch'));

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MenuMaster;
+use App\Models\WeeklyMenu;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class WeeklyMenuController extends Controller
@@ -14,7 +17,8 @@ class WeeklyMenuController extends Controller
     public function index()
     {
         //
-        return view('weeklymenu.create');
+         $weeklyMenu = WeeklyMenu::all()->where('created_by',\Auth::id());
+        return view('weeklymenu.index',compact('weeklyMenu'));
     }
 
     /**
@@ -25,6 +29,9 @@ class WeeklyMenuController extends Controller
     public function create()
     {
         //
+        $menu = MenuMaster::all()->where('created_by',\Auth::id());
+        return view('weeklymenu.create',compact('menu'));
+
     }
 
     /**
@@ -35,7 +42,28 @@ class WeeklyMenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $year = date("Y");
+        $week_no = substr($request->week,6);
+        $start_date = (new \DateTime())->setISODate($year, $week_no)->format('Y-m-d');
+        $end_date = (new \DateTime())->setISODate($year, $week_no, 7)->format('Y-m-d');
+
+        $weekly_menu = new WeeklyMenu;
+        $weekly_menu->created_by =\Auth::id();
+        $weekly_menu->week_no = $request->week;
+        $weekly_menu->start_date = $start_date;
+        $weekly_menu->end_date = $end_date;
+        $weekly_menu->sunday = $request->sunday;
+        $weekly_menu->monday = $request->monday;
+        $weekly_menu->tuesday = $request->tuesday;
+        $weekly_menu->wednesday = $request->wednesday;
+        $weekly_menu->thursday = $request->thursday;
+        $weekly_menu->friday = $request->friday;
+        $weekly_menu->saturday = $request->saturday;
+        $weekly_menu->start_date = $start_date;
+        $weekly_menu->end_date = $end_date;
+        $weekly_menu->save();
+        return redirect()->back();
+
     }
 
     /**
@@ -58,6 +86,9 @@ class WeeklyMenuController extends Controller
     public function edit($id)
     {
         //
+        $menu = MenuMaster::all()->where('created_by',\Auth::id());
+        $week_menu = WeeklyMenu::find($id);
+        return view('weeklymenu.edit',compact('menu','week_menu'));
     }
 
     /**
@@ -69,7 +100,26 @@ class WeeklyMenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $year = date("Y");
+        $week_no = substr($request->week,6);
+        $start_date = (new \DateTime())->setISODate($year, $week_no)->format('Y-m-d');
+        $end_date = (new \DateTime())->setISODate($year, $week_no, 7)->format('Y-m-d');
+        $weekly_menu =  WeeklyMenu::find($id);
+        $weekly_menu->created_by =\Auth::id();
+        $weekly_menu->week_no = $request->week;
+        $weekly_menu->start_date = $start_date;
+        $weekly_menu->end_date = $end_date;
+        $weekly_menu->sunday = $request->sunday;
+        $weekly_menu->monday = $request->monday;
+        $weekly_menu->tuesday = $request->tuesday;
+        $weekly_menu->wednesday = $request->wednesday;
+        $weekly_menu->thursday = $request->thursday;
+        $weekly_menu->friday = $request->friday;
+        $weekly_menu->saturday = $request->saturday;
+        $weekly_menu->start_date = $start_date;
+        $weekly_menu->end_date = $end_date;
+        $weekly_menu->save();
+        return redirect()->route('weekly_menu.index');
     }
 
     /**

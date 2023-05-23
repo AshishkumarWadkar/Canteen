@@ -35,10 +35,57 @@
                         </form>
 
 
-                        Punching Deatails : 
+                        Punching Details :
 
-                        
+                        <table class="table table-striped table-responsive">
+                            <thead class="thead-dark ">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Puching</th>
+                                    <th scope="col">Meal Type</th>
 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($todays_punch as $key => $tp)
+                                    <tr>
+                                        <th scope="row">{{ $key + 1 }}</th>
+                                        <td>{{ $tp->punch_time }}</td>
+                                        <td>{{ $tp->meal_type == 1 ? "BreakFast" : "Meal" }}</td>
+
+
+                                    </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
+
+                        <br>
+
+                        All Punching Deatils :
+
+                        <table class="table table-striped table-responsive">
+                            <thead class="thead-dark ">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Puching</th>
+                                    <th scope="col">Meal Type</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($all_punch as $key => $ap)
+                                    <tr>
+                                        <th scope="row">{{ $key + 1 }}</th>
+                                        <td>{{ $ap->punch_time }}</td>
+                                        <td>{{ $ap->meal_type == 1 ? "BreakFast" : "Meal" }}</td>
+
+
+                                    </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
 
 
 
