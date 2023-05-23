@@ -29,11 +29,11 @@ class HomeController extends Controller
     {
         if(Auth::guard('admin')->check())
         {
-
+            return view('admin.dashobard');
         }
         elseif(Auth::guard('mess')->check())
         {
-
+            return view('mess.dashobard');
         }
         else{
             $students = User::find(Auth::id());

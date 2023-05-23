@@ -24,7 +24,6 @@
     <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet"> --}}
     {{-- css --}}
-    <link id="pagestyle" href="../public/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -147,14 +146,7 @@
 
                         </li>
                     </ul>
-                    {{-- <ul class="navbar-nav d-lg-flex d-none">
-                  <li class="nav-item d-flex align-items-center">
-                    <a class="btn btn-outline-primary btn-sm mb-0 me-2" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-material-dashboard">Online Builder</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="https://www.creative-tim.com/product/material-dashboard" class="btn btn-sm mb-0 me-1 bg-gradient-dark">Free download</a>
-                  </li>
-                </ul> --}}
+
                 </div>
             </div>
         </nav>

@@ -45,11 +45,11 @@ Route::post('/mess/register',[RegisterController::class,'createMess'])->name('me
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/dashboard',function(){
-    return view('admin');
+    return view('admin.dashboard');
 })->middleware('auth:admin');
 
 Route::get('/mess/dashboard',function(){
-    return view('mess');
+    return view('mess.dashboard');
 })->middleware('auth:mess');
 
 Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()

@@ -15,14 +15,13 @@
 
     {{-- css --}}
 
-    <link  id="pagestyle"  href="{{ asset('assets/css/material-dashboard.css') }}?v=3.1.0" rel="stylesheet">
+    <link  id="pagestyle"  href="{{ asset('assets/css/material-dashboard.css') }}" rel="stylesheet">
     <link   href="{{ asset('assets/css/material-dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/material-dashboard.css.map') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/material-dashboard.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet"> --}}
-    {{-- css --}}
-    <link id="pagestyle" href="../public/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
+
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -33,11 +32,10 @@
 <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 
 
-    <!-- Scripts -->
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+
 
 </head>
-<body>
+<body >
     <div id="app1" >
 
 
@@ -63,8 +61,8 @@
 <script src="{{ asset('assets/js/core/bootstrap.min.js')}}"></script>
 <script src="{{ asset('assets/js/core/popper.min.js')}}"></script>
 <script src="{{ asset('assets/js/material-dashboard.js')}}"></script>
-{{-- <script src="{{ asset('assets/js/material-dashboard.js.map')}}"></script> --}}
-{{-- <script src="{{ asset('assets/js/material-dashboard.min.js')}}"></script> --}}
+<script src="{{ asset('assets/js/material-dashboard.js.map')}}"></script>
+<script src="{{ asset('assets/js/material-dashboard.min.js')}}"></script>
 
 <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js')}}" ></script>
 <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js')}}" ></script>

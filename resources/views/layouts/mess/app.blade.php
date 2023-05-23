@@ -22,7 +22,6 @@
     <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet"> --}}
     {{-- css --}}
-    <link id="pagestyle" href="../public/assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
