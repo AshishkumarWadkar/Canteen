@@ -73,6 +73,10 @@ class LoginController extends Controller
     {
         return view('auth.login', ['url' => route('mess.login-view'), 'title'=>'Mess']);
     }
+    public function showTeacherLoginForm()
+    {
+        return view('auth.login', ['url' => route('teacher.login-view'), 'title'=>'Teacher']);
+    }
 
     public function adminLogin(Request $request)
     {
@@ -100,11 +104,17 @@ class LoginController extends Controller
 
         return back()->withInput($request->only('email', 'remember'));
     }
+    public function messTeacher(Request $request)
+    {
+        $this->validate($request, [
+            'email'   => 'required',
+            'password' => 'required|min:6'
+        ]);
 
-    public function logout() {
-        Session::flush();
-        Auth::logout();
+        if (\Auth::guard('teacher')->attempt($request->only(['email','password']), $request->get('remember'))){
+            return redirect()->intended('/teacher/dashboard');
+        }
 
-        return Redirect('login');
+        return back()->withInput($request->only('email', 'remember'));
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Topup;
 use App\Models\TopupMaster;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Razorpay\Api\Api;
 use Session;
@@ -79,11 +80,12 @@ class PaymentController extends Controller
             'name' => "E-Canteen ".$plan->name,
             'currency' => 'INR',
             'email' => "",
-            'contactNumber' =>\Auth::user()->email,
+            'contactNumber' =>"8007850037",
             // 'address' => $request->all()['address'],
             'description' => $plan->name,
 
         ];
+        // dd($response);
 
 
         // Let's checkout payment page is it working
@@ -108,20 +110,24 @@ class PaymentController extends Controller
             $request->all()['rzp_paymentid'],
             $request->all()['rzp_orderid']
         );
-
         if ($signatureStatus == true) {
+            // return $signatureStatus;
 
             $paymentId = $request->all()['rzp_paymentid'];
             $api = new Api($this->razorpayId, $this->razorpayKey);
             $payment = $api->payment->fetch($paymentId);
             $topup = Topup::where('razorpay_orderid', $request->all()['rzp_orderid'])->first();
+            echo $payment['status'];
             if(isset($payment['status']) && $payment['status'] == 'captured'){
 
                 $topup->rzp_paymentid = $payment['id'];
-                $topup->amount = $payment['amount']*100;
+                $topup->amount = $payment['amount']/100;
                 $topup->order_completed = 1;
                 $topup->payment_status = $payment['status'];
                 $topup->save();
+                $user = User::find(\Auth::id());
+                $user->points =   $user->points + $payment['amount']/100;
+                $user->save();
                 return redirect('/home');
 
             }

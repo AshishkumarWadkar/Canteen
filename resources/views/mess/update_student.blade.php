@@ -16,6 +16,7 @@
 
                         <form class="needs-validation" method="POST" action="{{ route('student.update',$student->id) }}">
                             @csrf
+                            @method("PUT")
                             {{-- <div class="form-group my-2  form-check">
                                 <input class="form-check-input" type="checkbox" value="1" id="existing" name="existing" onchange="showbarcode()">
                                 <label class="form-check-label" for="existing">

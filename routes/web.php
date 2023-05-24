@@ -43,6 +43,12 @@ Route::post('/mess',[LoginController::class,'messLogin'])->name('mess.login');
 Route::get('/mess/register',[RegisterController::class,'showMessRegisterForm'])->name('mess.register-view');
 Route::post('/mess/register',[RegisterController::class,'createMess'])->name('mess.register');
 
+Route::get('/teacher',[LoginController::class,'showTeacherLoginForm'])->name('teacher.login-view');
+Route::post('/teacher',[LoginController::class,'teacherLogin'])->name('teacher.login');
+
+Route::get('/teacher/register',[RegisterController::class,'showTeacherRegisterForm'])->name('teacher.register-view');
+Route::post('/teacher/register',[RegisterController::class,'createTeacher'])->name('teacher.register');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/dashboard',function(){
     return view('admin.dashboard');
@@ -51,6 +57,11 @@ Route::get('/admin/dashboard',function(){
 Route::get('/mess/dashboard',function(){
     return view('mess.dashboard');
 })->middleware('auth:mess');
+
+
+Route::get('/teacher/dashboard',function(){
+    return view('mess.dashboard');
+})->middleware('auth:teacher');
 
 Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
 {
@@ -62,8 +73,8 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
 
 
 Route::get('/payment', [PaymentController::class, 'index']);
-Route::post('/payment-initiate-request/{id}', [PaymentController::class, 'initiate']);
-Route::post('/payment-complete', [PaymentController::class, 'complete']);
+Route::post('/payment-initiate-request', [PaymentController::class, 'initiate']);
+Route::post('/payment-complete', [PaymentController::class, 'complete'])->name('payment.complete');
 
 
 Route::get('logout/logout', [LoginController::class, 'logout'])->name('all_logout');

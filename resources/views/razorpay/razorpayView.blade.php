@@ -34,7 +34,7 @@
                     <form action="/payment-initiate-request"  method="POST" >
                         @csrf
                         <input type="hidden" name="plan" value="{{ $p->id }}">
-                        <button class="btn btn-primary btn-block d-block m-2">{{ $p->name }} {{ $p->amount }} Rs</button>
+                        <button type="submit" class="btn btn-primary btn-block d-block m-2">{{ $p->name }} {{ $p->amount }} Rs</button>
                     </form>
                     @endforeach
                 </div>

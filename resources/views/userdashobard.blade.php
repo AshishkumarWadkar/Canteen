@@ -29,13 +29,12 @@
                         <div class="row">
                             <div class="mb-3">{!! DNS1D::getBarcodeHTML($students->barcode, 'PHARMA') !!}</div>
                         </div>
-                        <form action="/payment"  method="Get" >
+                        <a href="/payment" class="btn btn-block btn-primary">Top Up</a>
 
-                            <button class="btn btn-block btn-primary">Top Up </button>
-                        </form>
+<br>
 
 
-                        Punching Details :
+                        Today Punching Details :
 
                         <table class="table table-striped table-responsive">
                             <thead class="thead-dark ">
@@ -56,6 +55,58 @@
 
                                     </tr>
                                 @endforeach
+
+                            </tbody>
+                        </table>
+
+                        Weekly Menus :
+                        <table class="table table-striped table-responsive">
+                            <thead class="thead-dark ">
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Day</th>
+                                    <th scope="col">Menu</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>Monday</td>
+                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->monday)->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">2</th>
+                                        <td>Tuesday</td>
+                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->tuesday)->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">3</th>
+                                        <td>Wednesday</td>
+                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->wednesday)->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">4</th>
+                                        <td>Thursday</td>
+                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->thursday)->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">5</th>
+                                        <td>Friday</td>
+                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->friday)->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">6</th>
+                                        <td>Saturday</td>
+                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->saturday)->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">7</th>
+                                        <td>Sunday</td>
+                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->sunday)->name }}</td>
+                                    </tr>
+
 
                             </tbody>
                         </table>

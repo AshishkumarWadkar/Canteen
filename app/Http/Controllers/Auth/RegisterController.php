@@ -58,7 +58,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string',  'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -102,6 +102,21 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         $mess = Mess::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('mess');
+    }
+    public function showTeacherRegisterForm()
+    {
+        return view('auth.register', ['route' => route('mess.register-view'), 'title'=>'Teacher']);
+    }
+
+    protected function createTeacher(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $mess = Teacher::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
