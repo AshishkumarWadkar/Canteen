@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-
+use Session;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -98,5 +99,12 @@ class LoginController extends Controller
         }
 
         return back()->withInput($request->only('email', 'remember'));
+    }
+
+    public function logout() {
+        Session::flush();
+        Auth::logout();
+
+        return Redirect('login');
     }
 }

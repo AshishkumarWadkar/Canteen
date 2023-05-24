@@ -173,11 +173,11 @@
             <div class="sidenav-footer position-absolute w-100 bottom-0 ">
                 <div class="mx-3">
                     <!-- <a class="btn btn-outline-primary mt-4 w-100"
-                href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard?ref=sidebarfree"
-                type="button">Documentation</a>
-              <a class="btn bg-gradient-primary w-100"
-                href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to
-                pro</a> -->
+                    href="https://www.creative-tim.com/learning-lab/bootstrap/overview/material-dashboard?ref=sidebarfree"
+                    type="button">Documentation</a>
+                  <a class="btn bg-gradient-primary w-100"
+                    href="https://www.creative-tim.com/product/material-dashboard-pro?ref=sidebarfree" type="button">Upgrade to
+                    pro</a> -->
                 </div>
 
             </div>
@@ -320,19 +320,18 @@
 
                                 </a>
                             </li>
-                            <li class="nav-item">
-
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-
-                            </li>
+                            @guest
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('all_logout') }}">Logout</a>
+                                </li>
+                            @endguest
                         </ul>
                     </div>
                 </div>
@@ -748,7 +747,7 @@
 
                 <footer class="footer py-4  ">
                     <div class="container-fluid">
-                        <div class="row align-items-center justify-content-lg-between">
+                        {{-- <div class="row align-items-center justify-content-lg-between">
                             <div class="col-lg-6 mb-lg-0 mb-4">
                                 <div class="copyright text-center text-sm text-muted text-lg-start">
                                     ©
@@ -782,7 +781,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </footer>
 
