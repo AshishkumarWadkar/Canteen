@@ -126,7 +126,7 @@
             <span class="nav-link-text ms-1">Sign Up</span>
           </a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
 
             <a class="dropdown-item" href="{{ route('logout') }}"
                onclick="event.preventDefault();
@@ -138,7 +138,7 @@
                 @csrf
             </form>
 
-    </li>
+    </li> --}}
       </ul>
     </div>
     <div class="sidenav-footer position-absolute w-100 bottom-0 ">
@@ -260,19 +260,18 @@
                 <span class="d-sm-inline d-none">Sign In</span>
               </a>
             </li> --}}
+            @guest
             <li class="nav-item">
-
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-                                 document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-
-        </li>
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('register') }}">Register</a>
+            </li>
+        @else
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('all_logout') }}">Logout</a>
+            </li>
+        @endguest
           </ul>
         </div>
       </div>
@@ -758,7 +757,7 @@
       </div>
       <footer class="footer py-4  ">
         <div class="container-fluid">
-          <div class="row align-items-center justify-content-lg-between">
+          {{-- <div class="row align-items-center justify-content-lg-between">
             <div class="col-lg-6 mb-lg-0 mb-4">
               <div class="copyright text-center text-sm text-muted text-lg-start">
                 © <script>
@@ -785,7 +784,7 @@
                 </li>
               </ul>
             </div>
-          </div>
+          </div> --}}
         </div>
       </footer>
     </div>

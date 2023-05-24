@@ -77,5 +77,8 @@ Route::post('/payment-initiate-request', [PaymentController::class, 'initiate'])
 Route::post('/payment-complete', [PaymentController::class, 'complete'])->name('payment.complete');
 
 
+Route::get('logout/logout', [LoginController::class, 'logout'])->name('all_logout');
+
+
 
 
