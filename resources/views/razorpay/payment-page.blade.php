@@ -11,6 +11,7 @@
         "image": "https://example.com/your_logo", // You can give your logo url
         "order_id": "{{ $response['orderId'] }}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
 
+
         "handler": function(response) {
             // After payment successfully made response will come here
             // send this response to Controller for update the payment response
@@ -19,6 +20,7 @@
             document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
             document.getElementById('rzp_orderid').value = response.razorpay_order_id;
             document.getElementById('rzp_signature').value = response.razorpay_signature;
+            document.getElementById('plan').value = {{ $response['plan'] }};
             // // Let's submit the form automatically
             document.getElementById('submit_payment').click();
         },
@@ -54,6 +56,7 @@
     <input type="text" class="form-control" id="rzp_paymentid" name="rzp_paymentid">
     <input type="text" class="form-control" id="rzp_orderid" name="rzp_orderid">
     <input type="text" class="form-control" id="rzp_signature" name="rzp_signature">
+    <input type="text" class="form-control" id="plan" name="plan">
 
     <button type="submit" id="submit_payment" class="btn btn-primary">Submit</button>
 </form>

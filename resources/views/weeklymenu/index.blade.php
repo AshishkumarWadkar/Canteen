@@ -30,13 +30,13 @@
                                 @foreach ($weeklyMenu as $key => $wm)
                                     <tr>
                                         <th scope="row">{{ $key + 1 }}</th>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($wm->monday)->name }} </td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($wm->tuesday)->name }} </td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($wm->wednesday)->name }} </td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($wm->thursday)->name }} </td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($wm->friday)->name }} </td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($wm->saturday)->name }} </td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($wm->sunday)->name }} </td>
+                                        <td>{{ $wm->monday > 0 ? \App\Models\MenuMaster::findOrFail($wm->monday)->name : "------" }} | {{ $wm->b_monday > 0 ? \App\Models\MenuMaster::findOrFail($wm->b_monday)->name : "------" }} </td>
+                                        <td>{{ $wm->tuesday > 0 ? \App\Models\MenuMaster::findOrFail($wm->tuesday)->name : "------" }} | {{ $wm->b_tuesday > 0 ? \App\Models\MenuMaster::findOrFail($wm->b_tuesday)->name : "------" }} </td>
+                                        <td>{{ $wm->wednesday > 0 ? \App\Models\MenuMaster::findOrFail($wm->wednesday)->name : "------" }} | {{ $wm->b_wednesday > 0 ? \App\Models\MenuMaster::findOrFail($wm->b_wednesday)->name : "------" }} </td>
+                                        <td>{{ $wm->thursday > 0 ? \App\Models\MenuMaster::findOrFail($wm->thursday)->name : "------" }} | {{ $wm->b_thursday > 0 ? \App\Models\MenuMaster::findOrFail($wm->b_thursday)->name : "------" }} </td>
+                                        <td>{{ $wm->friday > 0 ? \App\Models\MenuMaster::findOrFail($wm->friday)->name : "------" }} | {{ $wm->b_friday > 0 ? \App\Models\MenuMaster::findOrFail($wm->b_friday)->name : "------" }} </td>
+                                        <td>{{ $wm->saturday > 0 ? \App\Models\MenuMaster::findOrFail($wm->saturday)->name : "------" }} | {{ $wm->b_saturday > 0 ? \App\Models\MenuMaster::findOrFail($wm->saturday)->name : "------" }} </td>
+                                        <td>{{ $wm->sunday > 0 ? \App\Models\MenuMaster::findOrFail($wm->sunday)->name : "------" }} | {{ $wm->b_sunday > 0 ? \App\Models\MenuMaster::findOrFail($wm->b_sunday)->name : "------" }} </td>
 
                                         <td>{{ $wm->start_date }} </td>
                                         <td>{{ $wm->end_date }} </td>

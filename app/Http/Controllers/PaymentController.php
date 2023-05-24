@@ -10,6 +10,7 @@ use Razorpay\Api\Api;
 use Session;
 use Exception;
 use DB;
+use Carbon\Carbon;
 class PaymentController extends Controller
 {
     /**
@@ -80,6 +81,7 @@ class PaymentController extends Controller
             'name' => "E-Canteen ".$plan->name,
             'currency' => 'INR',
             'email' => "",
+            'plan'=> $plan->id,
             'contactNumber' =>"8007850037",
             // 'address' => $request->all()['address'],
             'description' => $plan->name,
@@ -105,6 +107,7 @@ class PaymentController extends Controller
      */
     public function complete(Request $request)
     {
+
         $signatureStatus = $this->SignatureVerify(
             $request->all()['rzp_signature'],
             $request->all()['rzp_paymentid'],
@@ -126,7 +129,15 @@ class PaymentController extends Controller
                 $topup->payment_status = $payment['status'];
                 $topup->save();
                 $user = User::find(\Auth::id());
-                $user->points =   $user->points + $payment['amount']/100;
+                if($request->plan == 1)
+                {
+                    $user->is_subscribed = 1;
+                    $user->expiry_date = Carbon::now()->addDays(365);
+                }
+                else{
+
+                    $user->points =   $user->points + $payment['amount']/100;
+                }
                 $user->save();
                 return redirect('/home');
 

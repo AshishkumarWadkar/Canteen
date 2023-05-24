@@ -22,13 +22,13 @@
                                 <label class="form-check-label" for="existing">
                                     Existing Student
                                 </label>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group my-2 barcode ">
                                 <label for="barcode">Barcode : </label>
-                                <input type="number" class="form-control" id="barcode" name="barcode" value="" placeholder="Please Scan the Card"
+                                <input type="number" class="form-control" id="barcode" name="barcode" value="{{ $student->barcode }}" placeholder="Please Scan the Card"
                                      required >
-                            </div> --}}
+                            </div>
                             <div class="form-group my-2">
                                 <label for="name">Student's Full-Name : </label>
                                 <input type="name" class="form-control" id="name" value="{{ $student->name }}" placeholder="First Name Middle Name Last Name" name="name" required>

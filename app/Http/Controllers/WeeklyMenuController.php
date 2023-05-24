@@ -29,8 +29,9 @@ class WeeklyMenuController extends Controller
     public function create()
     {
         //
-        $menu = MenuMaster::all()->where('created_by',\Auth::id());
-        return view('weeklymenu.create',compact('menu'));
+        $menu = MenuMaster::all()->where('created_by',\Auth::id())->where('type',1);
+        $b_menu = MenuMaster::all()->where('created_by',\Auth::id())->where('type',0);
+        return view('weeklymenu.create',compact('menu','b_menu'));
 
     }
 
@@ -42,6 +43,12 @@ class WeeklyMenuController extends Controller
      */
     public function store(Request $request)
     {
+
+        $flag= WeeklyMenu::where('week_no',$request->week)->first();
+        if($flag)
+        {
+            return redirect()->back();
+        }
         $year = date("Y");
         $week_no = substr($request->week,6);
         $start_date = (new \DateTime())->setISODate($year, $week_no)->format('Y-m-d');
@@ -59,6 +66,14 @@ class WeeklyMenuController extends Controller
         $weekly_menu->thursday = $request->thursday;
         $weekly_menu->friday = $request->friday;
         $weekly_menu->saturday = $request->saturday;
+
+        $weekly_menu->b_sunday = $request->b_sunday;
+        $weekly_menu->b_monday = $request->b_monday;
+        $weekly_menu->b_tuesday = $request->b_tuesday;
+        $weekly_menu->b_wednesday = $request->b_wednesday;
+        $weekly_menu->b_thursday = $request->b_thursday;
+        $weekly_menu->b_friday = $request->b_friday;
+        $weekly_menu->b_saturday = $request->b_saturday;
         $weekly_menu->start_date = $start_date;
         $weekly_menu->end_date = $end_date;
         $weekly_menu->save();
@@ -86,9 +101,10 @@ class WeeklyMenuController extends Controller
     public function edit($id)
     {
         //
-        $menu = MenuMaster::all()->where('created_by',\Auth::id());
+        $menu = MenuMaster::all()->where('created_by',\Auth::id())->where('type',1);
+        $b_menu = MenuMaster::all()->where('created_by',\Auth::id())->where('type',0);
         $week_menu = WeeklyMenu::find($id);
-        return view('weeklymenu.edit',compact('menu','week_menu'));
+        return view('weeklymenu.edit',compact('menu','week_menu','b_menu'));
     }
 
     /**
@@ -116,9 +132,18 @@ class WeeklyMenuController extends Controller
         $weekly_menu->thursday = $request->thursday;
         $weekly_menu->friday = $request->friday;
         $weekly_menu->saturday = $request->saturday;
+
+        $weekly_menu->b_sunday = $request->b_sunday;
+        $weekly_menu->b_monday = $request->b_monday;
+        $weekly_menu->b_tuesday = $request->b_tuesday;
+        $weekly_menu->b_wednesday = $request->b_wednesday;
+        $weekly_menu->b_thursday = $request->b_thursday;
+        $weekly_menu->b_friday = $request->b_friday;
+        $weekly_menu->b_saturday = $request->b_saturday;
         $weekly_menu->start_date = $start_date;
         $weekly_menu->end_date = $end_date;
         $weekly_menu->save();
+
         return redirect()->route('weekly_menu.index');
     }
 

@@ -49,7 +49,7 @@ class StudentController extends Controller
         $student->class_id = $request->class;
         $student->division_id = $request->division;
         $student->email = $request->phone;
-        $student->created_by = Auth::user()->ide;
+        $student->created_by = Auth::user()->id;
         $student->password = \Hash::make($request->phone);
         $student->save();
 
@@ -108,7 +108,18 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = User::find($id);
+        $student->existing = $request->existing ?? 0;
+        $student->barcode = $request->barcode;
+        $student->name = $request->name;
+        $student->class_id = $request->class;
+        $student->division_id = $request->division;
+        $student->email = $request->phone;
+        $student->created_by = Auth::user()->id;
+        $student->password = \Hash::make($request->phone);
+        $student->save();
+
+        return redirect()->back()->with('success', 'Student added');
     }
 
     /**

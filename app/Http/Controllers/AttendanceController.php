@@ -46,7 +46,7 @@ class AttendanceController extends Controller
         $student = User::where("barcode",$request->barcode)->first(['id','name','email','points']);
         if(!isset($student->id))
         {
-            return view('mess.attendance',compact('student'))->with('error', 'Invalid User Please Register');
+            return view('mess.attendance',compact('student'))->with('error', 'Code Not Found Please Update If you Have already Register');
         }
         $points = 0;
         if($request->meal_type == 1)

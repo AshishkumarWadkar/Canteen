@@ -21,58 +21,107 @@
                                 <label for="class">Select Monday Menu </label>
                                 <input type="week" name="week" id="week">
                             </div>
-                            <div class="form-group my-2 form-inline">
+                            <div class="row d-flex">
                                 <label for="class">Select Monday Menu </label>
                                 <select class="form-control" id="monday" name="monday" required>
+                                    <option selected value="0">Please Select Menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}">{{ $m->name }}</option>
                                     @endforeach
                                 </select>
+                                <select class="form-control" id="b_monday" name="b_monday" required>
+                                    <option selected value="0">Please Select Menu</option>
+                                    @foreach ($b_menu as $key => $m)
+                                        <option value="{{ $m->id }}">{{ $m->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="form-group my-2 form-inline">
+                            <div class="row d-flex">
                                 <label for="class">Select Tuesday Menu </label>
                                 <select class="form-control" id="tuesday" name="tuesday" required>
+                                    <option selected value="0">Please Select Menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}">{{ $m->name }}</option>
                                     @endforeach
                                 </select>
+                                <select class="form-control" id="b_tuesday" name="b_tuesday" required>
+                                    <option selected value="0">Please Select Menu</option>
+                                    @foreach ($b_menu as $key => $m)
+                                        <option value="{{ $m->id }}">{{ $m->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="form-group my-2 form-inline">
+                            <div class="row d-flex">
                                 <label for="class">Select Wednesday Menu </label>
                                 <select class="form-control" id="wednesday" name="wednesday" required>
+                                    <option selected value="0">Please Select Menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}">{{ $m->name }}</option>
                                     @endforeach
                                 </select>
+                                <select class="form-control" id="b_wednesday" name="b_wednesday" required>
+                                    <option selected value="0">Please Select Menu</option>
+                                    @foreach ($b_menu as $key => $m)
+                                        <option value="{{ $m->id }}">{{ $m->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="form-group my-2 form-inline">
+                            <div class="row d-flex">
                                 <label for="class">Select Thursday Menu </label>
                                 <select class="form-control" id="thursday" name="thursday" required>
+                                    <option selected value="0">Please Select Menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}">{{ $m->name }}</option>
                                     @endforeach
                                 </select>
+                                <select class="form-control" id="b_thursday" name="b_thursday" required>
+                                    <option selected value="0">Please Select Menu</option>
+                                    @foreach ($b_menu as $key => $m)
+                                        <option value="{{ $m->id }}">{{ $m->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="form-group my-2 form-inline">
+                            <div class="row d-flex">
                                 <label for="class">Select Friday Menu </label>
                                 <select class="form-control" id="friday" name="friday" required>
+                                    <option selected value="0">Please Select Menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}">{{ $m->name }}</option>
                                     @endforeach
                                 </select>
+                                <select class="form-control" id="b_friday" name="b_friday" required>
+                                    <option selected value="0">Please Select Menu</option>
+                                    @foreach ($b_menu as $key => $m)
+                                        <option value="{{ $m->id }}">{{ $m->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="form-group my-2 form-inline">
+                            <div class="row d-flex">
                                 <label for="class">Select Saturday Menu </label>
                                 <select class="form-control" id="saturday" name="saturday" required>
+                                    <option selected value="0">Please Select Menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}">{{ $m->name }}</option>
                                     @endforeach
                                 </select>
+                                <select class="form-control" id="b_saturday" name="b_saturday" required>
+                                    <option selected value="0">Please Select Menu</option>
+                                    @foreach ($b_menu as $key => $m)
+                                        <option value="{{ $m->id }}">{{ $m->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
-                            <div class="form-group my-2 form-inline">
+                            <div class="row d-flex">
                                 <label for="class">Select Sunday Menu </label>
                                 <select class="form-control" id="sunday" name="sunday" required>
+                                    <option selected value="0">Please Select Menu</option>
                                     @foreach ($menu as $key => $m)
+                                        <option value="{{ $m->id }}">{{ $m->name }}</option>
+                                    @endforeach
+                                </select>
+                                <select class="form-control" id="sunday" name="b_sunday" required>
+                                    <option selected value="0">Please Select Menu</option>
+                                    @foreach ($b_menu as $key => $m)
                                         <option value="{{ $m->id }}">{{ $m->name }}</option>
                                     @endforeach
                                 </select>

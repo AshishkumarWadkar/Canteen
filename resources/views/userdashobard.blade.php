@@ -29,11 +29,11 @@
                         <div class="row">
                             <div class="mb-3">{!! DNS1D::getBarcodeHTML($students->barcode, 'PHARMA') !!}</div>
                         </div>
+
+                        <br>
+
+                        @if($students->is_subscribed)
                         <a href="/payment" class="btn btn-block btn-primary">Top Up</a>
-
-<br>
-
-
                         Today Punching Details :
 
                         <table class="table table-striped table-responsive">
@@ -65,7 +65,8 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Day</th>
-                                    <th scope="col">Menu</th>
+                                    <th scope="col">BreakFast</th>
+                                    <th scope="col">Meal</th>
 
                                 </tr>
                             </thead>
@@ -74,37 +75,44 @@
                                     <tr>
                                         <th scope="row">1</th>
                                         <td>Monday</td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->monday)->name }}</td>
+                                        <td>{{$week_menus->b_monday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_monday)->name : "-----" }}</td>
+                                        <td>{{$week_menus->monday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->monday)->name : "-----" }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">2</th>
                                         <td>Tuesday</td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->tuesday)->name }}</td>
+                                        <td>{{$week_menus->b_tuesday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_tuesday)->name : "-----" }}</td>
+                                        <td>{{$week_menus->tuesday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->tuesday)->name : "-----" }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">3</th>
                                         <td>Wednesday</td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->wednesday)->name }}</td>
+                                        <td>{{$week_menus->b_wednesday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_wednesday)->name : "-----" }}</td>
+                                        <td>{{$week_menus->wednesday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->wednesday)->name : "-----" }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">4</th>
                                         <td>Thursday</td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->thursday)->name }}</td>
+                                        <td>{{$week_menus->b_thursday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_thursday)->name : "-----" }}</td>
+                                        <td>{{$week_menus->thursday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->thursday)->name : "-----" }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">5</th>
                                         <td>Friday</td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->friday)->name }}</td>
+                                        <td>{{$week_menus->b_friday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_friday)->name : "-----" }}</td>
+                                        <td>{{$week_menus->friday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->friday)->name : "-----" }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">6</th>
                                         <td>Saturday</td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->saturday)->name }}</td>
+                                        <td>{{$week_menus->b_saturday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_saturday)->name : "-----" }}</td>
+                                        <td>{{$week_menus->saturday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->saturday)->name : "-----" }}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">7</th>
                                         <td>Sunday</td>
-                                        <td>{{ \App\Models\MenuMaster::findOrFail($week_menus->sunday)->name }}</td>
+                                        <td>{{$week_menus->b_sunday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_sunday)->name : "-----" }}</td>
+                                        <td>{{$week_menus->sunday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->sunday)->name : "-----" }}</td>
                                     </tr>
 
 
@@ -139,11 +147,6 @@
                         </table>
 
 
-
-
-
-
-
                         Transaction Details :
                         <table class="table table-striped table-responsive">
                             <thead class="thead-dark ">
@@ -173,9 +176,19 @@
 
                             </tbody>
                         </table>
+                    @else
+
+                        <h1>Suscribe to Get Premium Features </h1>
+                        <form action="/payment-initiate-request"  method="POST" >
+                            @csrf
+                            <input type="hidden" name="plan" value="1">
+                            <button type="submit" class="btn btn-primary btn-block d-block m-2">Buy Subscription</button>
+                        </form>
+                    @endif
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
 @endsection
