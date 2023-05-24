@@ -167,7 +167,7 @@
             </li>
         @else
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('all_logout') }}">Logout</a>
+                {{-- <a class="nav-link" href="{{ route('all_logout') }}">Logout</a> --}}
             </li>
         @endguest
           </ul>

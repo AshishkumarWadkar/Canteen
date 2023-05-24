@@ -107,7 +107,7 @@
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">person</i>
             </div>
-            <span class="nav-link-text ms-1">Profile</span>
+            <span class="nav-link-text ms-1">Mess</span>
           </a>
         </li>
         {{-- <li class="nav-item">
@@ -269,8 +269,19 @@
             </li>
         @else
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('all_logout') }}">Logout</a>
+                {{-- <a class="nav-link" href="{{ route('all_logout') }}">Logout</a> --}}
             </li>
+
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+
         @endguest
           </ul>
         </div>

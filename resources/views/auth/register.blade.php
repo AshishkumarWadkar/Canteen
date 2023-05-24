@@ -43,12 +43,32 @@
                             </div>
                         </div>
                         <div class="row mb-3">
+                            <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Canteen') }}</label>
+                            @php
+                                $canteen = \App\Models\Mess::get(['id','name']);
+                            @endphp
+                            <div class="col-md-6">
+                                <select class="form-control" id="created_by" name="created_by" required>
+                                    <option selected value="0">Select Canteen</option>
+                                    @foreach ($canteen as $k => $c )
+                                    <option selected value={{ $c->id }}>{{ $c->name }}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('role')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
                             <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
 
                             <div class="col-md-6">
                                 <select class="form-control" id="role" name="role" required>
                                     <option selected value="1">Student</option>
-                                    <option  value="1">Teacher</option>
+                                    <option  value="2">Teacher</option>
 
                                 </select>
 

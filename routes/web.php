@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\MenuMasterController;
+use App\Http\Controllers\MessController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\WeeklyMenuController;
@@ -43,11 +44,11 @@ Route::post('/mess',[LoginController::class,'messLogin'])->name('mess.login');
 Route::get('/mess/register',[RegisterController::class,'showMessRegisterForm'])->name('mess.register-view');
 Route::post('/mess/register',[RegisterController::class,'createMess'])->name('mess.register');
 
-Route::get('/teacher',[LoginController::class,'showTeacherLoginForm'])->name('teacher.login-view');
-Route::post('/teacher',[LoginController::class,'teacherLogin'])->name('teacher.login');
+// Route::get('/teacher',[LoginController::class,'showTeacherLoginForm'])->name('teacher.login-view');
+// Route::post('/teacher',[LoginController::class,'teacherLogin'])->name('teacher.login');
 
-Route::get('/teacher/register',[RegisterController::class,'showTeacherRegisterForm'])->name('teacher.register-view');
-Route::post('/teacher/register',[RegisterController::class,'createTeacher'])->name('teacher.register');
+// Route::get('/teacher/register',[RegisterController::class,'showTeacherRegisterForm'])->name('teacher.register-view');
+// Route::post('/teacher/register',[RegisterController::class,'createTeacher'])->name('teacher.register');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/dashboard',function(){
@@ -59,9 +60,9 @@ Route::get('/mess/dashboard',function(){
 })->middleware('auth:mess');
 
 
-Route::get('/teacher/dashboard',function(){
-    return view('mess.dashboard');
-})->middleware('auth:teacher');
+// Route::get('/teacher/dashboard',function(){
+//     return view('mess.dashboard');
+// })->middleware('auth:teacher');
 
 Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
 {
@@ -71,14 +72,19 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::resource('weekly_menu',WeeklyMenuController::class);
 });
 
+Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()
+{
+    Route::resource('mess',MessController::class);
+
+});
+
 
 Route::get('/payment', [PaymentController::class, 'index']);
 Route::post('/payment-initiate-request', [PaymentController::class, 'initiate']);
 Route::post('/payment-complete', [PaymentController::class, 'complete'])->name('payment.complete');
 
 
-Route::get('logout/logout', [LoginController::class, 'logout'])->name('all_logout');
-
+Route::any('logout/logout', [LoginController::class, 'logout'])->name('all_logout');
 
 
 

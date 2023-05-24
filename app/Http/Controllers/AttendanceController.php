@@ -18,7 +18,7 @@ class AttendanceController extends Controller
     {
         //
         $todays_punch = Attendance::join('users','attendance.user_id','users.id')
-        ->where('punch_time', Carbon::today())
+        // ->where('punch_time', Carbon::today())
         ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type']);
 
         return view('mess.attendance',compact('todays_punch'));
@@ -44,10 +44,12 @@ class AttendanceController extends Controller
     {
 
         $student = User::where("barcode",$request->barcode)->first(['id','name','email','points']);
-        if(!isset($student->id))
+        if(($student == ""))
         {
-            return view('mess.attendance',compact('student'))->with('error', 'Code Not Found Please Update If you Have already Register');
+            toastr()->positionClass('toast-top-center')->addError('Barcode Not Added To System ');
+            return view('mess.attendance',compact('student'));
         }
+
         $points = 0;
         if($request->meal_type == 1)
         {
@@ -60,7 +62,8 @@ class AttendanceController extends Controller
 
         if($student->points < $points)
         {
-            return view('mess.attendance',compact('student'))->with('error', 'No Balance');
+            toastr()->positionClass('toast-top-center')->addError('Insufficient Balance, Please Top UP !');
+            return view('mess.attendance',compact('student'));
         }
 
         $flag = Attendance::whereDate('created_at', Carbon::today())->where("meal_type",$request->meal_type)->get();
@@ -76,14 +79,17 @@ class AttendanceController extends Controller
             $attendance->save();
             $student->points = $balance = $student->points - $points;
             $student->save();
-            return view('mess.attendance',compact('student','balance','todays_punch'))->with('success', 'Happy Meal :)');
+
+            toastr()->positionClass('toast-top-center')->addSuccess('Happy a Good Taste ');
+            return view('mess.attendance',compact('student','balance','todays_punch'));
 
 
         }
         else
         {
 
-            return view('mess.attendance',compact('student','todays_punch'))->with('error', 'Sorry You Had meal !');
+            toastr()->positionClass('toast-top-center')->addError('Sorry You Had Meal !');
+            return view('mess.attendance',compact('student','todays_punch'));
         }
 
 

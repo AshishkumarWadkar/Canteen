@@ -47,7 +47,7 @@ class LoginController extends Controller
     public function user_check(Request $request)
     {
         $this->validate($request, [
-            'email'   => 'required|email',
+            'email'   => 'required',
             'password' => 'required|min:6'
         ]);
 
@@ -60,9 +60,12 @@ class LoginController extends Controller
             return redirect()->intended('/admin/dashboard');
 
         }
-        else{
-            return redirect()->intended('/dashboard');
+        elseif (\Auth::attempt($request->only(['email','password']), $request->get('remember'))){
+            return redirect()->intended('/home');
         }
+        sweetalert()->addError('Not Registred Or Invalid Credentials');
+
+        return redirect()->intended('/login');
     }
 
     public function showAdminLoginForm()
@@ -73,10 +76,7 @@ class LoginController extends Controller
     {
         return view('auth.login', ['url' => route('mess.login-view'), 'title'=>'Mess']);
     }
-    public function showTeacherLoginForm()
-    {
-        return view('auth.login', ['url' => route('teacher.login-view'), 'title'=>'Teacher']);
-    }
+
 
     public function adminLogin(Request $request)
     {
@@ -104,17 +104,10 @@ class LoginController extends Controller
 
         return back()->withInput($request->only('email', 'remember'));
     }
-    public function messTeacher(Request $request)
-    {
-        $this->validate($request, [
-            'email'   => 'required',
-            'password' => 'required|min:6'
-        ]);
+    public function logout(Request $request) {
+        \Session::flush();
+        \Auth::logout();
+        return redirect()->intended('/login');
 
-        if (\Auth::guard('teacher')->attempt($request->only(['email','password']), $request->get('remember'))){
-            return redirect()->intended('/teacher/dashboard');
-        }
-
-        return back()->withInput($request->only('email', 'remember'));
     }
 }

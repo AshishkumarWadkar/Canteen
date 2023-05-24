@@ -75,6 +75,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'role' => $data['role'],
+            'created_by' => $data['created_by'],
             'password' => Hash::make($data['password']),
         ]);
     }
@@ -109,19 +110,19 @@ class RegisterController extends Controller
         ]);
         return redirect()->intended('mess');
     }
-    public function showTeacherRegisterForm()
-    {
-        return view('auth.register', ['route' => route('mess.register-view'), 'title'=>'Teacher']);
-    }
+//     public function showTeacherRegisterForm()
+//     {
+//         return view('auth.register', ['route' => route('mess.register-view'), 'title'=>'Teacher']);
+//     }
 
-    protected function createTeacher(Request $request)
-    {
-        $this->validator($request->all())->validate();
-        $mess = Teacher::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]);
-        return redirect()->intended('mess');
-    }
+//     protected function createTeacher(Request $request)
+//     {
+//         $this->validator($request->all())->validate();
+//         $mess = Teacher::create([
+//             'name' => $request['name'],
+//             'email' => $request['email'],
+//             'password' => Hash::make($request['password']),
+//         ]);
+//         return redirect()->intended('mess');
+//     }
 }

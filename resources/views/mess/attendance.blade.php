@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="form-group my-2">
-                                <label for="name">Student's Full-Name : </label>
+                                <label for="name">User Name : </label>
                                 <input type="name" class="form-control" id="name"
                                     placeholder="First Name Middle Name Last Name" name="name"
                                     value="{{ isset($student) && isset($student->name) ? $student->name : '' }}">
@@ -56,7 +56,7 @@
                                     maxlength="10">
                             </div>
                             <div class="form-group my-2">
-                                <label for="phone">Balance : </label>
+                                <label for="phone">Current Balance : </label>
                                 <input type="text" class="form-control" id="balance" placeholder="10 Digits"
                                     name="balance" value="{{ isset($balance) ? $balance : 0 }}" maxlength="10">
                             </div>
@@ -78,15 +78,18 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @isset($todays_punch)
+
                                 @foreach ($todays_punch as $key => $tp)
-                                    <tr>
-                                        <th scope="row">{{ $key + 1 }}</th>
-                                        <td>{{ $tp->name }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($tp->punch_time)->format('d-m-Y h:m A') }}</td>
-                                        <td>{{ $tp->meal_type == 1 ? 'BreakFast' : 'Lunch' }}</td>
-                                    </tr>
+                                <tr>
+                                    <th scope="row">{{ $key + 1 }}</th>
+                                    <td>{{ $tp->name }}</td>
+                                    <td>{{ \Carbon\Carbon::parse($tp->punch_time)->format('d-m-Y h:m A') }}</td>
+                                    <td>{{ $tp->meal_type == 1 ? 'BreakFast' : 'Lunch' }}</td>
+                                </tr>
                                 @endforeach
 
+                                @endisset
                             </tbody>
                         </table>
 

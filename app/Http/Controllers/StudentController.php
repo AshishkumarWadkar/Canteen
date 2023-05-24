@@ -17,7 +17,7 @@ class StudentController extends Controller
     public function index()
     {
 
-        $students = User::all();
+        $students = User::all()->where('created_by',Auth::id());
         return view('mess.studentslist',compact('students'))->with('success', 'thank you');;
     }
 
@@ -108,6 +108,28 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // return $request->all();
+        $request->validate(
+            [
+                'barcode' => 'required|unique:users,barcode,'.$request->barcode
+
+            ],[
+
+            ]
+        );
+        if($request->division ==0 || $request->class ==0)
+        {
+            toastr()->positionClass('toast-top-center')->addError('Unknown Student`s Class');
+            return redirect()->back();
+        }
+        if($request->class ==0)
+        {
+            toastr()->positionClass('toast-top-center')->addError('Unknown Student`s Class');
+            return redirect()->back();
+        }
+
+
+
         $student = User::find($id);
         $student->existing = $request->existing ?? 0;
         $student->barcode = $request->barcode;
@@ -115,11 +137,11 @@ class StudentController extends Controller
         $student->class_id = $request->class;
         $student->division_id = $request->division;
         $student->email = $request->phone;
-        $student->created_by = Auth::user()->id;
         $student->password = \Hash::make($request->phone);
         $student->save();
+        toastr()->addSuccess('User Updated Sucessfully');
+        return redirect()->back();
 
-        return redirect()->back()->with('success', 'Student added');
     }
 
     /**
