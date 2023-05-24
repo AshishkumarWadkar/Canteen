@@ -48,6 +48,10 @@ return [
             'driver' => 'session',
             'provider' => 'mess',
         ],
+        'teacher' => [
+            'driver' => 'session',
+            'provider' => 'teacher',
+        ],
     ],
 
     /*
@@ -81,6 +85,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Mess::class,
         ],
+        'teacher' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Teacher::class,
+        ],
     ],
 
     /*
@@ -113,6 +121,12 @@ return [
         ],
         'mess' => [
             'provider' => 'mess',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'teacher' => [
+            'provider' => 'teacher',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

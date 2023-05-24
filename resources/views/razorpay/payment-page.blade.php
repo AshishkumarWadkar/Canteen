@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section('content')
+
 <button id="rzp-button1" hidden>Pay</button>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
@@ -20,9 +19,8 @@
             document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
             document.getElementById('rzp_orderid').value = response.razorpay_order_id;
             document.getElementById('rzp_signature').value = response.razorpay_signature;
-            document.getElementById("loader").style.visibility = 'visible';
             // // Let's submit the form automatically
-            document.getElementById('rzp-paymentresponse').click();
+            document.getElementById('submit_payment').click();
         },
         "prefill": {
             "name": "{{ $response['name'] }}",
@@ -51,13 +49,13 @@
 </script>
 <div style="height: 100vh; width:100%;">
 <!-- This form is hidden -->
-<form action="{{ url('/payment-complete') }}" method="POST" hidden>
-    <input type="hidden" value="{{ csrf_token() }}" name="_token" />
+<form class="mt-5" action="{{ route('payment.complete') }}" method="POST" hidden>
+    @csrf
     <input type="text" class="form-control" id="rzp_paymentid" name="rzp_paymentid">
     <input type="text" class="form-control" id="rzp_orderid" name="rzp_orderid">
     <input type="text" class="form-control" id="rzp_signature" name="rzp_signature">
 
-    <button type="submit" id="rzp-paymentresponse" class="btn btn-primary">Submit</button>
+    <button type="submit" id="submit_payment" class="btn btn-primary">Submit</button>
 </form>
 </div>
 

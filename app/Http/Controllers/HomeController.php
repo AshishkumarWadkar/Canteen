@@ -46,14 +46,16 @@ class HomeController extends Controller
             ->get();
             $all_punch = Attendance::where('user_id',Auth::id())->orderBy('id','Desc')->get();
 
-
-            $week_menus = WeeklyMenu::whereDate('start_date', '>', now())
+            $now = Carbon::now()->toDateString();
+            $week_menus = WeeklyMenu::
+            whereRaw("start_date <=  date('$now')")
+            ->whereRaw("end_date >=  date('$now')")
         //    ->whereDate('end_date','<=',Carbon::now())
            ->first();
 
 
 
-            return view('userdashobard',compact('students','topups','todays_punch','all_punch'));
+            return view('userdashobard',compact('students','topups','todays_punch','all_punch','week_menus'));
         }
     }
 }
