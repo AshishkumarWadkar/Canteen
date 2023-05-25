@@ -36,13 +36,13 @@
 
 </head>
 <body >
-    <div id="app1" >
+
 
 
         <main class="py-4">
             @yield('content')
         </main>
-    </div>
+
 
 </body>
 <script>
