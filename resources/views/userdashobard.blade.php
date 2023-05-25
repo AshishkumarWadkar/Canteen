@@ -8,11 +8,7 @@
                     <div class="card-header">{{ __('User Dashboard') }}</div>
 
                     <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+
 
                         <div class="row">
                             Name of Student : {{ $students->name }}
@@ -26,41 +22,46 @@
                         <div class="row">
                             Barcode : {{ $students->barcode }}
                         </div>
-                        <div class="row">
-                            <div class="mb-3">{!! DNS1D::getBarcodeHTML($students->barcode, 'PHARMA') !!}</div>
+                        <div class="col-sm-12">
+
+                            <div class="row">
+                                {!! DNS1D::getBarcodeHTML($students->barcode, 'PHARMA') !!}
+                            </div>
                         </div>
 
-                        <br>
 
-                        @if($students->is_subscribed)
-                        <a href="/payment" class="btn btn-block btn-primary">Top Up</a>
-                        Today Punching Details :
+                        @if ($students->is_subscribed)
+                        <div class="row">
+                            <a href="/payment" class="btn btn-block btn-primary">Top Up</a>
 
-                        <table class="table table-striped table-responsive">
-                            <thead class="thead-dark ">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Puching</th>
-                                    <th scope="col">Meal Type</th>
+                        </div>
+                            Today Punching Details :
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($todays_punch as $key => $tp)
+                            <table class="table table-striped table-responsive">
+                                <thead class="thead-dark ">
                                     <tr>
-                                        <th scope="row">{{ $key + 1 }}</th>
-                                        <td>{{ $tp->punch_time }}</td>
-                                        <td>{{ $tp->meal_type == 1 ? "BreakFast" : "Meal" }}</td>
-
+                                        <th scope="col">#</th>
+                                        <th scope="col">Puching</th>
+                                        <th scope="col">Meal Type</th>
 
                                     </tr>
-                                @endforeach
+                                </thead>
+                                <tbody>
+                                    @foreach ($todays_punch as $key => $tp)
+                                        <tr>
+                                            <th scope="row">{{ $key + 1 }}</th>
+                                            <td>{{ $tp->punch_time }}</td>
+                                            <td>{{ $tp->meal_type == 1 ? 'BreakFast' : 'Meal' }}</td>
 
-                            </tbody>
-                        </table>
 
-                        Weekly Menus :
-                        <table class="table table-striped table-responsive">
+                                        </tr>
+                                    @endforeach
+
+                                </tbody>
+                            </table>
+
+
+                            {{-- <table class="table table-striped table-responsive">
                             <thead class="thead-dark ">
                                 <tr>
                                     <th scope="col">#</th>
@@ -117,13 +118,105 @@
 
 
                             </tbody>
-                        </table>
+                        </table> --}}
 
-                        <br>
+                            <div class="container-fluid py-2">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card my-4">
+                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
+                                                    <h6 class="text-white text-capitalize ps-3 text-center">Weekly Menus</h6>
+                                                </div>
+                                            </div>
+                                            <div class="card-body px-0 pb-2">
+                                                <div class="table-responsive p-0">
+                                                    <table class="table align-items-center mb-0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    #</th>
+                                                                <th
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    Day</th>
+                                                                <th
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                                    BreakFast</th>
+                                                                <th
+                                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    Meal</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row">1</th>
+                                                                <td>Monday</td>
+                                                                <td>{{ $week_menus->b_monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_monday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ $week_menus->monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->monday)->name : '-----' }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">2</th>
+                                                                <td>Tuesday</td>
+                                                                <td>{{ $week_menus->b_tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_tuesday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ $week_menus->tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->tuesday)->name : '-----' }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">3</th>
+                                                                <td>Wednesday</td>
+                                                                <td>{{ $week_menus->b_wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_wednesday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ $week_menus->wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->wednesday)->name : '-----' }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">4</th>
+                                                                <td>Thursday</td>
+                                                                <td>{{ $week_menus->b_thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_thursday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ $week_menus->thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->thursday)->name : '-----' }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">5</th>
+                                                                <td>Friday</td>
+                                                                <td>{{ $week_menus->b_friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_friday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ $week_menus->friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->friday)->name : '-----' }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">6</th>
+                                                                <td>Saturday</td>
+                                                                <td>{{ $week_menus->b_saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_saturday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ $week_menus->saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->saturday)->name : '-----' }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th scope="row">7</th>
+                                                                <td>Sunday</td>
+                                                                <td>{{ $week_menus->b_sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_sunday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ $week_menus->sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->sunday)->name : '-----' }}
+                                                                </td>
+                                                            </tr>
 
-                        All Punching Deatils :
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <table class="table table-striped table-responsive">
+
+                            {{-- <table class="table table-striped table-responsive">
                             <thead class="thead-dark ">
                                 <tr>
                                     <th scope="col">#</th>
@@ -144,47 +237,180 @@
                                 @endforeach
 
                             </tbody>
-                        </table>
+                        </table> --}}
+
+                            <div class="container-fluid py-2">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card my-4">
+                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
+                                            <h6 class="text-white text-capitalize ps-3">All Punching Deatils :</h6>
+                                                </div>
+                                            </div>
+                                            <div class="card-body px-0 pb-2">
+                                                <div class="table-responsive p-0">
+                                                    <table class="table align-items-center mb-0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    #</th>
+                                                                <th
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                                    Puching</th>
+                                                                <th
+                                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    Meal</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($all_punch as $key => $ap)
+                                                                <tr>
+                                                                    <th scope="row">{{ $key + 1 }}</th>
+                                                                    <td>
+                                                                        <p class="text-xs font-weight-bold mb-0">
+                                                                            {{ $ap->punch_time }}</p>
+                                                                    </td>
+                                                                    <td class="align-middle text-center text-sm">
+                                                                        {{ $ap->meal_type == 1 ? 'BreakFast' : 'Meal' }}
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
-                        Transaction Details :
-                        <table class="table table-striped table-responsive">
-                            <thead class="thead-dark ">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Plan</th>
-                                    <th scope="col">Amount</th>
-                                    <th scope="col">Order Id</th>
-                                    <th scope="col">Transaction Id</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($topups as $key => $tp)
+                            {{-- Transaction Details :
+                            <table class="table table-striped table-responsive">
+                                <thead class="thead-dark ">
                                     <tr>
-                                        <th scope="row">{{ $key + 1 }}</th>
-                                        <td>{{ $tp->name }}</td>
-                                        <td>{{ $tp->amount }}</td>
-                                        <td>{{ $tp->order_id }}</td>
-                                        <td>{{ $tp->rzp_paymentid }}</td>
-                                        <td>{{ \Carbon\Carbon::parse($tp->created_at)->format('d-m-Y') }}</td>
-                                        <td>{{ $tp->payment_status }}</td>
-
+                                        <th scope="col">#</th>
+                                        <th scope="col">Plan</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Order Id</th>
+                                        <th scope="col">Transaction Id</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Status</th>
                                     </tr>
-                                @endforeach
+                                </thead>
+                                <tbody>
+                                    @foreach ($topups as $key => $tp)
+                                        <tr>
+                                            <th scope="row">{{ $key + 1 }}</th>
+                                            <td>{{ $tp->name }}</td>
+                                            <td>{{ $tp->amount }}</td>
+                                            <td>{{ $tp->order_id }}</td>
+                                            <td>{{ $tp->rzp_paymentid }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($tp->created_at)->format('d-m-Y') }}</td>
+                                            <td>{{ $tp->payment_status }}</td>
 
-                            </tbody>
-                        </table>
-                    @else
+                                        </tr>
+                                    @endforeach
 
-                        <h1>Suscribe to Get Premium Features </h1>
-                        <form action="/payment-initiate-request"  method="POST" >
-                            @csrf
-                            <input type="hidden" name="plan" value="1">
-                            <button type="submit" class="btn btn-primary btn-block d-block m-2">Buy Subscription</button>
-                        </form>
-                    @endif
+                                </tbody>
+                            </table> --}}
+
+                            <div class="container-fluid py-2">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card my-4">
+                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
+                                            <h6 class="text-white text-capitalize ps-3">Transaction Details</h6>
+                                                </div>
+                                            </div>
+                                            <div class="card-body px-0 pb-2">
+                                                <div class="table-responsive p-0">
+                                                    <table class="table align-items-center mb-0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    #</th>
+                                                                <th
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                                    Plan</th>
+                                                                <th
+                                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    Amount</th>
+                                                                <th
+                                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    Order</th>
+                                                                <th
+                                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    Transaction Id</th>
+                                                                <th
+                                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    Date</th>
+                                                                <th
+                                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    Status</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($topups as $key => $tp)
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="d-flex px-2 py-1">
+                                                                            <p class="text-xs text-secondary mb-0">
+                                                                                {{ $key + 1 }}</p>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="text-xs font-weight-bold mb-0">
+                                                                            {{ $tp->name }}</p>
+                                                                    </td>
+                                                                    <td class="align-middle text-center text-sm">
+                                                                        <p class="text-xs font-weight-bold mb-0">
+                                                                            {{ $tp->amount }}</p>
+                                                                    </td>
+                                                                    <td class="align-middle text-center">
+                                                                        <p class="text-xs font-weight-bold mb-0">
+                                                                   {{ $tp->order_id }}
+                                                                    </p>
+                                                                    </td>
+                                                                    <td class="align-middle">
+                                                                        <p class="text-xs font-weight-bold mb-0">
+                                                                    {{ $tp->rzp_paymentid }}
+                                                                    </p>
+
+                                                                    </td>
+                                                                    <td class="align-middle">
+                                                                        <p class="text-xs font-weight-bold mb-0">
+                                                                    {{ \Carbon\Carbon::parse($tp->created_at)->format('d-m-Y') }}
+
+                                                                    </p>
+
+                                                                    <td class="align-middle text-center text-sm">
+                                                                        <span class="badge badge-sm bg-gradient-success">{{ $tp->payment_status }}</span>
+                                                                      </td>
+                                                                </tr>
+                                                            @endforeach
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @else
+                            <h1>Suscribe to Get Premium Features </h1>
+                            <form action="/payment-initiate-request" method="POST">
+                                @csrf
+                                <input type="hidden" name="plan" value="1">
+                                <button type="submit" class="btn btn-primary btn-block d-block m-2">Buy
+                                    Subscription</button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>
