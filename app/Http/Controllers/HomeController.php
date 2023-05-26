@@ -34,7 +34,8 @@ class HomeController extends Controller
         }
         elseif(Auth::guard('mess')->check())
         {
-            return view('mess.dashobard');
+            $low = User::where('points','<',200)->where('created_by',Auth::id())->get(['name','email','points']);
+            return view('mess.dashboard',compact('low'));
         }
         else{
             $students = User::find(Auth::id());

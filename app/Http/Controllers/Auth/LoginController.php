@@ -57,7 +57,7 @@ class LoginController extends Controller
             // return "admin";
         }
         else if (\Auth::guard('mess')->attempt($request->only(['email','password']), $request->get('remember'))){
-            return redirect()->intended('/admin/dashboard');
+            return redirect()->intended('/mess/dashboard');
 
         }
         elseif (\Auth::attempt($request->only(['email','password']), $request->get('remember'))){

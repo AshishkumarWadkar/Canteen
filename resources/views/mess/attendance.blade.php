@@ -27,7 +27,9 @@
                         <form class="needs-validation" method="POST" action="{{ route('attendance.store') }}">
                             @csrf
 
-
+                            <div class="text-end mx-3 my-2">
+                                <a href="{{ route('attendance.all') }}"><span class="badge badge-sm bg-gradient-info">All Punchings</span></a>
+                                </div>
                             <div class="input-group input-group-outline mb-3 barcode">
                                 <label class="form-label" for="barcode">Barcode : </label>
                                 <input type="number" class="form-control" id="barcode" name="barcode" value=""
@@ -89,7 +91,10 @@
                                                             Name</th>
                                                         <th
                                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Times</th>
+                                                            Marked at</th>
+                                                        <th
+                                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                            Points</th>
                                                         <th
                                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                             Meal</th>
@@ -110,6 +115,10 @@
                                                                 <td>
                                                                     <p class="text-xs font-weight-bold mb-0">
                                                                         {{ \Carbon\Carbon::parse($tp->punch_time)->format('d-m-Y h:m A') }}
+                                                                    </p>
+                                                                </td>
+                                                                <td>
+                                                                    <p class="text-xs font-weight-bold mb-0">{{ $tp->deduction_point }}
                                                                     </p>
                                                                 </td>
                                                                 <td class="align-middle text-center text-sm">

@@ -1,6 +1,15 @@
 @extends('layouts.mess.app')
 
 @section('content')
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+
+<link href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/sc-2.1.1/sb-1.4.2/datatables.min.css" rel="stylesheet"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/sc-2.1.1/sb-1.4.2/datatables.min.js"></script>
     <div class="container-fluid py-4">
         <div class="row justify-content-center">
             <div class="col-12">
@@ -12,16 +21,19 @@
                     </div>
                     <div class="card-body px-0 pb-2">
                         <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
+                            <table class="table align-items-center mb-0" id="example">
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#
                                         </th>
                                         <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Name</th>
                                         <th
-                                            class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Barcode</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Class</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -45,22 +57,25 @@
                                     @foreach ($students as $key => $s)
                                         <tr>
                                             <td>
-                                                <p class="text-xs text-secondary mb-0">{{ $key + 1 }}</p>
+                                                <p class="text-xs text-center text-secondary mb-0">{{ $key + 1 }}</p>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $s->name }}</p>
+                                                <p class="text-xs text-center font-weight-bold mb-0">{{ $s->name }}</p>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $s->class_id }}</p>
+                                                <p class="text-xs text-center font-weight-bold mb-0">{{ $s->barcode }}</p>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $s->email }}</p>
+                                                <p class="text-xs text-center font-weight-bold mb-0">{{ $s->class_id }}</p>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $s->points }}</p>
+                                                <p class="text-xs text-center font-weight-bold mb-0">{{ $s->email }}</p>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">
+                                                <p class="text-xs text-center font-weight-bold mb-0">{{ $s->points }}</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs text-center font-weight-bold mb-0">
                                                     {{ \Carbon\Carbon::parse($s->created_at)->format('d-m-Y') }}</p>
                                             </td>
                                             <td>
@@ -86,4 +101,10 @@
 
     <script src="../../../assets/js/core/bootstrap.min.js"></script>
     <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
 @endsection

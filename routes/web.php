@@ -58,9 +58,7 @@ Route::get('/admin/dashboard',function(){
     return view('admin.dashboard');
 })->middleware('auth:admin');
 
-Route::get('/mess/dashboard',function(){
-    return view('mess.dashboard');
-})->middleware('auth:mess');
+Route::get('/mess/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth:mess');
 
 
 // Route::get('/teacher/dashboard',function(){
@@ -75,6 +73,7 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::resource('weekly_menu',WeeklyMenuController::class);
     Route::resource('deductions',DeductionController::class);
     Route::resource('transactions',TransactionController::class);
+    Route::get('attendance/all',[AttendanceController::class,'all'])->name('attendance.all');
 });
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()

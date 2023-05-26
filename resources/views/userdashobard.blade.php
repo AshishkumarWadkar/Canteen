@@ -334,6 +334,7 @@
             <hr class="dark horizontal my-0">
             <div class="card-footer px-3">
               <p class="mb-0"> {!! DNS1D::getBarcodeHTML($students->barcode, 'PHARMA') !!}</p>
+              <p> {{ \App\Models\Mess::findOrFail($students->created_by)->name }}</p>
             </div>
           </div>
         </div>
@@ -844,7 +845,7 @@
                         </div>
 
 
-                        @if ($students->is_subscribed)
+                        @if ($students->is_subscribed && false)
                         <div class="row">
                             <a href="/payment" class="btn btn-block btn-primary">Top Up</a>
 
@@ -1110,14 +1111,13 @@
                                 </div>
                             </div>
                         @else
-                            <h3>Suscribe to Get Premium Features </h3>
+                            <h3>Pay Your Annual Registration Fee </h3>
                             <p>To Get Access to all Features</p>
                             <p></p>
                             <form action="/payment-initiate-request" method="POST">
                                 @csrf
                                 <input type="hidden" name="plan" value="1">
-                                <button type="submit" class="btn btn-primary btn-block d-block m-2">Buy
-                                    Subscription</button>
+                                <button type="submit" class="btn btn-primary btn-block d-block m-2">Activate</button>
                             </form>
                         @endif
                     </div>

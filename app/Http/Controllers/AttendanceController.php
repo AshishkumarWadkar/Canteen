@@ -18,7 +18,7 @@ class AttendanceController extends Controller
     public function index()
     {
         //
-        $todays_punch = Attendance::join('users','attendance.user_id','users.id')
+        $todays_punch = Attendance::join('users','attendance.user_id','users.id','deduction_point')
         ->whereDate('punch_time', Carbon::today())
         ->where('users.created_by',\Auth::id())
         ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type']);
@@ -94,33 +94,34 @@ class AttendanceController extends Controller
 
             }
         }
-        if($student->points < 200)
-        {
-
-            toastr()->positionClass('toast-top-center')->addWarning('Low balance');
-        }
 
         if($student->points < $points)
         {
             toastr()->positionClass('toast-top-center')->addError('Insufficient Balance, Please Top UP !');
-            return view('mess.attendance',compact('student'));
+            return redirect()->back();
+        }
+        if($student->points < 200)
+        {
+
+            toastr()->positionClass('toast-top-center')->addWarning('Low balance 🍕');
         }
 
         $flag = Attendance::where('user_id',$student->id)->whereDate('created_at', Carbon::today())->where("meal_type",$request->meal_type)->get();
-        $todays_punch = Attendance::join('users','attendance.user_id','users.id')
+        $todays_punch = Attendance::join('users','attendance.user_id','users.id','deduction_point')
         ->whereDate('punch_time', Carbon::today())
-        ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type']);
+        ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type','deduction_point']);
         if(count($flag)==0)
         {
             $attendance = new Attendance;
             $attendance->user_id = $student->id;
             $attendance->punch_time = Carbon::now();
             $attendance->meal_type = $request->meal_type;
+            $attendance->deduction_point = $points;
             $attendance->save();
             $student->points = $balance = $student->points - $points;
             $student->save();
 
-            toastr()->positionClass('toast-top-center')->addSuccess('Happy a Good Taste ');
+            toastr()->positionClass('toast-top-center')->addSuccess('Have Deleciously 🍔');
             return view('mess.attendance',compact('student','balance','todays_punch'));
 
 
@@ -179,5 +180,13 @@ class AttendanceController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function all()
+    {
+       return $all = Attendance::join('users','attendance.user_id','users.id','deduction_point')
+        ->where('users.created_by',\Auth::id())
+        ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type','deduction_point']);
+        return view('mess.all_punching',compact('all'));
     }
 }
