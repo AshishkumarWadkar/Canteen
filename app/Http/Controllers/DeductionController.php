@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MenuMaster;
+use App\Models\Deductions;
 use Illuminate\Http\Request;
 
-class MenuMasterController extends Controller
+class DeductionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,9 @@ class MenuMasterController extends Controller
      */
     public function index()
     {
-        $menu = MenuMaster::all()->where('created_by',\Auth::id());
-        return view('menu_master.index',compact('menu'));
+        //
+        $ded = Deductions::where('mess_id',\Auth::id())->first();
+        return view('mess.deductions.index',compact('ded'));
     }
 
     /**
@@ -26,7 +27,7 @@ class MenuMasterController extends Controller
     public function create()
     {
         //
-        return view("menu_master.create");
+        return view('mess.deductions.create');
     }
 
     /**
@@ -37,17 +38,32 @@ class MenuMasterController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request;
-        //
-        $menu = new MenuMaster;
-        $menu->name = $request->name;
-        $menu->type = $request->type;
-        $menu->veg_nonveg = $request->veg_nonveg;
-        $menu->description = $request->description;
-        $menu->created_by = \Auth::id();
-        $menu->save();
+        $flag = Deductions::where('mess_id',\Auth::id())->first();
+        if($flag)
+        {
+            $flag->b_kids_price = $request->b_kids_price;
+            $flag->m_kids_price = $request->m_kids_price;
+            $flag->b_student_price = $request->b_student_price;
+            $flag->m_student_price = $request->m_student_price;
+            $flag->b_teacher_price = $request->b_teacher_price;
+            $flag->m_teacher_price = $request->m_teacher_price;
+            $flag->mess_id = \Auth::id();
+            $flag->save();
+        }
+        else
+        {
+        $ded = new Deductions;
+        $ded->b_kids_price = $request->b_kids_price;
+        $ded->m_kids_price = $request->m_kids_price;
+        $ded->b_student_price = $request->b_student_price;
+        $ded->m_student_price = $request->m_student_price;
+        $ded->b_teacher_price = $request->b_teacher_price;
+        $ded->m_teacher_price = $request->m_teacher_price;
+        $ded->mess_id = \Auth::id();
+        $ded->save();
         return redirect()->back();
-
+        }
+        //
     }
 
     /**
@@ -69,8 +85,7 @@ class MenuMasterController extends Controller
      */
     public function edit($id)
     {
-        $menu = MenuMaster::find($id);
-        return view('menu_master.edit',compact('menu'));
+        //
     }
 
     /**
@@ -83,14 +98,6 @@ class MenuMasterController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $menu =  MenuMaster::find($id);
-        $menu->name = $request->name;
-        $menu->type = $request->type;
-        $menu->veg_nonveg = $request->veg_nonveg;
-        $menu->description = $request->description;
-        $menu->created_by = \Auth::id();
-        $menu->save();
-        return redirect()->route('menu_master.index');
     }
 
     /**

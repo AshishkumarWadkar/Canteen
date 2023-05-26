@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Deductions;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Attendance;
@@ -18,7 +19,8 @@ class AttendanceController extends Controller
     {
         //
         $todays_punch = Attendance::join('users','attendance.user_id','users.id')
-        // ->where('punch_time', Carbon::today())
+        ->whereDate('punch_time', Carbon::today())
+        ->where('users.created_by',\Auth::id())
         ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type']);
 
         return view('mess.attendance',compact('todays_punch'));
@@ -43,7 +45,8 @@ class AttendanceController extends Controller
     public function store(Request $request)
     {
 
-        $student = User::where("barcode",$request->barcode)->first(['id','name','email','points']);
+        $student = User::where("barcode",$request->barcode)->first(['id','name','email','points','role','class_id']);
+        $ded = Deductions::where('mess_id',\Auth::id())->first();
         if(($student == ""))
         {
             toastr()->positionClass('toast-top-center')->addError('Barcode Not Added To System ');
@@ -51,13 +54,45 @@ class AttendanceController extends Controller
         }
 
         $points = 0;
-        if($request->meal_type == 1)
+
+        if($student->role == 2)
         {
-            $points = 10;
+            if($request->meal_type == 1)
+            {
+                $points = $ded->b_teacher_price;
+            }
+            elseif($request->meal_type == 2)
+            {
+                $points = $ded->m_teacher_price;
+            }
+
         }
-        elseif($request->meal_type == 2)
+        else
         {
-            $points = 30;
+            if($student->class_id < 5)
+            {
+                if($request->meal_type == 1)
+                {
+                    $points = $ded->b_kids_price;
+                }
+                elseif($request->meal_type == 2)
+                {
+                    $points = $ded->m_kids_price;
+                }
+
+            }
+            else
+            {
+                if($request->meal_type == 1)
+                {
+                    $points = $ded->b_student_price;
+                }
+                elseif($request->meal_type == 2)
+                {
+                    $points = $ded->m_student_price;
+                }
+
+            }
         }
 
         if($student->points < $points)
@@ -66,9 +101,9 @@ class AttendanceController extends Controller
             return view('mess.attendance',compact('student'));
         }
 
-        $flag = Attendance::whereDate('created_at', Carbon::today())->where("meal_type",$request->meal_type)->get();
+        $flag = Attendance::where('user_id',$student->id)->whereDate('created_at', Carbon::today())->where("meal_type",$request->meal_type)->get();
         $todays_punch = Attendance::join('users','attendance.user_id','users.id')
-        // ->where('punch_time', Carbon::today())
+        ->whereDate('punch_time', Carbon::today())
         ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type']);
         if(count($flag)==0)
         {

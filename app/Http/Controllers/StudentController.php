@@ -117,15 +117,19 @@ class StudentController extends Controller
 
             ]
         );
-        if($request->division ==0 || $request->class ==0)
+        if($request->role == 1)
         {
-            toastr()->positionClass('toast-top-center')->addError('Unknown Student`s Class');
-            return redirect()->back();
-        }
-        if($request->class ==0)
-        {
-            toastr()->positionClass('toast-top-center')->addError('Unknown Student`s Class');
-            return redirect()->back();
+
+            if($request->class ==0 )
+            {
+                toastr()->positionClass('toast-top-center')->addError('Unknown Student`s Class');
+                return redirect()->back();
+            }
+            if($request->division ==0)
+            {
+                toastr()->positionClass('toast-top-center')->addError('Unknown Student`s Division');
+                return redirect()->back();
+            }
         }
 
 
@@ -137,7 +141,7 @@ class StudentController extends Controller
         $student->class_id = $request->class;
         $student->division_id = $request->division;
         $student->email = $request->phone;
-        $student->password = \Hash::make($request->phone);
+        // $student->password = \Hash::make($request->phone);
         $student->save();
         toastr()->addSuccess('User Updated Sucessfully');
         return redirect()->back();

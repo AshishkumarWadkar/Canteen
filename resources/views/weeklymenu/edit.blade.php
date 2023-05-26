@@ -24,21 +24,30 @@
                                     @csrf
                                     @method('PUT')
 
-
                                     <div class="input-group input-group-outline mb-3 d-flex">
                                         <label class="col-5" for="class">Select Monday Menu </label>
                                         <input class="form-control" type="week" name="week" id="week"
-                                            value="{{ $week_menu->week_no }}">
+                                        value="{{ $week_menu->week_no }}">
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3 d-flex">
+                                        <label class="col-5" for="class">Meal Type </label>
+                                        <select class="form-control mx-1 text-center" disabled>
+
+                                                <option>Break Fast</option>
+
+
+
+                                        </select>
+                                        <select class="form-control mx-1 text-center" disabled>
+
+                                            <option>Lunch</option>
+
+
+
+                                         </select>
                                     </div>
                                     <div class="input-group input-group-outline mb-3 d-flex">
                                         <label class="col-5" for="class">Select Monday Menu </label>
-                                        <select class="form-control mx-1" id="monday" name="monday" required>
-                                            @foreach ($menu as $key => $m)
-                                                <option value="{{ $m->id }}"
-                                                    {{ $week_menu->monday == $m->id ? 'selected' : '' }}>{{ $m->name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
                                         <select class="form-control mx-1" id="monday" name="b_monday" required>
                                             @foreach ($b_menu as $key => $m)
                                                 <option value="{{ $m->id }}"
@@ -46,16 +55,16 @@
                                                     {{ $m->name }}</option>
                                             @endforeach
                                         </select>
+                                        <select class="form-control mx-1" id="monday" name="monday" required>
+                                            @foreach ($menu as $key => $m)
+                                                <option value="{{ $m->id }}"
+                                                    {{ $week_menu->monday == $m->id ? 'selected' : '' }}>{{ $m->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="input-group input-group-outline mb-3 d-flex">
                                         <label class="col-5" for="class">Select Tuesday Menu </label>
-                                        <select class="form-control mx-1" id="tuesday" name="tuesday" required>
-                                            @foreach ($menu as $key => $m)
-                                                <option value="{{ $m->id }}"
-                                                    {{ $week_menu->tuesday == $m->id ? 'selected' : '' }}>
-                                                    {{ $m->name }}</option>
-                                            @endforeach
-                                        </select>
                                         <select class="form-control mx-1" id="tuesday" name="b_tuesday" required>
                                             @foreach ($b_menu as $key => $m)
                                                 <option value="{{ $m->id }}"
@@ -63,16 +72,16 @@
                                                     {{ $m->name }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                    <div class="input-group input-group-outline mb-3 d-flex">
-                                        <label class="col-5" for="class">Select Wednesday Menu </label>
-                                        <select class="form-control mx-1" id="wednesday" name="wednesday" required>
+                                        <select class="form-control mx-1" id="tuesday" name="tuesday" required>
                                             @foreach ($menu as $key => $m)
                                                 <option value="{{ $m->id }}"
-                                                    {{ $week_menu->wednesday == $m->id ? 'selected' : '' }}>
+                                                    {{ $week_menu->tuesday == $m->id ? 'selected' : '' }}>
                                                     {{ $m->name }}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3 d-flex">
+                                        <label class="col-5" for="class">Select Wednesday Menu </label>
                                         <select class="form-control mx-1" id="wednesday" name="b_wednesday" required>
                                             @foreach ($b_menu as $key => $m)
                                                 <option value="{{ $m->id }}"
@@ -80,16 +89,16 @@
                                                     {{ $m->name }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                    <div class="input-group input-group-outline mb-3 d-flex">
-                                        <label class="col-5" for="class">Select Thursday Menu </label>
-                                        <select class="form-control mx-1" id="thursday" name="thursday" required>
+                                        <select class="form-control mx-1" id="wednesday" name="wednesday" required>
                                             @foreach ($menu as $key => $m)
                                                 <option value="{{ $m->id }}"
-                                                    {{ $week_menu->thursday == $m->id ? 'selected' : '' }}>
+                                                    {{ $week_menu->wednesday == $m->id ? 'selected' : '' }}>
                                                     {{ $m->name }}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3 d-flex">
+                                        <label class="col-5" for="class">Select Thursday Menu </label>
                                         <select class="form-control mx-1" id="thursday" name="b_thursday" required>
                                             @foreach ($b_menu as $key => $m)
                                                 <option value="{{ $m->id }}"
@@ -97,16 +106,16 @@
                                                     {{ $m->name }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                    <div class="input-group input-group-outline mb-3 d-flex">
-                                        <label class="col-5" for="class">Select Friday Menu </label>
-                                        <select class="form-control mx-1" id="friday" name="friday" required>
+                                        <select class="form-control mx-1" id="thursday" name="thursday" required>
                                             @foreach ($menu as $key => $m)
                                                 <option value="{{ $m->id }}"
-                                                    {{ $week_menu->friday == $m->id ? 'selected' : '' }}>
+                                                    {{ $week_menu->thursday == $m->id ? 'selected' : '' }}>
                                                     {{ $m->name }}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3 d-flex">
+                                        <label class="col-5" for="class">Select Friday Menu </label>
                                         <select class="form-control mx-1" id="friday" name="b_friday" required>
                                             @foreach ($b_menu as $key => $m)
                                                 <option value="{{ $m->id }}"
@@ -114,16 +123,16 @@
                                                     {{ $m->name }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                    <div class="input-group input-group-outline mb-3 d-flex">
-                                        <label class="col-5" for="class">Select Saturday Menu </label>
-                                        <select class="form-control mx-1" id="saturday" name="saturday" required>
+                                        <select class="form-control mx-1" id="friday" name="friday" required>
                                             @foreach ($menu as $key => $m)
                                                 <option value="{{ $m->id }}"
-                                                    {{ $week_menu->saturday == $m->id ? 'selected' : '' }}>
+                                                    {{ $week_menu->friday == $m->id ? 'selected' : '' }}>
                                                     {{ $m->name }}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3 d-flex">
+                                        <label class="col-5" for="class">Select Saturday Menu </label>
                                         <select class="form-control mx-1" id="saturday" name="b_saturday" required>
                                             @foreach ($b_menu as $key => $m)
                                                 <option value="{{ $m->id }}"
@@ -131,20 +140,27 @@
                                                     {{ $m->name }}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                    <div class="input-group input-group-outline mb-3 d-flex">
-                                        <label class="col-5" for="class">Select Sunday Menu </label>
-                                        <select class="form-control mx-1" id="sunday" name="sunday" required>
+                                        <select class="form-control mx-1" id="saturday" name="saturday" required>
                                             @foreach ($menu as $key => $m)
                                                 <option value="{{ $m->id }}"
-                                                    {{ $week_menu->sunday == $m->id ? 'selected' : '' }}>
+                                                    {{ $week_menu->saturday == $m->id ? 'selected' : '' }}>
                                                     {{ $m->name }}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3 d-flex">
+                                        <label class="col-5" for="class">Select Sunday Menu </label>
                                         <select class="form-control mx-1" id="sunday" name="b_sunday" required>
                                             @foreach ($b_menu as $key => $m)
                                                 <option value="{{ $m->id }}"
                                                     {{ $week_menu->b_sunday == $m->id ? 'selected' : '' }}>
+                                                    {{ $m->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <select class="form-control mx-1" id="sunday" name="sunday" required>
+                                            @foreach ($menu as $key => $m)
+                                                <option value="{{ $m->id }}"
+                                                    {{ $week_menu->sunday == $m->id ? 'selected' : '' }}>
                                                     {{ $m->name }}</option>
                                             @endforeach
                                         </select>

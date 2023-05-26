@@ -42,7 +42,7 @@ class HomeController extends Controller
             ->join('topup_master','topup_master.id','topup.topup_id')
             ->orderBy('topup.id','desc')->get();
             $todays_punch = Attendance::where('user_id',Auth::id())
-            ->where('punch_time', Carbon::today())
+            ->whereDate('punch_time', Carbon::today())
             ->get();
             $all_punch = Attendance::where('user_id',Auth::id())->orderBy('id','Desc')->get();
 

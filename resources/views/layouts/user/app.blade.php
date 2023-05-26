@@ -216,7 +216,7 @@
                         <span class="nav-link-text ms-1">Dashboard</span>
                       </a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link text-white {{ request()->is('mess/student') || request()->is('mess/student/*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('student.index') }}">
                             <div
                                 class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -224,8 +224,8 @@
                             </div>
                             <span class="nav-link-text ms-1">Users</span>
                         </a>
-                    </li>
-                    <li class="nav-item">
+                    </li> --}}
+                    {{-- <li class="nav-item">
                         <a class="nav-link text-white {{ request()->is('mess/attendance') ||  request()->is('mess/attendance/*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('attendance.index') }}">
                             <div
                                 class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -233,34 +233,8 @@
                             </div>
                             <span class="nav-link-text ms-1">Attendance</span>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white {{ request()->is('mess/menu_master') || request()->is('mess/menu_master/*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('menu_master.index') }}">
-                            <div
-                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Menus master</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white {{ request()->is('mess/weekly_menu') || request()->is('mess/weekly_menu/*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('weekly_menu.index') }}">
-                            <div
-                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Weekly-Menu</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white {{ request()->is('mess/deductions') || request()->is('mess/deductions/*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('deductions.index') }}">
-                            <div
-                                class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
-                            </div>
-                            <span class="nav-link-text ms-1">Deductions</span>
-                        </a>
-                    </li>
+                    </li> --}}
+
 
 
 

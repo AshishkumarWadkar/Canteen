@@ -66,7 +66,7 @@
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">{{ __('All Student') }}</h6>
+                            <h6 class="text-white text-capitalize ps-3">{{ __('Week Menus') }}</h6>
                         </div>
                     </div>
                     <div class="col-12 text-end">
@@ -103,10 +103,10 @@
                                             Sunday</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Menu</th>
+                                            Start</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Menu</th>
+                                            End</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Action</th>

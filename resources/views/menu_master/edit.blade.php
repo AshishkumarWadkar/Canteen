@@ -70,29 +70,29 @@
                                     {{ session('success') }}
                                 </div>
                             @endif
-
-                            <form class="needs-validation" method="POST" action="{{ route('menu_master.store') }}">
+                            <form class="needs-validation" method="POST" action="{{ route('menu_master.update', $menu->id) }}">
+                                @method('PUT')
                                 @csrf
                                 <div class="input-group input-group-outline mb-3 d-flex">
                                     <label for="name" class="form-label col-5">Menu Name : </label>
                                     <input type="name" class="form-control" id="name"
-                                        placeholder="Menu [eg. Misal Panner]" name="name" required>
+                                        placeholder="Menu [eg. Misal Panner]" name="name" value="{{ $menu->name }}"required>
                                 </div>
                                 <div class="d-flex">
                                     <div class="col-6">
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="col-5" for="class">Menu Type: </label>
                                             <select class="form-control" id="type" name="type" required>
-                                                <option value="0">Break Fast</option>
-                                                <option value="1">Lunch</option>
+                                                <option value="0" {{ $menu->type == 0 ? "selected" :""}} >Break Fast</option>
+                                                <option value="1" {{ $menu->type == 1 ? "selected" :"" }}>Lunch</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-6 d-flex">
                                         <div class="form-check">
                                             <input class="form-check-input form-control" type="radio" name="veg_nonveg"
-                                                id="veg" checked value="0">
-                                            <label class="form-check-label form-label" for="veg">
+                                                id="veg"  value="0" {{ $menu->veg_nonveg == 0 ? "checked" : "" }}>
+                                            <label class="form-check-label form-label" for="veg" {{ $menu->veg_nonveg == 0 ? "checked" : "" }}>
                                                 Veg
                                             </label>
                                         </div>
@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="input-group input-group-outline mb-3 d-flex">
                                     <label for="description" class="form-label">Description: </label>
-                                    <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                                    <textarea class="form-control" id="description" rows="3" name="description">{{ $menu->description }}</textarea>
                                 </div>
                                 <div class="form-group my-2 ">
                                     <button type="submit" class="btn btn-block btn-success">Save</button>

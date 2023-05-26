@@ -63,7 +63,7 @@ class LoginController extends Controller
         elseif (\Auth::attempt($request->only(['email','password']), $request->get('remember'))){
             return redirect()->intended('/home');
         }
-        // sweetalert()->addError('Not Registred Or Invalid Credentials');
+        sweetalert()->addError('Not Registred Or Invalid Credentials');
 
         return redirect()->intended('/login');
     }

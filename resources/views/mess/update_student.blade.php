@@ -33,7 +33,7 @@
                                 <label  class="form-label">Name</label>
                                 <input type="text" class="form-control">
                               </div> --}}
-
+                              <input type="hidden" name="role" value="{{ $student->role }}">
                             <div class="input-group input-group-outline mb-3">
                                 <label class="col-5" for="name">Student's Full-Name : </label>
                                 <input type="name" class="form-control" id="name" value="{{ $student->name }}" placeholder="First Name Middle Name Last Name" name="name" required>
@@ -57,7 +57,7 @@
                                 <select class="form-control" id="division" name="division" required>
                                     <option value="0">Select Division</option>
                                     @foreach ($division as $d)
-                                        <option value={{ $d->id }} {{ $c->id == $student->division_id ? "selected": ""}}>{{ $d->name }}</option>
+                                        <option value={{ $d->id }} {{ $d->id == $student->division_id ? "selected": ""}}>{{ $d->name }}</option>
 
                                     @endforeach
 

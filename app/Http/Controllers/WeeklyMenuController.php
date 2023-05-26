@@ -44,7 +44,7 @@ class WeeklyMenuController extends Controller
     public function store(Request $request)
     {
 
-        $flag= WeeklyMenu::where('week_no',$request->week)->first();
+        $flag= WeeklyMenu::where('week_no',$request->week)->where('created_by',\Auth::id())->first();
         if($flag)
         {
             return redirect()->back();
