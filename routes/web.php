@@ -6,6 +6,7 @@ use App\Http\Controllers\MenuMasterController;
 use App\Http\Controllers\MessController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\WeeklyMenuController;
 use App\Models\Deductions;
 use App\Models\WeeklyMenu;
@@ -73,6 +74,7 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::resource('menu_master',MenuMasterController::class);
     Route::resource('weekly_menu',WeeklyMenuController::class);
     Route::resource('deductions',DeductionController::class);
+    Route::resource('transactions',TransactionController::class);
 });
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()
