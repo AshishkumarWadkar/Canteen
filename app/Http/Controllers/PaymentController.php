@@ -96,7 +96,7 @@ class PaymentController extends Controller
     }
      public function index()
     {
-        $plans = TopupMaster ::all();
+        $plans = TopupMaster::all()->where('is_subscription_plan',0);
         return view('razorpay.razorpayView',compact('plans'));
     }
 

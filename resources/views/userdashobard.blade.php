@@ -905,7 +905,7 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
+                                                            <tr class="{{ date("l") == "Monday" ? "bg-success text-light" : "" }}">
                                                                 <th scope="row">1</th>
                                                                 <td>Monday</td>
                                                                 <td>{{ isset($week_menus->b_monday) && $week_menus->b_monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_monday)->name : '-----' }}
@@ -913,7 +913,7 @@
                                                                 <td>{{ isset($week_menus->monday) && $week_menus->monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->monday)->name : '-----' }}
                                                                 </td>
                                                             </tr>
-                                                            <tr>
+                                                            <tr class="{{ date("l") == "Tuesday" ? "bg-success text-light" : "" }}">
                                                                 <th scope="row">2</th>
                                                                 <td>Tuesday</td>
                                                                 <td>{{ isset($week_menus->b_tuesday) && $week_menus->b_tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_tuesday)->name : '-----' }}
@@ -921,7 +921,7 @@
                                                                 <td>{{ isset($week_menus->tuesday) && $week_menus->tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->tuesday)->name : '-----' }}
                                                                 </td>
                                                             </tr>
-                                                            <tr>
+                                                            <tr class="{{ date("l") == "Wednesday" ? "bg-success text-light" : "" }}">
                                                                 <th scope="row">3</th>
                                                                 <td>Wednesday</td>
                                                                 <td>{{ isset($week_menus->b_wednesday) && $week_menus->b_wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_wednesday)->name : '-----' }}
@@ -929,7 +929,7 @@
                                                                 <td>{{ isset($week_menus->wednesday) && $week_menus->wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->wednesday)->name : '-----' }}
                                                                 </td>
                                                             </tr>
-                                                            <tr>
+                                                            <tr class="{{ date("l") == "Thursday" ? "bg-success text-light" : "" }}">
                                                                 <th scope="row">4</th>
                                                                 <td>Thursday</td>
                                                                 <td>{{ isset($week_menus->b_thursday) && $week_menus->b_thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_thursday)->name : '-----' }}
@@ -937,7 +937,7 @@
                                                                 <td>{{ isset($week_menus->thursday) && $week_menus->thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->thursday)->name : '-----' }}
                                                                 </td>
                                                             </tr>
-                                                            <tr>
+                                                            <tr class="{{ date("l") == "Friday" ? "bg-success text-light" : "" }}">
                                                                 <th scope="row">5</th>
                                                                 <td>Friday</td>
                                                                 <td>{{ isset($week_menus->b_friday) && $week_menus->b_friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_friday)->name : '-----' }}
@@ -945,7 +945,7 @@
                                                                 <td>{{ isset($week_menus->friday) && $week_menus->friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->friday)->name : '-----' }}
                                                                 </td>
                                                             </tr>
-                                                            <tr>
+                                                            <tr class="{{ date("l") == "Saturday" ? "bg-success text-light" : "" }}">
                                                                 <th scope="row">6</th>
                                                                 <td>Saturday</td>
                                                                 <td>{{ isset($week_menus->b_saturday) && $week_menus->b_saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_saturday)->name : '-----' }}
@@ -953,7 +953,7 @@
                                                                 <td>{{ isset($week_menus->saturday) && $week_menus->saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->saturday)->name : '-----' }}
                                                                 </td>
                                                             </tr>
-                                                            <tr>
+                                                            <tr class="{{ date("l") == "Sunday" ? "bg-success text-light" : "" }}">
                                                                 <th scope="row">7</th>
                                                                 <td>Sunday</td>
                                                                 <td>{{ isset($week_menus->b_sunday) && $week_menus->b_sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_sunday)->name : '-----' }}
@@ -1091,7 +1091,7 @@
                                                                     </td>
                                                                     <td class="align-middle">
                                                                         <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ \Carbon\Carbon::parse($tp->created_at)->format('d-m-Y') }}
+                                                                    {{ \Carbon\Carbon::parse($tp->created_at)->format('d-m-Y h:m:s') }}
 
                                                                     </p>
 

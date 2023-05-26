@@ -94,6 +94,11 @@ class AttendanceController extends Controller
 
             }
         }
+        if($student->points < 200)
+        {
+
+            toastr()->positionClass('toast-top-center')->addWarning('Low balance');
+        }
 
         if($student->points < $points)
         {
