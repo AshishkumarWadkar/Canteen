@@ -184,9 +184,10 @@ class AttendanceController extends Controller
 
     public function all()
     {
-       return $all = Attendance::join('users','attendance.user_id','users.id','deduction_point')
+        $all = Attendance::join('users','attendance.user_id','users.id','deduction_point')
         ->where('users.created_by',\Auth::id())
         ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type','deduction_point']);
+
         return view('mess.all_punching',compact('all'));
     }
 }

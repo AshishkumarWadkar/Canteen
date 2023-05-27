@@ -34,6 +34,7 @@ class HomeController extends Controller
         }
         elseif(Auth::guard('mess')->check())
         {
+            $today_bal =
             $low = User::where('points','<',200)->where('created_by',Auth::id())->get(['name','email','points']);
             return view('mess.dashboard',compact('low'));
         }
