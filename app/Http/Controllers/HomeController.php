@@ -34,9 +34,17 @@ class HomeController extends Controller
         }
         elseif(Auth::guard('mess')->check())
         {
-            $today_bal =
+            $todays_points = Attendance::whereDate('punch_time', Carbon::today())
+            ->where('created_by',\Auth::id())->sum('deduction_point');
+
+            $visit = Attendance::whereDate('punch_time', Carbon::today())
+            ->where('created_by',\Auth::id())->groupBy('user_id')->count();
+
+            $total_users = User::where('created_by',\Auth::id())->count();
+
+            $tran =User::where('created_by',\Auth::id())->join('topup','topup.user_id','users.id')->where('topup_id','!=',1)->sum('amount');
             $low = User::where('points','<',200)->where('created_by',Auth::id())->get(['name','email','points']);
-            return view('mess.dashboard',compact('low'));
+            return view('mess.dashboard',compact('low','todays_points','total_users','visit','tran'));
         }
         else{
             $students = User::find(Auth::id());

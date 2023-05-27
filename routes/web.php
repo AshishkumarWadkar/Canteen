@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\MenuMasterController;
@@ -79,6 +80,8 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
 Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()
 {
     Route::resource('mess',MessController::class);
+    Route::get('get_all_transction',[AdminController::class,'get_all_transction']);
+    Route::get('get_all_users',[AdminController::class,'get_all_users']);
 
 });
 

@@ -169,12 +169,10 @@
               </div>
               <div class="text-end pt-1">
                 <p class="text-md mb-0 text-capitalize">Today's Money</p>
-                <h2 class="mb-0">00 &#x20b9;</h2>
+                <h2 class="mb-0">{{ $todays_points }} &#x20b9;</h2>
               </div>
             </div>
-            {{-- <hr class="dark horizontal my-0"> --}}
-            <div class="card-footer p-3">
-              {{-- <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+55% </span>than last week</p> --}}
+            <div class="card-footer p-2">
             </div>
           </div>
         </div>
@@ -185,13 +183,11 @@
                 <i class="material-icons opacity-10">person</i>
               </div>
               <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-                <h4 class="mb-0">2,300</h4>
+                <p class="text-md mb-0 text-capitalize">Total Users</p>
+                <h2 class="mb-0">{{ $total_users }}</h2>
               </div>
             </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+3% </span>than last month</p>
+            <div class="card-footer p-2">
             </div>
           </div>
         </div>
@@ -202,13 +198,11 @@
                 <i class="material-icons opacity-10">access_time</i>
               </div>
               <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Total Today Visits</p>
-                <h4 class="mb-0">3,462</h4>
+                <p class="text-md mb-0 text-capitalize">Total Today Visits</p>
+                <h2 class="mb-0">{{ $visit }}</h2>
               </div>
             </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-danger text-sm font-weight-bolder">-2%</span> than yesterday</p>
+            <div class="card-footer p-2">
             </div>
           </div>
         </div>
@@ -216,16 +210,14 @@
           <div class="card">
             <div class="card-header p-3 pt-2">
               <div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                <i class="material-icons opacity-10">weekend</i>
+                <i class="material-icons opacity-10">credit_card</i>
               </div>
               <div class="text-end pt-1">
-                <p class="text-sm mb-0 text-capitalize">Sales</p>
-                <h4 class="mb-0">$103,430</h4>
+                <p class="text-md mb-0 text-capitalize">Transaction Amount</p>
+                <h2 class="mb-0">{{ $tran }} &#x20b9;</h2>
               </div>
             </div>
-            <hr class="dark horizontal my-0">
-            <div class="card-footer p-3">
-              <p class="mb-0"><span class="text-success text-sm font-weight-bolder">+5% </span>than yesterday</p>
+            <div class="card-footer p-2">
             </div>
           </div>
         </div>
@@ -309,7 +301,8 @@
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-sm text-center font-weight-bolder opacity-7">Name</th>
+                      <th class="text-uppercase text-secondary text-sm text-center font-weight-bolder opacity-7">#</th>
+                      <th class="text-uppercase text-secondary text-sm text-start font-weight-bolder opacity-7">Name</th>
                       <th class="text-uppercase text-secondary text-sm text-center font-weight-bolder opacity-7 ps-2">Phone</th>
                       <th class="text-center text-uppercase text-secondary text-sm text-center font-weight-bolder opacity-7">Amount</th>
                     </tr>
@@ -319,30 +312,19 @@
 
                     @endforeach
                     <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-md">{{ $k+1}} . {{ $l->name }}</h6>
-                          </div>
-                        </div>
+                        <td class="text-center">
+                            <h6 class="mb-0 text-md">{{$k+1 }}</h6>
                       </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
+                      <td class="text-start">
+                            <h6 class="mb-0 text-md">{{ $l->name }}</h6>
+                      </td>
+                      <td class="text-center">
                             <h6 class="mb-0 text-md">{{ $l->email }}</h6>
-                          </div>
-                        </div>
                       </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
+                      <td class="text-center">
                             <h6 class="mb-0 text-md">{{ $l->points }}</h6>
-                          </div>
-                        </div>
                       </td>
                     </tr>
-
-
 
                   </tbody>
                 </table>
@@ -491,7 +473,7 @@
   <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
   {{-- <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="../assets/js/plugins/chartjs.min.js"></script> --}}
-  <script>
+  {{-- <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
 
     new Chart(ctx, {
@@ -737,7 +719,7 @@
         },
       },
     });
-  </script>
+  </script> --}}
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

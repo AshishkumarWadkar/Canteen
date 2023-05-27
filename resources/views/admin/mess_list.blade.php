@@ -5,20 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('All Student') }}</div>
+                    <div class="card-header">{{ __('All Messes') }}</div>
 
                     <div class="card-body">
-                        @if (session('success'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-                        @if(session('error'))
-                            <div class="alert alert-danger" role="alert">
-                                {{ session('error') }}
-                            </div>
-                        @endif
-
                         <table class="table table-striped table-responsive">
                             <thead class="thead-dark ">
                               <tr>
