@@ -73,7 +73,7 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::resource('weekly_menu',WeeklyMenuController::class);
     Route::resource('deductions',DeductionController::class);
     Route::resource('transactions',TransactionController::class);
-    Route::get('attendance/all',[AttendanceController::class,'all'])->name('attendance.all');
+    Route::get('attendance_all',[AttendanceController::class,'all'])->name('attendance_all');
 });
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()
@@ -91,4 +91,21 @@ Route::post('/payment-complete', [PaymentController::class, 'complete'])->name('
 Route::any('logout/logout', [LoginController::class, 'logout'])->name('all_logout');
 
 
+
+
+Route::get('about_us', function(){
+    return view('web.about_us');
+})->name('about_us');
+Route::get('e_canteen',function(){
+    return view('web.e_canteen');
+})->name('e_canteen');
+Route::get('how_to_use', function(){
+    return view('web.howto_use');
+})->name('how_to_use');
+Route::get('benifits', function(){
+    return view('web.benifits');
+})->name('benifits');
+Route::get('how_to_register', function(){
+    return view('web.how_to_register');
+})->name('how_to_register');
 
