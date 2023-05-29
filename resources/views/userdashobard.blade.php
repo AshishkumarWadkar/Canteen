@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.user.app')
 
 @section('content')
     <div class="container">
@@ -60,65 +60,6 @@
                                 </tbody>
                             </table>
 
-
-                            {{-- <table class="table table-striped table-responsive">
-                            <thead class="thead-dark ">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Day</th>
-                                    <th scope="col">BreakFast</th>
-                                    <th scope="col">Meal</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Monday</td>
-                                        <td>{{$week_menus->b_monday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_monday)->name : "-----" }}</td>
-                                        <td>{{$week_menus->monday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->monday)->name : "-----" }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Tuesday</td>
-                                        <td>{{$week_menus->b_tuesday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_tuesday)->name : "-----" }}</td>
-                                        <td>{{$week_menus->tuesday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->tuesday)->name : "-----" }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Wednesday</td>
-                                        <td>{{$week_menus->b_wednesday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_wednesday)->name : "-----" }}</td>
-                                        <td>{{$week_menus->wednesday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->wednesday)->name : "-----" }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Thursday</td>
-                                        <td>{{$week_menus->b_thursday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_thursday)->name : "-----" }}</td>
-                                        <td>{{$week_menus->thursday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->thursday)->name : "-----" }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Friday</td>
-                                        <td>{{$week_menus->b_friday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_friday)->name : "-----" }}</td>
-                                        <td>{{$week_menus->friday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->friday)->name : "-----" }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">6</th>
-                                        <td>Saturday</td>
-                                        <td>{{$week_menus->b_saturday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_saturday)->name : "-----" }}</td>
-                                        <td>{{$week_menus->saturday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->saturday)->name : "-----" }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">7</th>
-                                        <td>Sunday</td>
-                                        <td>{{$week_menus->b_sunday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->b_sunday)->name : "-----" }}</td>
-                                        <td>{{$week_menus->sunday > 0 ?  \App\Models\MenuMaster::findOrFail($week_menus->sunday)->name : "-----" }}</td>
-                                    </tr>
-
-
-                            </tbody>
-                        </table> --}}
 
                             <div class="container-fluid py-2">
                                 <div class="row">
@@ -216,29 +157,6 @@
                             </div>
 
 
-                            {{-- <table class="table table-striped table-responsive">
-                            <thead class="thead-dark ">
-                                <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Puching</th>
-                                    <th scope="col">Meal Type</th>
-
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($all_punch as $key => $ap)
-                                    <tr>
-                                        <th scope="row">{{ $key + 1 }}</th>
-                                        <td>{{ $ap->punch_time }}</td>
-                                        <td>{{ $ap->meal_type == 1 ? "BreakFast" : "Meal" }}</td>
-
-
-                                    </tr>
-                                @endforeach
-
-                            </tbody>
-                        </table> --}}
-
                             <div class="container-fluid py-2">
                                 <div class="row">
                                     <div class="col-12">
@@ -287,35 +205,6 @@
                             </div>
 
 
-                            {{-- Transaction Details :
-                            <table class="table table-striped table-responsive">
-                                <thead class="thead-dark ">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Plan</th>
-                                        <th scope="col">Amount</th>
-                                        <th scope="col">Order Id</th>
-                                        <th scope="col">Transaction Id</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($topups as $key => $tp)
-                                        <tr>
-                                            <th scope="row">{{ $key + 1 }}</th>
-                                            <td>{{ $tp->name }}</td>
-                                            <td>{{ $tp->amount }}</td>
-                                            <td>{{ $tp->order_id }}</td>
-                                            <td>{{ $tp->rzp_paymentid }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($tp->created_at)->format('d-m-Y') }}</td>
-                                            <td>{{ $tp->payment_status }}</td>
-
-                                        </tr>
-                                    @endforeach
-
-                                </tbody>
-                            </table> --}}
 
                             <div class="container-fluid py-2">
                                 <div class="row">
@@ -418,15 +307,7 @@
 
     </div>
     <script>
-    //     $(document).ready(function() {
-    //     var table = $('#student').DataTable( {
-    //         lengthChange: false,
-    //         buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
-    //     } );
 
-    //     table.buttons().container()
-    //         .appendTo( '#student .col-md-6:eq(0)' );
-    // } );
     $(document).ready(function () {
     $('#student').DataTable();
 });
