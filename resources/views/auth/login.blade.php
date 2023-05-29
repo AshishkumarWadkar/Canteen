@@ -182,12 +182,12 @@
                                 <form method="POST" action="{{ route('user_check') }}" role="form" class="text-start">
                                     @csrf
                                     <div class="input-group input-group-outline my-3">
-                                        <label class="form-label">Email</label>
-                                        <input type="text" name="email" class="form-control">
+                                        {{-- <label class="form-label">Phone</label> --}}
+                                        <input type="text" name="email" class="form-control" placeholder="Phone">
                                     </div>
                                     <div class="input-group input-group-outline mb-3">
-                                        <label class="form-label">Password</label>
-                                        <input id="password" name="password" type="password" class="form-control">
+                                        {{-- <label class="form-label">Password</label> --}}
+                                        <input id="password" name="password" type="password" class="form-control" placeholder="Password">
                                     </div>
                                     <div class="form-check form-switch d-flex align-items-center mb-3">
                                         <input class="form-check-input" type="checkbox" id="rememberMe" checked>

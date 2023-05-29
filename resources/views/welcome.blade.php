@@ -6,7 +6,7 @@
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="row g-4">
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    {{-- <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded pt-3">
                             <div class="p-4">
                                 <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
@@ -14,13 +14,13 @@
                                 <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="service-item rounded pt-3">
                             <div class="p-4">
                                 <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
                                 <h5>Quality Food</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                {{-- <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p> --}}
                             </div>
                         </div>
                     </div>
@@ -28,8 +28,8 @@
                         <div class="service-item rounded pt-3">
                             <div class="p-4">
                                 <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
-                                <h5>Online Order</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                <h5>Online Payments</h5>
+                                {{-- <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p> --}}
                             </div>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                             <div class="p-4">
                                 <i class="fa fa-3x fa-headset text-primary mb-4"></i>
                                 <h5>24/7 Service</h5>
-                                <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                                {{-- <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p> --}}
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
 
 
         <!-- About Start -->
-        <div class="container-xxl py-5">
+        <div class="container-xxl py-5" id="about_us">
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
@@ -72,16 +72,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6" >
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
-                        <h1 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i>Tavassolution E-cateen
+                        <h1 class="mb-4">Welcome to<br> <i class="fa fa-utensils text-primary me-2"></i>Tavassolution E-cateen
                         </h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam
-                            et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam
-                            et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat
-                            amet</p>
-                        <div class="row g-4 mb-4">
+                        <p class="mb-4">E-Canteen is a digital solution developed to make the canteen meal experience cashless. Schools & Colleges can avail the services to make a 100% cashfree provision for all students at the canteen. Parents/Students can use their own login to view all their activities. </p>
+                        <p class="section-title ff-secondary text-start text-primary fw-normal">Some of the features are:- </p>
+                        <p>1. Personalised log in for each user  </p>
+                        <p>2. Recharge their account for meals  </p>
+                        <p>3. View all transactions</p>
+                        <p>4. View the Weekly Menus  </p>
+                        <p>5. Mark a leave of absence  </p>
+                        <p>6. Pre book a meal facility for users who are not on a daily subscription </p>
+
+
+                        {{-- <div class="row g-4 mb-4">
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center border-start border-5 border-primary px-3">
                                     <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
@@ -100,17 +105,170 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                        </div> --}}
+                        {{-- <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a> --}}
                     </div>
                 </div>
             </div>
         </div>
         <!-- About End -->
+        <!-- Registraion -->
+        <div class="container-xxl py-5" id="registration">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+
+                    <div class="col-lg-6" >
+                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Registraion</h5>
+                        <h1 class="mb-4">How to <i class="fa fa-user-plus text-primary me-2"></i>Register
+                        </h1>
+                        <p class="mb-4">Parents can log in to their account using the button below. Fill a simple registration form, upload the student ID, and proceed with account activation. you can also view the "how to register" video using this link
+
+                        </p>
+
+
+
+                        {{-- <div class="row g-4 mb-4">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Years of</p>
+                                        <h6 class="text-uppercase mb-0">Experience</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Popular</p>
+                                        <h6 class="text-uppercase mb-0">Master Chefs</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                        {{-- <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a> --}}
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-12 text-end">
+                                <img class="img rounded-50 w-100 wow zoomIn " data-wow-delay="0.1s"
+                                    src="{{ asset('assets/home_1/img/register.jpg') }}"> <a href="/register" class="btn btn-primary py-2 px-4 mt-2">Register</a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Registraion -->
+        <!-- Activation -->
+        <div class="container-xxl py-5" id="activation">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+
+                    <div class="col-lg-6" >
+                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Activation</h5>
+                        <h1 class="mb-4"><i class="fa fa-check text-primary me-2"></i>Activate Account
+                        </h1>
+                        <p class="mb-4">Once the registration form is filled you can proceed with the account activation by using the payment gateway. a nominal fee of INR 200 is charged per student to use their account log in for one academic year. once the payment is done then the user can use their account for further transactions
+
+                        </p>
+
+
+
+                        {{-- <div class="row g-4 mb-4">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Years of</p>
+                                        <h6 class="text-uppercase mb-0">Experience</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Popular</p>
+                                        <h6 class="text-uppercase mb-0">Master Chefs</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                        {{-- <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a> --}}
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-12 text-end">
+                                <img class="img rounded-50 w-100 wow zoomIn " data-wow-delay="0.1s"
+                                    src="{{ asset('assets/home_1/img/activate.jpg') }}"> <a href="/login" class="btn btn-primary py-2 px-4 mt-2">Activate</a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Activation -->
+        <!-- Topup -->
+        <div class="container-xxl py-5" id="topup">
+            <div class="container">
+                <div class="row g-5 align-items-center">
+
+                    <div class="col-lg-6" >
+                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Account recharge for meals</h5>
+                        <h1 class="mb-4"><i class="fa fa-indian-rupee-sign"></i>Top Up/Recharge Account
+                        </h1>
+                        <p class="mb-4">Parents can use their activated accounts to recharge their balance for the meals. There are various recharge options provided for users. Please note that a minimum account balance of INR 210 is needed. Please refer to the "How to recharge" video by using the below link
+
+                        </p>
+
+
+
+                        {{-- <div class="row g-4 mb-4">
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Years of</p>
+                                        <h6 class="text-uppercase mb-0">Experience</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
+                                    <div class="ps-4">
+                                        <p class="mb-0">Popular</p>
+                                        <h6 class="text-uppercase mb-0">Master Chefs</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> --}}
+                        {{-- <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a> --}}
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-12 text-end">
+                                <img class="img rounded-50 w-100 wow zoomIn " data-wow-delay="0.1s"
+                                    src="{{ asset('assets/home_1/img/topup.jpg') }}"> <a href="/login" class="btn btn-primary py-2 px-4 mt-2">TopUp</a>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topup -->
 
 
         <!-- Menu Start -->
-        <div class="container-xxl py-5">
+        {{-- <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
@@ -477,12 +635,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Menu End -->
 
 
         <!-- Reservation Start -->
-        <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+        {{-- <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
             <div class="row g-0">
                 <div class="col-md-6">
                     <div class="video">
@@ -544,9 +702,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
-        <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        {{-- <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content rounded-0">
                     <div class="modal-header">
@@ -562,12 +720,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Reservation Start -->
 
 
         <!-- Team Start -->
-        <div class="container-xxl pt-5 pb-3">
+        {{-- <div class="container-xxl pt-5 pb-3">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
@@ -644,12 +802,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Team End -->
 
 
         <!-- Testimonial Start -->
-        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        {{-- <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container">
                 <div class="text-center">
                     <h5 class="section-title ff-secondary text-center text-primary fw-normal">Testimonial</h5>
@@ -710,7 +868,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Testimonial End -->
 
 
