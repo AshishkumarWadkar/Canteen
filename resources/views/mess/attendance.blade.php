@@ -28,7 +28,7 @@
                             @csrf
 
                             <div class="text-end mx-3 my-2">
-                                <a href="{{ url('mess/attendance/all') }}"><span class="badge badge-sm bg-gradient-info">All Punchings</span></a>
+                                <a href="{{ route('attendance_all') }}"><span class="badge badge-sm bg-gradient-info">All Punchings</span></a>
                                 </div>
                             <div class="input-group input-group-outline mb-3 barcode">
                                 <label class="form-label" for="barcode">Barcode : </label>
