@@ -11,6 +11,8 @@ use Session;
 use Exception;
 use DB;
 use Carbon\Carbon;
+use App\Models\File;
+
 class PaymentController extends Controller
 {
     /**
@@ -168,5 +170,37 @@ class PaymentController extends Controller
             // If Signature is not correct its give a excetption so we use try catch
             return false;
         }
+    }
+
+    public function paybyqr(Request $req,$id)
+    {
+
+        // return $id;
+            // $req->validate([
+            // 'file' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
+            // ]);
+            $fileModel = new File;
+            if($req->file()) {
+                $fileName = time().'_'.$req->file->getClientOriginalName();
+                $filePath = $req->file('file')->storeAs('uploads', $fileName, 'public');
+                $fileModel->name = time().'_'.$req->file->getClientOriginalName();
+                $fileModel->file_path = '/storage/' . $filePath;
+                $fileModel->type = $id;
+                $fileModel->amount = $req->amount;
+                $fileModel->user = \Auth::id();
+                $fileModel->save();
+                if($id == 1)
+                {
+
+                    sweetalert("Please Wait, Account will be Activated post successful verification");
+                }
+                else
+                {
+
+                    sweetalert("Amount will be added post successful verification");
+                }
+                return redirect()->back();
+            }
+
     }
 }

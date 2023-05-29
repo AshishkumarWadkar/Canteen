@@ -35,7 +35,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-6 d-flex">
+                                    <input type="hidden" name="veg_nonveg" value="0">
+                                    {{-- <div class="col-6 d-flex">
                                         <div class="form-check">
                                             <input class="form-check-input form-control" type="radio" name="veg_nonveg"
                                                 id="veg" checked value="0">
@@ -50,12 +51,12 @@
                                                 Non-Veg
                                             </label>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
 
                                 </div>
+                                <label for="description" class="form-label">Description: </label>
                                 <div class="input-group input-group-outline mb-3 d-flex">
-                                    <label for="description" class="form-label">Description: </label>
                                     <textarea class="form-control" id="description" rows="3" name="description"></textarea>
                                 </div>
                                 <div class="form-group my-2 ">

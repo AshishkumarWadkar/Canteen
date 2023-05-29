@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\MenuMaster;
+use Flasher\SweetAlert\Laravel\Facade\SweetAlert;
 use Illuminate\Http\Request;
 
 class MenuMasterController extends Controller
@@ -46,6 +47,8 @@ class MenuMasterController extends Controller
         $menu->description = $request->description;
         $menu->created_by = \Auth::id();
         $menu->save();
+        sweetalert("Item Added Successfully");
+
         return redirect()->back();
 
     }
@@ -90,6 +93,7 @@ class MenuMasterController extends Controller
         $menu->description = $request->description;
         $menu->created_by = \Auth::id();
         $menu->save();
+        sweetalert("Item Updated");
         return redirect()->route('menu_master.index');
     }
 

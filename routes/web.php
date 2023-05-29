@@ -87,6 +87,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()
 
 
 Route::get('/payment', [PaymentController::class, 'index']);
+Route::post('/paybyqr/{id}', [PaymentController::class, 'paybyqr']);
 Route::post('/payment-initiate-request', [PaymentController::class, 'initiate']);
 Route::post('/payment-complete', [PaymentController::class, 'complete'])->name('payment.complete');
 

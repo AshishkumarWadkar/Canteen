@@ -111,7 +111,7 @@ class StudentController extends Controller
         // return $request->all();
         $request->validate(
             [
-                'barcode' => 'required|unique:users,barcode,'.$request->barcode
+                // 'barcode' => 'required|unique:users,barcode,'.$request->barcode
 
             ],[
 
@@ -141,6 +141,8 @@ class StudentController extends Controller
         $student->class_id = $request->class;
         $student->division_id = $request->division;
         $student->email = $request->phone;
+        $student->is_subscribed = $request->is_subscribed;
+        $student->points =  $student->points + $request->new_amt;
         // $student->password = \Hash::make($request->phone);
         $student->save();
         toastr()->addSuccess('User Updated Sucessfully');

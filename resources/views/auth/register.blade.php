@@ -142,8 +142,8 @@
                         <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
                             <div class="card card-plain">
                                 <div class="card-header">
-                                    <h4 class="font-weight-bolder">Sign Up</h4>
-                                    <p class="mb-0">Enter your email and password to register</p>
+                                    <h4 class="font-weight-bolder">Registration Form</h4>
+                                    <p class="mb-0">Please Fill up the form to Register</p>
                                 </div>
 
                                 @isset($route)
@@ -154,16 +154,14 @@
                                         @csrf
 
                                         <div class="input-group input-group-outline mb-3">
-                                            <label class="form-label">Name</label>
                                             <input id="name" type="text"
                                                 class="form-control @error('name') is-invalid @enderror" name="name"
-                                                value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                                value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
-                                            <label class="form-label">Phone</label>
-                                            <input id="email" type="text"
+                                            <input id="email" type="number"
                                                 class="form-control @error('email') is-invalid @enderror" name="email"
-                                                value="{{ old('email') }}" required autocomplete="email">
+                                                value="{{ old('email') }}" required autocomplete="email" placeholder="Phone">
                                         </div>
 
                                         <div class="input-group input-group-outline mb-3 d-flex ">
@@ -174,7 +172,7 @@
                                             @endphp
                                             <div class="col-md-8">
                                                 <select class="form-control" id="created_by" name="created_by" required>
-                                                    <option selected value="0">Select Canteen</option>
+                                                    <option selected >Select Canteen</option>
                                                     @foreach ($canteen as $k => $c)
                                                         <option selected value={{ $c->id }}>{{ $c->name }}</option>
                                                     @endforeach
@@ -205,29 +203,69 @@
                                                 @enderror
                                             </div>
                                         </div>
+                                        <div class="input-group input-group-outline mb-3 d-flex ">
+                                            <label for="role"
+                                                class="col-3 col-form-label ">{{ __('Class') }}</label>
+                                            @php
+                                                $class = \DB::table('class')->get(['id', 'name']);
+                                            @endphp
+                                            <div class="col-md-8">
+                                                <select class="form-control" id="class_id" name="class_id" required>
+                                                    <option selected value="0">Select class</option>
+                                                    @foreach ($class as $k => $c)
+                                                        <option value={{ $c->id }}>{{ $c->name }}</option>
+                                                    @endforeach
+                                                </select>
+
+                                                @error('role')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="input-group input-group-outline mb-3 d-flex ">
+                                            <label for="role"
+                                                class="col-3 col-form-label ">{{ __('Division') }}</label>
+                                            @php
+                                                $division = \DB::table('division')->get(['id', 'name']);
+                                            @endphp
+                                            <div class="col-md-8">
+                                                <select class="form-control" id="division_id" name="division_id" required>
+                                                    <option selected value="0">Select division</option>
+                                                    @foreach ($division as $k => $c)
+                                                        <option  value={{ $c->id }}>{{ $c->name }}</option>
+                                                    @endforeach
+                                                </select>
+
+                                                @error('role')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
                                         <div class="input-group input-group-outline mb-3">
-                                            <label class="form-label">Password</label>
                                             <input id="password" type="password"
                                                 class="form-control @error('password') is-invalid @enderror"
-                                                name="password" required autocomplete="new-password">
+                                                name="password" required autocomplete="new-password" placeholder="Password">
                                         </div>
                                         <div class="input-group input-group-outline mb-3">
-                                            <label class="form-label">Confirm Password</label>
                                             <input id="password-confirm" type="password" class="form-control"
-                                                name="password_confirmation" required autocomplete="new-password">
+                                                name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
                                         </div>
-                                        <div class="form-check form-check-info text-start ps-0">
+                                        {{-- <div class="form-check form-check-info text-start ps-0">
                                             <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault" checked>
+                                                id="flexCheckDefault" >
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 I agree the <a href="javascript:;"
                                                     class="text-dark font-weight-bolder">Terms and Conditions</a>
                                             </label>
-                                        </div>
+                                        </div> --}}
                                         <div class="text-center">
                                             <button type="submit"
-                                                class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign
-                                                Up</button>
+                                                class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">SignUp</button>
                                         </div>
                                     </form>
                             </div>

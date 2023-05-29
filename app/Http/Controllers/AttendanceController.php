@@ -19,10 +19,10 @@ class AttendanceController extends Controller
     {
         //
         $todays_punch = [];
-        // $todays_punch = Attendance::join('users','attendance.user_id','users.id','deduction_point')
-        //                             ->whereDate('punch_time', Carbon::today())
-        //                             ->where('users.created_by',\Auth::id())
-        //                             ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type']);
+        $todays_punch = Attendance::join('users','attendance.user_id','users.id','deduction_point')
+                                    ->whereDate('punch_time', Carbon::today())
+                                    ->where('users.created_by',\Auth::id())
+                                    ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type']);
 
         return view('mess.attendance',compact('todays_punch'));
     }
@@ -115,6 +115,7 @@ class AttendanceController extends Controller
         {
             $attendance = new Attendance;
             $attendance->user_id = $student->id;
+            $attendance->created_by = \Auth::id();
             $attendance->punch_time = Carbon::now();
             $attendance->meal_type = $request->meal_type;
             $attendance->deduction_point = $points;

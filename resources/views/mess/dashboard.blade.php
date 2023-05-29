@@ -310,7 +310,7 @@
                   <tbody>
                     @foreach ($low as $k => $l )
 
-                    @endforeach
+
                     <tr>
                         <td class="text-center">
                             <h6 class="mb-0 text-md">{{$k+1 }}</h6>
@@ -325,7 +325,7 @@
                             <h6 class="mb-0 text-md">{{ $l->points }}</h6>
                       </td>
                     </tr>
-
+                @endforeach
                   </tbody>
                 </table>
               </div>
