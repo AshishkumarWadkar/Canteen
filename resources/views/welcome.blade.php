@@ -36,8 +36,8 @@
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
                         <div class="service-item rounded pt-3">
                             <div class="p-4">
-                                <i class="fa fa-3x fa-headset text-primary mb-4"></i>
-                                <h5>24/7 Service</h5>
+                                <i class="fa fa-3x fa-check  text-primary mb-4"></i>
+                                <h5>Time Saving</h5>
                                 {{-- <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p> --}}
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-lg-6" >
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
-                        <h1 class="mb-4">Welcome to<br> <i class="fa fa-utensils text-primary me-2"></i>Tavassolution E-cateen
+                        <h1 class="mb-4">Welcome to<br> Tavas Solutions <br>E-Canteen  <i class="fa fa-utensils text-primary me-2"></i>
                         </h1>
                         <p class="mb-4">E-Canteen is a digital solution developed to make the canteen meal experience cashless. Schools & Colleges can avail the services to make a 100% cashfree provision for all students at the canteen. Parents/Students can use their own login to view all their activities. </p>
                         <p class="section-title ff-secondary text-start text-primary fw-normal">Some of the features are:- </p>
@@ -118,7 +118,7 @@
                 <div class="row g-5 align-items-center">
 
                     <div class="col-lg-6" >
-                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Registraion</h5>
+                        <h5 class="section-title ff-secondary text-start text-primary fw-normal">Registration</h5>
                         <h1 class="mb-4">How to <i class="fa fa-user-plus text-primary me-2"></i>Register
                         </h1>
                         <p class="mb-4">Parents can log in to their account using the button below. Fill a simple registration form, upload the student ID, and proceed with account activation. you can also view the "how to register" video using this link

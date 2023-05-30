@@ -73,8 +73,8 @@
                             <form class="needs-validation" method="POST" action="{{ route('menu_master.update', $menu->id) }}">
                                 @method('PUT')
                                 @csrf
+                                <label for="name" class="form-label col-5">Menu Name : </label>
                                 <div class="input-group input-group-outline mb-3 d-flex">
-                                    <label for="name" class="form-label col-5">Menu Name : </label>
                                     <input type="name" class="form-control" id="name"
                                         placeholder="Menu [eg. Misal Panner]" name="name" value="{{ $menu->name }}"required>
                                 </div>
@@ -88,7 +88,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-6 d-flex">
+                                    {{-- <div class="col-6 d-flex">
                                         <div class="form-check">
                                             <input class="form-check-input form-control" type="radio" name="veg_nonveg"
                                                 id="veg"  value="0" {{ $menu->veg_nonveg == 0 ? "checked" : "" }}>
@@ -103,12 +103,13 @@
                                                 Non-Veg
                                             </label>
                                         </div>
-                                    </div>
+                                    </div> --}}
+                                    <input type="hidden" name="veg_nonveg" value="0">
 
 
                                 </div>
+                                <label for="description" class="form-label">Description: </label>
                                 <div class="input-group input-group-outline mb-3 d-flex">
-                                    <label for="description" class="form-label">Description: </label>
                                     <textarea class="form-control" id="description" rows="3" name="description">{{ $menu->description }}</textarea>
                                 </div>
                                 <div class="form-group my-2 ">

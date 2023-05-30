@@ -11,7 +11,7 @@
 
 
                         <div class="row">
-                            Name of Student : {{ $students->name }}
+                            Name of User : {{ $students->name }}
                         </div>
                         <div class="row">
                             Phone : {{ $students->email }}
@@ -31,10 +31,10 @@
 
 
                         @if ($students->is_subscribed)
-                        <div class="row">
-                            <a href="/payment" class="btn btn-block btn-primary">Top Up</a>
+                            <div class="row">
+                                <a href="/payment" class="btn btn-block btn-primary">Top Up</a>
 
-                        </div>
+                            </div>
                             Today Punching Details :
 
                             <table class="table table-striped table-responsive">
@@ -67,7 +67,8 @@
                                         <div class="card my-4">
                                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
-                                                    <h6 class="text-white text-capitalize ps-3 text-center">Weekly Menus</h6>
+                                                    <h6 class="text-white text-capitalize ps-3 text-center">Weekly Menus
+                                                    </h6>
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pb-2">
@@ -162,8 +163,8 @@
                                     <div class="col-12">
                                         <div class="card my-4">
                                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
-                                            <h6 class="text-white text-capitalize ps-3">All Punching Deatils :</h6>
+                                                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
+                                                    <h6 class="text-white text-capitalize ps-3">All Punching Deatils :</h6>
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pb-2">
@@ -211,8 +212,8 @@
                                     <div class="col-12">
                                         <div class="card my-4">
                                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
-                                            <h6 class="text-white text-capitalize ps-3">Transaction Details</h6>
+                                                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
+                                                    <h6 class="text-white text-capitalize ps-3">Transaction Details</h6>
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pb-2">
@@ -262,24 +263,25 @@
                                                                     </td>
                                                                     <td class="align-middle text-center">
                                                                         <p class="text-xs font-weight-bold mb-0">
-                                                                   {{ $tp->order_id }}
-                                                                    </p>
+                                                                            {{ $tp->order_id }}
+                                                                        </p>
                                                                     </td>
                                                                     <td class="align-middle">
                                                                         <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ $tp->rzp_paymentid }}
-                                                                    </p>
+                                                                            {{ $tp->rzp_paymentid }}
+                                                                        </p>
 
                                                                     </td>
                                                                     <td class="align-middle">
                                                                         <p class="text-xs font-weight-bold mb-0">
-                                                                    {{ \Carbon\Carbon::parse($tp->created_at)->format('d-m-Y') }}
+                                                                            {{ \Carbon\Carbon::parse($tp->created_at)->format('d-m-Y') }}
 
-                                                                    </p>
+                                                                        </p>
 
                                                                     <td class="align-middle text-center text-sm">
-                                                                        <span class="badge badge-sm bg-gradient-success">{{ $tp->payment_status }}</span>
-                                                                      </td>
+                                                                        <span
+                                                                            class="badge badge-sm bg-gradient-success">{{ $tp->payment_status }}</span>
+                                                                    </td>
                                                                 </tr>
                                                             @endforeach
 
@@ -292,13 +294,31 @@
                                 </div>
                             </div>
                         @else
-                            <h1>Suscribe to Get Premium Features </h1>
-                            <form action="/payment-initiate-request" method="POST">
+                            <div class="card text-center">
+                                <div class="card-body">
+
+                                    <h3>Please pay Registration Fees to Activate Your Account </h3>
+                                    <br>
+                                    <h5 class="text-danger">Post sucessfull payment upload a screenshot with valid transaction ID</h5>
+                                    <img class="img img-fluid" src="{{ asset('assets/QR.jpg') }}" style="    width: 200px;        height: 300px;        object-fit: cover;
+      ">
+                                    <h2>Pay On QR</h2>
+                                    <form class="text-center" method="POST" action="/paybyqr/1" enctype="multipart/form-data">
+                                        @csrf
+                                        <input required type="hidden" name="amount" id="amount" value="200">
+                                        <input required type="file" name="file" id="file" placeholder="Upload ScreenShot">
+                                         <button type="submit" class="btn btn-primary btn-block d-block m-2">Submit</button>
+                                    </form>
+                                </div>
+
+                                {{-- <form action="/payment-initiate-request" method="POST">
                                 @csrf
                                 <input type="hidden" name="plan" value="1">
-                                <button type="submit" class="btn btn-primary btn-block d-block m-2">Buy
-                                    Subscription</button>
-                            </form>
+                                <button type="submit" class="btn btn-primary btn-block d-block m-2">Acitvate</button>
+                            </form> --}}
+
+
+                            </div>
                         @endif
                     </div>
                 </div>
@@ -307,21 +327,29 @@
 
     </div>
     <script>
-
-    $(document).ready(function () {
-    $('#student').DataTable();
-});
+        $(document).ready(function() {
+            $('#student').DataTable();
+        });
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js">
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js">
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js">
-    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js">
-    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js">
-    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js">
-    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js">
-    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js">
-@endsection
+        < script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" >
+            <
+            script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js" >
+            <
+            script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js" >
+            <
+            script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js" >
+            <
+            script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" >
+            <
+            script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js" >
+            <
+            script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" >
+            <
+            script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js" >
+            <
+            script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js" >
+            <
+            script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js" >
+        @endsection

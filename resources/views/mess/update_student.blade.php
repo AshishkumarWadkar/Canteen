@@ -65,6 +65,16 @@
                             </div>
                             @endif
                             <div class="input-group input-group-outline mb-3">
+                                <label class="col-5" for="is_subscribed">Status: </label>
+                                <select class="form-control" id="is_subscribed" name="is_subscribed" required>
+                                    <option value="">Select Status</option>
+                                    <option value="0" {{0 == $student->is_subscribed ? "selected": ""}} >Inactive</option>
+                                    <option value="1" {{1 == $student->is_subscribed ? "selected": ""}} >Active</option>
+
+
+                                </select>
+                            </div>
+                            <div class="input-group input-group-outline mb-3">
                                 <label class="col-5" for="phone">Phone : </label>
                                 <input type="text" class="form-control" id="phone" placeholder="10 Digits" name="phone" value="{{ $student->email }}"  maxlength="10">
                             </div>
@@ -72,15 +82,51 @@
                             <div class="input-group input-group-outline mb-3 barcode ">
                                 <label class="col-5" for="barcode">Barcode : </label>
                                 <input type="number" class="form-control" id="barcode" name="barcode" value="{{ $student->barcode }}" placeholder="Please Scan the Card"
-                                     required >
+                                      >
 
-                            </div>
+                                    </div>
+                                    <div class="input-group input-group-outline mb-3 barcode ">
+                                        <label class="col-5" for="new_amt">Amount To be Added : </label>
+                                        <input type="number" class="form-control" id="new_amt" name="new_amt" value="0" placeholder="New Amount"
+                                              ></div>
 
                             <div class="input-group input-group-outline mb-3 d-flex justify-content-between">
                                 <a href="{{ url()->previous() }}"><button type="button" class="btn btn-block btn-primary">Back</button></a>
                                 <a><button type="submit" class="btn btn-block btn-warning">Update</button></a>
                             </div>
+                            @php
 
+                                $path = \DB::table('files')->where('user',$student->id)->where('type',1)->first();
+                            @endphp
+                            @isset($path->file_path)
+
+                            Activation Screenshot
+                            <img src="{{ asset($path->file_path) }}" style=
+                "
+                                height: 300px;
+                                width: 50%;
+                                object-fit: cover; // here"
+                            >
+                            @endisset
+
+                            @php
+
+                            $top = \DB::table('files')->where('user',$student->id)->where('type',2)->get();
+                        @endphp
+                        @isset($top)
+
+                        @foreach ($top as $t )
+
+                        <br>Recharge Screenshot
+                        <img src="{{ asset($t->file_path) }}" style=
+                        "
+                                height: 300px;
+                                width: 50%;
+                                object-fit: cover; // here"
+                            >
+                            @endforeach
+
+                            @endisset
                         </form>
                     </div>
                 </div>

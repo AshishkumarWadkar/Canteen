@@ -46,6 +46,9 @@
                                             Registered</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            Status</th>
+                                        <th
+                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Role</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -77,6 +80,9 @@
                                             <td>
                                                 <p class="text-xs text-center font-weight-bold mb-0">
                                                     {{ \Carbon\Carbon::parse($s->created_at)->format('d-m-Y') }}</p>
+                                            </td>
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $s->is_subscribed == 1 ? "Active" : "InActive" }}</p>
                                             </td>
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0">{{ $s->role == 1 ? "Student" : "Staff" }}</p>
