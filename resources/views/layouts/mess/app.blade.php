@@ -37,9 +37,7 @@
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 
     <style>
-          input:not(:focus)::placeholder {
-  color: transparent;
-}
+
     </style>
 
 </head>

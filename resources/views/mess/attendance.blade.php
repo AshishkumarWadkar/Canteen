@@ -31,12 +31,12 @@
                                 <a href="{{ route('attendance_all') }}"><span class="badge badge-sm bg-gradient-info">All Punchings</span></a>
                                 </div>
                             <div class="input-group input-group-outline mb-3 barcode">
-                                <label class="form-label" for="barcode">Barcode : </label>
+                                <label class="col-3" for="barcode">Barcode : </label>
                                 <input type="number" class="form-control" id="barcode" name="barcode" value=""
                                     placeholder="Please Scan the Card" required>
                             </div>
                             <div class="input-group input-group-outline mb-3 barcode ">
-                                <label for="barcode">Meal Type : </label>
+                                <label for="barcode" class="col-3">Meal Type : </label>
                                 <div class="form-check form-check-inline mx-4">
                                     <input class="form-check-input" type="radio" name="meal_type" id="break_fast"
                                         value="1">
@@ -49,21 +49,21 @@
                                 </div>
                             </div>
                             <div class="input-group input-group-outline mb-3">
-                                <label for="name" class="form-label">User Name : </label>
+                                <label for="name" class="col-3">User Name : </label>
                                 <input type="name" class="form-control" id="name"
                                     placeholder="First Name Middle Name Last Name" name="name"
                                     value="{{ isset($student) && isset($student->name) ? $student->name : '' }}">
                             </div>
 
                             <div class="input-group input-group-outline mb-3">
-                                <label for="phone" class="form-label">Phone : </label>
+                                <label for="phone" class="col-3">Phone : </label>
                                 <input type="text" class="form-control" id="phone" placeholder="10 Digits"
                                     name="phone"
                                     value="{{ isset($student) && isset($student->email) ? $student->email : '' }}"
                                     maxlength="10">
                             </div>
                             <div class="input-group input-group-outline mb-3">
-                                <label for="phone" class="form-label">Current Balance : </label>
+                                <label for="phone" class="col-3">Current Balance : </label>
                                 <input type="text" class="form-control" id="balance" placeholder="10 Digits"
                                     name="balance" value="{{ isset($balance) ? $balance : 0 }}" maxlength="10">
                             </div>
