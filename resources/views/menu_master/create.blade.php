@@ -21,16 +21,16 @@
                             <form class="needs-validation" method="POST" action="{{ route('menu_master.store') }}">
                                 @csrf
                                 <div class="input-group input-group-outline mb-3 d-flex">
-                                    <label for="name" class="form-label col-5">Menu Name : </label>
+                                    <label for="name" class="form-label col-5">Item Name : </label>
                                     <input type="name" class="form-control" id="name"
-                                        placeholder="Menu [eg. Misal Panner]" name="name" required>
+                                         name="name" required>
                                 </div>
                                 <div class="d-flex">
                                     <div class="col-6">
                                         <div class="input-group input-group-outline mb-3">
-                                            <label class="col-5" for="class">Menu Type: </label>
+                                            <label class="col-5" for="class">Meal Period: </label>
                                             <select class="form-control" id="type" name="type" required>
-                                                <option value="0">Break Fast</option>
+                                                <option value="0">Breakfast</option>
                                                 <option value="1">Lunch</option>
                                             </select>
                                         </div>

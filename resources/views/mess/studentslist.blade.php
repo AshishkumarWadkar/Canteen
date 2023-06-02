@@ -1,15 +1,17 @@
 @extends('layouts.mess.app')
 
 @section('content')
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script> --}}
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 
 <link href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/sc-2.1.1/sb-1.4.2/datatables.min.css" rel="stylesheet"/>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
-<script src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/sc-2.1.1/sb-1.4.2/datatables.min.js"></script>
+<script src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/sc-2.1.1/sb-1.4.2/datatables.min.js"></script> --}}
     <div class="container-fluid py-4">
         <div class="row justify-content-center">
             <div class="col-12">
@@ -21,7 +23,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table align-items-center mb-0" id="example">
+                            <table class="table align-items-center mb-0 datatable" id="example">
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#
@@ -90,7 +92,7 @@
                                             <td class="align-middle text-center text-sm">
                                                 <span class="badge badge-sm bg-gradient-warning"> <a class="text-white"
                                                         href="{{ route('student.edit', $s->id) }}">Edit</a></span>
-                                                <span class="badge badge-sm bg-gradient-danger"><a>Delete</a></span>
+                                                {{-- <span class="badge badge-sm bg-gradient-danger"><a>Delete</a></span> --}}
                                             </td>
 
                                         </tr>
@@ -105,12 +107,5 @@
         </div>
     </div>
 
-    <script src="../../../assets/js/core/bootstrap.min.js"></script>
-    <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script>
 
-        $(document).ready(function () {
-            $('#example').DataTable();
-        });
-    </script>
 @endsection

@@ -184,12 +184,21 @@ class AttendanceController extends Controller
         //
     }
 
-    public function all()
+    public function all(Request $request)
     {
         $all = Attendance::join('users','attendance.user_id','users.id','deduction_point')
         ->where('users.created_by',\Auth::id())
-        ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type','deduction_point']);
+        ->orderBy('attendance.id','desc');
 
-        return view('mess.all_punching',compact('all'));
+        if(isset($request->from) && isset($request->to))
+        {
+                $all = $all->whereDate('attendance.created_at', '>=', $request->from);
+                $all = $all->whereDate('attendance.created_at', '<=', $request->to);
+        }
+
+        $all = $all->get(['name','punch_time','meal_type','deduction_point']);
+        $fromdate = $request->from;
+        $todate = $request->to;
+        return view('mess.all_punching',compact('all','fromdate','todate'));
     }
 }

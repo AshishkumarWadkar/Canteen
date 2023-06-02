@@ -91,7 +91,7 @@
                                               ></div>
 
                             <div class="input-group input-group-outline mb-3 d-flex justify-content-between">
-                                <a href="{{ url()->previous() }}"><button type="button" class="btn btn-block btn-primary">Back</button></a>
+                                <a href="{{ route('student.index') }}"><button type="button" class="btn btn-block btn-primary">Back</button></a>
                                 <a><button type="submit" class="btn btn-block btn-warning">Update</button></a>
                             </div>
                             @php
