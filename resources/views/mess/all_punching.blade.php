@@ -7,11 +7,11 @@
               <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                   <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                    <h6 class="text-white text-capitalize ps-3">All Punchings </h6>
+                    <h6 class="text-white text-capitalize ps-3">All Consumed Meals </h6>
                   </div>
                 </div>
                 <div class="text-end mx-3 my-2">
-                <a href="{{ route()->back() }}"><button class="btn btn-info">Back</button></a>
+                <a href=""><button class="btn btn-sm btn-info">Back</button></a>
                 </div>
                 <div class="card-body px-0 pb-2">
                   <div class="table-responsive p-0">
@@ -21,15 +21,15 @@
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Time</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Points</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Meal</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Role</th>
 
 
                         </tr>
                       </thead>
 
                       <tbody>
-                        @foreach ($todays_punch as $key => $tp)
+                        @foreach ($all as $key => $tp)
                         <tr>
                             <td>
                                 <p class="text-xs font-weight-bold mb-0">{{ $key+1 }}

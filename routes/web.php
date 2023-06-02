@@ -6,6 +6,7 @@ use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\MenuMasterController;
 use App\Http\Controllers\MessController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PhonePeController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\WeeklyMenuController;
@@ -86,10 +87,12 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()
 });
 
 
-Route::get('/payment', [PaymentController::class, 'index']);
-Route::post('/paybyqr/{id}', [PaymentController::class, 'paybyqr']);
-Route::post('/payment-initiate-request', [PaymentController::class, 'initiate']);
-Route::post('/payment-complete', [PaymentController::class, 'complete'])->name('payment.complete');
+// Route::get('/payment', [PaymentController::class, 'index']);
+// Route::post('/paybyqr/{id}', [PaymentController::class, 'paybyqr']);
+// Route::post('/payment-initiate-request', [PaymentController::class, 'initiate']);
+// Route::post('/payment-complete', [PaymentController::class, 'complete'])->name('payment.complete');
+
+Route::post('/payment',[PhonePeController::class,'initiate']);
 
 
 Route::any('logout/logout', [LoginController::class, 'logout'])->name('all_logout');
@@ -113,3 +116,5 @@ Route::get('how_to_register', function(){
     return view('web.how_to_register');
 })->name('how_to_register');
 
+Route::get('/change-password', [StudentController::class, 'changePassword'])->name('changePassword');
+Route::post('/change-password', [StudentController::class, 'changePasswordSave'])->name('postChangePassword');

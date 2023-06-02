@@ -61,8 +61,9 @@ class DeductionController extends Controller
         $ded->m_teacher_price = $request->m_teacher_price;
         $ded->mess_id = \Auth::id();
         $ded->save();
-        return redirect()->back();
-        }
+    }
+    sweetalert("Deduction Amount Set Successfully");
+    return redirect()->back();
         //
     }
 

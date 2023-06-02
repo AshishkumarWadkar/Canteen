@@ -297,7 +297,7 @@
                             <div class="card text-center">
                                 <div class="card-body">
 
-                                    <h3>Please pay Registration Fees to Activate Your Account </h3>
+                                    {{-- <h3>Please pay Registration Fees to Activate Your Account </h3>
                                     <br>
                                     <h5 class="text-danger">Post sucessfull payment upload a screenshot with valid transaction ID</h5>
                                     <img class="img img-fluid" src="{{ asset('assets/QR.jpg') }}" style="    width: 200px;        height: 300px;        object-fit: cover;
@@ -309,13 +309,14 @@
                                         <input required type="file" name="file" id="file" placeholder="Upload ScreenShot">
                                          <button type="submit" class="btn btn-primary btn-block d-block m-2">Submit</button>
                                     </form>
-                                </div>
+                                </div> --}}
 
-                                {{-- <form action="/payment-initiate-request" method="POST">
+                                {{-- <form action="/payment-initiate-request" method="POST"> --}}
+                                <form action="/payment" method="POST">
                                 @csrf
                                 <input type="hidden" name="plan" value="1">
                                 <button type="submit" class="btn btn-primary btn-block d-block m-2">Acitvate</button>
-                            </form> --}}
+                            </form>
 
 
                             </div>
@@ -333,23 +334,14 @@
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js">
-        < script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" >
-            <
-            script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js" >
-            <
-            script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js" >
-            <
-            script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js" >
-            <
-            script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" >
-            <
-            script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js" >
-            <
-            script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" >
-            <
-            script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js" >
-            <
-            script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js" >
-            <
-            script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js" >
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" >
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js">
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js">
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js">
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js">
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js">
+<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js">
         @endsection

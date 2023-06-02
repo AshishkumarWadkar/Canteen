@@ -58,9 +58,16 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string',  'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+            'email' => 'required|regex:/^[0-9]{10}$/',
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'created_by' => 'required|not_in:0',
+            'role' => 'required|not_in:0',
+        ],
+        [
+            'email.regex'=>"Invalid Number",
+            'created_by.not_in' => 'Please Select Canteen',
+            'role.not_in' => 'Please Select Role',
+    ]);
     }
 
     /**
@@ -71,6 +78,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],

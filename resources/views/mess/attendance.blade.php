@@ -28,10 +28,10 @@
                             @csrf
 
                             <div class="text-end mx-3 my-2">
-                                {{-- <a href="{{ route('attendance_all') }}"><span class="badge badge-sm bg-gradient-info">All Punchings</span></a> --}}
+                                <a href="{{ route('attendance_all') }}"><span class="badge badge-sm bg-gradient-info">All Consumed Meals</span></a>
                                 </div>
-                            <div class="input-group input-group-outline mb-3 barcode">
                                 <label class="form-label" for="barcode">Barcode : </label>
+                            <div class="input-group input-group-outline mb-3 barcode">
                                 <input type="number" class="form-control" id="barcode" name="barcode" value=""
                                     placeholder="Please Scan the Card" required>
                             </div>
@@ -49,23 +49,23 @@
                                 </div>
                             </div>
                             <div class="input-group input-group-outline mb-3">
-                                <label for="name" class="form-label">User Name : </label>
+                                <label for="name" class="form-label">Name</label>
                                 <input type="name" class="form-control" id="name"
                                     placeholder="First Name Middle Name Last Name" name="name"
-                                    value="{{ isset($student) && isset($student->name) ? $student->name : '' }}">
+                                    value="{{ isset($student) && isset($student->name) ? $student->name : '' }}" readonly>
                             </div>
 
                             <div class="input-group input-group-outline mb-3">
-                                <label for="phone" class="form-label">Phone : </label>
+                                <label for="phone" class="form-label">Phone</label>
                                 <input type="text" class="form-control" id="phone" placeholder="10 Digits"
                                     name="phone"
                                     value="{{ isset($student) && isset($student->email) ? $student->email : '' }}"
-                                    maxlength="10">
+                                    maxlength="10" readonly>
                             </div>
+                            <label for="phone" class="form-label">Current Balance : </label>
                             <div class="input-group input-group-outline mb-3">
-                                <label for="phone" class="form-label">Current Balance : </label>
                                 <input type="text" class="form-control" id="balance" placeholder="10 Digits"
-                                    name="balance" value="{{ isset($balance) ? $balance : 0 }}" maxlength="10">
+                                    name="balance" value="{{ isset($balance) ? $balance : 0 }}" maxlength="10" readonly>
                             </div>
 
 

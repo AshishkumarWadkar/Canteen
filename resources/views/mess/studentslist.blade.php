@@ -19,15 +19,15 @@
                             <h6 class="text-white text-capitalize ps-3">{{ __('All Users') }}</h6>
                         </div>
                     </div>
-                    <div class="card-body px-0 pb-2">
-                        <div class="table-responsive p-0">
+                    <div class="card-body">
+                        <div class="table-responsive">
                             <table class="table align-items-center mb-0" id="example">
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#
                                         </th>
                                         <th
-                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Name</th>
                                         <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -63,7 +63,7 @@
                                                 <p class="text-xs text-center text-secondary mb-0">{{ $key + 1 }}</p>
                                             </td>
                                             <td>
-                                                <p class="text-xs text-center font-weight-bold mb-0">{{ $s->name }}</p>
+                                                <p class="text-xs text-start font-weight-bold mb-0">{{ $s->name }}</p>
                                             </td>
                                             <td>
                                                 <p class="text-xs text-center font-weight-bold mb-0">{{ $s->barcode }}</p>
