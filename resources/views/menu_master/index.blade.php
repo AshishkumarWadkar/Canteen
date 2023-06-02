@@ -10,19 +10,19 @@
                     <h6 class="text-white text-capitalize ps-3">All Menus </h6>
                   </div>
                 </div>
-                <div class="text-end mx-3 my-2">
-                <a href="{{ route('menu_master.create') }}"><button class="btn btn-info">Add Menu</button></a>
+                <div class="text-end mx-3 mt-2">
+                <a href="{{ route('menu_master.create') }}"><button class="btn btn-info mb-0">Add Menu</button></a>
                 </div>
-                <div class="card-body px-0 pb-2">
-                  <div class="table-responsive p-0">
-                    <table class="table text-center mb-0">
+                <div class="card-body pt-0">
+                  <div class="table-responsive">
+                    <table class="table text-center mb-0 datatable">
                       <thead>
                         <tr>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
+                          <th class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                          <th class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
                           {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Veg</th> --}}
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
+                          <th class="text-start text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 
@@ -35,10 +35,10 @@
 
                         <tr>
                           <td scope="row">{{ $key+1 }}</td>
-                             <td>{{ $m->name }}</td>
-                             <td>{{ $m->type == 0 ? "Break Fast" :"" }} {{ $m->type == 1 ? "Lunch" : "" }}</td>
+                             <td class="text-start">{{ $m->name }}</td>
+                             <td class="text-start">{{ $m->type == 0 ? "Breakfast" :"" }} {{ $m->type == 1 ? "Lunch" : "" }}</td>
                              {{-- <td>{{ $m->veg_nonveg == 0 ? "Veg" : "NonVeg" }}</td> --}}
-                             <td>{{ $m->description }}</td>
+                             <td class="text-start">{{ $m->description }}</td>
                              <td>{{  \Carbon\Carbon::parse($m->created_at)->format('d-m-Y') }}</td>
                           <td>
                                 <a href="{{ route('menu_master.edit',$m->id) }}"><button class="btn btn-sm btn-primary py-0">Edit</button></a>

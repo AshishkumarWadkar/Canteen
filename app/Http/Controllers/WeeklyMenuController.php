@@ -77,6 +77,7 @@ class WeeklyMenuController extends Controller
         $weekly_menu->start_date = $start_date;
         $weekly_menu->end_date = $end_date;
         $weekly_menu->save();
+        sweetalert("Weekly Menu Added");
         return redirect()->back();
 
     }
@@ -143,7 +144,7 @@ class WeeklyMenuController extends Controller
         $weekly_menu->start_date = $start_date;
         $weekly_menu->end_date = $end_date;
         $weekly_menu->save();
-
+        sweetalert("Weekly Menu Updated");
         return redirect()->route('weekly_menu.index');
     }
 

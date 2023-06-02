@@ -198,9 +198,11 @@
                                             in</button>
                                     </div>
                                     <p class="mt-4 text-sm text-center">
+                                        <a href="/"
+                                            class="text-primary text-gradient font-weight-bold">Back To Home | </a>
                                         Don't have an account?
                                         <a href="register"
-                                            class="text-primary text-gradient font-weight-bold">Sign up</a>
+                                            class="text-primary text-gradient font-weight-bold">Register Here</a>
                                     </p>
                                 </form>
                             </div>

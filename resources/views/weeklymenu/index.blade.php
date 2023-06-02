@@ -73,9 +73,9 @@
                         <a href="{{ route('weekly_menu.create') }}"><button class="btn btn-info mx-3 my-3">Add Weekly
                                 Menus</button></a>
                     </div>
-                    <div class="card-body px-0 pb-2">
-                        <div class="table-responsive p-0">
-                            <table class="table align-items-center mb-0">
+                    <div class="card-body">
+                        <div class="table-responsive ">
+                            <table class="table align-items-center mb-0 datatable">
                                 <thead>
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -147,9 +147,9 @@
                                         </td>
                                         <td>
                                             <a href="{{ route('weekly_menu.edit', $wm->id) }}">
-                                                <button class="btn btn-xs btn-primary py-0 mx-2">Edit</button>
+                                                <button class="btn btn-xs btn-primary py-0 mx-2"><i class="fa fa-pen"></i></button>
                                             </a>
-                                               <a> <button class="btn btn-xs btn-danger py-0">Delete</button></a>
+                                               <a> <button class="btn btn-xs btn-danger py-0"><i class="fa fa-trash"></i></button></a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -33,7 +33,7 @@
                                 <label class="form-label" for="barcode">Barcode : </label>
                             <div class="input-group input-group-outline mb-3 barcode">
                                 <input type="number" class="form-control" id="barcode" name="barcode" value=""
-                                    placeholder="Please Scan the Card" required>
+                                    placeholder="Please Scan the Card" required min="0">
                             </div>
                             <div class="input-group input-group-outline mb-3 barcode ">
                                 <label for="barcode" class="col-3">Meal Type : </label>
@@ -48,15 +48,15 @@
                                     <label class="form-check-label" for="lunch">Lunch</label>
                                 </div>
                             </div>
+                            <label for="name" class="form-label">Name</label>
                             <div class="input-group input-group-outline mb-3">
-                                <label for="name" class="form-label">Name</label>
                                 <input type="name" class="form-control" id="name"
                                     placeholder="First Name Middle Name Last Name" name="name"
                                     value="{{ isset($student) && isset($student->name) ? $student->name : '' }}" readonly>
                             </div>
 
+                            <label for="phone" class="form-label">Phone</label>
                             <div class="input-group input-group-outline mb-3">
-                                <label for="phone" class="form-label">Phone</label>
                                 <input type="text" class="form-control" id="phone" placeholder="10 Digits"
                                     name="phone"
                                     value="{{ isset($student) && isset($student->email) ? $student->email : '' }}"

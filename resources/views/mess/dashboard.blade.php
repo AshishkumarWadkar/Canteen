@@ -213,7 +213,7 @@
                 <i class="material-icons opacity-10">credit_card</i>
               </div>
               <div class="text-end pt-1">
-                <p class="text-md mb-0 text-capitalize">Transaction Amount</p>
+                <p class="text-md mb-0 text-capitalize">Today's Recharge</p>
                 <h2 class="mb-0">{{ $tran }} &#x20b9;</h2>
               </div>
             </div>
@@ -296,9 +296,9 @@
 
               </div>
             </div>
-            <div class="card-body px-0 pb-2">
+            <div class="card-body pb-2">
               <div class="table-responsive">
-                <table class="table align-items-center mb-0">
+                <table class="table align-items-center mb-0 datatable">
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-sm text-center font-weight-bolder opacity-7">#</th>
