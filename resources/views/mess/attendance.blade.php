@@ -36,7 +36,7 @@
                                     placeholder="Please Scan the Card" required>
                             </div>
                             <div class="input-group input-group-outline mb-3 barcode ">
-                                <label for="barcode">Meal Type : </label>
+                                <label for="barcode" class="col-3">Meal Type : </label>
                                 <div class="form-check form-check-inline mx-4">
                                     <input class="form-check-input" type="radio" name="meal_type" id="break_fast"
                                         value="1">

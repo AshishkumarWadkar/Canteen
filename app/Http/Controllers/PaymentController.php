@@ -175,7 +175,7 @@ class PaymentController extends Controller
     public function paybyqr(Request $req,$id)
     {
 
-        // return $id;
+        return $id;
             // $req->validate([
             // 'file' => 'required|mimes:csv,txt,xlx,xls,pdf|max:2048'
             // ]);
@@ -184,7 +184,9 @@ class PaymentController extends Controller
                 $fileName = time().'_'.$req->file->getClientOriginalName();
                 $filePath = $req->file('file')->storeAs('uploads', $fileName, 'public');
                 $fileModel->name = time().'_'.$req->file->getClientOriginalName();
-                $fileModel->file_path = '/storage/' . $filePath;
+                // $fileModel->file_path = $filePath;
+                $fileModel->file_path = $fileName;
+
                 $fileModel->type = $id;
                 $fileModel->amount = $req->amount;
                 $fileModel->user = \Auth::id();
