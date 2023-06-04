@@ -3,10 +3,8 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">{{ __('User Dashboard') }}</div>
-
                     <div class="card-body">
 
 
@@ -31,34 +29,53 @@
 
 
                         @if ($students->is_subscribed)
-                            <div class="row">
-                                <a href="/plan" class="btn btn-block btn-primary">Top Up</a>
+                            <div>
+                                <button href="/plan" class="btn btn-block btn-success">Top Up</a>
 
                             </div>
-                            Today Punching Details :
-
-                            <table class="table table-striped table-responsive">
-                                <thead class="thead-dark ">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Puching</th>
-                                        <th scope="col">Meal Type</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($todays_punch as $key => $tp)
-                                        <tr>
-                                            <th scope="row">{{ $key + 1 }}</th>
-                                            <td>{{ $tp->punch_time }}</td>
-                                            <td>{{ $tp->meal_type == 1 ? 'BreakFast' : 'Meal' }}</td>
 
 
-                                        </tr>
-                                    @endforeach
+                            <div class="container-fluid py-2">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card my-4">
+                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
+                                                    <h6 class="text-white text-capitalize ps-3 text-center">Meals Consumed Today
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                            <div class="card-body px-0 pb-2">
+                                                <div class="table-responsive p-0">
+                                                    <table class="table align-items-center mb-0">
+                                                        <thead class="thead-dark ">
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Time</th>
+                                                                <th scope="col">Meal Type</th>
 
-                                </tbody>
-                            </table>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($todays_punch as $key => $tp)
+                                                                <tr>
+                                                                    <th scope="row">{{ $key + 1 }}</th>
+                                                                    <td>{{ $tp->punch_time }}</td>
+                                                                    <td>{{ $tp->meal_type == 1 ? 'BreakFast' : 'Meal' }}
+                                                                    </td>
+
+
+                                                                </tr>
+                                                            @endforeach
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
                             <div class="container-fluid py-2">
@@ -288,32 +305,12 @@
                                 </div>
                             </div>
                         @else
-                            <div class="card text-center">
-                                <div class="card-body">
-
-                                    {{-- <h3>Please pay Registration Fees to Activate Your Account </h3>
-                                    <br>
-                                    <h5 class="text-danger">Post sucessfull payment upload a screenshot with valid transaction ID</h5>
-                                    <img class="img img-fluid" src="{{ asset('assets/QR.jpg') }}" style="    width: 200px;        height: 300px;        object-fit: cover;
-      ">
-                                    <h2>Pay On QR</h2>
-                                    <form class="text-center" method="POST" action="/paybyqr/1" enctype="multipart/form-data">
-                                        @csrf
-                                        <input required type="hidden" name="amount" id="amount" value="200">
-                                        <input required type="file" name="file" id="file" placeholder="Upload ScreenShot">
-                                         <button type="submit" class="btn btn-primary btn-block d-block m-2">Submit</button>
-                                    </form>
-                                </div> --}}
-
-                                {{-- <form action="/payment-initiate-request" method="POST"> --}}
-                                <form action="/payment" method="POST">
+                            <form action="/payment" method="POST">
                                 @csrf
+                                <label for="">Please Pay Registration fees</label>
                                 <input type="hidden" name="plan" value="1">
-                                <button type="submit" class="btn btn-primary btn-block d-block m-2">Acitvate</button>
+                                <button type="submit" class="btn btn-primary btn-block d-block m-2">Pay Now</button>
                             </form>
-
-
-                            </div>
                         @endif
                     </div>
                 </div>
@@ -328,14 +325,28 @@
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js">
-<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" >
-<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js">
-<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js">
-<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js">
-<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js">
-<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js">
-<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js">
-        @endsection
+        < script src = "https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" >
+            <
+            script src = "https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js" >
+            <
+            script src = "https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js" >
+            <
+            script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js" >
+            <
+            script src = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" >
+            <
+            script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js" >
+            <
+            script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" >
+            <
+            script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js" >
+            <
+            script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js" >
+            <
+            script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js" >
+
+            <
+            script src = "../../../assets/js/core/bootstrap.min.js" >
+    </script>
+    <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+@endsection

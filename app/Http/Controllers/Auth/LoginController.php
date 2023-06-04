@@ -51,6 +51,8 @@ class LoginController extends Controller
             'password' => 'required|min:6'
         ]);
 
+        // return $request;
+
 
         if (\Auth::guard('admin')->attempt($request->only(['email','password']), $request->get('remember'))){
             return redirect()->intended('/admin/dashboard');
