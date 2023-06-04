@@ -98,7 +98,7 @@ class AttendanceController extends Controller
 
         if($student->points < $points)
         {
-            toastr()->positionClass('toast-top-center')->addError('Insufficient Balance, Please Top UP !');
+            toastr()->positionClass('toast-top-center')->addError('Insufficient Balance, Please Recharge !');
             return redirect()->back();
         }
         if($student->points < 200)
@@ -123,7 +123,10 @@ class AttendanceController extends Controller
             $student->points = $balance = $student->points - $points;
             $student->save();
 
-            toastr()->positionClass('toast-top-center')->addSuccess('Have Deleciously 🍔');
+            $todays_punch = Attendance::join('users','attendance.user_id','users.id','deduction_point')
+            ->whereDate('punch_time', Carbon::today())
+            ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type','deduction_point']);
+            toastr()->positionClass('toast-top-center')->addSuccess('Barcode Scanned');
             return view('mess.attendance',compact('student','balance','todays_punch'));
 
 

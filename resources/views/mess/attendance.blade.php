@@ -94,7 +94,7 @@
                                                             Marked at</th>
                                                         <th
                                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                            Points</th>
+                                                            Amount Deducted</th>
                                                         <th
                                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                             Meal</th>
@@ -112,12 +112,12 @@
                                                                     <p class="text-xs font-weight-bold mb-0">{{ $tp->name }}
                                                                     </p>
                                                                 </td>
-                                                                <td>
+                                                                <td class="text-center">
                                                                     <p class="text-xs font-weight-bold mb-0">
                                                                         {{ \Carbon\Carbon::parse($tp->punch_time)->format('d-m-Y h:m A') }}
                                                                     </p>
                                                                 </td>
-                                                                <td>
+                                                                <td  class="text-center">
                                                                     <p class="text-xs font-weight-bold mb-0">{{ $tp->deduction_point }}
                                                                     </p>
                                                                 </td>

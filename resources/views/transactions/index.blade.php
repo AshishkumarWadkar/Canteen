@@ -11,9 +11,9 @@
                   </div>
                 </div>
 
-                <div class="card-body px-0 pb-2">
-                  <div class="table-responsive p-0">
-                    <table class="table text-center mb-0">
+                <div class="card-body pb-2">
+                  <div class="table-responsive">
+                    <table class="table text-center mb-0 datatable">
                       <thead>
                         <tr>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
@@ -21,6 +21,7 @@
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Phone</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">PaymentId</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
 
                         </tr>
@@ -36,7 +37,9 @@
                           <td scope="row">{{ $t->email }}</td>
                           <td scope="row">{{ $t->amount }}</td>
                           <td scope="row">{{ $t->transactionId }}</td>
-                          <td scope="row">{{ $t->code }}</td>
+                          <td scope="row">{{ $t->created_at }}</td>
+                          <td scope="row"><span class="badge badge-sm {{ $t->code == "PAYMENT_SUCCESS" ? "bg-gradient-success" : "bg-gradient-danger"}} {{ $t->code == "PAYMENT_INITIATED" ? "bg-gradient-secondary" : ""}}">{{ str_replace("_"," ",$t->code) }}</span>
+                   </td>
                         </tr>
 
                         @endforeach

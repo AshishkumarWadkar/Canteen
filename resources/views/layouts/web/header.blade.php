@@ -9,10 +9,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0 pe-4">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="{{ route('about_us') }}" class="nav-item nav-link">About</a>
+                {{-- <a href="/" class="nav-item nav-link active">Home</a> --}}
+                {{-- <a href="{{ route('about_us') }}" class="nav-item nav-link">About</a> --}}
                 {{-- <a href="service.html" class="nav-item nav-link">Service</a> --}}
-                <a href="menu.html" class="nav-item nav-link">Menu</a>
+                {{-- <a href="menu.html" class="nav-item nav-link">Menu</a> --}}
                 {{-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu m-0">
@@ -21,10 +21,10 @@
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                     </div>
                 </div> --}}
-                <a href="contact.html" class="nav-item nav-link">Contact</a>
-                <a href="/login" class="nav-item nav-link">Login</a>
+                {{-- <a href="contact.html" class="nav-item nav-link">Contact</a> --}}
+                {{-- <a href="/login" class="nav-item nav-link">Login</a> --}}
             </div>
-            <a href="/register" class="btn btn-primary py-2 px-4">Register</a>
+            {{-- <a href="/register" class="btn btn-primary py-2 px-4">Register</a> --}}
         </div>
     </nav>
 
@@ -36,8 +36,13 @@
                     {{-- <p class="text-white animated slideInLeft mb-4 pb-2">Tempor erat elitr rebum at clita. Diam
                         dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed
                         stet lorem sit clita duo justo magna dolore erat amet</p> --}}
-                    <a href="/login" class="btn btn-sm btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Login</a>
-                    <a href="/register" class="btn btn-sm btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Register</a>
+                        <select class="form-control col-6 mb-2" id="branch" name="branch" onchange="setsite()">
+                            <option value="">Select Your Branch</option>
+                            <option value="kolhapur">PIS Kolhapur</option>
+                            <option value="sangali">PIS Sangli</option>
+                        </select>
+                    <a id="login" href="" class="btn btn-sm btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Login</a>
+                    <a id="register" href="" class="btn btn-sm btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Register</a>
                 </div>
                 <div class="col-lg-6 text-center text-lg-end overflow-hidden">
                     <img class="img-fluid " src="{{ asset('assets/home_1/img/dish1.png') }}" alt="">
@@ -46,3 +51,28 @@
         </div>
     </div>
 </div>
+<script>
+function setsite()
+{
+    var a = document.getElementById('login');
+    var b = document.getElementById('register');
+    let branch = document.getElementById('branch').value;
+    console.log(branch);
+    switch (branch) {
+        case "kolhapur":
+            a.href = "https://dev.tavassolutions.com/login";
+            b.href = "https://dev.tavassolutions.com/register";
+
+            break;
+            case "sangali":
+
+                a.href = "https://tavassolutions.com/login";
+                b.href = "https://tavassolutions.com/register";
+            break;
+
+        default:
+            alert("Select Your Branch");
+            break;
+    }
+}
+</script>

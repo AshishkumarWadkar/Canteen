@@ -92,7 +92,7 @@ class PhonePeController extends Controller
 
     function plan(Request $request)
     {
-        $plans = TopupMaster::all();
+        $plans = TopupMaster::all()->where('is_subscription_plan',0);
         return view('razorpay.razorpayView',compact('plans'));
     }
 }

@@ -19,7 +19,7 @@
                         @endif
 
                         <form class="" method="POST" action="{{ route('student.update',$student->id) }}">
-                            <label class="text-danger">Verify Details With Id Cards of College</label>
+                            <label class="text-danger">Verify Details With User ID Cards</label>
                             @csrf
                             @method("PUT")
                             {{-- <div class="input-group input-group-outline mb-3  form-check">

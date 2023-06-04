@@ -19,8 +19,8 @@
                             <input type="date" class="" id="from" name="from" required value="{{ isset($fromdate) ? $fromdate : "" }}">
                             <label class="text-uppercase text-secondary font-weight-bolder" for="to">To</label>
                             <input type="date" class="" id="to" name="to" required value="{{ isset($todate) ? $todate : "" }}">
-                            <a href=""><button class="btn btn-sm btn-success mt-2" type="submit">Filter</button></a>
-                            <a href=""><button class="btn btn-sm btn-info mt-2">Back</button></a>
+                            <button class="btn btn-sm btn-success mt-2" type="submit">Filter</button>
+                            {{-- <a href=""><button class="btn btn-sm btn-info mt-2">Back</button></a> --}}
                         </form>
                         </div>
                     </div>

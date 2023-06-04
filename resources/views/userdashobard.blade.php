@@ -8,29 +8,33 @@
                     <div class="card-body">
 
 
-                        <div class="row">
-                            Name of User : {{ $students->name }}
+                        <div class="row col-12">
+                            <label class="col-5 fw-bold"> Name of User :</label>
+                            <label class="col-5">{{ $students->name }}
                         </div>
-                        <div class="row">
-                            Phone : {{ $students->email }}
+                        <div class="row col-12">
+                            <label class="col-5 fw-bold">Phone :</label>
+                                <label class="col-5">{{ $students->email }}</label>
                         </div>
-                        <div class="row">
-                            Points : {{ $students->points }}
+                        <div class="row col-12">
+                            <label class="col-5 fw-bold">Account Balance :</label>
+                                <label class="col-5">{{ $students->points }}</label>
                         </div>
-                        <div class="row">
-                            Barcode : {{ $students->barcode }}
+                        <div class="row col-12">
+                            <label class="col-5 fw-bold">Barcode Number :</label>
+                                <label class="col-5">{{ $students->barcode }}</label>
                         </div>
                         <div class="col-sm-12">
 
-                            <div class="row">
+                            <div class="row col-12">
                                 {!! DNS1D::getBarcodeHTML($students->barcode, 'PHARMA') !!}
                             </div>
                         </div>
 
 
                         @if ($students->is_subscribed)
-                            <div>
-                                <button href="/plan" class="btn btn-block btn-success">Top Up</a>
+                            <div class="text-center">
+                                <a href="/plan" class="btn btn-success mx-auto my-2">Recharge your Account Here</a>
 
                             </div>
 
@@ -61,7 +65,8 @@
                                                                 <tr>
                                                                     <th scope="row">{{ $key + 1 }}</th>
                                                                     <td>{{ $tp->punch_time }}</td>
-                                                                    <td>{{ $tp->meal_type == 1 ? 'BreakFast' : 'Meal' }}
+                                                                    <td class="text-center">
+                                                                        <span class="badge badge-sm bg-gradient-{{ $tp->meal_type == 1 ? 'success' : 'primary' }}">{{ $tp->meal_type == 1 ? 'BreakFast' : 'Lunch' }}</span>
                                                                     </td>
 
 
@@ -181,7 +186,7 @@
                                         <div class="card my-4">
                                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
-                                                    <h6 class="text-white text-capitalize ps-3">All Punching Deatils :</h6>
+                                                    <h6 class="text-white text-capitalize ps-3 text-center">Meals Consumed History</h6>
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pb-2">
@@ -209,7 +214,8 @@
                                                                             {{ $ap->punch_time }}</p>
                                                                     </td>
                                                                     <td class="align-middle text-center text-sm">
-                                                                        {{ $ap->meal_type == 1 ? 'BreakFast' : 'Meal' }}
+                                                                        <span
+                                                                        class="badge badge-sm bg-gradient-{{ $ap->meal_type == 1 ? 'success' : 'primary' }}">{{ $ap->meal_type == 1 ? 'BreakFast' : 'Lunch' }}</span>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
@@ -230,7 +236,7 @@
                                         <div class="card my-4">
                                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
-                                                    <h6 class="text-white text-capitalize ps-3">Transaction Details</h6>
+                                                    <h6 class="text-white text-capitalize ps-3 text-center">Recharge History</h6>
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pb-2">
@@ -291,7 +297,7 @@
 
                                                                     <td class="align-middle text-center text-sm">
                                                                         <span
-                                                                            class="badge badge-sm bg-gradient-success">{{ $tp->code }}</span>
+                                                                            class="badge badge-sm {{ $tp->code == "PAYMENT_SUCCESS" ? "bg-gradient-success" : "bg-gradient-danger"}} {{ $tp->code == "PAYMENT_INITIATED" ? "bg-gradient-secondary" : ""}}">{{ str_replace("_"," ",$tp->code) }}</span>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
@@ -305,11 +311,11 @@
                                 </div>
                             </div>
                         @else
-                            <form action="/payment" method="POST">
+                            <form action="/payment" method="POST" class="text-center">
                                 @csrf
-                                <label for="">Please Pay Registration fees</label>
+                                <label for="">Please Pay Annual Registration Fees</label>
                                 <input type="hidden" name="plan" value="1">
-                                <button type="submit" class="btn btn-primary btn-block d-block m-2">Pay Now</button>
+                                <button type="submit" class="btn btn-primary btn-block d-block m-2 mx-auto">Pay Now</button>
                             </form>
                         @endif
                     </div>
@@ -325,28 +331,17 @@
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js">
-        < script src = "https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" >
-            <
-            script src = "https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js" >
-            <
-            script src = "https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js" >
-            <
-            script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js" >
-            <
-            script src = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" >
-            <
-            script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js" >
-            <
-            script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" >
-            <
-            script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js" >
-            <
-            script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js" >
-            <
-            script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js" >
-
-            <
-            script src = "../../../assets/js/core/bootstrap.min.js" >
+        <script src = "https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" >
+            <script src = "https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js" >
+            <script src = "https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js" >
+            <script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js" >
+            <script src = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" >
+            <script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js" >
+            <script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" >
+            <script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js" >
+            <script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js" >
+            <script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js" >
+            <script src = "../../../assets/js/core/bootstrap.min.js" >
     </script>
     <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
 @endsection
