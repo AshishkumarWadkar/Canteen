@@ -32,7 +32,7 @@
 
                         @if ($students->is_subscribed)
                             <div class="row">
-                                <a href="/payment" class="btn btn-block btn-primary">Top Up</a>
+                                <a href="/plan" class="btn btn-block btn-primary">Top Up</a>
 
                             </div>
                             Today Punching Details :
@@ -230,9 +230,7 @@
                                                                 <th
                                                                     class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                                     Amount</th>
-                                                                <th
-                                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                                    Order</th>
+
                                                                 <th
                                                                     class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                                     Transaction Id</th>
@@ -261,14 +259,10 @@
                                                                         <p class="text-xs font-weight-bold mb-0">
                                                                             {{ $tp->amount }}</p>
                                                                     </td>
-                                                                    <td class="align-middle text-center">
-                                                                        <p class="text-xs font-weight-bold mb-0">
-                                                                            {{ $tp->order_id }}
-                                                                        </p>
-                                                                    </td>
+
                                                                     <td class="align-middle">
                                                                         <p class="text-xs font-weight-bold mb-0">
-                                                                            {{ $tp->rzp_paymentid }}
+                                                                            {{ $tp->transactionId }}
                                                                         </p>
 
                                                                     </td>
@@ -280,7 +274,7 @@
 
                                                                     <td class="align-middle text-center text-sm">
                                                                         <span
-                                                                            class="badge badge-sm bg-gradient-success">{{ $tp->payment_status }}</span>
+                                                                            class="badge badge-sm bg-gradient-success">{{ $tp->code }}</span>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach

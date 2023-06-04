@@ -6,8 +6,8 @@
     <div class="container-fluid py-4">
         <div class="row">
             <div class="col-xl-12 col-sm-6 mb-xl-4 mb-4 mb-sm-3">
-            {{-- @foreach ($plans as $key => $p)
-                <form action="/payment-initiate-request" class="col-xl-12 col-sm-6 mb-xl-4 mb-4 mb-sm-3" method="POST" >
+            @foreach ($plans as $key => $p)
+                <form action="/payment" class="col-xl-12 col-sm-6 mb-xl-4 mb-4 mb-sm-3" method="POST" >
                     @csrf
                     <input type="hidden" name="plan" value="{{ $p->id }}">
                     <div class="card text-center">
@@ -22,8 +22,8 @@
                         </div>
                     </div>
                 </form>
-          @endforeach --}}
-          <div class="card text-center">
+          @endforeach
+          {{-- <div class="card text-center">
 
 
               <div class="card-body">
@@ -42,7 +42,7 @@
                                     </form>
                                 </div>
 
-        </div></div>
+        </div></div> --}}
       </div>
     </div>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attendance;
+use App\Models\PhonePe;
 use App\Models\Topup;
 use App\Models\WeeklyMenu;
 use Illuminate\Http\Request;
@@ -48,9 +49,13 @@ class HomeController extends Controller
         }
         else{
             $students = User::find(Auth::id());
-            $topups = Topup::where('user_id',Auth::id())
-            ->join('topup_master','topup_master.id','topup.topup_id')
-            ->orderBy('topup.id','desc')->get();
+            // $topups = Topup::where('user_id',Auth::id())
+            // ->join('topup_master','topup_master.id','topup.topup_id')
+            // ->orderBy('topup.id','desc')->get();
+
+            $topups = PhonePe::where('user_id',Auth::id())
+            ->join('topup_master','topup_master.id','phonepe.plan')
+            ->orderBy('phonepe.id','desc')->get();
             $todays_punch = Attendance::where('user_id',Auth::id())
             ->whereDate('punch_time', Carbon::today())
             ->get();

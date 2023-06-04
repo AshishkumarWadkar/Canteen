@@ -55,7 +55,7 @@ Route::post('/mess/register',[RegisterController::class,'createMess'])->name('me
 // Route::get('/teacher/register',[RegisterController::class,'showTeacherRegisterForm'])->name('teacher.register-view');
 // Route::post('/teacher/register',[RegisterController::class,'createTeacher'])->name('teacher.register');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::any('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin/dashboard',function(){
     return view('admin.dashboard');
 })->middleware('auth:admin');
@@ -92,7 +92,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()
 // Route::post('/payment-initiate-request', [PaymentController::class, 'initiate']);
 // Route::post('/payment-complete', [PaymentController::class, 'complete'])->name('payment.complete');
 
+Route::get('/plan',[PhonePeController::class,'plan']);
 Route::post('/payment',[PhonePeController::class,'initiate']);
+Route::post('/payment_sucess',[PhonePeController::class,'payment_sucess']);
 
 
 Route::any('logout/logout', [LoginController::class, 'logout'])->name('all_logout');
