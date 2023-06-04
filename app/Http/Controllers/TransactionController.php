@@ -16,7 +16,8 @@ class TransactionController extends Controller
     {
         //SELECT SUM(topup.amount) FROM `users` INNER join topup on users.id = topup.user_id where created_by = 2 and topup.order_completed = 1 and topup.topup_id != 1;
 
-         $tran = User::join('topup','users.id','topup.user_id')->where('created_by',\Auth::id())->where('topup_id','!=',1)->get(['name','email','amount','order_id','rzp_paymentid','payment_status']);
+        //  $tran = User::join('topup','users.id','topup.user_id')->where('created_by',\Auth::id())->where('topup_id','!=',1)->get(['name','email','amount','order_id','rzp_paymentid','payment_status']);
+         $tran = User::join('phonepe','users.id','phonepe.user_id')->where('created_by',\Auth::id())->where('plan','!=',1)->get(['name','email','amount','transactionId','code']);
        return view('transactions.index',compact('tran'));
     }
 

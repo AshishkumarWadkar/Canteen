@@ -20,7 +20,6 @@
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Phone</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">OrderId</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">PaymentId</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
 
@@ -36,9 +35,8 @@
                           <td scope="row">{{ $t->name }}</td>
                           <td scope="row">{{ $t->email }}</td>
                           <td scope="row">{{ $t->amount }}</td>
-                          <td scope="row">{{ $t->order_id }}</td>
-                          <td scope="row">{{ $t->rzp_paymentid }}</td>
-                          <td scope="row">{{ $t->payment_status }}</td>
+                          <td scope="row">{{ $t->transactionId }}</td>
+                          <td scope="row">{{ $t->code }}</td>
                         </tr>
 
                         @endforeach
