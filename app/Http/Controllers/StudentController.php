@@ -114,7 +114,7 @@ class StudentController extends Controller
         // return $request->all();
         $request->validate(
             [
-                // 'barcode' => 'required|unique:users,barcode,'.$request->barcode
+                'barcode' => 'required|unique:users,barcode,'.$request->barcode
 
             ],[
 
@@ -169,7 +169,7 @@ class StudentController extends Controller
 
         $this->validate($request, [
             'current_password' => 'required|string',
-            'new_password' => 'required|confirmed|min:8|string'
+            'new_password' => 'required|confirmed|min:6|string'
         ]);
         $auth = Auth::user();
 

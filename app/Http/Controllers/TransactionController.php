@@ -12,13 +12,21 @@ class TransactionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //SELECT SUM(topup.amount) FROM `users` INNER join topup on users.id = topup.user_id where created_by = 2 and topup.order_completed = 1 and topup.topup_id != 1;
 
         //  $tran = User::join('topup','users.id','topup.user_id')->where('created_by',\Auth::id())->where('topup_id','!=',1)->get(['name','email','amount','order_id','rzp_paymentid','payment_status']);
-         $tran = User::join('phonepe','users.id','phonepe.user_id')->where('created_by',\Auth::id())->where('plan','!=',1)->get(['name','email','amount','transactionId','code','phonepe.created_at']);
-       return view('transactions.index',compact('tran'));
+         $tran = User::join('phonepe','users.id','phonepe.user_id')->where('created_by',\Auth::id())->where('plan','!=',1);
+
+         if(isset($request->from) && isset($request->to))
+         {
+                 $tran = $tran->whereDate('phonepe.created_at', '>=', $request->from);
+                 $tran = $tran->whereDate('phonepe.created_at', '<=', $request->to);
+         }
+         $tran = $tran->get(['name','email','amount','transactionId','code','phonepe.created_at']);
+         $sum = $tran->where('code','PAYMENT_SUCCESS')->sum("amount");
+       return view('transactions.index',compact('tran','sum'));
     }
 
     /**

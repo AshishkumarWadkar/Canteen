@@ -10,6 +10,22 @@
                     <h6 class="text-white text-capitalize ps-3">All Transaction History </h6>
                   </div>
                 </div>
+                <div class="text-end mx-3 my-2 row align-item-center">
+                    <div class="col-6">
+                        <label class="text-uppercase text-secondary font-weight-bolder" for="from" aria-autocomplete="false">Total Successfuly Amount : {{ $sum }}</label>
+
+                    </div>
+                    <div class="col-6">
+                        <form action="{{ route('transactions.index') }}">
+                        <label class="text-uppercase text-secondary font-weight-bolder" for="from" aria-autocomplete="false">From</label>
+                        <input type="date" class="" id="from" name="from" required value="{{ isset($fromdate) ? $fromdate : "" }}">
+                        <label class="text-uppercase text-secondary font-weight-bolder" for="to">To</label>
+                        <input type="date" class="" id="to" name="to" required value="{{ isset($todate) ? $todate : "" }}">
+                        <button class="btn btn-sm btn-success mt-2" type="submit">Filter</button>
+                        {{-- <a href=""><button class="btn btn-sm btn-info mt-2">Back</button></a> --}}
+                    </form>
+                    </div>
+                </div>
 
                 <div class="card-body pb-2">
                   <div class="table-responsive">

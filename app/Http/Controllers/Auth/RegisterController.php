@@ -58,13 +58,14 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => 'required|regex:/^[0-9]{10}$/',
+            'email' => 'required|regex:/^[0-9]{10}$/|unique:users,email',
             'password' => ['required', 'string', 'min:6', 'confirmed'],
             'created_by' => 'required|not_in:0',
             'role' => 'required|not_in:0',
         ],
         [
             'email.regex'=>"Invalid Number",
+            'email.unique'=>"Phone Number Already Exists",
             'created_by.not_in' => 'Please Select Canteen',
             'role.not_in' => 'Please Select Role',
     ]);
@@ -78,6 +79,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //  $data['email'];
+        // try {
+            // $client = new \GuzzleHttp\Client();
+            // $response = $client->request('POST', 'https://www.fast2sms.com/dev/bulkV2', [
+            //     'headers' => [
+            //         "authorization"=>"Zt6WfbaYPApCVylwmzX0QTUjBeE41L53xgnOKh8ckJ7iGuDvr2JzlABp52DacG7MfoZ6smUv0NtqduES",
+            //         "Content-Type"=>"application/json"
+            //     ],
+
+            //     'body' => '{
+            //         "route":"dlt",
+            //         "sender_id":"ECANTN",
+            //         "message":"155942",
+            //         "variables_values":"",
+            //         "flash":0,
+            //         "numbers":'.(string)$data["email"].'",
+            //     }',
+            // ]);
+
+        // } catch (\Throwable $th) {
+        //     //throw $th;
+        // }
+
 
         return User::create([
             'name' => $data['name'],

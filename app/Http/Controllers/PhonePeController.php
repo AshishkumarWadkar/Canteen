@@ -13,28 +13,42 @@ class PhonePeController extends Controller
     //
     public function initiate(Request $request)
     {
+
+        //dev
+        // $salt="099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
+        // $merchant_id = "PGTESTPAYUAT";
+        // $index=1;
+        // $url = "https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/pay";
+
+
+        //live
+        $salt="021d2301-661d-4d5a-97c4-1c298ad19f66";
+        $merchant_id = "TAVAONLINE";
+        $index=1;
+        $url = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
+
+
         $plan =  \DB::table('topup_master')->select('id','amount', 'name')->where('id', '=',$request->plan)->first();
 
-        $salt="099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
-        $index=1;
 
         $instrument = new \stdClass();
         $instrument->type = "PAY_PAGE";
 
         $request_body = new \stdClass();
-        $request_body->merchantId = "PGTESTPAYUAT";
+        $request_body->merchantId = $merchant_id;
         $request_body->merchantTransactionId = \Str::random(18);
         $request_body->merchantUserId = "MUID".\Str::random(5);
         $request_body->amount = $plan->amount * 100;
-        $request_body->redirectUrl = "http://127.0.0.1:8000/payment_sucess";
-        $request_body->redirectMode = "get";
-        $request_body->callbackUrl = "http://127.0.0.1:8000/payment_sucess";
-        $request_body->mobileNumber = "9999999999";
+        $request_body->redirectUrl = "https://127.0.0.1:8000/payment_sucess";
+        $request_body->redirectMode = "POST";
+        $request_body->callbackUrl = "https://127.0.0.1:8000/payment_sucess";
+        $request_body->mobileNumber = "9130348229";
         $request_body->paymentInstrument = $instrument;
+        // return json_encode($request_body);
         $base64 = base64_encode(json_encode($request_body));
         $sha256 = hash('sha256',$base64."/pg/v1/pay".$salt).'###'.$index;
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('POST', 'https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/pay', [
+        $response = $client->request('POST', $url, [
           'body' => '{"request":"'.$base64.'"}',
           'headers' => [
             'Content-Type' => 'application/json',
@@ -42,10 +56,10 @@ class PhonePeController extends Controller
             'accept' => 'application/json',
           ],
         ]);
-       $res = json_decode($response->getBody());
+        $res = json_decode($response->getBody());
         \DB::table('phonepe')->insert([
             'user_id' => \Auth::id(),
-            'transactionId' => $res->data->transactionId,
+            'transactionId' => $res->data->transactionId ?? null,
             'merchantTransactionId' => $res->data->merchantTransactionId,
             'plan' => $request->plan,
 
@@ -66,8 +80,15 @@ class PhonePeController extends Controller
              $phonepe->providerReferenceId = $request->providerReferenceId;
              $phonepe->code = $request->code;
              $phonepe->checksum = $request->checksum;
+
+             $phonepe->percent = env('PHONEPE_CHARGE');
+             $phonepe->tax = env("TAX");
+             $phonepe->total_deduction = (($request->amount / 100) * (env('PHONEPE_CHARGE') / 100 )) * env("TAX");
+             $phonepe->actual_amount = ($request->amount / 100) -  (($request->amount / 100) * (env('PHONEPE_CHARGE') / 100 )) * env("TAX");
              $phonepe->save();
              $user = User::find($phonepe->user_id);
+
+
 
              if($phonepe->plan == 1)
              {
@@ -83,7 +104,7 @@ class PhonePeController extends Controller
         }
         else
         {
-            sweetalert("Payment Done Successfully")->addError();
+            sweetalert("Payment Failed ")->addError();
         }
 
         return redirect('/home');

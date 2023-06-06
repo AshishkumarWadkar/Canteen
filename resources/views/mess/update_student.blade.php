@@ -17,6 +17,13 @@
                                 {{ session('success') }}
                             </div>
                         @endif
+                        @if (count($errors) > 0)
+                        @foreach ($errors->all() as $error)
+                            @php
+                                toastr()->addError($error);
+                            @endphp
+                        @endforeach
+                    @endif
 
                         <form class="" method="POST" action="{{ route('student.update',$student->id) }}">
                             <label class="text-danger">Verify Details With User ID Cards</label>

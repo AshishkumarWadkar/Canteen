@@ -60,8 +60,10 @@ function setsite()
     console.log(branch);
     switch (branch) {
         case "kolhapur":
-            a.href = "https://dev.tavassolutions.com/login";
-            b.href = "https://dev.tavassolutions.com/register";
+            // a.href = "https://dev.tavassolutions.com/login";
+            // b.href = "https://dev.tavassolutions.com/register";
+            a.href = "/login";
+            b.href = "/register";
 
             break;
             case "sangali":

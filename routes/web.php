@@ -76,6 +76,7 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::resource('deductions',DeductionController::class);
     Route::resource('transactions',TransactionController::class);
     Route::get('attendance_all',[AttendanceController::class,'all'])->name('attendance_all');
+
 });
 
 Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()
