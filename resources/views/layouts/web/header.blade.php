@@ -68,8 +68,8 @@ function setsite()
             break;
             case "sangali":
 
-                a.href = "https://tavassolutions.com/login";
-                b.href = "https://tavassolutions.com/register";
+                a.href = "https://sb.tavassolutions.com/login";
+                b.href = "https://sb.tavassolutions.com/register";
             break;
 
         default:

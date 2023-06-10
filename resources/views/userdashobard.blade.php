@@ -14,15 +14,15 @@
                         </div>
                         <div class="row col-12">
                             <label class="col-5 fw-bold">Phone :</label>
-                                <label class="col-5">{{ $students->email }}</label>
+                            <label class="col-5">{{ $students->email }}</label>
                         </div>
                         <div class="row col-12">
                             <label class="col-5 fw-bold">Account Balance :</label>
-                                <label class="col-5">{{ $students->points }}</label>
+                            <label class="col-5">{{ $students->points }}</label>
                         </div>
                         <div class="row col-12">
                             <label class="col-5 fw-bold">Barcode Number :</label>
-                                <label class="col-5">{{ $students->barcode }}</label>
+                            <label class="col-5">{{ $students->barcode }}</label>
                         </div>
                         <div class="col-sm-12">
 
@@ -45,7 +45,8 @@
                                         <div class="card my-4">
                                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
-                                                    <h6 class="text-white text-capitalize ps-3 text-center">Meals Consumed Today
+                                                    <h6 class="text-white text-capitalize ps-3 text-center">Meals Consumed
+                                                        Today
                                                     </h6>
                                                 </div>
                                             </div>
@@ -66,7 +67,8 @@
                                                                     <th scope="row">{{ $key + 1 }}</th>
                                                                     <td>{{ $tp->punch_time }}</td>
                                                                     <td class="text-center">
-                                                                        <span class="badge badge-sm bg-gradient-{{ $tp->meal_type == 1 ? 'success' : 'primary' }}">{{ $tp->meal_type == 1 ? 'BreakFast' : 'Lunch' }}</span>
+                                                                        <span
+                                                                            class="badge badge-sm bg-gradient-{{ $tp->meal_type == 1 ? 'success' : 'primary' }}">{{ $tp->meal_type == 1 ? 'BreakFast' : 'Lunch' }}</span>
                                                                     </td>
 
 
@@ -186,7 +188,8 @@
                                         <div class="card my-4">
                                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
-                                                    <h6 class="text-white text-capitalize ps-3 text-center">Meals Consumed History</h6>
+                                                    <h6 class="text-white text-capitalize ps-3 text-center">Meals Consumed
+                                                        History</h6>
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pb-2">
@@ -215,7 +218,7 @@
                                                                     </td>
                                                                     <td class="align-middle text-center text-sm">
                                                                         <span
-                                                                        class="badge badge-sm bg-gradient-{{ $ap->meal_type == 1 ? 'success' : 'primary' }}">{{ $ap->meal_type == 1 ? 'BreakFast' : 'Lunch' }}</span>
+                                                                            class="badge badge-sm bg-gradient-{{ $ap->meal_type == 1 ? 'success' : 'primary' }}">{{ $ap->meal_type == 1 ? 'BreakFast' : 'Lunch' }}</span>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
@@ -236,7 +239,8 @@
                                         <div class="card my-4">
                                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
-                                                    <h6 class="text-white text-capitalize ps-3 text-center">Recharge History</h6>
+                                                    <h6 class="text-white text-capitalize ps-3 text-center">Recharge History
+                                                    </h6>
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pb-2">
@@ -285,7 +289,7 @@
 
                                                                     <td class="align-middle">
                                                                         <p class="text-xs font-weight-bold mb-0">
-                                                                            {{ $tp->transactionId }}
+                                                                            {{ $tp->merchantTransactionId }}
                                                                         </p>
 
                                                                     </td>
@@ -297,7 +301,7 @@
 
                                                                     <td class="align-middle text-center text-sm">
                                                                         <span
-                                                                            class="badge badge-sm {{ $tp->code == "PAYMENT_SUCCESS" ? "bg-gradient-success" : "bg-gradient-danger"}} {{ $tp->code == "PAYMENT_INITIATED" ? "bg-gradient-secondary" : ""}}">{{ str_replace("_"," ",$tp->code) }}</span>
+                                                                            class="badge badge-sm {{ $tp->code == 'PAYMENT_SUCCESS' ? 'bg-gradient-success' : 'bg-gradient-danger' }} {{ $tp->code == 'PAYMENT_INITIATED' ? 'bg-gradient-secondary' : '' }}">{{ str_replace('_', ' ', $tp->code) }}</span>
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
@@ -313,9 +317,10 @@
                         @else
                             <form action="/payment" method="POST" class="text-center">
                                 @csrf
-                                <label for="">Please Pay Annual Registration Fees</label>
+                                <strong>Please pay  annual registration fee to activate your account</strong>
                                 <input type="hidden" name="plan" value="1">
-                                <button type="submit" class="btn btn-primary btn-block d-block m-2 mx-auto">Pay Now</button>
+                                <button type="submit" class="btn btn-primary btn-block d-block m-2 mx-auto">Pay
+                                    Now</button>
                             </form>
                         @endif
                     </div>
@@ -331,7 +336,7 @@
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js">
-        <script src = "https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" >
+        < script src = "https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" >
             <script src = "https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js" >
             <script src = "https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js" >
             <script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js" >

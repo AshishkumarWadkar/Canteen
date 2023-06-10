@@ -15,17 +15,17 @@ class PhonePeController extends Controller
     {
 
         //dev
-        // $salt="099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
-        // $merchant_id = "PGTESTPAYUAT";
-        // $index=1;
-        // $url = "https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/pay";
+        $salt="099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
+        $merchant_id = "PGTESTPAYUAT";
+        $index=1;
+        $url = "https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/pay";
 
 
         //live
-        $salt="021d2301-661d-4d5a-97c4-1c298ad19f66";
-        $merchant_id = "TAVAONLINE";
-        $index=1;
-        $url = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
+        // $salt="021d2301-661d-4d5a-97c4-1c298ad19f66";
+        // $merchant_id = "TAVAONLINE";
+        // $index=1;
+        // $url = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
 
 
         $plan =  \DB::table('topup_master')->select('id','amount', 'name')->where('id', '=',$request->plan)->first();
@@ -39,9 +39,9 @@ class PhonePeController extends Controller
         $request_body->merchantTransactionId = \Str::random(18);
         $request_body->merchantUserId = "MUID".\Str::random(5);
         $request_body->amount = $plan->amount * 100;
-        $request_body->redirectUrl = "https://127.0.0.1:8000/payment_sucess";
+        $request_body->redirectUrl = env("APP_URL")."payment_sucess";
         $request_body->redirectMode = "POST";
-        $request_body->callbackUrl = "https://127.0.0.1:8000/payment_sucess";
+        $request_body->callbackUrl = env("APP_URL")."payment_sucess";
         $request_body->mobileNumber = "9130348229";
         $request_body->paymentInstrument = $instrument;
         // return json_encode($request_body);
@@ -64,8 +64,12 @@ class PhonePeController extends Controller
             'plan' => $request->plan,
 
         ]);
-       $url = $res->data->instrumentResponse->redirectInfo->url;
+          $url = $res->data->instrumentResponse->redirectInfo->url;
 
+    //    return redirect()->away($url);
+
+
+        return redirect()->away(($url));
         return view('phonepe.payment',compact("url"));
 
     }
@@ -73,9 +77,10 @@ class PhonePeController extends Controller
     public function payment_sucess(Request $request)
     {
 
+        // return $request->all();
         if($request->code =="PAYMENT_SUCCESS")
         {
-             $phonepe = PhonePe::where('transactionId',$request->providerReferenceId)->where('merchantTransactionId',$request->transactionId)->first();
+             $phonepe = PhonePe::where('merchantTransactionId',$request->transactionId)->first();
              $phonepe->amount = $request->amount / 100;
              $phonepe->providerReferenceId = $request->providerReferenceId;
              $phonepe->code = $request->code;
@@ -104,7 +109,13 @@ class PhonePeController extends Controller
         }
         else
         {
-            sweetalert("Payment Failed ")->addError();
+            $phonepe = PhonePe::where('merchantTransactionId',$request->transactionId)->first();
+            $phonepe->amount = $request->amount / 100;
+            $phonepe->providerReferenceId = $request->providerReferenceId;
+            $phonepe->code = $request->code;
+            $phonepe->save();
+
+            sweetalert()->addError("Payment Failed ");
         }
 
         return redirect('/home');
@@ -115,5 +126,28 @@ class PhonePeController extends Controller
     {
         $plans = TopupMaster::all()->where('is_subscription_plan',0);
         return view('razorpay.razorpayView',compact('plans'));
+    }
+    function check_status()
+    {
+
+        $salt="099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
+        $merchant_id = "PGTESTPAYUAT";
+        $index=1;
+        $url = "https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/status";
+        $transaction_id = "sqXa4iXueOk4RZGZ0M";
+
+        $sha256 = hash('sha256',"/pg/v1/status/".$merchant_id.'/'.$transaction_id.$salt).'###'.$index;
+        $client = new \GuzzleHttp\Client();
+
+        $response = $client->request('GET','https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/status/'.$merchant_id.'/'.$transaction_id, [
+        'headers' => [
+            'Content-Type' => 'application/json',
+            'X-MERCHANT-ID' => "$merchant_id",
+            'X-VERIFY' => "$sha256",
+            'accept' => 'application/json',
+        ],
+        ]);
+
+        return $response->getBody();
     }
 }

@@ -101,9 +101,10 @@ class AttendanceController extends Controller
             toastr()->positionClass('toast-top-center')->addError('Insufficient Balance, Please Recharge !');
             return redirect()->back();
         }
-        if($student->points < 200)
+        if($student->points < 300)
         {
-
+            $client = new \GuzzleHttp\Client();
+            $response = $client->request('GET','https://www.fast2sms.com/dev/bulkV2?authorization=Zt6WfbaYPApCVylwmzX0QTUjBeE41L53xgnOKh8ckJ7iGuDvr2JzlABp52DacG7MfoZ6smUv0NtqduES&route=dlt&sender_id=ECANTN&message=155943&variables_values=&flash=0&numbers='.$student->email);
             toastr()->positionClass('toast-top-center')->addWarning('Low balance 🍕');
         }
 

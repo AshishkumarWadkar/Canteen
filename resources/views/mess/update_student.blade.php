@@ -71,7 +71,7 @@
                                 </select>
                             </div>
                             @endif
-                            <div class="input-group input-group-outline mb-3">
+                            {{-- <div class="input-group input-group-outline mb-3">
                                 <label class="col-5" for="is_subscribed">Status: </label>
                                 <select class="form-control" id="is_subscribed" name="is_subscribed" required>
                                     <option value="">Select Status</option>
@@ -80,7 +80,7 @@
 
 
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="input-group input-group-outline mb-3">
                                 <label class="col-5" for="phone">Phone : </label>
                                 <input type="text" class="form-control" id="phone" placeholder="10 Digits" name="phone" value="{{ $student->email }}"  maxlength="10">

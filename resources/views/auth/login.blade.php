@@ -204,6 +204,9 @@
                                         <a href="register"
                                             class="text-primary text-gradient font-weight-bold">Register Here</a>
                                     </p>
+                                    <a class="btn btn-link" href="/forget-password">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
                                 </form>
                             </div>
                         </div>

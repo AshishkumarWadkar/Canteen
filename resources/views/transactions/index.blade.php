@@ -14,13 +14,15 @@
                     <div class="col-6">
                         <label class="text-uppercase text-secondary font-weight-bolder" for="from" aria-autocomplete="false">Total Successfuly Amount : {{ $sum }}</label>
 
+
                     </div>
                     <div class="col-6">
                         <form action="{{ route('transactions.index') }}">
+                            <input type="week" name="week" id="">
                         <label class="text-uppercase text-secondary font-weight-bolder" for="from" aria-autocomplete="false">From</label>
-                        <input type="date" class="" id="from" name="from" required value="{{ isset($fromdate) ? $fromdate : "" }}">
+                        <input type="date" class="" id="from" name="from"  value="{{ isset($fromdate) ? $fromdate : "" }}">
                         <label class="text-uppercase text-secondary font-weight-bolder" for="to">To</label>
-                        <input type="date" class="" id="to" name="to" required value="{{ isset($todate) ? $todate : "" }}">
+                        <input type="date" class="" id="to" name="to"  value="{{ isset($todate) ? $todate : "" }}">
                         <button class="btn btn-sm btn-success mt-2" type="submit">Filter</button>
                         {{-- <a href=""><button class="btn btn-sm btn-info mt-2">Back</button></a> --}}
                     </form>

@@ -3,10 +3,12 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\DeductionController;
+use App\Http\Controllers\ForgetController;
 use App\Http\Controllers\MenuMasterController;
 use App\Http\Controllers\MessController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PhonePeController;
+use App\Http\Controllers\SettlementController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\WeeklyMenuController;
@@ -30,6 +32,9 @@ use App\Http\Controllers\Auth\RegisterController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+Route::get('/passwordhash/{value}', function ($value) {
+    return \Hash::make($value);
 });
 
 Auth::routes();
@@ -76,6 +81,8 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::resource('deductions',DeductionController::class);
     Route::resource('transactions',TransactionController::class);
     Route::get('attendance_all',[AttendanceController::class,'all'])->name('attendance_all');
+    Route::get("/settlement",[SettlementController::class,'index'])->name('settlement.index');
+    Route::post("/settlement/request",[SettlementController::class,'requested'])->name('settlement.request');
 
 });
 
@@ -95,7 +102,8 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()
 
 Route::get('/plan',[PhonePeController::class,'plan']);
 Route::post('/payment',[PhonePeController::class,'initiate']);
-Route::post('/payment_sucess',[PhonePeController::class,'payment_sucess']);
+Route::any('/payment_sucess',[PhonePeController::class,'payment_sucess']);
+Route::any('/check_status',[PhonePeController::class,'check_status']);
 
 
 Route::any('logout/logout', [LoginController::class, 'logout'])->name('all_logout');
@@ -121,3 +129,8 @@ Route::get('how_to_register', function(){
 
 Route::get('/change-password', [StudentController::class, 'changePassword'])->name('changePassword');
 Route::post('/change-password', [StudentController::class, 'changePasswordSave'])->name('postChangePassword');
+Route::get('/forget-password', [ForgetController::class, 'forget_password']);
+Route::post('/sendotp', [ForgetController::class, 'sendotp'])->name('sendotp');
+Route::post('/verifyotp', [ForgetController::class, 'verifyotp'])->name('verifyotp');
+
+Route::get("/routeclear",function (){ \Artisan::call("route:clear"); dd("done");});
