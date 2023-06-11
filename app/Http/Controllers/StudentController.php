@@ -101,8 +101,9 @@ class StudentController extends Controller
         $division = Division::all();
         $student = User::find($id);
         $student_recharge_histotry = Phonepe::with('user')->where('user_id', $id)->where('plan', '!=', 1)->orderBy('id', 'DESC')->get();
-        $student_recharge_histotry_sum = Phonepe::with('user')->where('user_id', $id)->where('plan', '!=', 1)->where('code','PAYMENT_SUCCESS')->sum('amount');;
-        return view('mess.update_student',compact('student','class','division','student_recharge_histotry','student_recharge_histotry_sum'));
+        $student_recharge_histotry_sum = Phonepe::with('user')->where('user_id', $id)->where('plan', '!=', 1)->where('code','PAYMENT_SUCCESS')->sum('amount');
+        $prev_point = PreviousPoints::where('user_id',$id)->get();
+        return view('mess.update_student',compact('student','class','division','student_recharge_histotry','student_recharge_histotry_sum','prev_point'));
 
     }
 
@@ -154,19 +155,16 @@ class StudentController extends Controller
         $student->save();
 
         //previous points
-if($request->new_amt != 0)
-{
+        if($request->new_amt != 0)
+        {
 
-    $prev = new PreviousPoints;
-    $prev->mess_id = \Auth::id();
-    $prev->user_id = $id;
-    $prev->points = $request->new_amt;
-    $prev->points = $request->new_amt;
-    $prev->save();
-}
-
-
-
+            $prev = new PreviousPoints;
+            $prev->mess_id = \Auth::id();
+            $prev->user_id = $id;
+            $prev->points = $request->new_amt;
+            $prev->points = $request->new_amt;
+            $prev->save();
+        }
 
         toastr()->addSuccess('User Updated Sucessfully');
         return redirect()->back();

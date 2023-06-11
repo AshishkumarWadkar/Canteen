@@ -18,7 +18,7 @@
                             </div>
                         @endif
 
-                        <form class="needs-validation" method="POST" action="{{ route('weekly_menu.store') }}">
+                        <form class="" method="POST" action="{{ route('weekly_menu.store') }}" >
                             @csrf
 
 
@@ -48,7 +48,7 @@
                             <div class="input-group input-group-outline mb-3 d-flex">
                                 <label class="col-5" for="class">Select Monday Menu </label>
                                 <select class="form-control mx-1 select" id="b_monday" name="b_monday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
                                         <option value="{{ $m->id }}"
                                             >
@@ -56,7 +56,7 @@
                                     @endforeach
                                 </select>
                                 <select class="form-control mx-1 select" id="monday" name="monday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}"
                                            >{{ $m->name }}
@@ -67,14 +67,14 @@
                             <div class="input-group input-group-outline mb-3 d-flex">
                                 <label class="col-5" for="class">Select Tuesday Menu </label>
                                 <select class="form-control mx-1 select" id="b_tuesday" name="b_tuesday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
                                         <option value="{{ $m->id }}">
                                             {{ $m->name }}</option>
                                     @endforeach
                                 </select>
                                 <select class="form-control mx-1 select" id="tuesday" name="tuesday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}">
                                             {{ $m->name }}</option>
@@ -84,14 +84,14 @@
                             <div class="input-group input-group-outline mb-3 d-flex">
                                 <label class="col-5" for="class">Select Wednesday Menu </label>
                                 <select class="form-control mx-1 select" id="b_wednesday" name="b_wednesday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
                                         <option value="{{ $m->id }}">
                                             {{ $m->name }}</option>
                                     @endforeach
                                 </select>
                                 <select class="form-control mx-1 select" id="wednesday" name="wednesday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}">
                                             {{ $m->name }}</option>
@@ -101,14 +101,14 @@
                             <div class="input-group input-group-outline mb-3 d-flex">
                                 <label class="col-5" for="class">Select Thursday Menu </label>
                                 <select class="form-control mx-1 select" id="b_thursday" name="b_thursday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
                                         <option value="{{ $m->id }}">
                                             {{ $m->name }}</option>
                                     @endforeach
                                 </select>
                                 <select class="form-control mx-1 select" id="thursday" name="thursday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}">
                                             {{ $m->name }}</option>
@@ -118,14 +118,14 @@
                             <div class="input-group input-group-outline mb-3 d-flex">
                                 <label class="col-5" for="class">Select Friday Menu </label>
                                 <select class="form-control mx-1 select" id="b_friday" name="b_friday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
                                         <option value="{{ $m->id }}">
                                             {{ $m->name }}</option>
                                     @endforeach
                                 </select>
                                 <select class="form-control mx-1 select" id="friday" name="friday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}">
                                             {{ $m->name }}</option>
@@ -135,14 +135,14 @@
                             <div class="input-group input-group-outline mb-3 d-flex">
                                 <label class="col-5" for="class">Select Saturday Menu </label>
                                 <select class="form-control mx-1 select" id="b_saturday" name="b_saturday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
                                         <option value="{{ $m->id }}">
                                             {{ $m->name }}</option>
                                     @endforeach
                                 </select>
                                 <select class="form-control mx-1 select" id="saturday" name="saturday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}">
                                             {{ $m->name }}</option>
@@ -152,14 +152,14 @@
                             <div class="input-group input-group-outline mb-3 d-flex">
                                 <label class="col-5" for="class">Select Sunday Menu </label>
                                 <select class="form-control mx-1 select" id="b_sunday" name="b_sunday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
                                         <option value="{{ $m->id }}">
                                             {{ $m->name }}</option>
                                     @endforeach
                                 </select>
                                 <select class="form-control mx-1 select" id="sunday" name="sunday" required>
-                                    <option>Select menu</option>
+                                    <option value="" disabled selected >Select menu</option>
                                     @foreach ($menu as $key => $m)
                                         <option value="{{ $m->id }}">
                                             {{ $m->name }}</option>

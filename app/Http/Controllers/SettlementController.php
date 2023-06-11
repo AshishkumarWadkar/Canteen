@@ -45,4 +45,14 @@ class SettlementController extends Controller
         sweetalert("Amount Requested");
         return redirect()->route("settlement.index");
     }
+    public function pay(Request $request,$id)
+    {
+        $set = Settlement::find($id);
+        $set->status = 2;
+        $set->paid_at = date('Y-m-d H:i:s');
+        $set->save();
+
+        sweetalert("Amount Paid");
+        return redirect()->route("settlement.index");
+    }
 }
