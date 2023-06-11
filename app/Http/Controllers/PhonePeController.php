@@ -62,6 +62,8 @@ class PhonePeController extends Controller
             'transactionId' => $res->data->transactionId ?? null,
             'merchantTransactionId' => $res->data->merchantTransactionId,
             'plan' => $request->plan,
+            'created_at' => Carbon::now(),
+
 
         ]);
           $url = $res->data->instrumentResponse->redirectInfo->url;

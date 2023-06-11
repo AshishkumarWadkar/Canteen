@@ -32,7 +32,7 @@ class TransactionController extends Controller
                  $tran = $tran->whereDate('phonepe.created_at', '>=', $request->from);
                  $tran = $tran->whereDate('phonepe.created_at', '<=', $request->to);
          }
-         $tran = $tran->get(['name','email','amount','transactionId','code','phonepe.created_at']);
+         $tran = $tran->get(['name','email','amount','providerReferenceId','code','phonepe.created_at']);
          $sum = $tran->where('code','PAYMENT_SUCCESS')->sum("amount");
        return view('transactions.index',compact('tran','sum'));
     }
