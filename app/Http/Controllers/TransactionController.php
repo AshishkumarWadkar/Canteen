@@ -24,7 +24,7 @@ class TransactionController extends Controller
 
         //  $tran = User::join('topup','users.id','topup.user_id')->where('created_by',\Auth::id())->where('topup_id','!=',1)->get(['name','email','amount','order_id','rzp_paymentid','payment_status']);
          $tran = User::join('phonepe','users.id','phonepe.user_id')->where('created_by',\Auth::id())
-        //  ->where('plan','!=',1)
+         ->where('plan','!=',1)
          ;
 
          if(isset($request->from) && isset($request->to))

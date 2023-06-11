@@ -101,6 +101,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
                                                     @isset($todays_punch)
                                                         @foreach ($todays_punch as $key => $tp)
                                                             <tr>
@@ -114,7 +115,7 @@
                                                                 </td>
                                                                 <td class="text-center">
                                                                     <p class="text-xs font-weight-bold mb-0">
-                                                                        {{ \Carbon\Carbon::parse($tp->punch_time)->format('d-m-Y h:m A') }}
+                                                                        {{ $tp->punch_time }}
                                                                     </p>
                                                                 </td>
                                                                 <td  class="text-center">
