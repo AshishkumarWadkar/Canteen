@@ -67,7 +67,10 @@ class MessController extends Controller
      */
     public function edit($id)
     {
-        return "hii";
+        $mess = Mess::find($id);
+
+        return view('admin.mess_edit',compact('mess'));
+
     }
 
     /**
