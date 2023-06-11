@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PreviousPoints;
 use Illuminate\Http\Request;
 use App\Models\Classes;
 use App\Models\User;
@@ -9,7 +10,7 @@ use App\Models\PhonePe;
 use App\Models\Division;
 use Auth;
 use App\Http\Requests\UserRequest;
-
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 class StudentController extends Controller
 {
@@ -117,7 +118,7 @@ class StudentController extends Controller
         // return $request->all();
         $request->validate(
             [
-                'barcode' => 'required|unique:users,barcode,'.$request->barcode
+                // 'barcode' => 'required|unique:users,barcode,'.$request->barcode
 
             ],[
 
@@ -151,6 +152,22 @@ class StudentController extends Controller
         $student->points =  $student->points + $request->new_amt;
         // $student->password = \Hash::make($request->phone);
         $student->save();
+
+        //previous points
+if($request->new_amt != 0)
+{
+
+    $prev = new PreviousPoints;
+    $prev->mess_id = \Auth::id();
+    $prev->user_id = $id;
+    $prev->points = $request->new_amt;
+    $prev->points = $request->new_amt;
+    $prev->save();
+}
+
+
+
+
         toastr()->addSuccess('User Updated Sucessfully');
         return redirect()->back();
 
