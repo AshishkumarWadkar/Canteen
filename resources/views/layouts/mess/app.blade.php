@@ -29,12 +29,12 @@
 
     {{-- css --}}
 
-    <link id="pagestyle" href="{{ asset('assets/css/material-dashboard.css') }}?v=3.1.0" rel="stylesheet">
-    <link href="{{ asset('assets/css/material-dashboard.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/material-dashboard.css.map') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/material-dashboard.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet"> --}}
+    <link id="pagestyle" href="{{asset('assets/css/material-dashboard.css') }}?v=3.1.0" rel="stylesheet">
+    <link href="{{asset('assets/css/material-dashboard.css') }}" rel="stylesheet">
+    <link href="{{asset('assets/css/material-dashboard.css.map') }}" rel="stylesheet">
+    <link href="{{asset('assets/css/material-dashboard.min.css') }}" rel="stylesheet">
+    <link href="{{asset('assets/css/nucleo-icons.css') }}" rel="stylesheet">
+    {{-- <link href="{{asset('assets/css/nucleo-svg.css') }}" rel="stylesheet"> --}}
     {{-- css --}}
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -53,8 +53,11 @@
 
 
     {{-- editable css --}}
-    <link href="{{ asset('assets/css/custome.css') }}" rel="stylesheet">
+    <link href="{{asset('assets/css/custome.css') }}" rel="stylesheet">
     {{-- editable css --}}
+
+    <script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
 
 
 </head>
@@ -312,18 +315,15 @@
 
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-<script src="{{ asset('assets/js/core/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
-<script src="{{ asset('assets/js/material-dashboard.js') }}"></script>
-{{-- <script src="{{ asset('assets/js/material-dashboard.js.map')}}"></script> --}}
-{{-- <script src="{{ asset('assets/js/material-dashboard.min.js')}}"></script> --}}
+<script src="{{asset('assets/js/core/bootstrap.bundle.min.js') }}"></script>
+<script src="{{asset('assets/js/core/bootstrap.min.js') }}"></script>
+<script src="{{asset('assets/js/core/popper.min.js') }}"></script>
+<script src="{{asset('assets/js/material-dashboard.js') }}"></script>
+{{-- <script src="{{asset('assets/js/material-dashboard.js.map')}}"></script> --}}
+{{-- <script src="{{asset('assets/js/material-dashboard.min.js')}}"></script> --}}
 
-<script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-<script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+<script src="{{asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
 
-{{-- <script src="../assets/js/core/bootstrap.min.js"></script>
-  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script> --}}
 
   <script>
     var win = navigator.platform.indexOf('Win') > -1;

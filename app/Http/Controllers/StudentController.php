@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Classes;
 use App\Models\User;
+use App\Models\PhonePe;
 use App\Models\Division;
 use Auth;
 use App\Http\Requests\UserRequest;
@@ -98,7 +99,9 @@ class StudentController extends Controller
         $class = Classes::all();
         $division = Division::all();
         $student = User::find($id);
-        return view('mess.update_student',compact('student','class','division'));
+        $student_recharge_histotry = Phonepe::with('user')->where('user_id', $id)->where('plan', '!=', 1)->orderBy('id', 'DESC')->get();
+        $student_recharge_histotry_sum = Phonepe::with('user')->where('user_id', $id)->where('plan', '!=', 1)->where('code','PAYMENT_SUCCESS')->sum('amount');;
+        return view('mess.update_student',compact('student','class','division','student_recharge_histotry','student_recharge_histotry_sum'));
 
     }
 

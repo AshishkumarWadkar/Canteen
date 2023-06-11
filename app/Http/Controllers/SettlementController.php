@@ -13,7 +13,7 @@ class SettlementController extends Controller
     {
         $from_date = $request->from ?? null;
         $to_date = $request->to ?? null;
-        $tran = User::join('phonepe','users.id','phonepe.user_id')->where('created_by',\Auth::id())  //  ->where('plan','!=',1)
+        $tran = User::join('phonepe','users.id','phonepe.user_id')->where('created_by',\Auth::id())->where('plan','!=',1)->where('phonepe.code','PAYMENT_SUCCESS')
         ;
         $amount=0;
         $payable=0;
