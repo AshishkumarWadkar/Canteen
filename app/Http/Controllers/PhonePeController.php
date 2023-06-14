@@ -79,7 +79,7 @@ class PhonePeController extends Controller
     public function payment_sucess(Request $request)
     {
 
-        // return $request->all();
+
         if($request->code =="PAYMENT_SUCCESS")
         {
              $phonepe = PhonePe::where('merchantTransactionId',$request->transactionId)->first();
@@ -92,6 +92,10 @@ class PhonePeController extends Controller
              $phonepe->tax = env("TAX");
              $phonepe->total_deduction = (($request->amount / 100) * (env('PHONEPE_CHARGE') / 100 )) * env("TAX");
              $phonepe->actual_amount = ($request->amount / 100) -  (($request->amount / 100) * (env('PHONEPE_CHARGE') / 100 )) * env("TAX");
+
+             $phonepe->payment_type = isset($request->data->paymentInstrument->type) && $request->data->paymentInstrument->type? $request->data->paymentInstrument->type : "";
+             $phonepe->cardType = isset($request->data->paymentInstrument->cardType) && $request->data->paymentInstrument->cardType? $request->data->paymentInstrument->cardType : "";
+
              $phonepe->save();
              $user = User::find($phonepe->user_id);
 

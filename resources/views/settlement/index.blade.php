@@ -12,7 +12,6 @@
                 </div>
                 <div class="mx-3 my-2 row">
                     <div class="col-12">
-
                     <form action="{{ route('settlement.index') }}">
                         @csrf
                         <label class="text-uppercase text-secondary font-weight-bolder" for="from" aria-autocomplete="false">From</label>
@@ -52,6 +51,9 @@
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total Amount</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Payable Amount</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                          {{-- @if(Auth::guard('admin')->check()) --}}
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                          {{-- @endif --}}
 
                         </tr>
                       </thead>
@@ -64,8 +66,12 @@
                           <td scope="row">{{ $st->to_date }}</td>
                           <td scope="row">{{ $st->total_amount }}</td>
                           <td scope="row">{{ $st->payable_amount }}</td>
-                          <td scope="row"><span class="badge badge-sm {{ $st->status == "1" ? "bg-gradient-secondary" : "bg-gradient-success"}}">{{ $st->status == "1" ? "Requested" : "Paid" }}</span>
-                   </td>
+                          <td scope="row"><span class="badge badge-sm {{ $st->status == "1" ? "bg-gradient-secondary" : ""}} {{ $st->status == "2" ? "bg-gradient-success" : ""}}">{{ $st->status == "1" ? "Requested" : "Paid" }}</span>
+                          <td scope="row">
+                            {{-- @if(Auth::guard('admin')->check()) --}}
+                               <form>@csrf <button class="btn btn-sm btn-success mt-2" type="submit" formmethod="POST" formaction="{{ route('settlement.pay',$st->id) }}" {{ $st->status == "2" ? "disabled" : ""}}>Pay</button></form>
+                            {{-- @endif --}}
+                        </td>
                         </tr>
 
                         @endforeach

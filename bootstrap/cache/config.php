@@ -1,22 +1,22 @@
 <?php return array (
-  'app' => 
+  'app' =>
   array (
-    'name' => 'Laravel',
+    'name' => 'TavasE-Canteen',
     'env' => 'local',
     'debug' => true,
     'url' => 'http://localhost',
     'asset_url' => NULL,
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Kolkata',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:jmFzjJbrdERO3+PNERdQ4NazcMdlJAzu3Zn2vlLuopQ=',
+    'key' => 'base64:SmkoRw0TlvX4GSeDcye4iuWGNDMhmbEgJ4+u8tKMEBw=',
     'cipher' => 'AES-256-CBC',
-    'maintenance' => 
+    'maintenance' =>
     array (
       'driver' => 'file',
     ),
-    'providers' => 
+    'providers' =>
     array (
       0 => 'Illuminate\\Auth\\AuthServiceProvider',
       1 => 'Illuminate\\Broadcasting\\BroadcastServiceProvider',
@@ -46,7 +46,7 @@
       25 => 'App\\Providers\\RouteServiceProvider',
       26 => 'Milon\\Barcode\\BarcodeServiceProvider',
     ),
-    'aliases' => 
+    'aliases' =>
     array (
       'App' => 'Illuminate\\Support\\Facades\\App',
       'Arr' => 'Illuminate\\Support\\Arr',
@@ -91,88 +91,88 @@
       'DNS2D' => 'Milon\\Barcode\\Facades\\DNS2DFacade',
     ),
   ),
-  'auth' => 
+  'auth' =>
   array (
-    'defaults' => 
+    'defaults' =>
     array (
       'guard' => 'web',
       'passwords' => 'users',
     ),
-    'guards' => 
+    'guards' =>
     array (
-      'web' => 
+      'web' =>
       array (
         'driver' => 'session',
         'provider' => 'users',
       ),
-      'admin' => 
+      'admin' =>
       array (
         'driver' => 'session',
         'provider' => 'admins',
       ),
-      'mess' => 
+      'mess' =>
       array (
         'driver' => 'session',
         'provider' => 'mess',
       ),
-      'teacher' => 
+      'teacher' =>
       array (
         'driver' => 'session',
         'provider' => 'teacher',
       ),
-      'sanctum' => 
+      'sanctum' =>
       array (
         'driver' => 'sanctum',
         'provider' => NULL,
       ),
     ),
-    'providers' => 
+    'providers' =>
     array (
-      'users' => 
+      'users' =>
       array (
         'driver' => 'eloquent',
         'model' => 'App\\Models\\User',
       ),
-      'admins' => 
+      'admins' =>
       array (
         'driver' => 'eloquent',
         'model' => 'App\\Models\\Admin',
       ),
-      'mess' => 
+      'mess' =>
       array (
         'driver' => 'eloquent',
         'model' => 'App\\Models\\Mess',
       ),
-      'teacher' => 
+      'teacher' =>
       array (
         'driver' => 'eloquent',
         'model' => 'App\\Models\\Teacher',
       ),
     ),
-    'passwords' => 
+    'passwords' =>
     array (
-      'users' => 
+      'users' =>
       array (
         'provider' => 'users',
         'table' => 'password_resets',
         'expire' => 60,
         'throttle' => 60,
       ),
-      'admins' => 
+      'admins' =>
       array (
         'provider' => 'admin',
         'table' => 'password_resets',
         'expire' => 60,
         'throttle' => 60,
       ),
-      'mess' => 
+      'mess' =>
       array (
         'provider' => 'mess',
         'table' => 'password_resets',
         'expire' => 60,
         'throttle' => 60,
       ),
-      'teacher' => 
+      'teacher' =>
       array (
         'provider' => 'teacher',
         'table' => 'password_resets',
@@ -182,18 +182,18 @@
     ),
     'password_timeout' => 10800,
   ),
-  'broadcasting' => 
+  'broadcasting' =>
   array (
     'default' => 'log',
-    'connections' => 
+    'connections' =>
     array (
-      'pusher' => 
+      'pusher' =>
       array (
         'driver' => 'pusher',
         'key' => '',
         'secret' => '',
         'app_id' => '',
-        'options' => 
+        'options' =>
         array (
           'host' => 'api-mt1.pusher.com',
           'port' => '443',
@@ -201,71 +201,71 @@
           'encrypted' => true,
           'useTLS' => true,
         ),
-        'client_options' => 
+        'client_options' =>
         array (
         ),
       ),
-      'ably' => 
+      'ably' =>
       array (
         'driver' => 'ably',
         'key' => NULL,
       ),
-      'redis' => 
+      'redis' =>
       array (
         'driver' => 'redis',
         'connection' => 'default',
       ),
-      'log' => 
+      'log' =>
       array (
         'driver' => 'log',
       ),
-      'null' => 
+      'null' =>
       array (
         'driver' => 'null',
       ),
     ),
   ),
-  'cache' => 
+  'cache' =>
   array (
     'default' => 'file',
-    'stores' => 
+    'stores' =>
     array (
-      'apc' => 
+      'apc' =>
       array (
         'driver' => 'apc',
       ),
-      'array' => 
+      'array' =>
       array (
         'driver' => 'array',
         'serialize' => false,
       ),
-      'database' => 
+      'database' =>
       array (
         'driver' => 'database',
         'table' => 'cache',
         'connection' => NULL,
         'lock_connection' => NULL,
       ),
-      'file' => 
+      'file' =>
       array (
         'driver' => 'file',
-        'path' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\framework/cache/data',
       ),
-      'memcached' => 
+      'memcached' =>
       array (
         'driver' => 'memcached',
         'persistent_id' => NULL,
-        'sasl' => 
+        'sasl' =>
         array (
           0 => NULL,
           1 => NULL,
         ),
-        'options' => 
+        'options' =>
         array (
         ),
-        'servers' => 
+        'servers' =>
         array (
-          0 => 
+          0 =>
           array (
             'host' => '127.0.0.1',
             'port' => 11211,
@@ -273,13 +273,13 @@
           ),
         ),
       ),
-      'redis' => 
+      'redis' =>
       array (
         'driver' => 'redis',
         'connection' => 'cache',
         'lock_connection' => 'default',
       ),
-      'dynamodb' => 
+      'dynamodb' =>
       array (
         'driver' => 'dynamodb',
         'key' => '',
@@ -288,47 +288,47 @@
         'table' => 'cache',
         'endpoint' => NULL,
       ),
-      'octane' => 
+      'octane' =>
       array (
         'driver' => 'octane',
       ),
     ),
-    'prefix' => 'laravel_cache_',
+    'prefix' => 'tavase_canteen_cache_',
   ),
-  'cors' => 
+  'cors' =>
   array (
-    'paths' => 
+    'paths' =>
     array (
       0 => 'api/*',
       1 => 'sanctum/csrf-cookie',
     ),
-    'allowed_methods' => 
+    'allowed_methods' =>
     array (
       0 => '*',
     ),
-    'allowed_origins' => 
+    'allowed_origins' =>
     array (
       0 => '*',
     ),
-    'allowed_origins_patterns' => 
+    'allowed_origins_patterns' =>
     array (
     ),
-    'allowed_headers' => 
+    'allowed_headers' =>
     array (
       0 => '*',
     ),
-    'exposed_headers' => 
+    'exposed_headers' =>
     array (
     ),
     'max_age' => 0,
     'supports_credentials' => false,
   ),
-  'database' => 
+  'database' =>
   array (
     'default' => 'mysql',
-    'connections' => 
+    'connections' =>
     array (
-      'sqlite' => 
+      'sqlite' =>
       array (
         'driver' => 'sqlite',
         'url' => NULL,
@@ -336,7 +336,7 @@
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
-      'mysql' => 
+      'mysql' =>
       array (
         'driver' => 'mysql',
         'url' => NULL,
@@ -352,11 +352,11 @@
         'prefix_indexes' => true,
         'strict' => true,
         'engine' => NULL,
-        'options' => 
+        'options' =>
         array (
         ),
       ),
-      'pgsql' => 
+      'pgsql' =>
       array (
         'driver' => 'pgsql',
         'url' => NULL,
@@ -371,7 +371,7 @@
         'search_path' => 'public',
         'sslmode' => 'prefer',
       ),
-      'sqlsrv' => 
+      'sqlsrv' =>
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
@@ -386,15 +386,15 @@
       ),
     ),
     'migrations' => 'migrations',
-    'redis' => 
+    'redis' =>
     array (
       'client' => 'phpredis',
-      'options' => 
+      'options' =>
       array (
         'cluster' => 'redis',
-        'prefix' => 'laravel_database_',
+        'prefix' => 'tavase_canteen_database_',
       ),
-      'default' => 
+      'default' =>
       array (
         'url' => NULL,
         'host' => '127.0.0.1',
@@ -403,7 +403,7 @@
         'port' => '6379',
         'database' => '0',
       ),
-      'cache' => 
+      'cache' =>
       array (
         'url' => NULL,
         'host' => '127.0.0.1',
@@ -414,26 +414,26 @@
       ),
     ),
   ),
-  'filesystems' => 
+  'filesystems' =>
   array (
     'default' => 'local',
-    'disks' => 
+    'disks' =>
     array (
-      'local' => 
+      'local' =>
       array (
         'driver' => 'local',
-        'root' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\app',
+        'root' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\app',
         'throw' => false,
       ),
-      'public' => 
+      'public' =>
       array (
         'driver' => 'local',
-        'root' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\app/public',
+        'root' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
       ),
-      's3' => 
+      's3' =>
       array (
         'driver' => 's3',
         'key' => '',
@@ -446,58 +446,58 @@
         'throw' => false,
       ),
     ),
-    'links' => 
+    'links' =>
     array (
-      'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\public\\storage' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\app/public',
+      'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\public\\storage' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\app/public',
     ),
   ),
-  'hashing' => 
+  'hashing' =>
   array (
     'driver' => 'bcrypt',
-    'bcrypt' => 
+    'bcrypt' =>
     array (
       'rounds' => 10,
     ),
-    'argon' => 
+    'argon' =>
     array (
       'memory' => 65536,
       'threads' => 1,
       'time' => 4,
     ),
   ),
-  'logging' => 
+  'logging' =>
   array (
     'default' => 'stack',
-    'deprecations' => 
+    'deprecations' =>
     array (
       'channel' => NULL,
       'trace' => false,
     ),
-    'channels' => 
+    'channels' =>
     array (
-      'stack' => 
+      'stack' =>
       array (
         'driver' => 'stack',
-        'channels' => 
+        'channels' =>
         array (
           0 => 'single',
         ),
         'ignore_exceptions' => false,
       ),
-      'single' => 
+      'single' =>
       array (
         'driver' => 'single',
-        'path' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
-      'daily' => 
+      'daily' =>
       array (
         'driver' => 'daily',
-        'path' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
-      'slack' => 
+      'slack' =>
       array (
         'driver' => 'slack',
         'url' => NULL,
@@ -505,56 +505,56 @@
         'emoji' => ':boom:',
         'level' => 'debug',
       ),
-      'papertrail' => 
+      'papertrail' =>
       array (
         'driver' => 'monolog',
         'level' => 'debug',
         'handler' => 'Monolog\\Handler\\SyslogUdpHandler',
-        'handler_with' => 
+        'handler_with' =>
         array (
           'host' => NULL,
           'port' => NULL,
           'connectionString' => 'tls://:',
         ),
       ),
-      'stderr' => 
+      'stderr' =>
       array (
         'driver' => 'monolog',
         'level' => 'debug',
         'handler' => 'Monolog\\Handler\\StreamHandler',
         'formatter' => NULL,
-        'with' => 
+        'with' =>
         array (
           'stream' => 'php://stderr',
         ),
       ),
-      'syslog' => 
+      'syslog' =>
       array (
         'driver' => 'syslog',
         'level' => 'debug',
       ),
-      'errorlog' => 
+      'errorlog' =>
       array (
         'driver' => 'errorlog',
         'level' => 'debug',
       ),
-      'null' => 
+      'null' =>
       array (
         'driver' => 'monolog',
         'handler' => 'Monolog\\Handler\\NullHandler',
       ),
-      'emergency' => 
+      'emergency' =>
       array (
-        'path' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\logs/laravel.log',
       ),
     ),
   ),
-  'mail' => 
+  'mail' =>
   array (
     'default' => 'smtp',
-    'mailers' => 
+    'mailers' =>
     array (
-      'smtp' => 
+      'smtp' =>
       array (
         'transport' => 'smtp',
         'host' => 'mailpit',
@@ -565,66 +565,66 @@
         'timeout' => NULL,
         'local_domain' => NULL,
       ),
-      'ses' => 
+      'ses' =>
       array (
         'transport' => 'ses',
       ),
-      'mailgun' => 
+      'mailgun' =>
       array (
         'transport' => 'mailgun',
       ),
-      'postmark' => 
+      'postmark' =>
       array (
         'transport' => 'postmark',
       ),
-      'sendmail' => 
+      'sendmail' =>
       array (
         'transport' => 'sendmail',
         'path' => '/usr/sbin/sendmail -bs -i',
       ),
-      'log' => 
+      'log' =>
       array (
         'transport' => 'log',
         'channel' => NULL,
       ),
-      'array' => 
+      'array' =>
       array (
         'transport' => 'array',
       ),
-      'failover' => 
+      'failover' =>
       array (
         'transport' => 'failover',
-        'mailers' => 
+        'mailers' =>
         array (
           0 => 'smtp',
           1 => 'log',
         ),
       ),
     ),
-    'from' => 
+    'from' =>
     array (
       'address' => 'hello@example.com',
-      'name' => 'Laravel',
+      'name' => 'TavasE-Canteen',
     ),
-    'markdown' => 
+    'markdown' =>
     array (
       'theme' => 'default',
-      'paths' => 
+      'paths' =>
       array (
-        0 => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\resources\\views/vendor/mail',
       ),
     ),
   ),
-  'queue' => 
+  'queue' =>
   array (
     'default' => 'sync',
-    'connections' => 
+    'connections' =>
     array (
-      'sync' => 
+      'sync' =>
       array (
         'driver' => 'sync',
       ),
-      'database' => 
+      'database' =>
       array (
         'driver' => 'database',
         'table' => 'jobs',
@@ -632,7 +632,7 @@
         'retry_after' => 90,
         'after_commit' => false,
       ),
-      'beanstalkd' => 
+      'beanstalkd' =>
       array (
         'driver' => 'beanstalkd',
         'host' => 'localhost',
@@ -641,7 +641,7 @@
         'block_for' => 0,
         'after_commit' => false,
       ),
-      'sqs' => 
+      'sqs' =>
       array (
         'driver' => 'sqs',
         'key' => '',
@@ -652,7 +652,7 @@
         'region' => 'us-east-1',
         'after_commit' => false,
       ),
-      'redis' => 
+      'redis' =>
       array (
         'driver' => 'redis',
         'connection' => 'default',
@@ -662,16 +662,16 @@
         'after_commit' => false,
       ),
     ),
-    'failed' => 
+    'failed' =>
     array (
       'driver' => 'database-uuids',
       'database' => 'mysql',
       'table' => 'failed_jobs',
     ),
   ),
-  'sanctum' => 
+  'sanctum' =>
   array (
-    'stateful' => 
+    'stateful' =>
     array (
       0 => 'localhost',
       1 => 'localhost:3000',
@@ -680,101 +680,101 @@
       4 => '::1',
       5 => 'localhost',
     ),
-    'guard' => 
+    'guard' =>
     array (
       0 => 'web',
     ),
     'expiration' => NULL,
-    'middleware' => 
+    'middleware' =>
     array (
       'verify_csrf_token' => 'App\\Http\\Middleware\\VerifyCsrfToken',
       'encrypt_cookies' => 'App\\Http\\Middleware\\EncryptCookies',
     ),
   ),
-  'services' => 
+  'services' =>
   array (
-    'mailgun' => 
+    'mailgun' =>
     array (
       'domain' => NULL,
       'secret' => NULL,
       'endpoint' => 'api.mailgun.net',
       'scheme' => 'https',
     ),
-    'postmark' => 
+    'postmark' =>
     array (
       'token' => NULL,
     ),
-    'ses' => 
+    'ses' =>
     array (
       'key' => '',
       'secret' => '',
       'region' => 'us-east-1',
     ),
   ),
-  'session' => 
+  'session' =>
   array (
     'driver' => 'file',
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
-    'lottery' => 
+    'lottery' =>
     array (
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'laravel_session',
+    'cookie' => 'tavase_canteen_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => false,
     'http_only' => true,
     'same_site' => 'lax',
   ),
-  'view' => 
+  'view' =>
   array (
-    'paths' => 
+    'paths' =>
     array (
-      0 => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\resources\\views',
+      0 => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\resources\\views',
     ),
-    'compiled' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\framework\\views',
   ),
-  'flasher' => 
+  'flasher' =>
   array (
     'default' => 'flasher',
-    'root_script' => 
+    'root_script' =>
     array (
       'cdn' => 'https://cdn.jsdelivr.net/npm/@flasher/flasher@1.2.4/dist/flasher.min.js',
       'local' => '/vendor/flasher/flasher.min.js',
     ),
-    'options' => 
+    'options' =>
     array (
     ),
     'use_cdn' => true,
     'auto_translate' => true,
     'auto_render' => true,
-    'flash_bag' => 
+    'flash_bag' =>
     array (
       'enabled' => true,
-      'mapping' => 
+      'mapping' =>
       array (
-        'success' => 
+        'success' =>
         array (
           0 => 'success',
         ),
-        'error' => 
+        'error' =>
         array (
           0 => 'error',
           1 => 'danger',
         ),
-        'warning' => 
+        'warning' =>
         array (
           0 => 'warning',
           1 => 'alarm',
         ),
-        'info' => 
+        'info' =>
         array (
           0 => 'info',
           1 => 'notice',
@@ -782,79 +782,79 @@
         ),
       ),
     ),
-    'filter_criteria' => 
+    'filter_criteria' =>
     array (
     ),
-    'presets' => 
+    'presets' =>
     array (
-      'created' => 
+      'created' =>
       array (
         'type' => 'success',
         'message' => 'The resource was created',
       ),
-      'updated' => 
+      'updated' =>
       array (
         'type' => 'success',
         'message' => 'The resource was updated',
       ),
-      'saved' => 
+      'saved' =>
       array (
         'type' => 'success',
         'message' => 'The resource was saved',
       ),
-      'deleted' => 
+      'deleted' =>
       array (
         'type' => 'success',
         'message' => 'The resource was deleted',
       ),
     ),
   ),
-  'flasher_sweetalert' => 
+  'flasher_sweetalert' =>
   array (
-    'scripts' => 
+    'scripts' =>
     array (
-      'cdn' => 
+      'cdn' =>
       array (
         0 => 'https://cdn.jsdelivr.net/npm/@flasher/flasher-sweetalert@1.2.4/dist/flasher-sweetalert.min.js',
       ),
-      'local' => 
+      'local' =>
       array (
         0 => '/vendor/flasher/flasher-sweetalert.min.js',
       ),
     ),
-    'styles' => 
+    'styles' =>
     array (
     ),
-    'options' => 
+    'options' =>
     array (
     ),
   ),
-  'flasher_toastr' => 
+  'flasher_toastr' =>
   array (
-    'scripts' => 
+    'scripts' =>
     array (
-      'cdn' => 
+      'cdn' =>
       array (
         0 => 'https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js',
         1 => 'https://cdn.jsdelivr.net/npm/@flasher/flasher-toastr@1.2.4/dist/flasher-toastr.min.js',
       ),
-      'local' => 
+      'local' =>
       array (
         0 => '/vendor/flasher/jquery.min.js',
         1 => '/vendor/flasher/flasher-toastr.min.js',
       ),
     ),
-    'styles' => 
+    'styles' =>
     array (
     ),
-    'options' => 
+    'options' =>
     array (
     ),
   ),
-  'flare' => 
+  'flare' =>
   array (
     'key' => NULL,
-    'flare_middleware' => 
+    'flare_middleware' =>
     array (
       0 => 'Spatie\\FlareClient\\FlareMiddleware\\RemoveRequestIp',
       1 => 'Spatie\\FlareClient\\FlareMiddleware\\AddGitInformation',
@@ -862,30 +862,30 @@
       3 => 'Spatie\\LaravelIgnition\\FlareMiddleware\\AddEnvironmentInformation',
       4 => 'Spatie\\LaravelIgnition\\FlareMiddleware\\AddExceptionInformation',
       5 => 'Spatie\\LaravelIgnition\\FlareMiddleware\\AddDumps',
-      'Spatie\\LaravelIgnition\\FlareMiddleware\\AddLogs' => 
+      'Spatie\\LaravelIgnition\\FlareMiddleware\\AddLogs' =>
       array (
         'maximum_number_of_collected_logs' => 200,
       ),
-      'Spatie\\LaravelIgnition\\FlareMiddleware\\AddQueries' => 
+      'Spatie\\LaravelIgnition\\FlareMiddleware\\AddQueries' =>
       array (
         'maximum_number_of_collected_queries' => 200,
         'report_query_bindings' => true,
       ),
-      'Spatie\\LaravelIgnition\\FlareMiddleware\\AddJobs' => 
+      'Spatie\\LaravelIgnition\\FlareMiddleware\\AddJobs' =>
       array (
         'max_chained_job_reporting_depth' => 5,
       ),
-      'Spatie\\FlareClient\\FlareMiddleware\\CensorRequestBodyFields' => 
+      'Spatie\\FlareClient\\FlareMiddleware\\CensorRequestBodyFields' =>
       array (
-        'censor_fields' => 
+        'censor_fields' =>
         array (
           0 => 'password',
           1 => 'password_confirmation',
         ),
       ),
-      'Spatie\\FlareClient\\FlareMiddleware\\CensorRequestHeaders' => 
+      'Spatie\\FlareClient\\FlareMiddleware\\CensorRequestHeaders' =>
       array (
-        'headers' => 
+        'headers' =>
         array (
           0 => 'API-KEY',
         ),
@@ -893,13 +893,13 @@
     ),
     'send_logs_as_events' => true,
   ),
-  'ignition' => 
+  'ignition' =>
   array (
     'editor' => 'phpstorm',
     'theme' => 'auto',
     'enable_share_button' => true,
     'register_commands' => false,
-    'solution_providers' => 
+    'solution_providers' =>
     array (
       0 => 'Spatie\\Ignition\\Solutions\\SolutionProviders\\BadMethodCallSolutionProvider',
       1 => 'Spatie\\Ignition\\Solutions\\SolutionProviders\\MergeConflictSolutionProvider',
@@ -920,15 +920,15 @@
       16 => 'Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\UndefinedViewVariableSolutionProvider',
       17 => 'Spatie\\LaravelIgnition\\Solutions\\SolutionProviders\\GenericLaravelExceptionSolutionProvider',
     ),
-    'ignored_solution_providers' => 
+    'ignored_solution_providers' =>
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne',
+    'remote_sites_path' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',
-    'recorders' => 
+    'recorders' =>
     array (
       0 => 'Spatie\\LaravelIgnition\\Recorders\\DumpRecorder\\DumpRecorder',
       1 => 'Spatie\\LaravelIgnition\\Recorders\\JobRecorder\\JobRecorder',
@@ -936,15 +936,15 @@
       3 => 'Spatie\\LaravelIgnition\\Recorders\\QueryRecorder\\QueryRecorder',
     ),
   ),
-  'tinker' => 
+  'tinker' =>
   array (
-    'commands' => 
+    'commands' =>
     array (
     ),
-    'alias' => 
+    'alias' =>
     array (
     ),
-    'dont_alias' => 
+    'dont_alias' =>
     array (
       0 => 'App\\Nova',
     ),
