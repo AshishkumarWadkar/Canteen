@@ -133,4 +133,10 @@ Route::get('/forget-password', [ForgetController::class, 'forget_password']);
 Route::post('/sendotp', [ForgetController::class, 'sendotp'])->name('sendotp');
 Route::post('/verifyotp', [ForgetController::class, 'verifyotp'])->name('verifyotp');
 
-Route::get("/routeclear",function (){ \Artisan::call("route:clear"); dd("done");});
+Route::get("/routeclear",function (){
+     \Artisan::call("route:clear");
+     \Artisan::call('config:cache');
+     \Artisan::call('cache:clear');
+     \Artisan::call('view:clear');
+     dd("done");
+    });
