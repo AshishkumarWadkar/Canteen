@@ -21,7 +21,7 @@ class PhonePeController extends Controller
         $url = "https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/pay";
 
 
-        //live
+        // live
         // $salt="021d2301-661d-4d5a-97c4-1c298ad19f66";
         // $merchant_id = "TAVAONLINE";
         // $index=1;
@@ -57,22 +57,26 @@ class PhonePeController extends Controller
           ],
         ]);
         $res = json_decode($response->getBody());
-        \DB::table('phonepe')->insert([
-            'user_id' => \Auth::id(),
-            'transactionId' => $res->data->transactionId ?? null,
-            'merchantTransactionId' => $res->data->merchantTransactionId,
-            'plan' => $request->plan,
-            'created_at' => Carbon::now(),
+        $phonepe= new PhonePe;
+        $phonepe->user_id = \Auth::id();
+        $phonepe->transactionId = $res->data->transactionId ?? null;
+        $phonepe->merchantTransactionId = $res->data->merchantTransactionId;
+        $phonepe->plan = $request->plan;
+        $phonepe->created_at = Carbon::now();
+        $is_saved = $phonepe->save();
 
+        $url = $res->data->instrumentResponse->redirectInfo->url;
+        if($is_saved)
+        {
+            return redirect()->away(($url));
 
-        ]);
-          $url = $res->data->instrumentResponse->redirectInfo->url;
+        }
 
     //    return redirect()->away($url);
 
-
-        return redirect()->away(($url));
-        return view('phonepe.payment',compact("url"));
+        sweetalert()->addError("Opps Something Went Wrong");
+        return redirect()->back();
+        // return view('phonepe.payment',compact("url"));
 
     }
 
@@ -82,36 +86,46 @@ class PhonePeController extends Controller
 
         if($request->code =="PAYMENT_SUCCESS")
         {
-             $phonepe = PhonePe::where('merchantTransactionId',$request->transactionId)->first();
-             $phonepe->amount = $request->amount / 100;
-             $phonepe->providerReferenceId = $request->providerReferenceId;
-             $phonepe->code = $request->code;
-             $phonepe->checksum = $request->checksum;
+            $flag = PhonePe::where('merchantTransactionId',$request->transactionId)->where('code','PAYMENT_SUCCESS')->doesntExist();
+            if($flag)
+            {
+                $phonepe = PhonePe::where('merchantTransactionId',$request->transactionId)->first();
+                $phonepe->amount = $request->amount / 100;
+                $phonepe->providerReferenceId = $request->providerReferenceId;
+                $phonepe->code = $request->code;
+                $phonepe->checksum = $request->checksum;
 
-             $phonepe->percent = env('PHONEPE_CHARGE');
-             $phonepe->tax = env("TAX");
-             $phonepe->total_deduction = (($request->amount / 100) * (env('PHONEPE_CHARGE') / 100 )) * env("TAX");
-             $phonepe->actual_amount = ($request->amount / 100) -  (($request->amount / 100) * (env('PHONEPE_CHARGE') / 100 )) * env("TAX");
+                $phonepe->percent = env('PHONEPE_CHARGE');
+                $phonepe->tax = env("TAX");
+                $phonepe->total_deduction = (($request->amount / 100) * (env('PHONEPE_CHARGE') / 100 )) * env("TAX");
+                $phonepe->actual_amount = ($request->amount / 100) -  (($request->amount / 100) * (env('PHONEPE_CHARGE') / 100 )) * env("TAX");
 
-             $phonepe->payment_type = isset($request->data->paymentInstrument->type) && $request->data->paymentInstrument->type? $request->data->paymentInstrument->type : "";
-             $phonepe->cardType = isset($request->data->paymentInstrument->cardType) && $request->data->paymentInstrument->cardType? $request->data->paymentInstrument->cardType : "";
+                $phonepe->payment_type = isset($request->data->paymentInstrument->type) && $request->data->paymentInstrument->type? $request->data->paymentInstrument->type : "";
+                $phonepe->cardType = isset($request->data->paymentInstrument->cardType) && $request->data->paymentInstrument->cardType? $request->data->paymentInstrument->cardType : "";
 
-             $phonepe->save();
-             $user = User::find($phonepe->user_id);
+                $phonepe->save();
+                $user = User::find($phonepe->user_id);
 
 
 
-             if($phonepe->plan == 1)
-             {
-                 $user->is_subscribed = 1;
-                 $user->expiry_date = Carbon::now()->addDays(365);
-             }
-             else{
+                if($phonepe->plan == 1)
+                {
+                    $user->is_subscribed = 1;
+                    $user->expiry_date = Carbon::now()->addDays(365);
+                }
+                else{
 
-                 $user->points =   $user->points + $request->amount / 100;
-             }
-             $user->save();
-             sweetalert("Payment Done Successfully");
+                    $user->points =   $user->points + $request->amount / 100;
+                }
+                $user->save();
+                sweetalert("Payment Done Successfully");
+
+                \Auth::login($user);
+                return redirect()->route("home");
+                // return redirect('/home');
+
+
+            }
         }
         else
         {
@@ -122,6 +136,9 @@ class PhonePeController extends Controller
             $phonepe->save();
 
             sweetalert()->addError("Payment Failed ");
+            $user = User::find($phonepe->user_id);
+            \Auth::login($user);
+            return redirect()->route("home");
         }
 
         return redirect('/home');
