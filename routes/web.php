@@ -81,9 +81,9 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::resource('deductions',DeductionController::class);
     Route::resource('transactions',TransactionController::class);
     Route::get('attendance_all',[AttendanceController::class,'all'])->name('attendance_all');
-    Route::get("/settlement",[SettlementController::class,'index'])->name('settlement.index');
-    Route::post("/settlement/request",[SettlementController::class,'requested'])->name('settlement.request');
-    Route::post("/settlement/pay/{id}",[SettlementController::class,'pay'])->name('settlement.pay');
+    Route::get("/settlement",[SettlementController::class,'index'])->name('messsettlement.index');
+    Route::post("/settlement/request",[SettlementController::class,'requested'])->name('messsettlement.request');
+    Route::post("/settlement/pay/{id}",[SettlementController::class,'pay'])->name('messsettlement.pay');
 
 });
 
@@ -92,9 +92,9 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()
     Route::resource('mess',MessController::class);
     Route::get('get_all_transction',[AdminController::class,'get_all_transction']);
     Route::get('get_all_users',[AdminController::class,'get_all_users']);
-    Route::get("/settlement",[SettlementController::class,'index'])->name('settlement.index');
-    Route::post("/settlement/request",[SettlementController::class,'requested'])->name('settlement.request');
-    Route::post("/settlement/pay/{id}",[SettlementController::class,'pay'])->name('settlement.pay');
+    // Route::get("/settlement",[SettlementController::class,'index'])->name('adminsettlement.index');
+    // Route::post("/settlement/request",[SettlementController::class,'requested'])->name('adminsettlement.request');
+    // Route::post("/settlement/pay/{id}",[SettlementController::class,'pay'])->name('adminsettlement.pay');
 
 });
 
