@@ -39,11 +39,13 @@ class HomeController extends Controller
             ->where('created_by',\Auth::id())->sum('deduction_point');
 
             $visit = Attendance::whereDate('punch_time', Carbon::today())
-            ->where('created_by',\Auth::id())->groupBy('user_id')->count();
+            ->where('created_by',\Auth::id())
+            // ->groupBy('user_id')
+            ->count();
 
             $total_users = User::where('created_by',\Auth::id())->count();
 
-            $tran =User::where('created_by',\Auth::id())->join('phonepe','phonepe.user_id','users.id')->where('plan','!=',1)->whereDate('phonepe.created_at', Carbon::today())->sum('amount');
+            $tran =User::where('created_by',\Auth::id())->join('phonepe','phonepe.user_id','users.id')->where('plan','!=',1)->whereDate('phonepe.created_at', Carbon::today())->where('code','PAYMENT_SUCCESS')->sum('amount');
             $low = User::where('points','<',200)->where('created_by',Auth::id())->get(['name','email','points']);
             return view('mess.dashboard',compact('low','todays_points','total_users','visit','tran'));
         }
