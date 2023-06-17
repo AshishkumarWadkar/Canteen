@@ -101,7 +101,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th
-                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 d">
                                                                     #</th>
                                                                 <th
                                                                     class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -117,7 +117,7 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th scope="row">1</th>
-                                                                <td>Monday</td>
+                                                                <td>Mon</td>
                                                                 <td>{{ isset($week_menus->b_monday) && $week_menus->b_monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_monday)->name : '-----' }}
                                                                 </td>
                                                                 <td>{{ isset($week_menus->monday) && $week_menus->monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->monday)->name : '-----' }}
@@ -125,7 +125,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">2</th>
-                                                                <td>Tuesday</td>
+                                                                <td>Tues</td>
                                                                 <td>{{ isset($week_menus->b_tuesday) && $week_menus->b_tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_tuesday)->name : '-----' }}
                                                                 </td>
                                                                 <td>{{ isset($week_menus->tuesday) && $week_menus->tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->tuesday)->name : '-----' }}
@@ -133,7 +133,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">3</th>
-                                                                <td>Wednesday</td>
+                                                                <td>Wedn</td>
                                                                 <td>{{ isset($week_menus->b_wednesday) && $week_menus->b_wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_wednesday)->name : '-----' }}
                                                                 </td>
                                                                 <td>{{ isset($week_menus->wednesday) && $week_menus->wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->wednesday)->name : '-----' }}
@@ -141,7 +141,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">4</th>
-                                                                <td>Thursday</td>
+                                                                <td>Thur</td>
                                                                 <td>{{ isset($week_menus->b_thursday) && $week_menus->b_thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_thursday)->name : '-----' }}
                                                                 </td>
                                                                 <td>{{ isset($week_menus->thursday) && $week_menus->thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->thursday)->name : '-----' }}
@@ -149,7 +149,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">5</th>
-                                                                <td>Friday</td>
+                                                                <td>Frid</td>
                                                                 <td>{{ isset($week_menus->b_friday) && $week_menus->b_friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_friday)->name : '-----' }}
                                                                 </td>
                                                                 <td>{{ isset($week_menus->friday) && $week_menus->friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->friday)->name : '-----' }}
@@ -157,7 +157,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">6</th>
-                                                                <td>Saturday</td>
+                                                                <td>Sat</td>
                                                                 <td>{{ isset($week_menus->b_saturday) && $week_menus->b_saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_saturday)->name : '-----' }}
                                                                 </td>
                                                                 <td>{{ isset($week_menus->saturday) && $week_menus->saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->saturday)->name : '-----' }}
@@ -165,7 +165,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">7</th>
-                                                                <td>Sunday</td>
+                                                                <td>Sun</td>
                                                                 <td>{{ isset($week_menus->b_sunday) && $week_menus->b_sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_sunday)->name : '-----' }}
                                                                 </td>
                                                                 <td>{{ isset($week_menus->sunday) && $week_menus->sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->sunday)->name : '-----' }}
