@@ -153,24 +153,90 @@ class PhonePeController extends Controller
     function check_status()
     {
 
-        $salt="099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
-        $merchant_id = "PGTESTPAYUAT";
-        $index=1;
-        $url = "https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/status";
-        $transaction_id = "sqXa4iXueOk4RZGZ0M";
+        //dev
+        // $salt="099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
+        // $merchant_id = "PGTESTPAYUAT";
+        // $index=1;
+        // $url = "https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/pay";
 
-        $sha256 = hash('sha256',"/pg/v1/status/".$merchant_id.'/'.$transaction_id.$salt).'###'.$index;
-        $client = new \GuzzleHttp\Client();
 
-        $response = $client->request('GET','https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/status/'.$merchant_id.'/'.$transaction_id, [
-        'headers' => [
-            'Content-Type' => 'application/json',
-            'X-MERCHANT-ID' => "$merchant_id",
-            'X-VERIFY' => "$sha256",
-            'accept' => 'application/json',
-        ],
-        ]);
+        // live
+        $salt = "021d2301-661d-4d5a-97c4-1c298ad19f66";
+        $merchant_id = "TAVAONLINE";
+        $index = 1;
+        $url = "https://api.phonepe.com/apis/hermes/pg/v1/status/";
 
-        return $response->getBody();
+
+
+
+
+         $records = PhonePe::
+            where("code", "=", "PAYMENT_INITIATED")->
+            orWhere("code", "=", "PAYMENT_PENDING")->
+            get();
+
+
+        foreach ($records as $key => $record)
+        {
+            $transaction_id = $record->merchantTransactionId;
+            $sha256 = hash('sha256', "/pg/v1/status/" . $merchant_id . '/' . $transaction_id . $salt) . '###' . $index;
+            $client = new \GuzzleHttp\Client();
+
+            $response = $client->request('GET', $url . $merchant_id . '/' . $transaction_id, [
+                'headers' => [
+                    'Content-Type' => 'application/json',
+                    'X-MERCHANT-ID' => "$merchant_id",
+                    'X-VERIFY' => "$sha256",
+                    'accept' => 'application/json',
+                ],
+            ]);
+
+            // $request = ($response->getBody());
+             $request = json_decode($response->getBody());
+
+            if ($request->code == "PAYMENT_SUCCESS")
+            {
+                $flag = PhonePe::where('merchantTransactionId', $request->data->merchantTransactionId)->where('code', 'PAYMENT_SUCCESS')->doesntExist();
+                if ($flag) {
+                    $phonepe = PhonePe::where('merchantTransactionId', $request->data->merchantTransactionId)->first();
+                    $phonepe->amount = $request->data->amount / 100;
+                    $phonepe->providerReferenceId = $request->data->transactionId;
+                    $phonepe->code = $request->code;
+                    $phonepe->checksum = $request->checksum??"";
+
+                    $phonepe->percent = env('PHONEPE_CHARGE');
+                    $phonepe->tax = env("TAX");
+                    $phonepe->total_deduction = (($request->data->amount / 100) * (env('PHONEPE_CHARGE') / 100)) * env("TAX");
+                    $phonepe->actual_amount = ($request->data->amount / 100) - (($request->data->amount / 100) * (env('PHONEPE_CHARGE') / 100)) * env("TAX");
+
+                    $phonepe->payment_type = isset($request->data->paymentInstrument->type)  ? $request->data->paymentInstrument->type : "";
+                    $phonepe->cardType = isset($request->data->paymentInstrument->cardType)  ? $request->data->paymentInstrument->cardType : "";
+
+                    $phonepe->save();
+                    $user = User::find($phonepe->user_id);
+
+                    if ($phonepe->plan == 1) {
+                        $user->is_subscribed = 1;
+                        $user->expiry_date = Carbon::now()->addDays(365);
+                    } else {
+
+                        $user->points = $user->points + $request->data->amount / 100;
+                    }
+                    $user->save();
+
+                }
+            }
+            else
+            {
+                $phonepe = PhonePe::where('merchantTransactionId', $request->data->merchantTransactionId)->first();
+                $phonepe->amount = $request->data->amount / 100;
+                $phonepe->providerReferenceId = $request->providerReferenceId??"";
+                $phonepe->code = $request->code;
+                $phonepe->save();
+
+            }
+        }
+
+        return "Records Updated";
     }
 }
