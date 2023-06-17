@@ -12,7 +12,7 @@
                 </div>
                 <div class="mx-3 my-2 row">
                     <div class="col-12">
-                    <form action="{{ route('settlement.index') }}">
+                    <form action="{{ route('messsettlement.index') }}">
                         @csrf
                         <label class="text-uppercase text-secondary font-weight-bolder" for="from" aria-autocomplete="false">From</label>
                         <input type="date" class="" id="from" name="from"  value="{{ isset($from_date) ? $from_date : "" }}">
@@ -28,7 +28,7 @@
 
                         <label class="text-uppercase text-secondary font-weight-bolder" for="to">Comment</label>
                         <input type="text" class="" id="comment" name="comment"  value="{{ isset($comment) ? $comment : "" }}">
-                        <button class="btn btn-sm btn-success mt-2" type="submit" formmethod="POST" formaction="{{ route('settlement.request') }}">Request</button>
+                        <button class="btn btn-sm btn-success mt-2" type="submit" formmethod="POST" formaction="{{ route('messsettlement.request') }}">Request</button>
                         </form>
                     </div>
 
@@ -69,7 +69,7 @@
                           <td scope="row"><span class="badge badge-sm {{ $st->status == "1" ? "bg-gradient-secondary" : ""}} {{ $st->status == "2" ? "bg-gradient-success" : ""}}">{{ $st->status == "1" ? "Requested" : "Paid" }}</span>
                           <td scope="row">
                             {{-- @if(Auth::guard('admin')->check()) --}}
-                               <form>@csrf <button class="btn btn-sm btn-success mt-2" type="submit" formmethod="POST" formaction="{{ route('settlement.pay',$st->id) }}" {{ $st->status == "2" ? "disabled" : ""}}>Pay</button></form>
+                               <form>@csrf <button class="btn btn-sm btn-success mt-2" type="submit" formmethod="POST" formaction="{{ route('messsettlement.pay',$st->id) }}" {{ $st->status == "2" ? "disabled" : ""}}>Pay</button></form>
                             {{-- @endif --}}
                         </td>
                         </tr>

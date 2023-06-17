@@ -455,7 +455,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white {{ request()->is('admin/settlement') || request()->is('admin/settlement/*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('settlement.index') }}">
+                        <a class="nav-link text-white {{ request()->is('admin/adminsettlement') || request()->is('admin/adminsettlement/*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('adminsettlement.index') }}">
                             <div
                                 class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">person</i>
@@ -463,14 +463,14 @@
                             <span class="nav-link-text ms-1">Settlements</span>
                         </a>
                     </li>
-                       <li class="nav-item">
+                       {{-- <li class="nav-item">
                         <a class="nav-link text-white " href="{{route('all_logout')}}">
                           <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons opacity-10">login</i>
                           </div>
                           <span class="nav-link-text ms-1">Sign Out</span>
                         </a>
-                      </li>
+                      </li> --}}
                     </ul>
                 </div>
 
