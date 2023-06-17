@@ -112,64 +112,66 @@
                                                                 <th
                                                                     class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                                     Meal</th>
+                                                                <th
+                                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                    Booking</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
                                                             <tr>
                                                                 <th scope="row">1</th>
                                                                 <td>Monday</td>
-                                                                <td>{{ isset($week_menus->b_monday) && $week_menus->b_monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_monday)->name : '-----' }}
-                                                                </td>
-                                                                <td>{{ isset($week_menus->monday) && $week_menus->monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->monday)->name : '-----' }}
-                                                                </td>
+                                                                <td>{{ isset($week_menus->b_monday) && $week_menus->b_monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_monday)->name : '-----' }} </td>
+                                                                <td>{{ isset($week_menus->monday) && $week_menus->monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->monday)->name : '-----' }} </td>
+                                                                <td><button class="btn btn-sm btn-primary btn booking">Book</button></td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">2</th>
                                                                 <td>Tuesday</td>
-                                                                <td>{{ isset($week_menus->b_tuesday) && $week_menus->b_tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_tuesday)->name : '-----' }}
-                                                                </td>
-                                                                <td>{{ isset($week_menus->tuesday) && $week_menus->tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->tuesday)->name : '-----' }}
-                                                                </td>
+                                                                <td>{{ isset($week_menus->b_tuesday) && $week_menus->b_tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_tuesday)->name : '-----' }} </td>
+                                                                <td>{{ isset($week_menus->tuesday) && $week_menus->tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->tuesday)->name : '-----' }} </td>
+                                                                <td> <button class="btn btn-sm btn-primary btn">Book</button></td>
+
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">3</th>
                                                                 <td>Wednesday</td>
-                                                                <td>{{ isset($week_menus->b_wednesday) && $week_menus->b_wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_wednesday)->name : '-----' }}
-                                                                </td>
-                                                                <td>{{ isset($week_menus->wednesday) && $week_menus->wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->wednesday)->name : '-----' }}
-                                                                </td>
+                                                                <td>{{ isset($week_menus->b_wednesday) && $week_menus->b_wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_wednesday)->name : '-----' }} </td>
+                                                                <td>{{ isset($week_menus->wednesday) && $week_menus->wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->wednesday)->name : '-----' }} </td>
+                                                                <td> <button class="btn btn-sm btn-primary btn">Book</button></td>
+
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">4</th>
                                                                 <td>Thursday</td>
-                                                                <td>{{ isset($week_menus->b_thursday) && $week_menus->b_thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_thursday)->name : '-----' }}
-                                                                </td>
-                                                                <td>{{ isset($week_menus->thursday) && $week_menus->thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->thursday)->name : '-----' }}
-                                                                </td>
+                                                                <td>{{ isset($week_menus->b_thursday) && $week_menus->b_thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_thursday)->name : '-----' }} </td>
+                                                                <td>{{ isset($week_menus->thursday) && $week_menus->thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->thursday)->name : '-----' }} </td>
+                                                                <td> <button class="btn btn-sm btn-primary btn">Book</button></td>
+
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">5</th>
                                                                 <td>Friday</td>
-                                                                <td>{{ isset($week_menus->b_friday) && $week_menus->b_friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_friday)->name : '-----' }}
-                                                                </td>
-                                                                <td>{{ isset($week_menus->friday) && $week_menus->friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->friday)->name : '-----' }}
-                                                                </td>
+                                                                <td>{{ isset($week_menus->b_friday) && $week_menus->b_friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_friday)->name : '-----' }} </td>
+                                                                <td>{{ isset($week_menus->friday) && $week_menus->friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->friday)->name : '-----' }} </td>
+                                                                <td> <button class="btn btn-sm btn-primary btn">Book</button></td>
+
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">6</th>
                                                                 <td>Saturday</td>
-                                                                <td>{{ isset($week_menus->b_saturday) && $week_menus->b_saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_saturday)->name : '-----' }}
-                                                                </td>
-                                                                <td>{{ isset($week_menus->saturday) && $week_menus->saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->saturday)->name : '-----' }}
-                                                                </td>
+                                                                <td>{{ isset($week_menus->b_saturday) && $week_menus->b_saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_saturday)->name : '-----' }} </td>
+                                                                <td>{{ isset($week_menus->saturday) && $week_menus->saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->saturday)->name : '-----' }} </td>
+                                                                <td> <button class="btn btn-sm btn-primary btn">Book</button></td>
+
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">7</th>
                                                                 <td>Sunday</td>
-                                                                <td>{{ isset($week_menus->b_sunday) && $week_menus->b_sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_sunday)->name : '-----' }}
-                                                                </td>
-                                                                <td>{{ isset($week_menus->sunday) && $week_menus->sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->sunday)->name : '-----' }}
-                                                                </td>
+                                                                <td>{{ isset($week_menus->b_sunday) && $week_menus->b_sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_sunday)->name : '-----' }} </td>
+                                                                <td>{{ isset($week_menus->sunday) && $week_menus->sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->sunday)->name : '-----' }} </td>
+                                                                <td> <button class="btn btn-sm btn-primary btn">Book</button></td>
+
                                                             </tr>
 
                                                         </tbody>
@@ -329,24 +331,47 @@
         </div>
 
     </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
+        <script src="../../../assets/js/core/bootstrap.min.js"></script>
+        <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+
+
     <script>
         $(document).ready(function() {
             $('#student').DataTable();
+
+            $(".booking").click(function() {
+            alert();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: "{{ route('booking.store') }}",
+                type: 'POST',
+                data: { day:1},
+
+                success: function(response) {
+                    alert("otp sent to registered number");
+                                    },
+                error: function(response) {}
+            });
+            });
         });
+
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js">
-        < script src = "https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js" >
-            <script src = "https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js" >
-            <script src = "https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js" >
-            <script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js" >
-            <script src = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" >
-            <script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js" >
-            <script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" >
-            <script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js" >
-            <script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js" >
-            <script src = "https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js" >
-            <script src = "../../../assets/js/core/bootstrap.min.js" >
-    </script>
-    <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
 @endsection

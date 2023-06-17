@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\ForgetController;
 use App\Http\Controllers\MenuMasterController;
@@ -138,9 +139,11 @@ Route::post('/sendotp', [ForgetController::class, 'sendotp'])->name('sendotp');
 Route::post('/verifyotp', [ForgetController::class, 'verifyotp'])->name('verifyotp');
 
 Route::get("/routeclear",function (){
-     \Artisan::call("route:clear");
-     \Artisan::call('config:cache');
-     \Artisan::call('cache:clear');
-     \Artisan::call('view:clear');
-     dd("done");
-    });
+    \Artisan::call("route:clear");
+    \Artisan::call('config:cache');
+    \Artisan::call('cache:clear');
+    \Artisan::call('view:clear');
+    dd("done");
+});
+
+Route::resource('booking',BookingController::class);
