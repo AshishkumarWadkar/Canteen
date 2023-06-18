@@ -7,27 +7,23 @@
               <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                   <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                    <h6 class="text-white text-capitalize ps-3">Prebooking </h6>
+                    <h6 class="text-white text-capitalize ps-3">leaves </h6>
                   </div>
                 </div>
                 <div class="card-body pt-0 mt-2">
                   <div class="table-responsive">
                     <div class="row">
                         <div class="col-3">
-                            Total Bookings : {{ $allcount }}
+                            Count : {{ $count }}
                         </div>
-                        <div class="col-3">
-                            Breakfast Booking : {{ $breakfastcount }}
-                        </div>
-                        <div class="col-3">
-                            Meal Booking : {{ $meal_count }}
-                        </div>
-                        <div class="col-3">
-                            <form action="{{ route('prebooking.index') }}">
-                                <div class="row">
-                                    <input type="date" class="date form-control" name="date" value="{{ isset($date) ? $date : "" }}">
-                                    <button class="btn btn-success btn-sm" type="submit">Get</button>
-                                    <a class="btn btn-success btn-sm" href="{{ route("prebooking.index") }}">Reset</a>
+
+                        <div class="col-8">
+                            <form action="{{ route('leaves.index') }}">
+                                <div class="d-flex">
+                                    <div class="col-3"><input type="date" class="date form-control" name="date" value="{{ isset($date) ? $date : "" }}"></div>
+                                    <div class="col-3"><button class="btn btn-success btn-sm" type="submit">Get</button></div>
+                                    <div class="col-3"><a class="btn btn-success btn-sm" href="{{ route("leaves.index") }}">Reset</a></div>
+
                                 </div>
                             </form>
                         </div>
@@ -38,21 +34,18 @@
                         <tr>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                           <th class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                          <th class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
-                          <th class="text-start text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
+                          <th class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Leave Date</th>
 
                         </tr>
                       </thead>
 
                       <tbody>
-                        @foreach ($prebookings as $key => $pb )
-
-
+                        @foreach ($leaves as $key => $lv )
                         <tr>
                           <td scope="row">{{ $key+1 }}</td>
-                             <td class="text-start">{{ $pb->user_name }}</td>
-                             <td class="text-start">{{ $pb->type == 0 ? "Breakfast" :"" }} {{ $pb->type == 1 ? "Lunch" : "" }}</td>
-                             <td class="text-start">{{ $pb->menu_name }}</td>
+                             <td class="text-start">{{ $lv->name }}</td>
+                             <td class="text-start">{{ $lv->leave_date }}</td>
+
 
                         </tr>
 

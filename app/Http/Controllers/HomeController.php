@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attendance;
+use App\Models\Leave;
 use App\Models\PhonePe;
 use App\Models\PreBooking;
 use App\Models\Topup;
@@ -71,7 +72,9 @@ class HomeController extends Controller
            ->first();
 
            $prebooking = PreBooking::where("user_id",\Auth::id())->join("menu_master",'menu_master.id',"menu_id")->orderBy('booking_date','DESC')->get();
-           return view('userdashobard',compact('students','topups','todays_punch','all_punch','week_menus','prebooking'));
+
+           $leave = Leave::where('user_id',\Auth::id())->orderBy('leave_date','DESC')->get();
+           return view('userdashobard',compact('students','topups','todays_punch','all_punch','week_menus','prebooking','leave'));
         }
     }
 }
