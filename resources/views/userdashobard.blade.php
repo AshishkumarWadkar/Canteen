@@ -203,14 +203,7 @@
                                                                 <td>{{ isset($week_menus->sunday) && $week_menus->sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->sunday)->name : '-----' }}
                                                                 </td>
                                                                 <td>
-                                                                    @if(Carbon\Carbon::now()->dayOfWeekIso < 7 )
 
-                                                                    {{ Carbon\Carbon::now()->dayOfWeekIso }}
-
-
-                                                                    @else
-
-                                                                    @endif
 
                                                                     <button class="btn btn-sm btn-success btn booking_modal"  data-day="7" data-menu="{{ $week_menus->b_sunday }}">Book Breakfast</button>
                                                                     <button class="btn btn-sm btn-primary btn booking_modal"  data-day="7" data-menu="{{ $week_menus->sunday }}">Lunch Book</button>
@@ -229,6 +222,53 @@
 
 
 
+                            <div class="container-fluid py-2">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card my-4">
+                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
+                                                    <h6 class="text-white text-capitalize ps-3 text-center">Prebooking Meals</h6>
+                                                </div>
+                                            </div>
+                                            <div class="card-body px-0 pb-2">
+                                                <div class="table-responsive p-0">
+                                                    <table id="student" class="table align-items-center mb-0">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Menu</th>
+                                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Booking date</th>
+                                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Meal Type</th>
+                                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Status</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($prebooking as $key => $pb)
+                                                                <tr>
+                                                                    <th scope="row">{{ $key + 1 }}</th>
+                                                                    <td>
+                                                                        <p class="text-xs font-weight-bold mb-0">{{ $pb->name }}</p>
+                                                                    </td>
+                                                                    <td>
+                                                                        <p class="text-xs font-weight-bold mb-0">{{ $pb->booking_date }}</p>
+                                                                    </td>
+                                                                    <td class="align-middle text-center text-sm">
+                                                                        <span class="badge badge-sm bg-gradient-{{ $pb->type == 0 ? 'success' : 'primary' }}">{{ $pb->type == 0 ? 'BreakFast' : 'Lunch' }}</span>
+                                                                    </td>
+                                                                    <td class="align-middle text-center text-sm">
+                                                                        <span class="badge badge-sm bg-gradient-{{ $pb->status == 1 ? 'success' : 'primary' }}">{{ $pb->status == 1 ? 'Active' : 'Cancelled' }}</span>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="container-fluid py-2">
                                 <div class="row">
                                     <div class="col-12">
@@ -409,7 +449,7 @@
         $(document).ready(function() {
 
             let day, menu, id;
-            $('#student').DataTable();
+            // $('#student').DataTable();
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -443,6 +483,13 @@
                         else
                         {
                             $("#booking_now").show();
+                            $("#cancel_booking_now").hide();
+                        }
+                        console.log(day);
+                        console.log({{ Carbon\Carbon::now()->dayOfWeekIso }});
+                        if({{ Carbon\Carbon::now()->dayOfWeekIso}} > day)
+                        {
+                            $("#booking_now").hide();
                             $("#cancel_booking_now").hide();
                         }
                         $("#booking_modal").show();
