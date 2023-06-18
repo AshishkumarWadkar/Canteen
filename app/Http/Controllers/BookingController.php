@@ -140,8 +140,7 @@ class BookingController extends Controller
         $menu  = MenuMaster::find($request->menu);
 
         $now = Carbon::now();
-        $booking_date =Carbon::parse($now->startOfWeek())->addDays($request->day);
-        $flag = PreBooking::where("user_id",\Auth::id())->where('menu_id',$request->menu)->whereDate('booking_date',$booking_date)->exists();
+        $booking_date =Carbon::parse($now->startOfWeek())->addDays($request->day-1);
         $exists= PreBooking::where("user_id",\Auth::id())->where('menu_id',$request->menu)->whereDate('booking_date',$booking_date)->first() ?? [];
         $data['success'] = true;
         $data["data"] = $menu;

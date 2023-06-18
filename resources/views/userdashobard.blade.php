@@ -203,14 +203,7 @@
                                                                 <td>{{ isset($week_menus->sunday) && $week_menus->sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->sunday)->name : '-----' }}
                                                                 </td>
                                                                 <td>
-                                                                    @if(Carbon\Carbon::now()->dayOfWeekIso < 7 )
 
-                                                                    {{ Carbon\Carbon::now()->dayOfWeekIso }}
-
-
-                                                                    @else
-
-                                                                    @endif
 
                                                                     <button class="btn btn-sm btn-success btn booking_modal"  data-day="7" data-menu="{{ $week_menus->b_sunday }}">Book Breakfast</button>
                                                                     <button class="btn btn-sm btn-primary btn booking_modal"  data-day="7" data-menu="{{ $week_menus->sunday }}">Lunch Book</button>
@@ -458,6 +451,13 @@
                         else
                         {
                             $("#booking_now").show();
+                            $("#cancel_booking_now").hide();
+                        }
+                        console.log(day);
+                        console.log({{ Carbon\Carbon::now()->dayOfWeekIso }});
+                        if({{ Carbon\Carbon::now()->dayOfWeekIso}} > day)
+                        {
+                            $("#booking_now").hide();
                             $("#cancel_booking_now").hide();
                         }
                         $("#booking_modal").show();
