@@ -13,6 +13,7 @@ use App\Http\Controllers\SettlementController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\WeeklyMenuController;
+use App\Http\Controllers\PreBookingController;
 use App\Models\Deductions;
 use App\Models\WeeklyMenu;
 use Illuminate\Support\Facades\Route;
@@ -78,6 +79,7 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::resource('student',StudentController::class);
     Route::resource('attendance',AttendanceController::class);
     Route::resource('menu_master',MenuMasterController::class);
+    Route::resource('prebooking',PreBookingController::class);
     Route::resource('weekly_menu',WeeklyMenuController::class);
     Route::resource('deductions',DeductionController::class);
     Route::resource('transactions',TransactionController::class);
