@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Attendance;
 use App\Models\PhonePe;
+use App\Models\PreBooking;
 use App\Models\Topup;
 use App\Models\WeeklyMenu;
 use Illuminate\Http\Request;
@@ -67,12 +68,10 @@ class HomeController extends Controller
             $week_menus = WeeklyMenu::
             whereRaw("start_date <=  date('$now')")
             ->whereRaw("end_date >=  date('$now')")
-        //    ->whereDate('end_date','<=',Carbon::now())
            ->first();
 
-
-
-            return view('userdashobard',compact('students','topups','todays_punch','all_punch','week_menus'));
+           $prebooking = PreBooking::where("user_id",\Auth::id())->orderBy('id','DESC')->get();
+           return view('userdashobard',compact('students','topups','todays_punch','all_punch','week_menus','prebooking'));
         }
     }
 }

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MenuMaster;
+use App\Models\PreBooking;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class BookingController extends Controller
 {
@@ -34,8 +37,57 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        return "Hi";
+        if($request->id)
+        {
+            $prebook =  PreBooking::where('id',$request->id)->first();
+            $prebook->status = 1;
+            if($prebook->save())
+            {
+                sweetalert("Order Placed Succesfully");
+            }
+            else
+            {
+                sweetalert()->addError("Something went wrong");
+            }
+            return response()->json([], 200, []);
+        }
+
+        $now = Carbon::now();
+        $booking_date =Carbon::parse($now->startOfWeek())->addDays($request->day-1);
+
+        if(PreBooking::where("user_id",\Auth::id())->where('menu_id',$request->menu)->whereDate('booking_date',$booking_date)->doesntExist())
+        {
+            $preBooking = new PreBooking;
+            $preBooking->user_id = \Auth::id();
+            $preBooking->booking_date = $booking_date;
+            $preBooking->menu_id = $request->menu;
+            $preBooking->status = 1;
+            if($preBooking->save())
+            {
+                sweetalert("Perbooking Done Successfully");
+                $data["message"] = "order placed";
+                $data["success"] = true;
+                return response()->json($data, 200);
+            }
+            else
+            {
+                sweetalert()->addError("Something Went Wrong");
+                $data["message"] = "Somthing Went Wrong";
+                $data["success"] = false;
+                return response()->json($data, 200);
+            }
+
+        }
+        else
+        {
+            sweetalert()->addInfo("Already order placed");
+            $data["message"] = "Already order placed";
+            $data["success"] = false;
+            return response()->json($data, 200);
+
+        }
+
+
     }
 
     /**
@@ -70,6 +122,7 @@ class BookingController extends Controller
     public function update(Request $request, $id)
     {
         //
+        return $id;
     }
 
     /**
@@ -81,5 +134,32 @@ class BookingController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function getBookingmenudata(Request $request)
+    {
+        $menu  = MenuMaster::find($request->menu);
+
+        $now = Carbon::now();
+        $booking_date =Carbon::parse($now->startOfWeek())->addDays($request->day);
+        $flag = PreBooking::where("user_id",\Auth::id())->where('menu_id',$request->menu)->whereDate('booking_date',$booking_date)->exists();
+        $exists= PreBooking::where("user_id",\Auth::id())->where('menu_id',$request->menu)->whereDate('booking_date',$booking_date)->first() ?? [];
+        $data['success'] = true;
+        $data["data"] = $menu;
+        $data["exists"] = $exists;
+        return response()->json($data, 200);
+    }
+    public function cancelbooking(Request $request)
+    {
+        $prebook =  PreBooking::where('id',$request->id)->first();
+        $prebook->status = 2;
+        if($prebook->save())
+        {
+            sweetalert("Order Cancelled Successfully");
+        }
+        else
+        {
+            sweetalert()->addError("Something went wrong");
+        }
+        return response()->json([], 200, []);
     }
 }

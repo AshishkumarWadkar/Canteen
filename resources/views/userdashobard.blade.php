@@ -121,56 +121,100 @@
                                                             <tr>
                                                                 <th scope="row">1</th>
                                                                 <td>Monday</td>
-                                                                <td>{{ isset($week_menus->b_monday) && $week_menus->b_monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_monday)->name : '-----' }} </td>
-                                                                <td>{{ isset($week_menus->monday) && $week_menus->monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->monday)->name : '-----' }} </td>
-                                                                <td><button class="btn btn-sm btn-primary btn booking">Book</button></td>
+                                                                <td>{{ isset($week_menus->b_monday) && $week_menus->b_monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_monday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ isset($week_menus->monday) && $week_menus->monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->monday)->name : '-----' }}
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="1" data-menu="{{ $week_menus->b_monday }}">Book Breakfast</button>
+                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="1" data-menu="{{ $week_menus->monday }}">Lunch Book</button>
+                                                                </td>
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">2</th>
                                                                 <td>Tuesday</td>
-                                                                <td>{{ isset($week_menus->b_tuesday) && $week_menus->b_tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_tuesday)->name : '-----' }} </td>
-                                                                <td>{{ isset($week_menus->tuesday) && $week_menus->tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->tuesday)->name : '-----' }} </td>
-                                                                <td> <button class="btn btn-sm btn-primary btn">Book</button></td>
+                                                                <td>{{ isset($week_menus->b_tuesday) && $week_menus->b_tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_tuesday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ isset($week_menus->tuesday) && $week_menus->tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->tuesday)->name : '-----' }}
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="2" data-menu="{{ $week_menus->b_tuesday }}">Book Breakfast</button>
+                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="2" data-menu="{{ $week_menus->tuesday }}">Lunch Book</button>
+                                                                </td>
 
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">3</th>
                                                                 <td>Wednesday</td>
-                                                                <td>{{ isset($week_menus->b_wednesday) && $week_menus->b_wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_wednesday)->name : '-----' }} </td>
-                                                                <td>{{ isset($week_menus->wednesday) && $week_menus->wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->wednesday)->name : '-----' }} </td>
-                                                                <td> <button class="btn btn-sm btn-primary btn">Book</button></td>
+                                                                <td>{{ isset($week_menus->b_wednesday) && $week_menus->b_wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_wednesday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ isset($week_menus->wednesday) && $week_menus->wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->wednesday)->name : '-----' }}
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="3" data-menu="{{ $week_menus->b_wednesday }}">Book Breakfast</button>
+                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="3" data-menu="{{ $week_menus->wednesday }}">Lunch Book</button>
+                                                                </td>
 
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">4</th>
                                                                 <td>Thursday</td>
-                                                                <td>{{ isset($week_menus->b_thursday) && $week_menus->b_thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_thursday)->name : '-----' }} </td>
-                                                                <td>{{ isset($week_menus->thursday) && $week_menus->thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->thursday)->name : '-----' }} </td>
-                                                                <td> <button class="btn btn-sm btn-primary btn">Book</button></td>
+                                                                <td>{{ isset($week_menus->b_thursday) && $week_menus->b_thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_thursday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ isset($week_menus->thursday) && $week_menus->thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->thursday)->name : '-----' }}
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="4" data-menu="{{ $week_menus->b_thursday }}">Book Breakfast</button>
+                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="4" data-menu="{{ $week_menus->thursday }}">Lunch Book</button>
+                                                                </td>
 
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">5</th>
                                                                 <td>Friday</td>
-                                                                <td>{{ isset($week_menus->b_friday) && $week_menus->b_friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_friday)->name : '-----' }} </td>
-                                                                <td>{{ isset($week_menus->friday) && $week_menus->friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->friday)->name : '-----' }} </td>
-                                                                <td> <button class="btn btn-sm btn-primary btn">Book</button></td>
+                                                                <td>{{ isset($week_menus->b_friday) && $week_menus->b_friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_friday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ isset($week_menus->friday) && $week_menus->friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->friday)->name : '-----' }}
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="5" data-menu="{{ $week_menus->b_friday }}">Book Breakfast</button>
+                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="5" data-menu="{{ $week_menus->friday }}">Lunch Book</button>
+                                                                </td>
 
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">6</th>
                                                                 <td>Saturday</td>
-                                                                <td>{{ isset($week_menus->b_saturday) && $week_menus->b_saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_saturday)->name : '-----' }} </td>
-                                                                <td>{{ isset($week_menus->saturday) && $week_menus->saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->saturday)->name : '-----' }} </td>
-                                                                <td> <button class="btn btn-sm btn-primary btn">Book</button></td>
+                                                                <td>{{ isset($week_menus->b_saturday) && $week_menus->b_saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_saturday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ isset($week_menus->saturday) && $week_menus->saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->saturday)->name : '-----' }}
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="6" data-menu="{{ $week_menus->b_saturday }}">Book Breakfast</button>
+                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="6" data-menu="{{ $week_menus->saturday }}">Lunch Book</button>
+                                                                </td>
 
                                                             </tr>
                                                             <tr>
                                                                 <th scope="row">7</th>
                                                                 <td>Sunday</td>
-                                                                <td>{{ isset($week_menus->b_sunday) && $week_menus->b_sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_sunday)->name : '-----' }} </td>
-                                                                <td>{{ isset($week_menus->sunday) && $week_menus->sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->sunday)->name : '-----' }} </td>
-                                                                <td> <button class="btn btn-sm btn-primary btn">Book</button></td>
+                                                                <td>{{ isset($week_menus->b_sunday) && $week_menus->b_sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->b_sunday)->name : '-----' }}
+                                                                </td>
+                                                                <td>{{ isset($week_menus->sunday) && $week_menus->sunday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->sunday)->name : '-----' }}
+                                                                </td>
+                                                                <td>
+                                                                    @if(Carbon\Carbon::now()->dayOfWeekIso < 7 )
+
+                                                                    {{ Carbon\Carbon::now()->dayOfWeekIso }}
+
+
+                                                                    @else
+
+                                                                    @endif
+
+                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="7" data-menu="{{ $week_menus->b_sunday }}">Book Breakfast</button>
+                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="7" data-menu="{{ $week_menus->sunday }}">Lunch Book</button>
+                                                                </td>
 
                                                             </tr>
 
@@ -184,14 +228,14 @@
                             </div>
 
 
+
                             <div class="container-fluid py-2">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card my-4">
                                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
-                                                    <h6 class="text-white text-capitalize ps-3 text-center">Meals Consumed
-                                                        History</h6>
+                                                    <h6 class="text-white text-capitalize ps-3 text-center">Meals Consumed History</h6>
                                                 </div>
                                             </div>
                                             <div class="card-body px-0 pb-2">
@@ -316,10 +360,38 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div class="modal" tabindex="-1" id="booking_modal">
+                                <div class="modal-dialog modal-fullscreen-sm-down">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title">Meal Details</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <h5>Meal Type : </h5><p id="modal_meal_type"></p>
+                                        </div>
+                                        <div class="row">
+                                            <h5>Name : </h5><p id="modal_menu_name"></p>
+                                        </div>
+                                        <div class="row">
+                                            <h5>Description : </h5><p id="modal_menu_desc"></p>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary close" >Close</button>
+                                        <button type="button" class="btn btn-primary" id="booking_now" >Book Now</button>
+                                        <button type="button" class="btn btn-warning" id="cancel_booking_now" >Cancel Booking</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                         @else
                             <form action="/payment" method="POST" class="text-center">
                                 @csrf
-                                <strong>Please pay  annual registration fee to activate your account</strong>
+                                <strong>Please pay annual registration fee to activate your account</strong>
                                 <input type="hidden" name="plan" value="1">
                                 <button type="submit" class="btn btn-primary btn-block d-block m-2 mx-auto">Pay
                                     Now</button>
@@ -333,45 +405,105 @@
     </div>
 
 
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
-        <script src="../../../assets/js/core/bootstrap.min.js"></script>
-        <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
+    <script src="../../../assets/js/core/bootstrap.min.js"></script>
+    <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
 
 
     <script>
         $(document).ready(function() {
-            $('#student').DataTable();
 
-            $(".booking").click(function() {
-            alert();
+            let day, menu, id;
+            $('#student').DataTable();
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-            $.ajax({
-                url: "{{ route('booking.store') }}",
-                type: 'POST',
-                data: { day:1},
 
-                success: function(response) {
-                    alert("otp sent to registered number");
-                                    },
-                error: function(response) {}
+            $(".booking_modal").click(function(){
+
+                day = $(this).data("day");
+                menu = $(this).data("menu");
+                $.ajax({
+                    url: "{{ route('getBookingmenudata') }}",
+                    type: 'POST',
+                    data: {
+                        day: $(this).data("day"),
+                        menu: $(this).data("menu"),
+                    },
+
+                    success: function(response) {
+                        console.log(response);
+                        id = response?.exists?.id;
+                        $("#modal_meal_type").html(response.data.type == 0 ? "Breakfast" : "Lunch");
+                        $("#modal_menu_name").html(response.data.name);
+                        $("#modal_menu_desc").html(response.data.description);
+                        $("#modal_menu_desc").html(response.data.description);
+                        if(response.exists.status == 1)
+                        {
+                            $("#booking_now").hide();
+                            $("#cancel_booking_now").show();
+                        }
+                        else
+                        {
+                            $("#booking_now").show();
+                            $("#cancel_booking_now").hide();
+                        }
+                        $("#booking_modal").show();
+                    },
+                    error: function(response) {}
+                });
             });
+
+            $(".close").click(function(){
+                $("#booking_modal").hide();
+            });
+
+            $("#booking_now").click(function() {
+
+               $.ajax({
+                    url: "{{ route('booking.store') }}",
+                    type: 'POST',
+                    data: {
+                        day: day,
+                        menu: menu,
+                        id: id,
+
+                    },
+
+                    success: function(response) {
+                        location.reload();
+                    },
+                    error: function(response) {}
+                });
+            });
+            $("#cancel_booking_now").click(function() {
+
+               $.ajax({
+                    url: "{{ route('cancelbooking') }}",
+                    type: 'post',
+                    data: {
+                        id: id,
+                    },
+
+                    success: function(response) {
+                        location.reload();
+                    },
+                    error: function(response) {}
+                });
             });
         });
-
     </script>
 
 @endsection
