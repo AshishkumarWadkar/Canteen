@@ -70,7 +70,7 @@ class HomeController extends Controller
             ->whereRaw("end_date >=  date('$now')")
            ->first();
 
-           $prebooking = PreBooking::where("user_id",\Auth::id())->orderBy('id','DESC')->get();
+           $prebooking = PreBooking::where("user_id",\Auth::id())->join("menu_master",'menu_master.id',"menu_id")->orderBy('booking_date','DESC')->get();
            return view('userdashobard',compact('students','topups','todays_punch','all_punch','week_menus','prebooking'));
         }
     }
