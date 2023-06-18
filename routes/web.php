@@ -147,3 +147,5 @@ Route::get("/routeclear",function (){
 });
 
 Route::resource('booking',BookingController::class);
+Route::post('getBookingmenudata',[BookingController::class,"getBookingmenudata"])->name("getBookingmenudata");
+Route::post('cancelbooking',[BookingController::class,"cancelbooking"])->name("cancelbooking");
