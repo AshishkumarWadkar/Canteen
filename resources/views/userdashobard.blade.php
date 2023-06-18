@@ -228,12 +228,13 @@
                                         <div class="card my-4">
                                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
-                                                    <h6 class="text-white text-capitalize ps-3 text-center">Prebooking Meals</h6>
+                                                    <h6 class="text-white text-capitalize ps-3 text-center collapseable">Prebooking Meals</h6>
+
                                                 </div>
                                             </div>
-                                            <div class="card-body px-0 pb-2">
+                                            <div class="card-body px-0 pb-2 collapse">
                                                 <div class="table-responsive p-0">
-                                                    <table id="student" class="table align-items-center mb-0">
+                                                    <table id="student" class="table align-items-center mb-0" id="demo">
                                                         <thead>
                                                             <tr>
                                                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
@@ -534,6 +535,12 @@
                     },
                     error: function(response) {}
                 });
+            });
+
+            $(".collapseable").click(function(){
+
+
+                $(".collapse").collapse('toggle');
             });
         });
     </script>
