@@ -15,7 +15,7 @@ class LeaveController extends Controller
     public function index(Request $request)
     {
         //
-        $leaves = Leave::join('users','users.id','user_id');
+        $leaves = Leave::join('users','users.id','user_id')->where('created_by',\Auth::id());
         if($request->date)
         {
             $leaves = $leaves->whereDate('leave_date',$request->date);
@@ -54,7 +54,7 @@ class LeaveController extends Controller
             $leave->leave_date = $request->date;
             if($leave->save())
             {
-                sweetalert("Attendance Marked Successfully");
+                sweetalert("Leave Marked Successfully");
             }
             else
             {
@@ -63,7 +63,7 @@ class LeaveController extends Controller
         }
         else
         {
-            sweetalert()->addInfo("Attendance already Marked !");
+            sweetalert()->addInfo("Leave already Marked !");
 
         }
         return redirect("/home");

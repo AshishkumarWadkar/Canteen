@@ -26,6 +26,7 @@ class MessController extends Controller
      */
     public function create()
     {
+
         return view('admin.add_mess');
     }
 

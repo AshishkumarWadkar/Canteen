@@ -154,21 +154,11 @@
                                                     <table class="table align-items-center mb-0">
                                                         <thead>
                                                             <tr>
-                                                                <th
-                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 d-lg-block d-none">
-                                                                    #</th>
-                                                                <th
-                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                                    Day</th>
-                                                                <th
-                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 d-lg-block d-none">
-                                                                    BreakFast</th>
-                                                                <th
-                                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                                    Meal</th>
-                                                                <th
-                                                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                                    Booking</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 d-lg-block d-none">#</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Day</th>
+                                                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2 "> BreakFast</th>
+                                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Meal</th>
+                                                                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"> Booking</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -282,7 +272,7 @@
                                         <div class="card my-4">
                                             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 collapseable">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
-                                                    <h6 class="text-white text-capitalize ps-3 text-center ">Prebooking Meals</h6>
+                                                    <h6 class="text-white text-capitalize ps-3 text-center ">Pre-Book History</h6>
 
                                                 </div>
                                             </div>

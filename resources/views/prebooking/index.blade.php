@@ -38,6 +38,7 @@
                         <tr>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
                           <th class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                          <th class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone</th>
                           <th class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
                           <th class="text-start text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
 
@@ -51,6 +52,7 @@
                         <tr>
                           <td scope="row">{{ $key+1 }}</td>
                              <td class="text-start">{{ $pb->user_name }}</td>
+                             <td class="text-start">{{ $pb->email }}</td>
                              <td class="text-start">{{ $pb->type == 0 ? "Breakfast" :"" }} {{ $pb->type == 1 ? "Lunch" : "" }}</td>
                              <td class="text-start">{{ $pb->menu_name }}</td>
 

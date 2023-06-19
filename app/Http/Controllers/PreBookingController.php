@@ -15,9 +15,11 @@ class PreBookingController extends Controller
      */
     public function index(Request $request)
     {
-       $prebookings = PreBooking::select('prebooking.*','users.name as user_name','menu_master.name as menu_name','menu_master.type as type')
+       $prebookings = PreBooking::select('prebooking.*','users.name as user_name','menu_master.name as menu_name','menu_master.type as type','users.email')
                                         ->join('users','users.id','prebooking.user_id')
-                                        ->join('menu_master','menu_master.id','prebooking.menu_id');
+                                        ->join('menu_master','menu_master.id','prebooking.menu_id')
+                                        ->where('users.created_by',\Auth::id())
+                                        ->where('prebooking.status',1);
                                         if($request->date)
                                         {
                                             $prebookings = $prebookings->whereDate("booking_date",$request->date);
@@ -27,7 +29,10 @@ class PreBookingController extends Controller
 
         $breakfastcount  = PreBooking::select('prebooking.*','users.name as user_name','menu_master.name as menu_name','menu_master.type as type')
         ->join('users','users.id','prebooking.user_id')
-        ->join('menu_master','menu_master.id','prebooking.menu_id');
+        ->join('menu_master','menu_master.id','prebooking.menu_id')
+        ->where('users.created_by',\Auth::id())
+        ->where('prebooking.status',1);
+
                                 if($request->date)
                                 {
                                     $breakfastcount = $breakfastcount->whereDate("booking_date",$request->date);
@@ -36,7 +41,11 @@ class PreBookingController extends Controller
 
         $meal_count  = PreBooking::select('prebooking.*','users.name as user_name','menu_master.name as menu_name','menu_master.type as type')
                                 ->join('users','users.id','prebooking.user_id')
-                                ->join('menu_master','menu_master.id','prebooking.menu_id');
+                                ->join('menu_master','menu_master.id','prebooking.menu_id')
+
+                                ->where('users.created_by',\Auth::id())
+                                ->where('prebooking.status',1);
+
                                 if($request->date)
                                 {
                                     $meal_count = $meal_count->whereDate("booking_date",$request->date);
