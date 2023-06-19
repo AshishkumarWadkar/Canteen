@@ -5,6 +5,7 @@ use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\ForgetController;
+use App\Http\Controllers\LeaveController;
 use App\Http\Controllers\MenuMasterController;
 use App\Http\Controllers\MessController;
 use App\Http\Controllers\PaymentController;
@@ -80,6 +81,7 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::resource('attendance',AttendanceController::class);
     Route::resource('menu_master',MenuMasterController::class);
     Route::resource('prebooking',PreBookingController::class);
+    Route::resource('leaves',LeaveController::class);
     Route::resource('weekly_menu',WeeklyMenuController::class);
     Route::resource('deductions',DeductionController::class);
     Route::resource('transactions',TransactionController::class);
@@ -151,3 +153,4 @@ Route::get("/routeclear",function (){
 Route::resource('booking',BookingController::class);
 Route::post('getBookingmenudata',[BookingController::class,"getBookingmenudata"])->name("getBookingmenudata");
 Route::post('cancelbooking',[BookingController::class,"cancelbooking"])->name("cancelbooking");
+Route::resource('leave',LeaveController::class);

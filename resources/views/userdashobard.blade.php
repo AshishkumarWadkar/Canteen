@@ -43,14 +43,68 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card my-4">
-                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 collapseable">
+                                                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
+                                                    <h6 class="text-white text-capitalize ps-3 text-center">Mark Your Leaves </h6>
+                                                </div>
+                                            </div>
+                                            <div class="card-body px-0 pb-2 collapse">
+                                                <div class="table-responsive p-0">
+                                                <div class="row">
+                                                    <form action="{{ route("leave.index") }}" method="POST">
+                                                        @csrf
+                                                    <div class="col-6">
+                                                        <input type="date" name="date" id="date" class="date form-control" required min="{{ Carbon\Carbon::now()->format("Y-m-d") }}">
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <button type="submit" class="btn btn-sm btn-success">Mark</button>
+                                                    </div>
+                                                    </form>
+
+                                                </div>
+                                                    <table class="table align-items-center mb-0">
+                                                        <thead class="thead-dark ">
+                                                            <tr>
+                                                                <th scope="col">#</th>
+                                                                <th scope="col">Attendance Date</th>
+                                                                <th scope="col">Created at</th>
+                                                                <th scope="col">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($leave as $key => $lv)
+                                                                <tr>
+                                                                    <th scope="row">{{ $key + 1 }}</th>
+                                                                    <td>{{ $lv->leave_date }}</td>
+                                                                    <td>{{ $lv->created_at }}</td>
+                                                                    <td>@if(Carbon\Carbon::now()->lt($lv->leave_date)) <a class="btn btn-sm btn-warning" href="{{ route('leave.edit',$lv->id) }}">Delete</a>@endif</td>
+
+
+
+                                                                </tr>
+                                                            @endforeach
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="container-fluid py-2">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card my-4">
+                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 collapseable">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
                                                     <h6 class="text-white text-capitalize ps-3 text-center">Meals Consumed
                                                         Today
                                                     </h6>
                                                 </div>
                                             </div>
-                                            <div class="card-body px-0 pb-2">
+                                            <div class="card-body px-0 pb-2 collapse">
                                                 <div class="table-responsive p-0">
                                                     <table class="table align-items-center mb-0">
                                                         <thead class="thead-dark ">
@@ -89,13 +143,13 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card my-4">
-                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 collapseable">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
                                                     <h6 class="text-white text-capitalize ps-3 text-center">Weekly Menus
                                                     </h6>
                                                 </div>
                                             </div>
-                                            <div class="card-body px-0 pb-2">
+                                            <div class="card-body px-0 pb-2 collapse">
                                                 <div class="table-responsive p-0">
                                                     <table class="table align-items-center mb-0">
                                                         <thead>
@@ -226,14 +280,15 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card my-4">
-                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 collapseable">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
-                                                    <h6 class="text-white text-capitalize ps-3 text-center">Prebooking Meals</h6>
+                                                    <h6 class="text-white text-capitalize ps-3 text-center ">Prebooking Meals</h6>
+
                                                 </div>
                                             </div>
-                                            <div class="card-body px-0 pb-2">
+                                            <div class="card-body px-0 pb-2 collapse collapse">
                                                 <div class="table-responsive p-0">
-                                                    <table id="student" class="table align-items-center mb-0">
+                                                    <table id="student" class="table align-items-center mb-0" id="demo">
                                                         <thead>
                                                             <tr>
                                                                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
@@ -273,12 +328,12 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card my-4">
-                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 collapseable">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
                                                     <h6 class="text-white text-capitalize ps-3 text-center">Meals Consumed History</h6>
                                                 </div>
                                             </div>
-                                            <div class="card-body px-0 pb-2">
+                                            <div class="card-body px-0 pb-2 collapse">
                                                 <div class="table-responsive p-0">
                                                     <table id="student" class="table align-items-center mb-0">
                                                         <thead>
@@ -323,13 +378,13 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card my-4">
-                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 collapseable">
                                                 <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
                                                     <h6 class="text-white text-capitalize ps-3 text-center">Recharge History
                                                     </h6>
                                                 </div>
                                             </div>
-                                            <div class="card-body px-0 pb-2">
+                                            <div class="card-body px-0 pb-2 collapse">
                                                 <div class="table-responsive p-0">
                                                     <table class="table align-items-center mb-0">
                                                         <thead>
@@ -445,6 +500,21 @@
     </div>
 
 
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.colVis.min.js"></script>
+    <script src="../../../assets/js/core/bootstrap.min.js"></script>
+    <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script> --}}
+
+
     <script>
         $(document).ready(function() {
 
@@ -534,6 +604,14 @@
                     },
                     error: function(response) {}
                 });
+            });
+
+            $(".collapseable").click(function(){
+
+               console.log();
+
+                // $(".collapse").collapse('toggle');
+                $(this).next().collapse('toggle');
             });
         });
     </script>

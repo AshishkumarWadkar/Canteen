@@ -149,25 +149,25 @@
             document.getElementById("barcode").focus();
         })
 
-        var barcode = '';
-        var interval;
-        document.addEventListener('keydown', function(evt) {
-            if (interval)
-                clearInterval(interval);
-            if (evt.code == 'Enter') {
-                if (barcode)
-                    handleBarcode(barcode);
-                barcode = '';
-                return;
-            }
-            if (evt.key != 'Shift')
-                barcode += evt.key;
-            interval = setInterval(() => barcode = '', 1);
-        });
+        // var barcode = '';
+        // var interval;
+        // document.addEventListener('keydown', function(evt) {
+        //     if (interval)
+        //         clearInterval(interval);
+        //     if (evt.code == 'Enter') {
+        //         if (barcode)
+        //             handleBarcode(barcode);
+        //         barcode = '';
+        //         return;
+        //     }
+        //     if (evt.key != 'Shift')
+        //         barcode += evt.key;
+        //     interval = setInterval(() => barcode = '', 1);
+        // });
 
-        function handleBarcode(scanned_barcode) {
-            document.getElementById('barcode').value = scanned_barcode;
-        }
+        // function handleBarcode(scanned_barcode) {
+        //     document.getElementById('barcode').value = scanned_barcode;
+        // }
 
         const hour = new Date().getHours();
         if (hour < 12) {

@@ -13,13 +13,42 @@ class PreBookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
        $prebookings = PreBooking::select('prebooking.*','users.name as user_name','menu_master.name as menu_name','menu_master.type as type')
                                         ->join('users','users.id','prebooking.user_id')
-                                        ->join('menu_master','menu_master.id','prebooking.menu_id')
-                                        ->get();
-        return view('prebooking.index',compact('prebookings'));
+                                        ->join('menu_master','menu_master.id','prebooking.menu_id');
+                                        if($request->date)
+                                        {
+                                            $prebookings = $prebookings->whereDate("booking_date",$request->date);
+                                        }
+
+        $prebookings = $prebookings->get();
+
+        $breakfastcount  = PreBooking::select('prebooking.*','users.name as user_name','menu_master.name as menu_name','menu_master.type as type')
+        ->join('users','users.id','prebooking.user_id')
+        ->join('menu_master','menu_master.id','prebooking.menu_id');
+                                if($request->date)
+                                {
+                                    $breakfastcount = $breakfastcount->whereDate("booking_date",$request->date);
+                                }
+        $breakfastcount = $breakfastcount->where("menu_master.type",0)->count();
+
+        $meal_count  = PreBooking::select('prebooking.*','users.name as user_name','menu_master.name as menu_name','menu_master.type as type')
+                                ->join('users','users.id','prebooking.user_id')
+                                ->join('menu_master','menu_master.id','prebooking.menu_id');
+                                if($request->date)
+                                {
+                                    $meal_count = $meal_count->whereDate("booking_date",$request->date);
+                                };
+
+        $meal_count = $meal_count->where("menu_master.type",1)->count();
+
+        $allcount  = $prebookings->count();
+
+        $date = $request->date ?? "";
+
+        return view('prebooking.index',compact('prebookings','breakfastcount','meal_count','allcount','date'));
     }
 
     /**

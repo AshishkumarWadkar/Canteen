@@ -43,7 +43,7 @@ class SettlementController extends Controller
         $set->save();
 
         sweetalert("Amount Requested");
-        return redirect()->route("settlement.index");
+        return redirect()->route("messsettlement.index");
     }
     public function pay(Request $request,$id)
     {
