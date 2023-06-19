@@ -69,6 +69,7 @@ class HomeController extends Controller
             $week_menus = WeeklyMenu::
             whereRaw("start_date <=  date('$now')")
             ->whereRaw("end_date >=  date('$now')")
+            ->where('created_by',\Auth::user()->created_by)
            ->first();
 
            $prebooking = PreBooking::where("user_id",\Auth::id())->join("menu_master",'menu_master.id',"menu_id")->orderBy('booking_date','DESC')->get();

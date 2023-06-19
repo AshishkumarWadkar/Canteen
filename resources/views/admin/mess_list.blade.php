@@ -6,7 +6,8 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('All Messes') }}</div>
-                    <a class="btn btn-sm btn-primary" href={{ route('mess.create') }}>Add Mess</a>
+
+                    <a class="btn btn-sm btn-primary mx-12" href={{ route('mess.create') }}>Add Mess</a>
                     <div class="card-body">
                         <table class="table table-striped table-responsive">
                             <thead class="thead-dark ">
