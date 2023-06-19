@@ -36,22 +36,7 @@
                                         </div>
                                     </div>
                                     <input type="hidden" name="veg_nonveg" value="0">
-                                    {{-- <div class="col-6 d-flex">
-                                        <div class="form-check">
-                                            <input class="form-check-input form-control" type="radio" name="veg_nonveg"
-                                                id="veg" checked value="0">
-                                            <label class="form-check-label form-label" for="veg">
-                                                Veg
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input form-control" type="radio" name="veg_nonveg"
-                                                id="nonveg" value="1">
-                                            <label class="form-check-label form-label" for="nonveg">
-                                                Non-Veg
-                                            </label>
-                                        </div>
-                                    </div> --}}
+
 
 
                                 </div>
@@ -69,9 +54,4 @@
             </div>
         </div>
     </div>
-
-
-
-    <script src="../../../assets/js/core/bootstrap.min.js"></script>
-    <script src="../../../assets/js/plugins/perfect-scrollbar.min.js"></script>
 @endsection
