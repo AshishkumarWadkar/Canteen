@@ -170,8 +170,8 @@
                                                                 <td>{{ isset($week_menus->monday) && $week_menus->monday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->monday)->name : '-----' }}
                                                                 </td>
                                                                 <td>
-                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="1" data-menu="{{ $week_menus->b_monday }}">Book Breakfast</button>
-                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="1" data-menu="{{ $week_menus->monday }}">Lunch Book</button>
+                                                                    @if(isset($week_menus->b_monday) && $week_menus->b_monday > 0)<button class="btn btn-sm btn-success btn booking_modal"  data-day="1" data-menu="{{ $week_menus->b_monday }}">Book Breakfast</button>@endif
+                                                                    @if(isset($week_menus->monday) && $week_menus->monday > 0)<button class="btn btn-sm btn-primary btn booking_modal"  data-day="1" data-menu="{{ $week_menus->monday }}">Lunch Book</button>@endif
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -182,8 +182,8 @@
                                                                 <td>{{ isset($week_menus->tuesday) && $week_menus->tuesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->tuesday)->name : '-----' }}
                                                                 </td>
                                                                 <td>
-                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="2" data-menu="{{ $week_menus->b_tuesday }}">Book Breakfast</button>
-                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="2" data-menu="{{ $week_menus->tuesday }}">Lunch Book</button>
+                                                                    @if(isset($week_menus->b_tuesday) && $week_menus->b_tuesday > 0)<button class="btn btn-sm btn-success btn booking_modal"  data-day="2" data-menu="{{ $week_menus->b_tuesday }}">Book Breakfast</button>@endif
+                                                                    @if(isset($week_menus->tuesday) && $week_menus->tuesday > 0)<button class="btn btn-sm btn-primary btn booking_modal"  data-day="2" data-menu="{{ $week_menus->tuesday }}">Lunch Book</button>@endif
                                                                 </td>
 
                                                             </tr>
@@ -195,8 +195,8 @@
                                                                 <td>{{ isset($week_menus->wednesday) && $week_menus->wednesday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->wednesday)->name : '-----' }}
                                                                 </td>
                                                                 <td>
-                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="3" data-menu="{{ $week_menus->b_wednesday }}">Book Breakfast</button>
-                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="3" data-menu="{{ $week_menus->wednesday }}">Lunch Book</button>
+                                                                    @if(isset($week_menus->b_wednesday) && $week_menus->b_wednesday > 0)<button class="btn btn-sm btn-success btn booking_modal"  data-day="3" data-menu="{{ $week_menus->b_wednesday }}">Book Breakfast</button>@endif
+                                                                    @if(isset($week_menus->wednesday) && $week_menus->wednesday > 0)<button class="btn btn-sm btn-primary btn booking_modal"  data-day="3" data-menu="{{ $week_menus->wednesday }}">Lunch Book</button>@endif
                                                                 </td>
 
                                                             </tr>
@@ -208,8 +208,8 @@
                                                                 <td>{{ isset($week_menus->thursday) && $week_menus->thursday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->thursday)->name : '-----' }}
                                                                 </td>
                                                                 <td>
-                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="4" data-menu="{{ $week_menus->b_thursday }}">Book Breakfast</button>
-                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="4" data-menu="{{ $week_menus->thursday }}">Lunch Book</button>
+                                                                    @if(isset($week_menus->b_thursday) && $week_menus->b_thursday > 0)<button class="btn btn-sm btn-success btn booking_modal"  data-day="4" data-menu="{{ $week_menus->b_thursday }}">Book Breakfast</button>@endif
+                                                                    @if(isset($week_menus->thursday) && $week_menus->thursday > 0)<button class="btn btn-sm btn-primary btn booking_modal"  data-day="4" data-menu="{{ $week_menus->thursday }}">Lunch Book</button>@endif
                                                                 </td>
 
                                                             </tr>
@@ -221,8 +221,8 @@
                                                                 <td>{{ isset($week_menus->friday) && $week_menus->friday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->friday)->name : '-----' }}
                                                                 </td>
                                                                 <td>
-                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="5" data-menu="{{ $week_menus->b_friday }}">Book Breakfast</button>
-                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="5" data-menu="{{ $week_menus->friday }}">Lunch Book</button>
+                                                                    @if(isset($week_menus->b_friday) && $week_menus->b_friday > 0)<button class="btn btn-sm btn-success btn booking_modal"  data-day="5" data-menu="{{ $week_menus->b_friday }}">Book Breakfast</button>@endif
+                                                                    @if(isset($week_menus->friday) && $week_menus->friday > 0)<button class="btn btn-sm btn-primary btn booking_modal"  data-day="5" data-menu="{{ $week_menus->friday }}">Lunch Book</button>@endif
                                                                 </td>
 
                                                             </tr>
@@ -234,8 +234,8 @@
                                                                 <td>{{ isset($week_menus->saturday) && $week_menus->saturday > 0 ? \App\Models\MenuMaster::findOrFail($week_menus->saturday)->name : '-----' }}
                                                                 </td>
                                                                 <td>
-                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="6" data-menu="{{ $week_menus->b_saturday }}">Book Breakfast</button>
-                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="6" data-menu="{{ $week_menus->saturday }}">Lunch Book</button>
+                                                                    @if(isset($week_menus->b_saturday) && $week_menus->b_saturday > 0)<button class="btn btn-sm btn-success btn booking_modal"  data-day="6" data-menu="{{ $week_menus->b_saturday }}">Book Breakfast</button>@endif
+                                                                    @if( isset($week_menus->saturday) && $week_menus->saturday > 0)<button class="btn btn-sm btn-primary btn booking_modal"  data-day="6" data-menu="{{ $week_menus->saturday }}">Lunch Book</button>@endif
                                                                 </td>
 
                                                             </tr>
@@ -249,8 +249,8 @@
                                                                 <td>
 
 
-                                                                    <button class="btn btn-sm btn-success btn booking_modal"  data-day="7" data-menu="{{ $week_menus->b_sunday }}">Book Breakfast</button>
-                                                                    <button class="btn btn-sm btn-primary btn booking_modal"  data-day="7" data-menu="{{ $week_menus->sunday }}">Lunch Book</button>
+                                                                    @if(isset($week_menus->b_sunday) && $week_menus->b_sunday > 0)<button class="btn btn-sm btn-success btn booking_modal"  data-day="7" data-menu="{{ $week_menus->b_sunday }}">Book Breakfast</button>@endif
+                                                                    @if(isset($week_menus->sunday) && $week_menus->sunday > 0)<button class="btn btn-sm btn-primary btn booking_modal"  data-day="7" data-menu="{{ $week_menus->sunday }}">Lunch Book</button>@endif
                                                                 </td>
 
                                                             </tr>
@@ -545,8 +545,7 @@
                             $("#booking_now").show();
                             $("#cancel_booking_now").hide();
                         }
-                        console.log(day);
-                        console.log({{ Carbon\Carbon::now()->dayOfWeekIso }});
+
                         if({{ Carbon\Carbon::now()->dayOfWeekIso}} > day)
                         {
                             $("#booking_now").hide();

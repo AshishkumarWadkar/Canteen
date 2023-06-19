@@ -23,13 +23,13 @@
 
 
                             <div class="input-group input-group-outline mb-3 d-flex">
-                                <label class="col-5" for="class">Select the Week </label>
+                                <label class="col-2" for="class">Select the Week </label>
                                 <input class="form-control" type="week" name="week" id="week"
                                    >
                             </div>
 
                             <div class="input-group input-group-outline mb-3 d-flex">
-                                <label class="col-5" for="class">Meal Type </label>
+                                <label class="col-2" for="class">Meal Type </label>
                                 <select class="form-control mx-1 select text-center" disabled>
 
                                         <option>Break Fast</option>
@@ -46,7 +46,7 @@
                                  </select>
                             </div>
                             <div class="input-group input-group-outline mb-3 d-flex">
-                                <label class="col-5" for="class">Select Monday Menu </label>
+                                <label class="col-2" for="class">Select Monday Menu </label>
                                 <select class="form-control mx-1 select" id="b_monday" name="b_monday" required>
                                     <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
@@ -65,7 +65,7 @@
                                 </select>
                             </div>
                             <div class="input-group input-group-outline mb-3 d-flex">
-                                <label class="col-5" for="class">Select Tuesday Menu </label>
+                                <label class="col-2" for="class">Select Tuesday Menu </label>
                                 <select class="form-control mx-1 select" id="b_tuesday" name="b_tuesday" required>
                                     <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
@@ -82,7 +82,7 @@
                                 </select>
                             </div>
                             <div class="input-group input-group-outline mb-3 d-flex">
-                                <label class="col-5" for="class">Select Wednesday Menu </label>
+                                <label class="col-2" for="class">Select Wednesday Menu </label>
                                 <select class="form-control mx-1 select" id="b_wednesday" name="b_wednesday" required>
                                     <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
@@ -99,7 +99,7 @@
                                 </select>
                             </div>
                             <div class="input-group input-group-outline mb-3 d-flex">
-                                <label class="col-5" for="class">Select Thursday Menu </label>
+                                <label class="col-2" for="class">Select Thursday Menu </label>
                                 <select class="form-control mx-1 select" id="b_thursday" name="b_thursday" required>
                                     <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
@@ -116,7 +116,7 @@
                                 </select>
                             </div>
                             <div class="input-group input-group-outline mb-3 d-flex">
-                                <label class="col-5" for="class">Select Friday Menu </label>
+                                <label class="col-2" for="class">Select Friday Menu </label>
                                 <select class="form-control mx-1 select" id="b_friday" name="b_friday" required>
                                     <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
@@ -133,7 +133,7 @@
                                 </select>
                             </div>
                             <div class="input-group input-group-outline mb-3 d-flex">
-                                <label class="col-5" for="class">Select Saturday Menu </label>
+                                <label class="col-2" for="class">Select Saturday Menu </label>
                                 <select class="form-control mx-1 select" id="b_saturday" name="b_saturday" required>
                                     <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
@@ -150,7 +150,7 @@
                                 </select>
                             </div>
                             <div class="input-group input-group-outline mb-3 d-flex">
-                                <label class="col-5" for="class">Select Sunday Menu </label>
+                                <label class="col-2" for="class">Select Sunday Menu </label>
                                 <select class="form-control mx-1 select" id="b_sunday" name="b_sunday" required>
                                     <option value="" disabled selected >Select menu</option>
                                     @foreach ($b_menu as $key => $m)
