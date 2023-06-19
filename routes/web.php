@@ -97,6 +97,7 @@ Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()
     Route::resource('mess',MessController::class);
     Route::get('get_all_transction',[AdminController::class,'get_all_transction']);
     Route::get('get_all_users',[AdminController::class,'get_all_users']);
+    Route::get('get_all_subscription',[AdminController::class,'get_all_subscription'])->name('get_all_subscription');
     // Route::get("/settlement",[SettlementController::class,'index'])->name('adminsettlement.index');
     // Route::post("/settlement/request",[SettlementController::class,'requested'])->name('adminsettlement.request');
     // Route::post("/settlement/pay/{id}",[SettlementController::class,'pay'])->name('adminsettlement.pay');
