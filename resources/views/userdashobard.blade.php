@@ -551,6 +551,11 @@
                             $("#booking_now").hide();
                             $("#cancel_booking_now").hide();
                         }
+                        if(response.can_book)
+                        {
+                            $("#booking_now").hide();
+                            $("#cancel_booking_now").hide();
+                        }
                         $("#booking_modal").show();
                     },
                     error: function(response) {}

@@ -145,6 +145,14 @@ class BookingController extends Controller
         $data['success'] = true;
         $data["data"] = $menu;
         $data["exists"] = $exists;
+
+        $date = $booking_date;
+        $carbon_date = Carbon::parse($date);
+        $carbon_date->addHours(21)->subDay(1);
+
+       $can_book = $carbon_date->lt(Carbon::now());
+       $data["can_book"] = $can_book;
+
         return response()->json($data, 200);
     }
     public function cancelbooking(Request $request)
