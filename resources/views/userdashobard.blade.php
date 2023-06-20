@@ -53,8 +53,8 @@
                                                 <div class="row">
                                                     <form action="{{ route("leave.index") }}" method="POST">
                                                         @csrf
-                                                    <div class="col-6">
-                                                        <input type="date" name="date" id="date" class="date form-control" required min="{{ Carbon\Carbon::now()->format("Y-m-d") }}">
+                                                    <div class="col-3">
+                                                        <input type="date" name="date" id="date" class="date form-control" required min="{{ Carbon\Carbon::now()->addDays(1)->format("Y-m-d") }}">
                                                     </div>
                                                     <div class="col-6">
                                                         <button type="submit" class="btn btn-sm btn-success">Mark</button>

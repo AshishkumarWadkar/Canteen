@@ -83,11 +83,16 @@
                                     value="{{ $student->barcode }}" placeholder="Please Scan the Card">
 
                             </div>
+
+                            @if ($student->is_subscribed == 1)
+
                             <div class="input-group input-group-outline mb-3 barcode ">
                                 <label class="col-5" for="new_amt">Amount To be Added : </label>
                                 <input type="number" class="form-control" id="new_amt" name="new_amt" value="0"
-                                    placeholder="New Amount">
+                                    placeholder="New Amount" >
                             </div>
+
+                            @endif
 
                             <div class="input-group input-group-outline mb-3 d-flex justify-content-between">
                                 <a href="{{ route('student.index') }}"><button type="button"
