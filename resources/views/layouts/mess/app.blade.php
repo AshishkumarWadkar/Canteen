@@ -13,7 +13,8 @@
 
     <script src="{{ asset('assets/js/core/jquery.js') }}"></script>
 
-    <script src="{{ asset('assets/css/core/jquery.dataTables.min.css') }}"></script>
+    <link src="{{ asset('assets/css/core/jquery.dataTables.min.css') }}">
+    <link  rel="stylesheet" src="{{ asset('assets/css/core/datatables.min.css') }}">
 
 
     <link
@@ -21,13 +22,14 @@
         rel="stylesheet" />
 
         <script src="{{asset('assets/js/core/pdfmake.min.js')}}"></script>
+        <script src="{{asset('assets/js/core/datatables.min.js')}}"></script>
         <script src="{{asset('assets/js/core/vfs_fonts.js')}}"></script>
 
     <script src="{{ asset('assets/js/core/select2.min.js') }}"></script>
 
-    <script
+    {{-- <script
         src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/sc-2.1.1/sb-1.4.2/datatables.min.js">
-    </script>
+    </script> --}}
     {{-- New Cdn above --}}
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
@@ -35,10 +37,10 @@
 
     {{-- css --}}
 
-    <link id="pagestyle" href="{{ asset('assets/css/material-dashboard.css') }}?v=3.1.0" rel="stylesheet">
+    {{-- <link id="pagestyle" href="{{ asset('assets/css/material-dashboard.css') }}?v=3.1.0" rel="stylesheet"> --}}
     <link href="{{ asset('assets/css/material-dashboard.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/material-dashboard.css.map') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/material-dashboard.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('assets/css/material-dashboard.min.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet">
     {{-- css --}}
 
@@ -135,6 +137,15 @@
                                 <i class="material-icons opacity-10">person</i>
                             </div>
                             <span class="nav-link-text ms-1">Prebooking</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white {{ request()->is('mess/missleanious') || request()->is('mess/missleanious/*') ? 'active bg-gradient-primary' : '' }}"
+                            href="{{ route('missleanious.index') }}">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">person</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Missleanious</span>
                         </a>
                     </li>
 

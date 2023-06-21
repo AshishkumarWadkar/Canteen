@@ -42,7 +42,7 @@
                              <td>{{  \Carbon\Carbon::parse($m->created_at)->format('d-m-Y') }}</td>
                           <td>
                                 <a href="{{ route('menu_master.edit',$m->id) }}"><button class="btn btn-sm btn-primary py-0">Edit</button></a>
-                                {{-- <button class="btn btn-sm py-0 btn-danger ">Delete</button> --}}
+                                {{-- <button class="btn btn-sm py-0 btn-danger ">Delete</button>s --}}
                           </td>
                         </tr>
 

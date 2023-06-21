@@ -15,6 +15,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\WeeklyMenuController;
 use App\Http\Controllers\PreBookingController;
+use App\Http\Controllers\MissleaniousController;
 use App\Models\Deductions;
 use App\Models\WeeklyMenu;
 use Illuminate\Support\Facades\Route;
@@ -68,7 +69,7 @@ Route::get('/admin/dashboard',function(){
     return view('admin.dashboard');
 })->middleware('auth:admin');
 
-Route::get('/mess/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth:mess');
+Route::get('/mess/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->middleware('auth:mess')->name('mess_dashboard');
 
 
 // Route::get('/teacher/dashboard',function(){
@@ -89,6 +90,11 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::get("/settlement",[SettlementController::class,'index'])->name('messsettlement.index');
     Route::post("/settlement/request",[SettlementController::class,'requested'])->name('messsettlement.request');
     Route::post("/settlement/pay/{id}",[SettlementController::class,'pay'])->name('messsettlement.pay');
+
+    Route::resource('missleanious',MissleaniousController::class);
+
+    Route::get('misslenious_status_update/{id}',[MissleaniousController::class,'misslenious_status_update'])->name('misslenious_status_update');
+
 
 });
 
