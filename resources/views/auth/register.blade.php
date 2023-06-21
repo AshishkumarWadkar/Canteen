@@ -164,7 +164,7 @@
                                             <input id="name" type="text"
                                                 class="form-control @error('name') is-invalid @enderror" name="name"
                                                 value="{{ old('name') }}" required autocomplete="name" autofocus
-                                                placeholder="Name">
+                                                placeholder="Student's Name">
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -193,7 +193,7 @@
                                                 <select class="form-control" id="created_by" name="created_by" required>
                                                     <option selected value="0">Select Canteen</option>
                                                     @foreach ($canteen as $k => $c)
-                                                        <option selected value={{ $c->id }}>{{ $c->name }}
+                                                        <option  value={{ $c->id }}>{{ $c->name }}
                                                         </option>
                                                     @endforeach
                                                 </select>
