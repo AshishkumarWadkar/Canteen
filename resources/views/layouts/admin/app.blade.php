@@ -18,9 +18,9 @@
     {{-- css --}}
 
     <link id="pagestyle" href="{{ asset('assets/css/material-dashboard.css') }}?v=3.1.0" rel="stylesheet">
-    <link href="{{ asset('assets/css/material-dashboard.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('assets/css/material-dashboard.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('assets/css/material-dashboard.css.map') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/material-dashboard.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('assets/css/material-dashboard.min.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet"> --}}
     {{-- css --}}
