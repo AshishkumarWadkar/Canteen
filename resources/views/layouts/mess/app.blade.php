@@ -54,7 +54,7 @@
     <script src="{{ asset('assets/js/core/42d5adcbca.js') }}" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/core/family.Material.Icons.Round.css') }}" />
 
-    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+    {{-- <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script> --}}
 
 
     <!-- Scripts -->
@@ -107,7 +107,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/student') || request()->is('mess/student/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('student.index') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">portrait</i>
                             </div>
                             <span class="nav-link-text ms-1">Users</span>
                         </a>
@@ -134,7 +134,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/prebooking') || request()->is('mess/prebooking/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('prebooking.index') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">book</i>
                             </div>
                             <span class="nav-link-text ms-1">Prebooking</span>
                         </a>
@@ -146,6 +146,15 @@
                                 <i class="material-icons opacity-10">person</i>
                             </div>
                             <span class="nav-link-text ms-1">Missleanious</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white {{ request()->is('mess/expenses') || request()->is('mess/expenses/*') ? 'active bg-gradient-primary' : '' }}"
+                            href="{{ route('expenses.index') }}">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">person</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Expenses</span>
                         </a>
                     </li>
 
@@ -162,7 +171,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/weekly_menu') || request()->is('mess/weekly_menu/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('weekly_menu.index') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">list</i>
                             </div>
                             <span class="nav-link-text ms-1">Weekly-Menu</span>
                         </a>
@@ -189,7 +198,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/messsettlement') || request()->is('mess/messsettlement/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('messsettlement.index') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">account_balance_wallet</i>
                             </div>
                             <span class="nav-link-text ms-1">Settlements</span>
                         </a>
@@ -197,7 +206,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-white " href="{{ route('all_logout') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">assignment</i>
+                                <i class="material-icons opacity-10">info_outline</i>
                             </div>
                             <span class="nav-link-text ms-1">Sign Out</span>
                         </a>
