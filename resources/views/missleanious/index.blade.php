@@ -33,14 +33,14 @@
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="col-5" for="name">Title : </label>
                                         <input type="name" class="form-control" id="name"
-                                            placeholder="First Name Middle Name Last Name" name="name" required>
+                                            placeholder="Title" name="name" required>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="col-5" for="name">Discription : </label>
                                         <input type="text" class="form-control" id="name"
-                                            placeholder="description" name="description" required>
+                                            placeholder="Description" name="description" required>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -56,7 +56,7 @@
                                 <div class="col-6">
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="col-5" for="amount">Amount : </label>
-                                        <input type="number" class="form-control" maxlength="11" id="amount" placeholder="10 Digits"
+                                        <input type="number" class="form-control" maxlength="11" id="amount" placeholder="Amount"
                                             name="amount" maxlength="10">
                                     </div>
                                 </div>
