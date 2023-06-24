@@ -17,6 +17,7 @@ use App\Http\Controllers\WeeklyMenuController;
 use App\Http\Controllers\PreBookingController;
 use App\Http\Controllers\MissleaniousController;
 use App\Http\Controllers\ExpensesController;
+use App\Http\Controllers\ComplementaryMealController;
 use App\Models\Deductions;
 use App\Models\WeeklyMenu;
 use Illuminate\Support\Facades\Route;
@@ -97,6 +98,7 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::get('misslenious_status_update/{id}',[MissleaniousController::class,'misslenious_status_update'])->name('misslenious_status_update');
 
     Route::resource('expenses',ExpensesController::class);
+    Route::resource('complementary_meal',ComplementaryMealController::class);
 
 
 });

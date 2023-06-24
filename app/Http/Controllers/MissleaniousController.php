@@ -46,7 +46,7 @@ class MissleaniousController extends Controller
         $missleanious->description  = $request->description;
         $missleanious->paid_status  = $request->paid_status;
         $missleanious->amount       = $request->amount;
-        $missleanious->mess_id      = \Auth::id();;
+        $missleanious->mess_id      = \Auth::id();
 
         $missleanious->save();
         toastr()
