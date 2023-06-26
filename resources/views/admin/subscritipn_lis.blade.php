@@ -74,6 +74,7 @@
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Status</th>
 
+
                                     </tr>
                                 </thead>
 
@@ -82,7 +83,6 @@
                                         <tr>
                                             <td scope="row">{{ $key + 1 }}</td>
                                             <td class="text-start" scope="row">{{ $t->name }}</td>
-                                            <td class="text-start" scope="row">{{ $t->mess }}</td>
                                             <td class="text-start" scope="row">{{ $t->email }}</td>
                                             <td scope="row">{{ $t->amount }}</td>
                                             <td scope="row">{{ $t->providerReferenceId }}</td>
