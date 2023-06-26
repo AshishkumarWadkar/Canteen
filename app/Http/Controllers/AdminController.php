@@ -28,7 +28,8 @@ class AdminController extends Controller
     {
 
 
-        $tran = User::join('phonepe','users.id','phonepe.user_id')
+        $tran = User::select('users.*','phonepe.*','messes.name as mess')->join('phonepe','users.id','phonepe.user_id')
+        ->join('messes','messes.id','users.created_by')
         // ->where('created_by',\Auth::id())
         ->where('plan','=',1)
         ;
