@@ -15,34 +15,37 @@
                             <form action="{{ route('adminsettlement.index') }}">
                                 @csrf
                                 <div class="row">
-                                    <div class="input-group input-group-outline mb-3 d-flex ">
-                                        <label for="mess_id" class="col-6 col-form-label ">{{ __('Select Canteen') }}</label>
-                                        @php
-                                            $canteen = \App\Models\Mess::get(['id', 'name']);
-                                        @endphp
-                                        <div class="col-md-5">
-                                            <select class="form-control" id="mess_id" name="mess_id" required>
-                                                <option selected value="0">Select Canteen</option>
-                                                @foreach ($canteen as $k => $c)
-                                                    <option  value='{{ $c->id }}' {{  isset($branch) && $c->id == $branch ? "selected" : "" }}>{{ $c->name }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                                    <div class="col-4">
+                                            <label for="mess_id" class="col-6">{{ __('Select Canteen') }}</label>
+                                            @php
+                                                $canteen = \App\Models\Mess::get(['id', 'name']);
+                                            @endphp
 
-                                        </div>
+                                                <select class="form-control" id="mess_id" name="mess_id" required>
+                                                    <option selected value="0">Select Canteen</option>
+                                                    @foreach ($canteen as $k => $c)
+                                                        <option  value='{{ $c->id }}' {{  isset($branch) && $c->id == $branch ? "selected" : "" }}>{{ $c->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
 
-                                    </div>
-                                    <div class="col-5"><label class="text-uppercase text-secondary font-weight-bolder"
+                                            </div>
+
+
+
+                                    <div class="col-3">
+                                        <label class="text-uppercase text-secondary font-weight-bolder"
                                             for="from" aria-autocomplete="false">From</label>
                                         <input type="date" class="form-control" id="from" name="from"
                                             value="{{ isset($from_date) ? $from_date : '' }}">
                                     </div>
-                                    <div class="col-5"><label class="text-uppercase text-secondary font-weight-bolder"
+                                    <div class="col-3">
+                                        <label class="text-uppercase text-secondary font-weight-bolder"
                                             for="to">To</label>
                                         <input type="date" class="form-control" id="to" name="to"
                                             value="{{ isset($to_date) ? $to_date : '' }}">
                                     </div>
-                                    <div class="col-2">
+                                    <div class="col-2 mt-auto">
                                         <label class="text-uppercase text-secondary font-weight-bolder d-none"
                                             for="from" aria-autocomplete="false">From</label>
                                         <button class="btn btn-sm btn-success mt-2" type="submit">Get Data</button>
@@ -65,7 +68,7 @@
                                         <input type="text" class="form-control" id="comment" name="comment"
                                             value="{{ isset($comment) ? $comment : '' }}">
                                     </div>
-                                    <div class="col-3">
+                                    <div class="col-3 mt-auto">
                                         <button class="btn btn-sm btn-success mt-2" type="submit" formmethod="POST"
                                             formaction="{{ route('adminsettlement.request') }}">Add</button>
                                     </div>
