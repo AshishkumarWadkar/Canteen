@@ -88,6 +88,8 @@
                                     <tr>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#
                                         </th>
+                                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Branch
+                                        </th>
                                         <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">From
                                             Date</th>
                                         <th
@@ -115,6 +117,7 @@
                                     @foreach ($stlmnt as $key => $st)
                                         <tr>
                                             <td scope="row">{{ $key + 1 }}</td>
+                                            <td scope="row">{{ $st->name }}</td>
                                             <td scope="row">{{ $st->from_date }}</td>
                                             <td scope="row">{{ $st->to_date }}</td>
                                             <td scope="row">{{ $st->total_amount }}</td>
