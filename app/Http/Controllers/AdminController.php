@@ -80,7 +80,7 @@ class AdminController extends Controller
                 $stlmnt = $stlmnt->where('mess_id', $request->mess_id);
 
         }
-        $stlmnt =  $stlmnt->get();
+        $stlmnt =  $stlmnt->join('messes','messes.id','mess_id')->get();
         $branch = $request->mess_id ?? "";
         return view("admin.adminsettlement",compact('stlmnt','amount','payable','from_date','to_date','branch'));
     }
