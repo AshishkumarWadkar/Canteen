@@ -7,7 +7,7 @@
               <div class="card my-4">
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                   <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                    <h6 class="text-white text-capitalize ps-3">All Transaction History {{ Carbon\Carbon::now() }}</h6>
+                    <h6 class="text-white text-capitalize ps-3">All Transaction History</h6>
                   </div>
                 </div>
                 <div class="text-end mx-3 my-2 row align-item-center">
@@ -18,9 +18,9 @@
                     <div class="col-6">
                         <form action="{{ route('transactions.index') }}">
                         <label class="text-uppercase text-secondary font-weight-bolder" for="from" aria-autocomplete="false">From</label>
-                        <input type="date" class="date  form-control" id="from" name="from" required value="{{ isset($fromdate) ? $fromdate : "" }}">
+                        <input type="date" class="date  form-control" id="from" name="from" required value="{{ isset($from) ? $from : "" }}">
                         <label class="text-uppercase text-secondary font-weight-bolder" for="to">To</label>
-                        <input type="date" class="date  form-control" id="to" name="to" required value="{{ isset($todate) ? $todate : "" }}">
+                        <input type="date" class="date  form-control" id="to" name="to" required value="{{ isset($to) ? $to : "" }}">
                         <button class="btn btn-sm btn-success mt-2" type="submit">Filter</button>
                         {{-- <a href=""><button class="btn btn-sm btn-info mt-2">Back</button></a> --}}
                     </form>

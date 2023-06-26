@@ -145,7 +145,7 @@
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                                 <i class="material-icons opacity-10">person</i>
                             </div>
-                            <span class="nav-link-text ms-1">Missleanious</span>
+                            <span class="nav-link-text ms-1">Miscellaneous</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -164,6 +164,15 @@
                                 <i class="material-icons opacity-10">person</i>
                             </div>
                             <span class="nav-link-text ms-1">Complementary Meal</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white {{ request()->is('mess/complementary_attendance') || request()->is('mess/complementary_attendance/*') ? 'active bg-gradient-primary' : '' }}"
+                            href="{{ route('complementary_attendance.index') }}">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">person</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Complementary Marking</span>
                         </a>
                     </li>
 

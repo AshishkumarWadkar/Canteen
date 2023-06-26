@@ -1,68 +1,78 @@
 
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+        <title>{{ config('app.name', 'E-canteen') }}</title>
+        {{-- New CDN Added by ashish --}}
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+        <script src="{{ asset('assets/js/core/jquery.js') }}"></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
-    {{-- css --}}
-
-    <link id="pagestyle" href="{{ asset('assets/css/material-dashboard.css') }}?v=3.1.0" rel="stylesheet">
-    {{-- <link href="{{ asset('assets/css/material-dashboard.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('assets/css/material-dashboard.css.map') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('assets/css/material-dashboard.min.css') }}" rel="stylesheet"> --}}
-    <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet"> --}}
-    {{-- css --}}
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css"
-        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+        <link src="{{ asset('assets/css/core/jquery.dataTables.min.css') }}">
+        <link  rel="stylesheet" src="{{ asset('assets/css/core/datatables.min.css') }}">
 
 
-    <!-- Scripts -->
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
-    <script src="{{ asset('assets/js/core/jquery.js') }}"></script>
+        <link
+            href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/sc-2.1.1/sb-1.4.2/datatables.min.css"
+            rel="stylesheet" />
+
+            <script src="{{asset('assets/js/core/pdfmake.min.js')}}"></script>
+            <script src="{{asset('assets/js/core/datatables.min.js')}}"></script>
+            <script src="{{asset('assets/js/core/vfs_fonts.js')}}"></script>
+
+        <script src="{{ asset('assets/js/core/select2.min.js') }}"></script>
+
+        {{-- <script
+            src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/sc-2.1.1/sb-1.4.2/datatables.min.js">
+        </script> --}}
+        {{-- New Cdn above --}}
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+        {{-- css --}}
+
+        {{-- <link id="pagestyle" href="{{ asset('assets/css/material-dashboard.css') }}?v=3.1.0" rel="stylesheet"> --}}
+        <link href="{{ asset('assets/css/material-dashboard.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/material-dashboard.css.map') }}" rel="stylesheet">
+        {{-- <link href="{{ asset('assets/css/material-dashboard.min.css') }}" rel="stylesheet"> --}}
+        <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet">
+        {{-- css --}}
 
 
-<script src="{{ asset('assets/js/custome.js') }}"></script>
-
-<script src="{{ asset('assets/css/core/jquery.dataTables.min.css') }}"></script>
+        <link href="{{ asset('assets/css/core/family.Material.Icons.css') }}" rel="stylesheet">
 
 
-    <link
-        href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/sc-2.1.1/sb-1.4.2/datatables.min.css"
-        rel="stylesheet" />
-
-        <script src="{{asset('assets/js/core/pdfmake.min.js')}}"></script>
-        <script src="{{asset('assets/js/core/vfs_fonts.js')}}"></script>
-
-    <script src="{{ asset('assets/js/core/select2.min.js') }}"></script>
-
-    <script
-        src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/date-1.4.1/fc-4.2.2/fh-3.3.2/r-2.4.1/sc-2.1.1/sb-1.4.2/datatables.min.js">
-    </script>
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/core/family.Roboto.css') }}" />
 
 
-    <style>
+        <script src="{{ asset('assets/js/core/42d5adcbca.js') }}" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/core/family.Material.Icons.Round.css') }}" />
 
-    </style>
+        {{-- <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script> --}}
 
-</head>
+
+        <!-- Scripts -->
+        <link href="{{ asset('assets/css/core/select2.css') }}" rel="stylesheet" />
+
+        <script src="{{ asset('assets/js/core/select2.min.js') }}"></script>
+
+
+
+        {{-- editable css --}}
+        <link href="{{ asset('assets/css/custome.css') }}" rel="stylesheet">
+        {{-- editable css --}}
+
+        <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
+
+
+    </head>
 
 <body class="g-sidenav-show  bg-gray-200">
 
@@ -105,6 +115,27 @@
                           <span class="nav-link-text ms-1">Subscription List</span>
                         </a>
                     </li>
+
+                    {{-- <li class="nav-item">
+                        <a class="nav-link text-white {{ request()->is('mess/transactions') || request()->is('mess/transactions/*') ? 'active bg-gradient-primary' : '' }}"
+                            href="{{ route('transactions.index') }}">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">person</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Recharge History</span>
+                        </a>
+                    </li> --}}
+                    <li class="nav-item">
+                        <a class="nav-link text-white {{ request()->is('admin/adminsettlement') || request()->is('admin/adminsettlement/*') ? 'active bg-gradient-primary' : '' }}"
+                            href="{{ route('adminsettlement.index') }}">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">account_balance_wallet</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Settlements</span>
+                        </a>
+                    </li>
+
+
                     {{-- <li class="nav-item">
                         <a class="nav-link text-white {{ request()->is('admin/adminsettlement') || request()->is('admin/adminsettlement/*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('adminsettlement.index') }}">
                             <div
@@ -251,50 +282,63 @@
                   </nav>
 
                 @yield('admin-content')
-            </main>
+                </main>
         </main>
 
 
-<script>
-    var win = navigator.platform.indexOf('Win') > -1;
-    if (win && document.querySelector('#sidenav-scrollbar')) {
-        var options = {
-            damping: '0.5'
-        }
-        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-    }
-</script>
 
-<!-- Github buttons -->
-<script src="{{ asset('assets/js/core/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
-<script src="{{ asset('assets/js/material-dashboard.js') }}"></script>
+        <script>
+            var win = navigator.platform.indexOf('Win') > -1;
+            if (win && document.querySelector('#sidenav-scrollbar')) {
+                var options = {
+                    damping: '0.5'
+                }
+                Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+            }
+        </script>
 
-<script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-<script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+        <!-- Github buttons -->
+        <script async defer src="{{ asset('assets/js/core/buttons.js') }}"></script>
+
+        <script src="{{ asset('assets/js/core/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
+        <script src="{{ asset('assets/js/material-dashboard.js') }}"></script>
+
+        <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
 
 
+        <script>
+            var win = navigator.platform.indexOf('Win') > -1;
+            if (win && document.querySelector('#sidenav-scrollbar')) {
+                var options = {
+                    damping: '0.5'
+                }
+                Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+            }
+        </script>
+        <!-- Github buttons -->
 
-<script>
-    $(document).ready(function() {
-        $('.datatable').DataTable({
-            dom: 'Bfrtip',
+        {{-- Datatable --}}
+        <script>
+            $(document).ready(function() {
+                $('.datatable').DataTable({
+                    dom: 'Bfrtip',
 
-            scrollCollapse: true,
-            fixedColumns: {
-                left: 1,
-                right: 1
-            },
-            lengthMenu: [
-                [10, 25, 50, -1],
-                [10, 25, 50, 'All'],
-            ],
+                    scrollCollapse: true,
+                    fixedColumns: {
+                        left: 1,
+                        right: 1
+                    },
+                    lengthMenu: [
+                        [10, 25, 50, -1],
+                        [10, 25, 50, 'All'],
+                    ],
 
-        });
-    });
-</script>
+                });
+            });
+        </script>
 
-</body>
+    </body>
 
-</html>
+    </html>

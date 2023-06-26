@@ -14,8 +14,8 @@ class ComplementaryMealController extends Controller
      */
     public function index()
     {
-        //
-        $cms = ComplementaryMeal::where('id',\Auth::id())->get();
+
+        $cms = ComplementaryMeal::where('mess_id',\Auth::id())->get();
         return view('Complementary_meal.index', compact('cms'));
     }
 
@@ -41,7 +41,6 @@ class ComplementaryMealController extends Controller
         //
         // return $request;
         $CM                     = new ComplementaryMeal;
-        $CM->name               = $request->name;
         $CM->event_name         = $request->event_name;
         $CM->date               = $request->date;
         $CM->meal_description   = $request->meal_description;
@@ -90,7 +89,6 @@ class ComplementaryMealController extends Controller
     {
         //
         $CM                     = ComplementaryMeal::findorfail($id);
-        $CM->name               = $request->name;
         $CM->event_name         = $request->event_name;
         $CM->date               = $request->date;
         $CM->meal_description   = $request->meal_description;

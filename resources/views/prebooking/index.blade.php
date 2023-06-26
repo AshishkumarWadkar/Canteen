@@ -11,6 +11,23 @@
                   </div>
                 </div>
                 <div class="card-body pt-0 mt-2">
+                    <div class="row f-right justify-content-end text-end">
+                        <div class="col-6 row">
+                            <form class="row" action="{{ route('prebooking.index') }}">
+                                <div class="d-inline row">
+                                    <div class="col-6 text-end">
+                                        <input type="date" class="date form-control" name="date" value="{{ isset($date) ? $date : "" }}">
+                                    </div>
+                                    <div class="col-6 ">
+
+                                        <button class="btn btn-success btn-sm" type="submit">Get</button>
+                                        <a class="btn btn-success btn-sm" href="{{ route("prebooking.index") }}">Reset</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
                   <div class="table-responsive">
                     <div class="row">
                         <div class="col-3">
@@ -22,17 +39,9 @@
                         <div class="col-3">
                             Meal Booking : {{ $meal_count }}
                         </div>
-                        <div class="col-3">
-                            <form action="{{ route('prebooking.index') }}">
-                                <div class="row">
-                                    <input type="date" class="date form-control" name="date" value="{{ isset($date) ? $date : "" }}">
-                                    <button class="btn btn-success btn-sm" type="submit">Get</button>
-                                    <a class="btn btn-success btn-sm" href="{{ route("prebooking.index") }}">Reset</a>
-                                </div>
-                            </form>
-                        </div>
 
                     </div>
+
                     <table class="table text-center mb-0 datatable">
                       <thead>
                         <tr>

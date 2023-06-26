@@ -7,7 +7,7 @@
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">All Transaction History {{ Carbon\Carbon::now() }}
+                            <h6 class="text-white text-capitalize ps-3">All Transaction History
                             </h6>
                         </div>
                     </div>
@@ -20,15 +20,15 @@
                         <div class="col-6">
                             <form action="{{ route('get_all_subscription') }}">
                                 <div class="input-group input-group-outline mb-3 d-flex ">
-                                    <label for="created_by" class="col-6 col-form-label ">{{ __('Select Canteen') }}</label>
+                                    <label for="mess_id" class="col-6 col-form-label ">{{ __('Select Canteen') }}</label>
                                     @php
                                         $canteen = \App\Models\Mess::get(['id', 'name']);
                                     @endphp
                                     <div class="col-md-5">
-                                        <select class="form-control" id="created_by" name="created_by" required>
+                                        <select class="form-control" id="mess_id" name="mess_id" required>
                                             <option selected value="0">Select Canteen</option>
                                             @foreach ($canteen as $k => $c)
-                                                <option selected value={{ $c->id }}>{{ $c->name }}
+                                                <option  value='{{ $c->id }}' {{  $c->id == $branch ? "selected" : "" }}>{{ $c->name }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -39,10 +39,10 @@
                                 <label class="text-uppercase text-secondary font-weight-bolder" for="from"
                                     aria-autocomplete="false">From</label>
                                 <input type="date" class="date  form-control" id="from" name="from" required
-                                    value="{{ isset($fromdate) ? $fromdate : '' }}">
+                                    value="{{ isset($from) ? $from : '' }}">
                                 <label class="text-uppercase text-secondary font-weight-bolder" for="to">To</label>
                                 <input type="date" class="date  form-control" id="to" name="to" required
-                                    value="{{ isset($todate) ? $todate : '' }}">
+                                    value="{{ isset($to) ? $to : '' }}">
                                 <button class="btn btn-sm btn-success mt-2" type="submit">Filter</button>
                                 {{-- <a href=""><button class="btn btn-sm btn-info mt-2">Back</button></a> --}}
                             </form>
@@ -82,6 +82,7 @@
                                         <tr>
                                             <td scope="row">{{ $key + 1 }}</td>
                                             <td class="text-start" scope="row">{{ $t->name }}</td>
+                                            <td class="text-start" scope="row">{{ $t->mess }}</td>
                                             <td class="text-start" scope="row">{{ $t->email }}</td>
                                             <td scope="row">{{ $t->amount }}</td>
                                             <td scope="row">{{ $t->providerReferenceId }}</td>

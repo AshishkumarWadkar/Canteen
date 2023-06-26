@@ -7,7 +7,7 @@
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">{{ __('Add New Menu ') }}</h6>
+                            <h6 class="text-white text-capitalize ps-3">{{ __('Edit Complementary Meal') }}</h6>
                         </div>
                     </div>
                     <div class="card-body px-0 pb-2">
@@ -21,30 +21,24 @@
                                 @method('PUT')
                                 @csrf
                                 <div class="row">
+
                                     <div class="col-6">
                                         <div class="input-group input-group-outline mb-3">
-                                            <label class="col-5" for="item_name">Name : </label>
-                                            <input type="text" class="form-control" id="name"
-                                                placeholder="Item Name" value="{{$cms->name}}" name="name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="input-group input-group-outline mb-3">
-                                            <label class="col-5" for="event_name">Event Name : </label>
+                                            <label class="col-4" for="event_name">Event Name : </label>
                                             <input type="text" class="form-control" id="event_name"
                                                 placeholder="Event Name" value="{{$cms->event_name}}" name="event_name" required>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="input-group input-group-outline mb-3">
-                                            <label class="col-5" for="amount">Date : </label>
+                                            <label class="col-2" for="amount">Date : </label>
                                             <input type="date" class="form-control" id="date" placeholder="Enter Dates"
                                                 value="{{$cms->date}}" name="date">
                                         </div>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-12">
                                         <div class="input-group input-group-outline mb-3">
-                                            <label class="col-5" for="meal_description">Meal Description : </label>
+                                            <label class="col-2 " for="meal_description">Meal Description : </label>
                                             <textarea rows="5" class="form-control" id="meal_description" placeholder="description"
                                                 name="meal_description" required>{{$cms->meal_description}}</textarea>
                                         </div>

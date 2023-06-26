@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ComplementartAttendanceController;
 use App\Http\Controllers\DeductionController;
 use App\Http\Controllers\ForgetController;
 use App\Http\Controllers\LeaveController;
@@ -78,6 +79,15 @@ Route::get('/mess/dashboard', [App\Http\Controllers\HomeController::class, 'inde
 //     return view('mess.dashboard');
 // })->middleware('auth:teacher');
 
+
+Route::group(['prefix' => 'admin',  'middleware' => 'auth:admin'], function()
+{
+    Route::get("/adminsettlement",[AdminController::class,'adminsettlement'])->name('adminsettlement.index');
+    Route::post("/adminsettlement/request",[AdminController::class,'requested'])->name('adminsettlement.request');
+    Route::post("/adminsettlement/pay/{id}",[AdminController::class,'pay'])->name('adminsettlement.pay');
+
+
+});
 Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
 {
     Route::resource('student',StudentController::class);
@@ -99,6 +109,7 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
 
     Route::resource('expenses',ExpensesController::class);
     Route::resource('complementary_meal',ComplementaryMealController::class);
+    Route::resource('complementary_attendance',ComplementartAttendanceController::class);
 
 
 });

@@ -31,22 +31,22 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="input-group input-group-outline mb-3">
-                                        <label class="col-5" for="item_name">Item Name : </label>
+                                        <label class="col-5" for="item_name">Product Name : </label>
                                         <input type="text" class="form-control" id="item_name"
-                                            placeholder="First Name Middle Name Last Name" name="item_name" required>
+                                            placeholder="Product Name Example(Potato)" name="item_name" required>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="col-5" for="quantity">Quantity : </label>
-                                        <input type="text" class="form-control" id="quantity" placeholder="description"
+                                        <input type="Number" class="form-control" id="quantity" placeholder="Quantity in Number"
                                             name="quantity" required>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="col-5" for="unit">Unit : </label>
-                                        <input type="text" class="form-control" id="unit" placeholder="Unit"
+                                        <input type="text" class="form-control" id="unit" placeholder="[g, Ml, Kg, L, Pieces, Dozen]"
                                             name="unit" required>
                                     </div>
                                 </div>
@@ -54,14 +54,14 @@
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="col-5" for="amount">Amount : </label>
                                         <input type="number" class="form-control" maxlength="11" id="amount"
-                                            placeholder="10 Digits" name="amount" maxlength="10">
+                                            placeholder="Amount in Rupees" name="amount" maxlength="10">
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="col-5" for="amount">Date : </label>
                                         <input type="date" class="form-control" id="date" placeholder="Enter Dates"
-                                            name="date">
+                                            name="date" value="<?php echo date("Y-m-d"); ?>">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -79,7 +79,7 @@
         </div>
     </div>
     @if (count($expenses))
-        <div class="container py-4">
+        <div class="container-fluid py-4">
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="card my-4">
@@ -90,32 +90,7 @@
                             </div>
                         </div>
                         <div class="text-end mx-3 my-2 row align-item-center">
-                            {{-- <div class="col-12 col-md-4 text-start my-auto">
-                            <label class="text-uppercase text-secondary font-weight-bolder" for="from"
-                                aria-autocomplete="false">Total Successfuly Amount :
-                                 {{$missleanious_paid_sum}}
 
-                        </div>
-                        <div class="col-12 col-md-4 text-start my-auto">
-                            <label class="text-uppercase text-secondary font-weight-bolder" for="from"
-                                aria-autocomplete="false">Total Successfuly Amount :
-                                 {{$missleanious_unpaid_sum}}
-
-                        </div> --}}
-                            {{-- <div class="col-12 col-md-8 my-auto d-lg-flex">
-                            <form>
-                                <label class="text-uppercase text-secondary font-weight-bolder" for="from"
-                                    aria-autocomplete="false">From</label>
-                                <input type="date" class="" id="from" name="from" required
-                                    value="{{ isset($fromdate) ? $fromdate : '' }}">
-                                <label class="text-uppercase text-secondary font-weight-bolder" for="to">To</label>
-                                <input type="date" class="" id="to" name="to" required
-                                    value="{{ isset($todate) ? $todate : '' }}">
-                                <button class="btn btn-sm btn-success mt-2 mx-1" type="submit">Filter</button>
-                            </form>
-                            <a class="btn btn-sm btn-success mt-2 mx-1" type="submit">Reset</a>
-
-                        </div> --}}
                         </div>
 
                         <div class="card-body pb-2">
@@ -124,17 +99,15 @@
                                     <thead>
                                         <tr>
                                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                #
+                                                #Sr.no
                                             </th>
                                             <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Name</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Quantity</th>
-                                            <th
-                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                Unit</th>
+
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Amount</th>
@@ -151,12 +124,11 @@
                                     <tbody>
                                         @foreach ($expenses as $key => $ms)
                                             <tr>
-                                                <td scope="row">{{ $key + 1 }}</td>
-                                                <td class="text-center">{{ $ms->item_name }}</td>
-                                                <td class="text-center">{{ $ms->quantity }}</td>
-                                                <td class="text-center">{{ $ms->unit }}</td>
+                                                <td scope="row text-center">{{ $key + 1 }}</td>
+                                                <td class="text-start">{{ $ms->item_name }}</td>
+                                                <td class="text-center">{{ $ms->quantity }} {{ $ms->unit }}</td>
                                                 <td class="text-center">{{ $ms->amount }}</td>
-                                                <td class="text-center">{{ $ms->date }}</td>
+                                                <td class="text-center">{{  \Carbon\Carbon::parse($ms->date)->format('d-m-Y') }}</td>
                                             </tr>
                                         @endforeach
 

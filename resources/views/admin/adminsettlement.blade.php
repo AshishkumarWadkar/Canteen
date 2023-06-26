@@ -1,6 +1,6 @@
-@extends('layouts.mess.app')
+@extends('layouts.admin.app')
 
-@section('content')
+@section('admin-content')
     <div class="container py-4">
         <div class="row justify-content-center">
             <div class="col-12">
@@ -12,9 +12,26 @@
                     </div>
                     <div class="mx-3 my-2 row">
                         <div class="col-12">
-                            <form action="{{ route('messsettlement.index') }}">
+                            <form action="{{ route('adminsettlement.index') }}">
                                 @csrf
                                 <div class="row">
+                                    <div class="input-group input-group-outline mb-3 d-flex ">
+                                        <label for="mess_id" class="col-6 col-form-label ">{{ __('Select Canteen') }}</label>
+                                        @php
+                                            $canteen = \App\Models\Mess::get(['id', 'name']);
+                                        @endphp
+                                        <div class="col-md-5">
+                                            <select class="form-control" id="mess_id" name="mess_id" required>
+                                                <option selected value="0">Select Canteen</option>
+                                                @foreach ($canteen as $k => $c)
+                                                    <option  value='{{ $c->id }}' {{  isset($branch) && $c->id == $branch ? "selected" : "" }}>{{ $c->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+
+                                        </div>
+
+                                    </div>
                                     <div class="col-5"><label class="text-uppercase text-secondary font-weight-bolder"
                                             for="from" aria-autocomplete="false">From</label>
                                         <input type="date" class="form-control" id="from" name="from"
@@ -37,21 +54,21 @@
                                             value="{{ isset($amount) ? $amount : '' }}">
                                     </div>
 
-                                    {{-- <div class="col-3"><label class="text-uppercase text-secondary font-weight-bolder"
+                                    <div class="col-3"><label class="text-uppercase text-secondary font-weight-bolder"
                                             for="to">Payable</label>
                                         <input type="text" class="form-control" id="payable" name="payable"
                                             value="{{ isset($payable) ? $payable : '' }}">
-                                    </div> --}}
+                                    </div>
 
-                                    {{-- <div class="col-3"><label class="text-uppercase text-secondary font-weight-bolder"
+                                    <div class="col-3"><label class="text-uppercase text-secondary font-weight-bolder"
                                             for="to">Comment</label>
                                         <input type="text" class="form-control" id="comment" name="comment"
                                             value="{{ isset($comment) ? $comment : '' }}">
-                                    </div> --}}
-                                    {{-- <div class="col-3">
+                                    </div>
+                                    <div class="col-3">
                                         <button class="btn btn-sm btn-success mt-2" type="submit" formmethod="POST"
-                                            formaction="{{ route('messsettlement.request') }}">Request</button>
-                                    </div> --}}
+                                            formaction="{{ route('adminsettlement.request') }}">Add</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -86,9 +103,9 @@
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                             Comment</th>
                                         {{-- @if (Auth::guard('admin')->check()) --}}
-                                        {{-- <th
+                                        <th
                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                            Action</th> --}}
+                                            Action</th>
                                         {{-- @endif --}}
 
                                     </tr>
@@ -106,14 +123,14 @@
                                             {{-- <td scope="row">
                                                 <span class="badge badge-sm {{ $st->status == '1' ? 'bg-gradient-secondary' : '' }} {{ $st->status == '2' ? 'bg-gradient-success' : '' }}">{{ $st->status == '1' ? 'Requested' : 'Paid' }}</span>
                                             </td> --}}
-                                            {{-- <td scope="row"> --}}
-                                                {{-- @if (Auth::guard('admin')->check()) --}}
-                                                {{-- <form>@csrf <button class="btn btn-sm btn-success mt-2" type="submit"
-                                                        formmethod="POST"
-                                                        formaction="{{ route('messsettlement.pay', $st->id) }}"
-                                                        {{ $st->status == '2' ? 'disabled' : '' }}>Pay</button></form> --}}
-                                                {{-- @endif --}}
-                                            {{-- </td> --}}
+                                            <td scope="row">
+                                                  <form>
+                                                    @csrf
+                                                    <button class="btn btn-sm btn-success mt-2" type="submit"   formmethod="POST"
+                                                        formaction="{{ route('adminsettlement.pay', $st->id) }}"
+                                                        {{ $st->status == '2' ? 'disabled' : '' }}>Pay</button></form>
+
+                                            </td>
                                         </tr>
                                     @endforeach
 

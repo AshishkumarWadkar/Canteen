@@ -25,7 +25,7 @@ class SettlementController extends Controller
             $amount = $tran->where('code','PAYMENT_SUCCESS')->sum("amount");
             $payable = $tran->where('code','PAYMENT_SUCCESS')->sum("actual_amount");
         }
-        $stlmnt = Settlement::all()->where('created_by',\Auth::id());
+        $stlmnt = Settlement::all()->where('mess_id',\Auth::id());
         return view("settlement.index",compact('stlmnt','amount','payable','from_date','to_date'));
     }
 

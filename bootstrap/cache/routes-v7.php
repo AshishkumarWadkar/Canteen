@@ -102,7 +102,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Zq8pihtgD6rr0u7S',
+            '_route' => 'generated::4BoOygG7f7PMuvyS',
           ),
           1 => NULL,
           2 => 
@@ -122,7 +122,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::hf7lLylXKBieKeNv',
+            '_route' => 'generated::3GeItwFdyvbNhZve',
           ),
           1 => NULL,
           2 => 
@@ -159,7 +159,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::e5d4H8o9XaJHIrVg',
+            '_route' => 'generated::P69yv3F62b3z39Qe',
           ),
           1 => NULL,
           2 => 
@@ -214,7 +214,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::FskL6VfMOzbGu4Y2',
+            '_route' => 'generated::Q2C5SXJvJ4RbVezE',
           ),
           1 => NULL,
           2 => 
@@ -305,7 +305,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::RLA3rpB1WyvBQG6p',
+            '_route' => 'generated::BU66oi4B6wLhSuPC',
           ),
           1 => NULL,
           2 => 
@@ -512,7 +512,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::WMxth7WSdM35sF17',
+            '_route' => 'generated::juooHtqtNPXi3LOU',
           ),
           1 => NULL,
           2 => 
@@ -539,6 +539,45 @@ app('router')->setCompiledRoutes(
           array (
             'GET' => 0,
             'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/adminsettlement' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminsettlement.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/admin/adminsettlement/request' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'adminsettlement.request',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
           ),
           3 => NULL,
           4 => false,
@@ -1221,6 +1260,62 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
+      '/mess/complementary_attendance' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'complementary_attendance.index',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'complementary_attendance.store',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/mess/complementary_attendance/create' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'complementary_attendance.create',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
       '/admin/mess' => 
       array (
         0 => 
@@ -1283,7 +1378,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::50XqsIFXeow6xKOW',
+            '_route' => 'generated::TAKiMa9mVDNvzEGw',
           ),
           1 => NULL,
           2 => 
@@ -1303,7 +1398,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::nEJMFQU57JQUcrHs',
+            '_route' => 'generated::l7Knq3v9Jkfb81CP',
           ),
           1 => NULL,
           2 => 
@@ -1343,7 +1438,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::hA8UXfWauZsf3fUO',
+            '_route' => 'generated::rkHpZ4dAm0fUZ7qi',
           ),
           1 => NULL,
           2 => 
@@ -1363,7 +1458,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::wni13QZHpW8gs63X',
+            '_route' => 'generated::gMz9NxukkT0v2o4l',
           ),
           1 => NULL,
           2 => 
@@ -1382,7 +1477,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::ewaAuv2N8rLZ92pC',
+            '_route' => 'generated::lMZrgQIogTNYyY27',
           ),
           1 => NULL,
           2 => 
@@ -1407,7 +1502,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::cf2hfRX8Gjbmf0wn',
+            '_route' => 'generated::zPK3YZ6G8iOGsqUz',
           ),
           1 => NULL,
           2 => 
@@ -1593,7 +1688,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::S8ColRs9q7RrNKY0',
+            '_route' => 'generated::8XJw8HTu6pZxgDGZ',
           ),
           1 => NULL,
           2 => 
@@ -1651,7 +1746,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Ujl2mQfVEPD76Dp8',
+            '_route' => 'generated::JQGEL8g2AuCA6d1W',
           ),
           1 => NULL,
           2 => 
@@ -1818,7 +1913,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/password(?|hash/([^/]++)(*:32)|/reset/([^/]++)(*:54))|/mess/(?|s(?|tudent/([^/]++)(?|(*:93)|/edit(*:105)|(*:113))|ettlement/pay/([^/]++)(*:144))|attendance/([^/]++)(?|(*:175)|/edit(*:188)|(*:196))|m(?|enu_master/([^/]++)(?|(*:231)|/edit(*:244)|(*:252))|issle(?|anious/([^/]++)(?|(*:287)|/edit(*:300)|(*:308))|nious_status_update/([^/]++)(*:345)))|prebooking/([^/]++)(?|(*:377)|/edit(*:390)|(*:398))|leaves/([^/]++)(?|(*:425)|/edit(*:438)|(*:446))|weekly_menu/([^/]++)(?|(*:478)|/edit(*:491)|(*:499))|deductions/([^/]++)(?|(*:530)|/edit(*:543)|(*:551))|transactions/([^/]++)(?|(*:584)|/edit(*:597)|(*:605))|expenses/([^/]++)(?|(*:634)|/edit(*:647)|(*:655))|complementary_meal/([^/]++)(?|(*:694)|/edit(*:707)|(*:715)))|/admin/mess/([^/]++)(?|(*:748)|/edit(*:761)|(*:769))|/booking/([^/]++)(?|(*:798)|/edit(*:811)|(*:819))|/leave/([^/]++)(?|(*:846)|/edit(*:859)|(*:867)))/?$}sDu',
+      0 => '{^(?|/password(?|hash/([^/]++)(*:32)|/reset/([^/]++)(*:54))|/admin/(?|adminsettlement/pay/([^/]++)(*:100)|mess/([^/]++)(?|(*:124)|/edit(*:137)|(*:145)))|/mess/(?|s(?|tudent/([^/]++)(?|(*:186)|/edit(*:199)|(*:207))|ettlement/pay/([^/]++)(*:238))|attendance/([^/]++)(?|(*:269)|/edit(*:282)|(*:290))|m(?|enu_master/([^/]++)(?|(*:325)|/edit(*:338)|(*:346))|issle(?|anious/([^/]++)(?|(*:381)|/edit(*:394)|(*:402))|nious_status_update/([^/]++)(*:439)))|prebooking/([^/]++)(?|(*:471)|/edit(*:484)|(*:492))|leaves/([^/]++)(?|(*:519)|/edit(*:532)|(*:540))|weekly_menu/([^/]++)(?|(*:572)|/edit(*:585)|(*:593))|deductions/([^/]++)(?|(*:624)|/edit(*:637)|(*:645))|transactions/([^/]++)(?|(*:678)|/edit(*:691)|(*:699))|expenses/([^/]++)(?|(*:728)|/edit(*:741)|(*:749))|complementary_(?|meal/([^/]++)(?|(*:791)|/edit(*:804)|(*:812))|attendance/([^/]++)(?|(*:843)|/edit(*:856)|(*:864))))|/booking/([^/]++)(?|(*:895)|/edit(*:908)|(*:916))|/leave/([^/]++)(?|(*:943)|/edit(*:956)|(*:964)))/?$}sDu',
     ),
     3 => 
     array (
@@ -1828,7 +1923,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::nusIAt7h2WMjPYM9',
+            '_route' => 'generated::anRlGcwBfobWUMCm',
           ),
           1 => 
           array (
@@ -1868,101 +1963,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      93 => 
+      100 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'student.show',
-          ),
-          1 => 
-          array (
-            0 => 'student',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      105 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'student.edit',
-          ),
-          1 => 
-          array (
-            0 => 'student',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      113 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'student.update',
-          ),
-          1 => 
-          array (
-            0 => 'student',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'student.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'student',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      144 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'messsettlement.pay',
+            '_route' => 'adminsettlement.pay',
           ),
           1 => 
           array (
@@ -1978,910 +1985,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      175 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'attendance.show',
-          ),
-          1 => 
-          array (
-            0 => 'attendance',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      188 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'attendance.edit',
-          ),
-          1 => 
-          array (
-            0 => 'attendance',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      196 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'attendance.update',
-          ),
-          1 => 
-          array (
-            0 => 'attendance',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'attendance.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'attendance',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      231 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'menu_master.show',
-          ),
-          1 => 
-          array (
-            0 => 'menu_master',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      244 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'menu_master.edit',
-          ),
-          1 => 
-          array (
-            0 => 'menu_master',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      252 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'menu_master.update',
-          ),
-          1 => 
-          array (
-            0 => 'menu_master',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'menu_master.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'menu_master',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      287 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'missleanious.show',
-          ),
-          1 => 
-          array (
-            0 => 'missleaniou',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      300 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'missleanious.edit',
-          ),
-          1 => 
-          array (
-            0 => 'missleaniou',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      308 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'missleanious.update',
-          ),
-          1 => 
-          array (
-            0 => 'missleaniou',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'missleanious.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'missleaniou',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      345 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'misslenious_status_update',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      377 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'prebooking.show',
-          ),
-          1 => 
-          array (
-            0 => 'prebooking',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      390 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'prebooking.edit',
-          ),
-          1 => 
-          array (
-            0 => 'prebooking',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      398 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'prebooking.update',
-          ),
-          1 => 
-          array (
-            0 => 'prebooking',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'prebooking.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'prebooking',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      425 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'leaves.show',
-          ),
-          1 => 
-          array (
-            0 => 'leaf',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      438 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'leaves.edit',
-          ),
-          1 => 
-          array (
-            0 => 'leaf',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      446 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'leaves.update',
-          ),
-          1 => 
-          array (
-            0 => 'leaf',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'leaves.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'leaf',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      478 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'weekly_menu.show',
-          ),
-          1 => 
-          array (
-            0 => 'weekly_menu',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      491 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'weekly_menu.edit',
-          ),
-          1 => 
-          array (
-            0 => 'weekly_menu',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      499 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'weekly_menu.update',
-          ),
-          1 => 
-          array (
-            0 => 'weekly_menu',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'weekly_menu.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'weekly_menu',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      530 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'deductions.show',
-          ),
-          1 => 
-          array (
-            0 => 'deduction',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      543 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'deductions.edit',
-          ),
-          1 => 
-          array (
-            0 => 'deduction',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      551 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'deductions.update',
-          ),
-          1 => 
-          array (
-            0 => 'deduction',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'deductions.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'deduction',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      584 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'transactions.show',
-          ),
-          1 => 
-          array (
-            0 => 'transaction',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      597 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'transactions.edit',
-          ),
-          1 => 
-          array (
-            0 => 'transaction',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      605 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'transactions.update',
-          ),
-          1 => 
-          array (
-            0 => 'transaction',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'transactions.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'transaction',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      634 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'expenses.show',
-          ),
-          1 => 
-          array (
-            0 => 'expense',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      647 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'expenses.edit',
-          ),
-          1 => 
-          array (
-            0 => 'expense',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      655 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'expenses.update',
-          ),
-          1 => 
-          array (
-            0 => 'expense',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'expenses.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'expense',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      694 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'complementary_meal.show',
-          ),
-          1 => 
-          array (
-            0 => 'complementary_meal',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      707 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'complementary_meal.edit',
-          ),
-          1 => 
-          array (
-            0 => 'complementary_meal',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      715 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'complementary_meal.update',
-          ),
-          1 => 
-          array (
-            0 => 'complementary_meal',
-          ),
-          2 => 
-          array (
-            'PUT' => 0,
-            'PATCH' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-        1 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'complementary_meal.destroy',
-          ),
-          1 => 
-          array (
-            0 => 'complementary_meal',
-          ),
-          2 => 
-          array (
-            'DELETE' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      748 => 
+      124 => 
       array (
         0 => 
         array (
@@ -2904,7 +2008,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      761 => 
+      137 => 
       array (
         0 => 
         array (
@@ -2927,7 +2031,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      769 => 
+      145 => 
       array (
         0 => 
         array (
@@ -2969,7 +2073,1108 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      798 => 
+      186 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'student.show',
+          ),
+          1 => 
+          array (
+            0 => 'student',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      199 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'student.edit',
+          ),
+          1 => 
+          array (
+            0 => 'student',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      207 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'student.update',
+          ),
+          1 => 
+          array (
+            0 => 'student',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'student.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'student',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      238 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'messsettlement.pay',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      269 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'attendance.show',
+          ),
+          1 => 
+          array (
+            0 => 'attendance',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      282 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'attendance.edit',
+          ),
+          1 => 
+          array (
+            0 => 'attendance',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      290 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'attendance.update',
+          ),
+          1 => 
+          array (
+            0 => 'attendance',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'attendance.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'attendance',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      325 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'menu_master.show',
+          ),
+          1 => 
+          array (
+            0 => 'menu_master',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      338 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'menu_master.edit',
+          ),
+          1 => 
+          array (
+            0 => 'menu_master',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      346 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'menu_master.update',
+          ),
+          1 => 
+          array (
+            0 => 'menu_master',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'menu_master.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'menu_master',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      381 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'missleanious.show',
+          ),
+          1 => 
+          array (
+            0 => 'missleaniou',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      394 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'missleanious.edit',
+          ),
+          1 => 
+          array (
+            0 => 'missleaniou',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      402 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'missleanious.update',
+          ),
+          1 => 
+          array (
+            0 => 'missleaniou',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'missleanious.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'missleaniou',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      439 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'misslenious_status_update',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      471 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'prebooking.show',
+          ),
+          1 => 
+          array (
+            0 => 'prebooking',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      484 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'prebooking.edit',
+          ),
+          1 => 
+          array (
+            0 => 'prebooking',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      492 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'prebooking.update',
+          ),
+          1 => 
+          array (
+            0 => 'prebooking',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'prebooking.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'prebooking',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      519 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'leaves.show',
+          ),
+          1 => 
+          array (
+            0 => 'leaf',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      532 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'leaves.edit',
+          ),
+          1 => 
+          array (
+            0 => 'leaf',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      540 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'leaves.update',
+          ),
+          1 => 
+          array (
+            0 => 'leaf',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'leaves.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'leaf',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      572 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'weekly_menu.show',
+          ),
+          1 => 
+          array (
+            0 => 'weekly_menu',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      585 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'weekly_menu.edit',
+          ),
+          1 => 
+          array (
+            0 => 'weekly_menu',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      593 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'weekly_menu.update',
+          ),
+          1 => 
+          array (
+            0 => 'weekly_menu',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'weekly_menu.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'weekly_menu',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      624 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'deductions.show',
+          ),
+          1 => 
+          array (
+            0 => 'deduction',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      637 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'deductions.edit',
+          ),
+          1 => 
+          array (
+            0 => 'deduction',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      645 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'deductions.update',
+          ),
+          1 => 
+          array (
+            0 => 'deduction',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'deductions.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'deduction',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      678 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'transactions.show',
+          ),
+          1 => 
+          array (
+            0 => 'transaction',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      691 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'transactions.edit',
+          ),
+          1 => 
+          array (
+            0 => 'transaction',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      699 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'transactions.update',
+          ),
+          1 => 
+          array (
+            0 => 'transaction',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'transactions.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'transaction',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      728 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'expenses.show',
+          ),
+          1 => 
+          array (
+            0 => 'expense',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      741 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'expenses.edit',
+          ),
+          1 => 
+          array (
+            0 => 'expense',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      749 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'expenses.update',
+          ),
+          1 => 
+          array (
+            0 => 'expense',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'expenses.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'expense',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      791 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'complementary_meal.show',
+          ),
+          1 => 
+          array (
+            0 => 'complementary_meal',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      804 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'complementary_meal.edit',
+          ),
+          1 => 
+          array (
+            0 => 'complementary_meal',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      812 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'complementary_meal.update',
+          ),
+          1 => 
+          array (
+            0 => 'complementary_meal',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'complementary_meal.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'complementary_meal',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      843 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'complementary_attendance.show',
+          ),
+          1 => 
+          array (
+            0 => 'complementary_attendance',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      856 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'complementary_attendance.edit',
+          ),
+          1 => 
+          array (
+            0 => 'complementary_attendance',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      864 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'complementary_attendance.update',
+          ),
+          1 => 
+          array (
+            0 => 'complementary_attendance',
+          ),
+          2 => 
+          array (
+            'PUT' => 0,
+            'PATCH' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+        1 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'complementary_attendance.destroy',
+          ),
+          1 => 
+          array (
+            0 => 'complementary_attendance',
+          ),
+          2 => 
+          array (
+            'DELETE' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      895 => 
       array (
         0 => 
         array (
@@ -2992,7 +3197,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      811 => 
+      908 => 
       array (
         0 => 
         array (
@@ -3015,7 +3220,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      819 => 
+      916 => 
       array (
         0 => 
         array (
@@ -3057,7 +3262,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      846 => 
+      943 => 
       array (
         0 => 
         array (
@@ -3080,7 +3285,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      859 => 
+      956 => 
       array (
         0 => 
         array (
@@ -3103,7 +3308,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      867 => 
+      964 => 
       array (
         0 => 
         array (
@@ -3306,7 +3511,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Zq8pihtgD6rr0u7S' => 
+    'generated::4BoOygG7f7PMuvyS' => 
     array (
       'methods' => 
       array (
@@ -3321,15 +3526,15 @@ app('router')->setCompiledRoutes(
           0 => 'api',
           1 => 'auth:sanctum',
         ),
-        'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:297:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
+        'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:295:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:77:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005550000000000000000";}";s:4:"hash";s:44:"uUBxsEVVPMPaZ+ht7bN8eNaf2XAHDpIPmXbJod3micI=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005550000000000000000";}";s:4:"hash";s:44:"xMzAVTsTMXWzUU3524KmM9d4ZzsBCbzkF7x3q+M5XvM=";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::Zq8pihtgD6rr0u7S',
+        'as' => 'generated::4BoOygG7f7PMuvyS',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3345,7 +3550,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::hf7lLylXKBieKeNv' => 
+    'generated::3GeItwFdyvbNhZve' => 
     array (
       'methods' => 
       array (
@@ -3361,13 +3566,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:262:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:44:"function () {
     return \\view(\'welcome\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005570000000000000000";}";s:4:"hash";s:44:"FgdKu/TtpqsjF2ujRoWvWhZNFKMymmcePZ/DtmTjO+k=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005570000000000000000";}";s:4:"hash";s:44:"xgykUXpuREEj8jxxvh5iIW0tM10SE5KdRzhL5h1JqVA=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::hf7lLylXKBieKeNv',
+        'as' => 'generated::3GeItwFdyvbNhZve',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3383,7 +3588,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::nusIAt7h2WMjPYM9' => 
+    'generated::anRlGcwBfobWUMCm' => 
     array (
       'methods' => 
       array (
@@ -3399,13 +3604,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:271:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:53:"function ($value) {
     return \\Hash::make($value);
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005590000000000000000";}";s:4:"hash";s:44:"Wgf9wnWx0lNAvFahfagulJtnghIPhbu43Z1U+6uVZfc=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005590000000000000000";}";s:4:"hash";s:44:"gQoQqTAaT4swL0AUBJkBcU5yzbTrz2ntYTtyH2/R/U0=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::nusIAt7h2WMjPYM9',
+        'as' => 'generated::anRlGcwBfobWUMCm',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3458,7 +3663,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::e5d4H8o9XaJHIrVg' => 
+    'generated::P69yv3F62b3z39Qe' => 
     array (
       'methods' => 
       array (
@@ -3478,7 +3683,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::e5d4H8o9XaJHIrVg',
+        'as' => 'generated::P69yv3F62b3z39Qe',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3567,7 +3772,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::FskL6VfMOzbGu4Y2' => 
+    'generated::Q2C5SXJvJ4RbVezE' => 
     array (
       'methods' => 
       array (
@@ -3587,7 +3792,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::FskL6VfMOzbGu4Y2',
+        'as' => 'generated::Q2C5SXJvJ4RbVezE',
       ),
       'fallback' => false,
       'defaults' => 
@@ -3786,7 +3991,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::RLA3rpB1WyvBQG6p' => 
+    'generated::BU66oi4B6wLhSuPC' => 
     array (
       'methods' => 
       array (
@@ -3806,7 +4011,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::RLA3rpB1WyvBQG6p',
+        'as' => 'generated::BU66oi4B6wLhSuPC',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4192,7 +4397,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::WMxth7WSdM35sF17' => 
+    'generated::juooHtqtNPXi3LOU' => 
     array (
       'methods' => 
       array (
@@ -4209,13 +4414,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:268:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:50:"function(){
     return \\view(\'admin.dashboard\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005700000000000000000";}";s:4:"hash";s:44:"sQ8H+jxG4mCTlEmnG0NEhDAeZSufydiACyhPax+01VA=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000005700000000000000000";}";s:4:"hash";s:44:"O6Ma9HnPnyy6WyFM+iOb0jv9GLd0I/wYGmoGSzrLwSU=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::WMxth7WSdM35sF17',
+        'as' => 'generated::juooHtqtNPXi3LOU',
       ),
       'fallback' => false,
       'defaults' => 
@@ -4254,6 +4459,118 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'mess_dashboard',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminsettlement.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'admin/adminsettlement',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminController@adminsettlement',
+        'controller' => 'App\\Http\\Controllers\\AdminController@adminsettlement',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminsettlement.index',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminsettlement.request' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/adminsettlement/request',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminController@requested',
+        'controller' => 'App\\Http\\Controllers\\AdminController@requested',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminsettlement.request',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'adminsettlement.pay' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'admin/adminsettlement/pay/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:admin',
+        ),
+        'uses' => 'App\\Http\\Controllers\\AdminController@pay',
+        'controller' => 'App\\Http\\Controllers\\AdminController@pay',
+        'namespace' => NULL,
+        'prefix' => '/admin',
+        'where' => 
+        array (
+        ),
+        'as' => 'adminsettlement.pay',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7361,6 +7678,270 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
+    'complementary_attendance.index' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'mess/complementary_attendance',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:mess',
+        ),
+        'as' => 'complementary_attendance.index',
+        'uses' => 'App\\Http\\Controllers\\ComplementartAttendanceController@index',
+        'controller' => 'App\\Http\\Controllers\\ComplementartAttendanceController@index',
+        'namespace' => NULL,
+        'prefix' => '/mess',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'complementary_attendance.create' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'mess/complementary_attendance/create',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:mess',
+        ),
+        'as' => 'complementary_attendance.create',
+        'uses' => 'App\\Http\\Controllers\\ComplementartAttendanceController@create',
+        'controller' => 'App\\Http\\Controllers\\ComplementartAttendanceController@create',
+        'namespace' => NULL,
+        'prefix' => '/mess',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'complementary_attendance.store' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'mess/complementary_attendance',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:mess',
+        ),
+        'as' => 'complementary_attendance.store',
+        'uses' => 'App\\Http\\Controllers\\ComplementartAttendanceController@store',
+        'controller' => 'App\\Http\\Controllers\\ComplementartAttendanceController@store',
+        'namespace' => NULL,
+        'prefix' => '/mess',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'complementary_attendance.show' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'mess/complementary_attendance/{complementary_attendance}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:mess',
+        ),
+        'as' => 'complementary_attendance.show',
+        'uses' => 'App\\Http\\Controllers\\ComplementartAttendanceController@show',
+        'controller' => 'App\\Http\\Controllers\\ComplementartAttendanceController@show',
+        'namespace' => NULL,
+        'prefix' => '/mess',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'complementary_attendance.edit' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'mess/complementary_attendance/{complementary_attendance}/edit',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:mess',
+        ),
+        'as' => 'complementary_attendance.edit',
+        'uses' => 'App\\Http\\Controllers\\ComplementartAttendanceController@edit',
+        'controller' => 'App\\Http\\Controllers\\ComplementartAttendanceController@edit',
+        'namespace' => NULL,
+        'prefix' => '/mess',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'complementary_attendance.update' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'PUT',
+        1 => 'PATCH',
+      ),
+      'uri' => 'mess/complementary_attendance/{complementary_attendance}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:mess',
+        ),
+        'as' => 'complementary_attendance.update',
+        'uses' => 'App\\Http\\Controllers\\ComplementartAttendanceController@update',
+        'controller' => 'App\\Http\\Controllers\\ComplementartAttendanceController@update',
+        'namespace' => NULL,
+        'prefix' => '/mess',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'complementary_attendance.destroy' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'DELETE',
+      ),
+      'uri' => 'mess/complementary_attendance/{complementary_attendance}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+          1 => 'auth:mess',
+        ),
+        'as' => 'complementary_attendance.destroy',
+        'uses' => 'App\\Http\\Controllers\\ComplementartAttendanceController@destroy',
+        'controller' => 'App\\Http\\Controllers\\ComplementartAttendanceController@destroy',
+        'namespace' => NULL,
+        'prefix' => '/mess',
+        'where' => 
+        array (
+        ),
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
     'mess.index' => 
     array (
       'methods' => 
@@ -7625,7 +8206,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::50XqsIFXeow6xKOW' => 
+    'generated::TAKiMa9mVDNvzEGw' => 
     array (
       'methods' => 
       array (
@@ -7647,7 +8228,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::50XqsIFXeow6xKOW',
+        'as' => 'generated::TAKiMa9mVDNvzEGw',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7663,7 +8244,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::nEJMFQU57JQUcrHs' => 
+    'generated::l7Knq3v9Jkfb81CP' => 
     array (
       'methods' => 
       array (
@@ -7685,7 +8266,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::nEJMFQU57JQUcrHs',
+        'as' => 'generated::l7Knq3v9Jkfb81CP',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7739,7 +8320,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::hA8UXfWauZsf3fUO' => 
+    'generated::rkHpZ4dAm0fUZ7qi' => 
     array (
       'methods' => 
       array (
@@ -7760,7 +8341,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::hA8UXfWauZsf3fUO',
+        'as' => 'generated::rkHpZ4dAm0fUZ7qi',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7776,7 +8357,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::wni13QZHpW8gs63X' => 
+    'generated::gMz9NxukkT0v2o4l' => 
     array (
       'methods' => 
       array (
@@ -7796,7 +8377,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::wni13QZHpW8gs63X',
+        'as' => 'generated::gMz9NxukkT0v2o4l',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7812,7 +8393,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::ewaAuv2N8rLZ92pC' => 
+    'generated::lMZrgQIogTNYyY27' => 
     array (
       'methods' => 
       array (
@@ -7838,7 +8419,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::ewaAuv2N8rLZ92pC',
+        'as' => 'generated::lMZrgQIogTNYyY27',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7854,7 +8435,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::cf2hfRX8Gjbmf0wn' => 
+    'generated::zPK3YZ6G8iOGsqUz' => 
     array (
       'methods' => 
       array (
@@ -7880,7 +8461,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::cf2hfRX8Gjbmf0wn',
+        'as' => 'generated::zPK3YZ6G8iOGsqUz',
       ),
       'fallback' => false,
       'defaults' => 
@@ -7954,7 +8535,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:265:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:47:"function(){
     return \\view(\'web.about_us\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000097e0000000000000000";}";s:4:"hash";s:44:"cNWSYgOlxOrSrQubIPqns7xt1oznF0+QtEavIcWksXk=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009880000000000000000";}";s:4:"hash";s:44:"wXNh11hjMxB8jSCYQx+nJSVqudWEiX2SVo3w3gNkwyk=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -7992,7 +8573,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:266:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:48:"function(){
     return \\view(\'web.e_canteen\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009800000000000000000";}";s:4:"hash";s:44:"MvOa9Y/Xt7CfeyN7i3f2g8cuhbgxR5dItymip+PZ+Kk=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000098a0000000000000000";}";s:4:"hash";s:44:"0NAygZg7STsKB2m6W5dGDLrIhJx4DInvURuEcibbDwU=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -8030,7 +8611,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:266:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:48:"function(){
     return \\view(\'web.howto_use\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009820000000000000000";}";s:4:"hash";s:44:"AmLAOUlEOX8MwpVrd8iOCXaYpIUknbu4jJeswIg0Ov4=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000098c0000000000000000";}";s:4:"hash";s:44:"tMsEPAE9zbWb3r46a3PghT7Cwjlf31qIZJJflhR2RcI=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -8068,7 +8649,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:265:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:47:"function(){
     return \\view(\'web.benifits\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009840000000000000000";}";s:4:"hash";s:44:"QgPwKbr0hujW19qlNDerLXVotuESLB64UOG/2cvlORA=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000098e0000000000000000";}";s:4:"hash";s:44:"L72+dZxD/EFezPxVrFG6ZtgU+KOoruCgIUgxUm+gENI=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -8106,7 +8687,7 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:272:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:54:"function(){
     return \\view(\'web.how_to_register\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009860000000000000000";}";s:4:"hash";s:44:"9RbqnWgfEq019EKCnGOwQpQ05198H03XokQFOZaMUDg=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009900000000000000000";}";s:4:"hash";s:44:"ZmZYX2GjrbDLp06Z4GNrxAz/YHRjxGbKRhPlG/+tv6E=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
@@ -8201,7 +8782,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::S8ColRs9q7RrNKY0' => 
+    'generated::8XJw8HTu6pZxgDGZ' => 
     array (
       'methods' => 
       array (
@@ -8222,7 +8803,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::S8ColRs9q7RrNKY0',
+        'as' => 'generated::8XJw8HTu6pZxgDGZ',
       ),
       'fallback' => false,
       'defaults' => 
@@ -8310,7 +8891,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Ujl2mQfVEPD76Dp8' => 
+    'generated::JQGEL8g2AuCA6d1W' => 
     array (
       'methods' => 
       array (
@@ -8330,13 +8911,13 @@ app('router')->setCompiledRoutes(
     \\Artisan::call(\'cache:clear\');
     \\Artisan::call(\'view:clear\');
     \\dd("done");
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000000098d0000000000000000";}";s:4:"hash";s:44:"aKDoD2eZ9s2VU3sqm92J8OvPnDfZ7CiWDLRKq7HYqzY=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"00000000000009970000000000000000";}";s:4:"hash";s:44:"dhEqQ9F+HKe590tWJtnMd8750o8ExnZN25azoJlLr34=";}}',
         'namespace' => NULL,
         'prefix' => '',
         'where' => 
         array (
         ),
-        'as' => 'generated::Ujl2mQfVEPD76Dp8',
+        'as' => 'generated::JQGEL8g2AuCA6d1W',
       ),
       'fallback' => false,
       'defaults' => 

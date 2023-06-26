@@ -19,27 +19,23 @@
                       <thead>
                         <tr>
                           <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th>
-                          <th class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                          <th class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Type</th>
-                          {{-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Veg</th> --}}
+                          <th class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Event Name</th>
                           <th class="text-start text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Description</th>
-                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created</th>
+                          <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Event Ons</th>
                           <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
 
                         </tr>
                       </thead>
 
                       <tbody>
-
                         @foreach ($cms as $key => $m )
 
 
                         <tr>
                           <td scope="row">{{ $key+1 }}</td>
-                             <td class="text-start">{{ $m->name }}</td>
                              <td class="text-start">{{ $m->event_name }}</td>
+                             <td class="text-start">{{ $m->meal_description }}</td>
                              <td>{{  \Carbon\Carbon::parse($m->date)->format('d-m-Y') }}</td>
-                             <td class="text-start">{{ $m->meal_descriptions }}</td>
                           <td>
                                 <a href="{{ route('complementary_meal.edit',$m->id) }}"><button class="btn btn-sm btn-primary py-0">Edit</button></a>
                           </td>

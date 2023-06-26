@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">{{ __('Missleanioun Attendance') }}</h6>
+                            <h6 class="text-white text-capitalize ps-3">{{ __('Add Miscellaneous Entries') }}</h6>
                         </div>
                     </div>
 
@@ -69,84 +69,20 @@
                                 </div>
                             </div>
                         </form>
-                        {{-- @if (count($missleanious))
-                            <div class="container py-4">
-                                <div class="row justify-content-center">
-                                    <div class="col-12">
-                                        <div class="card my-4">
-                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-                                                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                                                    <h6 class="text-white text-capitalize ps-3">Previous points</h6>
-                                                </div>
-                                            </div>
 
-
-                                            <div class="card-body pb-2">
-                                                <div class="table-responsive">
-                                                    <table class="table mb-0">
-                                                        <thead>
-                                                            <tr>
-                                                                <th
-                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                                    #
-                                                                </th>
-                                                                <th
-                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                                    Name</th>
-                                                                <th
-                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                                    Description</th>
-                                                                <th
-                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                                    Amount</th>
-                                                                <th
-                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                                                    Paid Status</th>
-                                                                <th
-                                                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                                                    Date</th>
-
-
-                                                            </tr>
-                                                        </thead>
-
-                                                        <tbody>
-                                                            @foreach ($missleanious as $key => $ms)
-                                                                <tr>
-                                                                    <td scope="row">{{ $key + 1 }}</td>
-                                                                    <td class="text-start">{{ $ms->name }}</td>
-                                                                    <td class="text-start">{{ $ms->description }}</td>
-                                                                    <td class="text-start">{{ $ms->amount }}</td>
-                                                                    <td class="align-middle text-center ">
-                                                                        <span
-                                                                            class="badge badge-sm bg-gradient-{{ $ms->paid_status == 1 ? 'success' : 'primary' }}">{{ $ms->paid_status == 1 ? 'Paid' : 'Unpaid' }}</span>
-                                                                    </td>
-                                                                    <td class="text-start">{{ $ms->created_at }}</td>
-                                                                </tr>
-                                                            @endforeach
-
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif --}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
     @if (count($missleanious))
-    <div class="container py-4">
+    <div class="container-fluid py-4">
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">All Transaction History
+                            <h6 class="text-white text-capitalize ps-3">All Miscellaneous Entries
                             </h6>
                         </div>
                     </div>
