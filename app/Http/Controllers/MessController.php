@@ -41,7 +41,7 @@ class MessController extends Controller
         $mess = new Mess;
         $mess->name = $request->name;
         $mess->email = $request->phone;
-        $mess->password = \Hash::make($request->phone);
+        $mess->password = \Hash::make($request->password);
         $mess->save();
         toastr()
     ->positionClass('toast-top-center')

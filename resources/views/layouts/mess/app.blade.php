@@ -323,6 +323,10 @@
                     [10, 25, 50, -1],
                     [10, 25, 50, 'All'],
                 ],
+                "fnRowCallback" : function(nRow, aData, iDisplayIndex){
+                $("td:first", nRow).html(iDisplayIndex +1);
+                return nRow;
+                },
 
             });
         });

@@ -30,6 +30,7 @@
                                         <div class="input-group input-group-outline mb-3">
                                             <label class="col-5" for="class">Meal Period: </label>
                                             <select class="form-control" id="type" name="type" required>
+                                                <option value="" selected>Select</option>
                                                 <option value="0">Breakfast</option>
                                                 <option value="1">Lunch</option>
                                             </select>

@@ -1,16 +1,16 @@
 <?php return array (
   'app' => 
   array (
-    'name' => 'Laravel',
+    'name' => 'TavasE-Canteen',
     'env' => 'local',
     'debug' => true,
     'url' => 'http://localhost',
     'asset_url' => NULL,
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Kolkata',
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:jmFzjJbrdERO3+PNERdQ4NazcMdlJAzu3Zn2vlLuopQ=',
+    'key' => 'base64:SmkoRw0TlvX4GSeDcye4iuWGNDMhmbEgJ4+u8tKMEBw=',
     'cipher' => 'AES-256-CBC',
     'maintenance' => 
     array (
@@ -249,7 +249,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -293,7 +293,7 @@
         'driver' => 'octane',
       ),
     ),
-    'prefix' => 'laravel_cache_',
+    'prefix' => 'tavase_canteen_cache_',
   ),
   'cors' => 
   array (
@@ -392,7 +392,7 @@
       'options' => 
       array (
         'cluster' => 'redis',
-        'prefix' => 'laravel_database_',
+        'prefix' => 'tavase_canteen_database_',
       ),
       'default' => 
       array (
@@ -422,13 +422,13 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\app',
+        'root' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\app',
         'throw' => false,
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\app/public',
+        'root' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
         'throw' => false,
@@ -448,7 +448,7 @@
     ),
     'links' => 
     array (
-      'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\public\\storage' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\app/public',
+      'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\public\\storage' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -487,13 +487,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -545,7 +545,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -604,14 +604,14 @@
     'from' => 
     array (
       'address' => 'hello@example.com',
-      'name' => 'Laravel',
+      'name' => 'TavasE-Canteen',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -717,7 +717,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -726,7 +726,7 @@
       0 => 2,
       1 => 100,
     ),
-    'cookie' => 'laravel_session',
+    'cookie' => 'tavase_canteen_session',
     'path' => '/',
     'domain' => NULL,
     'secure' => false,
@@ -737,9 +737,9 @@
   array (
     'paths' => 
     array (
-      0 => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\resources\\views',
+      0 => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\resources\\views',
     ),
-    'compiled' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen\\storage\\framework\\views',
   ),
   'flasher' => 
   array (
@@ -924,7 +924,7 @@
     array (
     ),
     'enable_runnable_solutions' => NULL,
-    'remote_sites_path' => 'E:\\Dhananjay\\Study\\Projects\\Laravel\\E caintin\\New folder\\Canteen\\Canteen-colne',
+    'remote_sites_path' => 'C:\\Users\\ASHISHKUMAR\\Desktop\\Canteen\\Canteen',
     'local_sites_path' => '',
     'housekeeping_endpoint_prefix' => '_ignition',
     'settings_file_path' => '',

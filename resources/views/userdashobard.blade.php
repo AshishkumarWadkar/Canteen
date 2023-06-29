@@ -474,13 +474,38 @@
                                 </div>
                               </div>
                         @else
-                            <form action="/payment" method="POST" class="text-center">
-                                @csrf
-                                <strong>Please pay annual registration fee to activate your account</strong>
-                                <input type="hidden" name="plan" value="1">
-                                <button type="submit" class="btn btn-primary btn-block d-block m-2 mx-auto">Pay
-                                    Now</button>
-                            </form>
+                            @php
+                                $mess_id = \DB::table('users')->find(\Auth::id());
+                                $sub_plan = \DB::table('topup_master')->where('created_by',$mess_id->created_by)->where('is_subscription_plan',1)->first();
+                            @endphp
+
+                            @if(\DB::table("phonepe")->where('user_id',\Auth::id())->where('code','=','PAYMENT_INITIATED')->where('plan',$sub_plan->id)->exists())
+
+                            <h3 class="mt-3 text-danger">  You have recently Initated payment please wait to Complete the Transaction or Please try again after sometime </h3>
+                            @else
+                                 @if($mess_id->created_by == 3)
+                                    <form action="/payment" method="POST" class="text-center">
+                                        @csrf
+                                        <strong>Please pay annual registration fee to activate your account</strong><br>
+                                        <strong>Digital Card Fee - ONE time charge of INR 50 </strong><br>
+                                        <strong>Annual registration fees - INR 300 </strong><br>
+                                        <strong>Total 350 Rupees </strong><br>
+
+                                        <input type="hidden" name="plan" value='{{ $sub_plan->id }}'>
+                                        <button type="submit" class="btn btn-primary btn-block d-block m-2 mx-auto">Pay Now</button>
+                                    </form>
+                                @else
+
+
+                                        <form action="/payment" method="POST" class="text-center">
+                                        @csrf
+                                        <strong>Please pay annual registration fee to activate your account</strong>
+                                        <input type="hidden" name="plan" value='{{ $sub_plan->id }}'>
+                                        <button type="submit" class="btn btn-primary btn-block d-block m-2 mx-auto">Pay Now</button>
+
+                                    </form>
+                                @endif
+                            @endif
                         @endif
                     </div>
                 </div>

@@ -40,6 +40,7 @@
                             <option value="">Select Your Branch</option>
                             <option value="kolhapur">PIS Kolhapur</option>
                             <option value="sangali">PIS Sangli</option>
+                            <option value="sangali">PIS Ichalkaranji</option>
                         </select>
                     <a id="login" href="" class="btn btn-sm btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Login</a>
                     <a id="register" href="" class="btn btn-sm btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Register</a>

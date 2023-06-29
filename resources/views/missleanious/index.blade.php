@@ -48,8 +48,8 @@
                                         <label class="col-5" for="class">Paid Status: </label>
                                         <select class="form-control" id="type" name="paid_status" required>
                                             <option value="" >Select</option>
-                                            <option value="0" >Paid</option>
-                                            <option value="1" selected>Unpaid</option>
+                                            <option value="0" selected>Unpaid</option>
+                                            <option value="1" >Paid</option>
                                         </select>
                                     </div>
                                 </div>
@@ -154,12 +154,12 @@
                                                                     <td class="text-start">{{ $ms->created_at }}</td>
                                                                     <td class="align-middle text-center ">
                                                                         <span
-                                                                            class="btn btn-block btn-{{ $ms->paid_status == 1 ? 'success' : 'primary' }}" >{{ $ms->paid_status == 1 ? 'Paid' : 'Unpaid' }}</span>
+                                                                            class="badge badge-sm bg-gradient-{{ $ms->paid_status == 1 ? 'success' : 'primary' }}" >{{ $ms->paid_status == 1 ? 'Paid' : 'Unpaid' }}</span>
                                                                     </td>
 
                                                                     <td class="text-start align-middle text-center ">
                                                                     <button type="button"
-                                                                    class="btn btn-block btn-primary" {{ $ms->paid_status == 1 ? 'disabled' : '' }}>
+                                                                    class="btn btn-sm btn-primary" {{ $ms->paid_status == 1 ? 'disabled' : '' }}>
                                                                                 <a href="{{ route('misslenious_status_update',$ms->id) }}">Change Status</a></button>
 
                                                                     </td>

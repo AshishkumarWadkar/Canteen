@@ -97,7 +97,13 @@
                                                             Amount Deducted</th>
                                                         <th
                                                             class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                            Remaining Balance</th>
+                                                        <th
+                                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                             Meal</th>
+                                                        <th
+                                                            class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                            Action</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -122,9 +128,22 @@
                                                                     <p class="text-xs font-weight-bold mb-0">{{ $tp->deduction_point }}
                                                                     </p>
                                                                 </td>
+                                                                <td  class="text-center">
+                                                                    <p class="text-xs font-weight-bold mb-0">{{ $tp->points }}
+                                                                    </p>
+                                                                </td>
                                                                 <td class="align-middle text-center text-sm">
                                                                     <span
                                                                         class="badge badge-sm bg-gradient-{{ $tp->meal_type == 1 ? 'success' : 'primary' }}">{{ $tp->meal_type == 1 ? 'BreakFast' : 'Lunch' }}</span>
+                                                                </td>
+                                                                <td class="align-middle text-center text-sm">
+                                                                    <form action="{{ route('attendance.destroy' , $tp->id)}}" method="POST">
+                                                                        <input name="_method" type="hidden" value="DELETE">
+                                                                        {{ csrf_field() }}
+
+                                                                    <span
+                                                                        class=" show_confirm badge badge-sm bg-gradient-danger" >Delete</span>
+                                                                    </form>
                                                                 </td>
                                                             </tr>
                                                         @endforeach
@@ -175,4 +194,27 @@
             document.getElementById("lunch").checked = true;
         };
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
+    <script type="text/javascript">
+
+         $('.show_confirm').click(function(event) {
+              var form =  $(this).closest("form");
+              var name = $(this).data("name");
+              event.preventDefault();
+              swal({
+                  title: `Are you sure you want to delete this record?`,
+                  text: "If you delete this, it will be gone forever.",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  form.submit();
+                }
+              });
+          });
+
+    </script>
+
 @endsection

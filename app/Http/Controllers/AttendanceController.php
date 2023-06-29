@@ -19,10 +19,9 @@ class AttendanceController extends Controller
     {
         //
         $todays_punch = [];
-        $todays_punch = Attendance::join('users','attendance.user_id','users.id')
-                                    ->whereDate('punch_time', Carbon::today())
-                                    ->where('users.created_by',\Auth::id())
-                                    ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type','deduction_point']);
+        $todays_punch = Attendance::join('users','attendance.user_id','users.id','deduction_point')
+        ->whereDate('punch_time', Carbon::today())
+        ->orderBy('attendance.id','desc')->get(['attendance.id','name','punch_time','meal_type','deduction_point','points']);
 
         return view('mess.attendance',compact('todays_punch'));
     }
@@ -111,7 +110,7 @@ class AttendanceController extends Controller
         $flag = Attendance::where('user_id',$student->id)->whereDate('created_at', Carbon::today())->where("meal_type",$request->meal_type)->get();
         $todays_punch = Attendance::join('users','attendance.user_id','users.id','deduction_point')
         ->whereDate('punch_time', Carbon::today())
-        ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type','deduction_point']);
+        ->orderBy('attendance.id','desc')->get(['attendance.id','name','punch_time','meal_type','deduction_point','points']);
         if(count($flag)==0)
         {
             $attendance = new Attendance;
@@ -126,7 +125,7 @@ class AttendanceController extends Controller
 
             $todays_punch = Attendance::join('users','attendance.user_id','users.id','deduction_point')
             ->whereDate('punch_time', Carbon::today())
-            ->orderBy('attendance.id','desc')->get(['name','punch_time','meal_type','deduction_point']);
+            ->orderBy('attendance.id','desc')->get(['attendance.id','name','punch_time','meal_type','deduction_point','points']);
             toastr()->positionClass('toast-top-center')->addSuccess('Barcode Scanned');
             return view('mess.attendance',compact('student','balance','todays_punch'));
 
@@ -186,6 +185,13 @@ class AttendanceController extends Controller
     public function destroy($id)
     {
         //
+        $attendance =  Attendance::find($id);
+        $user = User::find($attendance->user_id);
+        $user->points = $user->points + $attendance->deduction_point;
+        $attendance->delete();
+        $user->save();
+        sweetalert("Record Deleted");
+        return redirect()->route('attendance.index');
     }
 
     public function all(Request $request)
@@ -200,7 +206,7 @@ class AttendanceController extends Controller
                 $all = $all->whereDate('attendance.created_at', '<=', $request->to);
         }
 
-        $all = $all->get(['name','punch_time','meal_type','deduction_point']);
+        $all = $all->get(['name','punch_time','meal_type','deduction_point','points']);
         $fromdate = $request->from;
         $todate = $request->to;
         return view('mess.all_punching',compact('all','fromdate','todate'));

@@ -21,7 +21,11 @@
 
                             <div class="form-group my-2">
                                 <label for="phone">Phone : </label>
-                                <input type="text" class="form-control" id="phone" placeholder="10 Digits" name="phone"   maxlength="10">
+                                <input type="text" class="form-control" id="phone" placeholder="10 Digits" name="phone"   maxlength="10" required>
+                            </div>
+                            <div class="form-group my-2">
+                                <label for="phone">Password : </label>
+                                <input type="text" class="form-control" id="password" placeholder="Password" name="password"    required>
                             </div>
 
 
