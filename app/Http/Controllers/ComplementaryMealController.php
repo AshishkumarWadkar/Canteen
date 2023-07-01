@@ -12,11 +12,21 @@ class ComplementaryMealController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $cms = ComplementaryMeal::where('mess_id',\Auth::id());
 
-        $cms = ComplementaryMeal::where('mess_id',\Auth::id())->get();
-        return view('Complementary_meal.index', compact('cms'));
+        if(isset($request->from) && isset($request->to))
+         {
+
+                 $cms = $cms->whereDate('created_at', '>=', $request->from);
+                 $cms = $cms->whereDate('created_at', '<=', $request->to);
+         }
+         $from = $request->from ?? "";
+         $to = $request->to ?? "";
+
+        $cms = $cms->get();
+        return view('Complementary_meal.index', compact('cms','from','to'));
     }
 
     /**

@@ -12,14 +12,25 @@ class MissleaniousController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $missleanious       = Missleanious::where('mess_id',\Auth::id())->get();
+        $missleanious = Missleanious::where('mess_id',\Auth::id());
+
+        if(isset($request->from) && isset($request->to))
+        {
+                $missleanious = $missleanious->whereDate('created_at', '>=', $request->from);
+                $missleanious = $missleanious->whereDate('created_at', '<=', $request->to);
+        }
+
+        $missleanious = $missleanious->get();
+        $fromdate = $request->from ?? "";
+        $todate = $request->to ?? "";
+
         $missleanious_paid_sum   = $missleanious->where('paid_status',1)->sum("amount");
         $missleanious_unpaid_sum   = $missleanious->where('paid_status',0)->sum("amount");
 
-        return view('missleanious.index', compact('missleanious','missleanious_paid_sum','missleanious_unpaid_sum'));
+        return view('missleanious.index', compact('missleanious','missleanious_paid_sum','missleanious_unpaid_sum','fromdate','todate'));
     }
 
     /**
@@ -47,6 +58,9 @@ class MissleaniousController extends Controller
         $missleanious->paid_status  = $request->paid_status;
         $missleanious->amount       = $request->amount;
         $missleanious->mess_id      = \Auth::id();
+        if($request->paid_status == 0){
+            $missleanious->updated_at    = NULL;
+        }
 
         $missleanious->save();
         toastr()

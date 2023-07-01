@@ -108,6 +108,8 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
     Route::get('misslenious_status_update/{id}',[MissleaniousController::class,'misslenious_status_update'])->name('misslenious_status_update');
 
     Route::resource('expenses',ExpensesController::class);
+    Route::get("low_balence",[ExpensesController::class,'low_balence'])->name('low_balence');
+
     Route::resource('complementary_meal',ComplementaryMealController::class);
     Route::resource('complementary_attendance',ComplementartAttendanceController::class);
 

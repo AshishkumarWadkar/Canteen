@@ -40,10 +40,13 @@
                                 </div>
                                 <label for="description" class="form-label">Description: </label>
                                 <div class="input-group input-group-outline mb-3 d-flex">
-                                    <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                                    <textarea class="form-control" id="description" rows="5" name="description" style="height : 100px"></textarea>
                                 </div>
-                                <div class="form-group my-2 ">
-                                    <button type="submit" class="btn btn-block btn-success">Save</button>
+                                <div class="input-group input-group-outline mb-3 d-flex justify-content-between">
+                                    <a href="{{ route('menu_master.index') }}"><button type="button"
+                                            class="btn btn-block btn-primary">Back</button></a>&nbsp;&nbsp;
+                                    <a><button type="submit" class="btn btn-block btn-success">Save</button>
+                                    </a>
                                 </div>
                             </form>
                         </div>

@@ -37,21 +37,6 @@
                                             value="{{ isset($amount) ? $amount : '' }}">
                                     </div>
 
-                                    {{-- <div class="col-3"><label class="text-uppercase text-secondary font-weight-bolder"
-                                            for="to">Payable</label>
-                                        <input type="text" class="form-control" id="payable" name="payable"
-                                            value="{{ isset($payable) ? $payable : '' }}">
-                                    </div> --}}
-
-                                    {{-- <div class="col-3"><label class="text-uppercase text-secondary font-weight-bolder"
-                                            for="to">Comment</label>
-                                        <input type="text" class="form-control" id="comment" name="comment"
-                                            value="{{ isset($comment) ? $comment : '' }}">
-                                    </div> --}}
-                                    {{-- <div class="col-3">
-                                        <button class="btn btn-sm btn-success mt-2" type="submit" formmethod="POST"
-                                            formaction="{{ route('messsettlement.request') }}">Request</button>
-                                    </div> --}}
                                 </div>
                             </form>
                         </div>

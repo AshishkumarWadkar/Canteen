@@ -166,26 +166,6 @@
             document.getElementById("barcode").focus();
         })
 
-        // var barcode = '';
-        // var interval;
-        // document.addEventListener('keydown', function(evt) {
-        //     if (interval)
-        //         clearInterval(interval);
-        //     if (evt.code == 'Enter') {
-        //         if (barcode)
-        //             handleBarcode(barcode);
-        //         barcode = '';
-        //         return;
-        //     }
-        //     if (evt.key != 'Shift')
-        //         barcode += evt.key;
-        //     interval = setInterval(() => barcode = '', 1);
-        // });
-
-        // function handleBarcode(scanned_barcode) {
-        //     document.getElementById('barcode').value = scanned_barcode;
-        // }
-
         const hour = new Date().getHours();
         if (hour < 12) {
 
@@ -194,7 +174,6 @@
             document.getElementById("lunch").checked = true;
         };
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script>
     <script type="text/javascript">
 
          $('.show_confirm').click(function(event) {

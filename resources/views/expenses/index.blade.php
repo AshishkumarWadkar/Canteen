@@ -39,20 +39,35 @@
                                 <div class="col-6">
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="col-5" for="quantity">Quantity : </label>
-                                        <input type="Number" class="form-control" id="quantity" placeholder="Quantity in Number"
-                                            name="quantity" required>
+                                        <input type="Number" class="form-control" id="quantity"
+                                            placeholder="Quantity in Number" name="quantity" required>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                {{-- <div class="col-6">
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="col-5" for="unit">Unit : </label>
                                         <input type="text" class="form-control" id="unit" placeholder="[g, Ml, Kg, L, Pieces, Dozen]"
                                             name="unit" required>
                                     </div>
+                                </div> --}}
+                                <div class="col-6">
+                                    <div class="input-group input-group-outline mb-3">
+                                        <label class="col-5" for="unit">Unit : </label>
+                                        <select class="form-control" id="unit" name="unit" required>
+                                            <option value="" selected>Select</option>
+                                            <option value="liter">liter</option>
+                                            <option value="kilo">kilo</option>
+                                            <option value="Kilogram">Kilogram</option>
+                                            <option value="bunch">bunch</option>
+                                            <option value="Pise">Piece</option>
+                                            <option value="Packate">Packate</option>
+                                            <option value="Dozzen">Dozzen</option>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group input-group-outline mb-3">
-                                        <label class="col-5" for="amount">Amount : </label>
+                                        <label class="col-5" for="amount">Enter Total Amount : </label>
                                         <input type="number" class="form-control" maxlength="11" id="amount"
                                             placeholder="Amount in Rupees" name="amount" maxlength="10">
                                     </div>
@@ -61,7 +76,7 @@
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="col-5" for="amount">Date : </label>
                                         <input type="date" class="form-control" id="date" placeholder="Enter Dates"
-                                            name="date" value="<?php echo date("Y-m-d"); ?>">
+                                            name="date" value="<?php echo date('Y-m-d'); ?>">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -85,7 +100,7 @@
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">All Transaction History
+                                <h6 class="text-white text-capitalize ps-3">All Expenses History
                                 </h6>
                             </div>
                         </div>
@@ -128,7 +143,8 @@
                                                 <td class="text-start">{{ $ms->item_name }}</td>
                                                 <td class="text-center">{{ $ms->quantity }} {{ $ms->unit }}</td>
                                                 <td class="text-center">{{ $ms->amount }}</td>
-                                                <td class="text-center">{{  \Carbon\Carbon::parse($ms->date)->format('d-m-Y') }}</td>
+                                                <td class="text-center">
+                                                    {{ \Carbon\Carbon::parse($ms->date)->format('d-m-Y') }}</td>
                                             </tr>
                                         @endforeach
 

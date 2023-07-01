@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Leave;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
 
 class LeaveController extends Controller
 {
@@ -15,7 +17,7 @@ class LeaveController extends Controller
     public function index(Request $request)
     {
         //
-        $leaves = Leave::join('users','users.id','user_id')->where('created_by',\Auth::id());
+        $leaves = Leave::join('users','users.id','user_id')->where('created_by',\Auth::id())->whereDate('leaves.created_at','>',Carbon::today());
         if($request->date)
         {
             $leaves = $leaves->whereDate('leave_date',$request->date);
