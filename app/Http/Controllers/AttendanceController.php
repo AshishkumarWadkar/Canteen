@@ -20,6 +20,7 @@ class AttendanceController extends Controller
         //
         $todays_punch = [];
         $todays_punch = Attendance::join('users','attendance.user_id','users.id','deduction_point')
+        ->where('users.created_by',\Auth::id())
         ->whereDate('punch_time', Carbon::today())
         ->orderBy('attendance.id','desc')->get(['attendance.id','name','punch_time','meal_type','deduction_point','points']);
 
@@ -109,6 +110,7 @@ class AttendanceController extends Controller
 
         $flag = Attendance::where('user_id',$student->id)->whereDate('created_at', Carbon::today())->where("meal_type",$request->meal_type)->get();
         $todays_punch = Attendance::join('users','attendance.user_id','users.id','deduction_point')
+        ->where('users.created_by',\Auth::id())
         ->whereDate('punch_time', Carbon::today())
         ->orderBy('attendance.id','desc')->get(['attendance.id','name','punch_time','meal_type','deduction_point','points']);
         if(count($flag)==0)
@@ -124,6 +126,7 @@ class AttendanceController extends Controller
             $student->save();
 
             $todays_punch = Attendance::join('users','attendance.user_id','users.id','deduction_point')
+            ->where('users.created_by',\Auth::id())
             ->whereDate('punch_time', Carbon::today())
             ->orderBy('attendance.id','desc')->get(['attendance.id','name','punch_time','meal_type','deduction_point','points']);
             toastr()->positionClass('toast-top-center')->addSuccess('Barcode Scanned');

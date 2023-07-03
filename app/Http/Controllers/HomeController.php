@@ -66,6 +66,10 @@ class HomeController extends Controller
             $all_punch = Attendance::where('user_id',Auth::id())->orderBy('id','Desc')->get();
 
             $now = Carbon::now()->toDateString();
+            if(1 == Carbon::now()->dayOfWeekIso)
+            {
+                // $now = Carbon::now()->addDays(7)->toDateString();
+            }
             $week_menus = WeeklyMenu::
             whereRaw("start_date <=  date('$now')")
             ->whereRaw("end_date >=  date('$now')")
@@ -75,6 +79,7 @@ class HomeController extends Controller
            $prebooking = PreBooking::where("user_id",\Auth::id())->join("menu_master",'menu_master.id',"menu_id")->orderBy('booking_date','DESC')->get();
 
            $leave = Leave::where('user_id',\Auth::id())->orderBy('leave_date','DESC')->get();
+        //    sweetalert()->timer(100000)->addWarning("Please note that Pre-Booking of meals is compulsory. Food will be served to pre-booked students only");
            return view('userdashobard',compact('students','topups','todays_punch','all_punch','week_menus','prebooking','leave'));
         }
     }

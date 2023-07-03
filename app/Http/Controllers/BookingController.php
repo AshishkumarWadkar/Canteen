@@ -148,7 +148,7 @@ class BookingController extends Controller
 
         $date = $booking_date;
         $carbon_date = Carbon::parse($date);
-        $carbon_date->addHours(21)->subDay(1);
+        $carbon_date->addHours(23)->addMinutes(59)->subDay(1);
 
        $can_book = $carbon_date->lt(Carbon::now());
        $data["can_book"] = $can_book;
