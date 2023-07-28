@@ -194,7 +194,7 @@
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">Activation</h5>
                         <h1 class="mb-4"><i class="fa fa-check text-primary me-2"></i>Activate Account
                         </h1>
-                        <p class="mb-4">Once the registration form is filled you can proceed with the account activation by using the payment gateway. a nominal fee of INR 200 is charged per student to use their account log in for one academic year. once the payment is done then the user can use their account for further transactions
+                        <p class="mb-4">Once the registration form is filled you can proceed with the account activation by using the payment gateway. a nominal fee Charged per student to use their account log in for one academic year. once the payment is done then the user can use their account for further transactions
 
                         </p>
 
@@ -245,7 +245,7 @@
                         <h5 class="section-title ff-secondary text-start text-primary fw-normal">Account recharge for meals</h5>
                         <h1 class="mb-4"><i class="fa fa-indian-rupee-sign"></i>Top Up/Recharge Account
                         </h1>
-                        <p class="mb-4">Parents can use their activated accounts to recharge their balance for the meals. There are various recharge options provided for users. Please note that a minimum account balance of INR 210 is needed. Please refer to the "How to recharge" video by using the below link
+                        <p class="mb-4">Parents can use their activated accounts to recharge their balance for the meals. There are various recharge options provided for users. Please note that a minimum account balance of INR XXXX is needed. Please refer to the "How to recharge" video by using the below link
 
                         </p>
 
@@ -896,4 +896,6 @@
 
 
     <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 @endsection

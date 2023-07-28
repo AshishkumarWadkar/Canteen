@@ -27,13 +27,13 @@
                                     <div class="input-group input-group-outline mb-3 d-flex">
                                         <label class="col-5" for="class">Select Monday Menu </label>
                                         <input class="form-control" type="week" name="week" id="week"
-                                            value="{{ $week_menu->week_no }}">
+                                        value="{{ $week_menu->week_no }}">
                                     </div>
                                     <div class="input-group input-group-outline mb-3 d-flex">
                                         <label class="col-5" for="class">Meal Type </label>
                                         <select class="form-control mx-1 text-center" disabled>
 
-                                            <option>Break Fast</option>
+                                                <option>Break Fast</option>
 
 
 
@@ -44,7 +44,7 @@
 
 
 
-                                        </select>
+                                         </select>
                                     </div>
                                     <div class="input-group input-group-outline mb-3 d-flex">
                                         <label class="col-5" for="class">Select Monday Menu </label>
@@ -165,18 +165,15 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="d-flex justify-content-between">
-
+                                    <div class="form-group my-2 ">
                                         <button type="submit" class="btn btn-block btn-success">Update</button>
-                                        <a href="{{route('weekly_menu.index')}}" class="btn btn-block btn-primary">Back</a>
                                     </div>
+                                </form>
                             </div>
-                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 @endsection

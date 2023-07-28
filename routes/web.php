@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\OpenItemController;
+use App\Http\Controllers\OpenItemMasterController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ComplementartAttendanceController;
 use App\Http\Controllers\DeductionController;
@@ -92,6 +94,8 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
 {
     Route::resource('student',StudentController::class);
     Route::resource('attendance',AttendanceController::class);
+    Route::resource('open_item',OpenItemController::class);
+    Route::resource('open_item_master',OpenItemMasterController::class);
     Route::resource('menu_master',MenuMasterController::class);
     Route::resource('prebooking',PreBookingController::class);
     Route::resource('leaves',LeaveController::class);
@@ -112,6 +116,9 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
 
     Route::resource('complementary_meal',ComplementaryMealController::class);
     Route::resource('complementary_attendance',ComplementartAttendanceController::class);
+
+
+    Route::get('students_open_item_history',[OpenItemController::class,'students_open_item_history'])->name('students_open_item_history');
 
 
 });
@@ -161,6 +168,7 @@ Route::get('how_to_register', function(){
     return view('web.how_to_register');
 })->name('how_to_register');
 
+
 Route::get('/change-password', [StudentController::class, 'changePassword'])->name('changePassword');
 Route::post('/change-password', [StudentController::class, 'changePasswordSave'])->name('postChangePassword');
 Route::get('/forget-password', [ForgetController::class, 'forget_password']);
@@ -178,4 +186,21 @@ Route::get("/routeclear",function (){
 Route::resource('booking',BookingController::class);
 Route::post('getBookingmenudata',[BookingController::class,"getBookingmenudata"])->name("getBookingmenudata");
 Route::post('cancelbooking',[BookingController::class,"cancelbooking"])->name("cancelbooking");
+Route::get('booking_status',[BookingController::class,"booking_status"])->name("booking_status");
+
 Route::resource('leave',LeaveController::class);
+
+
+Route::get('terms-and-conditions', function(){
+    return view('web.terms-and-conditions');
+})->name('terms-and-conditions');
+Route::get('privacy-policy', function(){
+    return view('web.privacy-policy');
+})->name('privacy-policy');
+Route::get('refund-policy', function(){
+    return view('web.refund-policy');
+})->name('refund-policy');
+Route::get('cancellation-policy', function(){
+    return view('web.cancellation-policy');
+})->name('cancellation-policy');
+

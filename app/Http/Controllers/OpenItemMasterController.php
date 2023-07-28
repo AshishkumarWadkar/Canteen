@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OpenItemMaster;
+use Flasher\SweetAlert\Laravel\Facade\SweetAlert;
 use Illuminate\Http\Request;
-use App\Models\Missleanious;
 
-class MissleaniousController extends Controller
+
+class OPenItemMasterController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -14,12 +18,8 @@ class MissleaniousController extends Controller
      */
     public function index()
     {
-        //
-        $missleanious       = Missleanious::where('mess_id',\Auth::id())->get();
-        $missleanious_paid_sum   = $missleanious->where('paid_status',1)->sum("amount");
-        $missleanious_unpaid_sum   = $missleanious->where('paid_status',0)->sum("amount");
-
-        return view('missleanious.index', compact('missleanious','missleanious_paid_sum','missleanious_unpaid_sum'));
+       $open_items = OpenItemMaster::all()->where('mess_id',\Auth::id());
+        return view('open_item_master.index',compact('open_items'));
     }
 
     /**
@@ -30,6 +30,7 @@ class MissleaniousController extends Controller
     public function create()
     {
         //
+        return view("open_item_master.create");
     }
 
     /**
@@ -40,19 +41,15 @@ class MissleaniousController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request;
         //
-        $missleanious               = new Missleanious;
-        $missleanious->name         = $request->name;
-        $missleanious->description  = $request->description;
-        $missleanious->paid_status  = $request->paid_status;
-        $missleanious->amount       = $request->amount;
-        $missleanious->mess_id      = \Auth::id();
-
-        $missleanious->save();
-        toastr()
-    ->positionClass('toast-top-center')
-    ->addSuccess('Missleanious saved');
-    return redirect()->back();
+        $open_item               = new OpenItemMaster;
+        $open_item->name         = $request->name;
+        $open_item->amount       = $request->amount;
+        $open_item->mess_id   = \Auth::id();
+        $open_item->save();
+        sweetalert("Open Item Added Successfully");
+        return redirect()->back();
 
     }
 
@@ -75,8 +72,8 @@ class MissleaniousController extends Controller
      */
     public function edit($id)
     {
-        //
-
+        $open_items = OpenItemMaster::find($id);
+        return view('open_item_master.edit',compact('open_items'));
     }
 
     /**
@@ -89,6 +86,13 @@ class MissleaniousController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $open_item              =  OpenItemMaster::find($id);
+        $open_item->name        = $request->name;
+        $open_item->amount      = $request->amount;
+        $open_item->mess_id     = \Auth::id();
+        $open_item->save();
+        sweetalert("Oen Item Updated");
+        return redirect()->route('open_item_master.index');
     }
 
     /**
@@ -99,17 +103,10 @@ class MissleaniousController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-
-    public function misslenious_status_update($id) {
-
-        $missleanious               =  Missleanious::findorfail($id);
-        $missleanious->paid_status  = 1;
-        $missleanious->save();
-        toastr()
-    ->positionClass('toast-top-center')
-    ->addSuccess('Payment Recived Succefully');
-    return redirect()->back();
+        // return "hiii";
+        $open_item              =  OpenItemMaster::find($id);
+        $open_item->delete();
+        sweetalert("Open Item Updated");
+        return redirect()->back();
     }
 }

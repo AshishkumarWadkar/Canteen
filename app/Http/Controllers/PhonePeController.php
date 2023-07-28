@@ -16,22 +16,23 @@ class PhonePeController extends Controller
     //
     public function initiate(Request $request)
     {
+        // return 'There is a technical error for payment. We are working on resolving it. Thank you.';
 
         //dev
-        $salt="099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
-        $merchant_id = "PGTESTPAYUAT";
-        $index=1;
-        $url = "https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/pay";
+        // $salt="099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
+        // $merchant_id = "PGTESTPAYUAT";
+        // $index=1;
+        // $url = "https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/pay";
 
 
         // live
-        // $salt = "021d2301-661d-4d5a-97c4-1c298ad19f66";
-        // $merchant_id = "TAVAONLINE";
-        // $index = 1;
-        // $url = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
+        $salt = "021d2301-661d-4d5a-97c4-1c298ad19f66";
+         $merchant_id = "TAVAONLINE";
+        $index = 1;
+         $url = "https://api.phonepe.com/apis/hermes/pg/v1/pay";
 
 
-        $plan = \DB::table('topup_master')->select('id', 'amount', 'name')->where('id', '=', $request->plan)->first();
+       $plan = \DB::table('topup_master')->select('id', 'amount', 'name')->where('id', '=', $request->plan)->first();
 
 
         $instrument = new \stdClass();
@@ -49,7 +50,7 @@ class PhonePeController extends Controller
         $request_body->paymentInstrument = $instrument;
         // return json_encode($request_body);
         $base64 = base64_encode(json_encode($request_body));
-        $sha256 = hash('sha256', $base64 . "/pg/v1/pay" . $salt) . '###' . $index;
+       $sha256 = hash('sha256', $base64 . "/pg/v1/pay" . $salt) . '###' . $index;
         $client = new \GuzzleHttp\Client();
         $response = $client->request('POST', $url, [
             'body' => '{"request":"' . $base64 . '"}',
@@ -95,8 +96,8 @@ class PhonePeController extends Controller
                 $phonepe->code = $request->code;
                 $phonepe->checksum = $request->checksum;
 
-                $phonepe->percent = env('PHONEPE_CHARGE');
-                $phonepe->tax = env("TAX");
+                $phonepe->percent = env('PHONEPE_CHARGE')??2;
+                $phonepe->tax = env("TAX")??"1.8";
                 $phonepe->total_deduction = (($request->amount / 100) * (env('PHONEPE_CHARGE') / 100)) * env("TAX");
                 $phonepe->actual_amount = ($request->amount / 100) - (($request->amount / 100) * (env('PHONEPE_CHARGE') / 100)) * env("TAX");
 
@@ -126,7 +127,7 @@ class PhonePeController extends Controller
             }
         } else {
             $phonepe = PhonePe::where('merchantTransactionId', $request->transactionId)->first();
-            $phonepe->amount = $request->amount / 100;
+            $phonepe->amount = isset($request) && isset($request->amount) && ($request->amount != null) ? $request->amount / 100 : 0;
             $phonepe->providerReferenceId = $request->providerReferenceId;
             $phonepe->code = $request->code;
             $phonepe->save();
@@ -143,36 +144,38 @@ class PhonePeController extends Controller
 
     function plan(Request $request)
     {
-        $plans = TopupMaster::all()->where('is_subscription_plan', 0);
+        $plans = TopupMaster::where('created_by',\Auth::user()->created_by)
+        // ->where('topup_master.created_by',\Auth::user()->created_by)
+        ->where('is_subscription_plan', 0)->get();
         return view('razorpay.razorpayView', compact('plans'));
     }
     function check_status()
     {
 
         //dev
-        $salt="099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
-        $merchant_id = "PGTESTPAYUAT";
-        $index=1;
-        $url = "https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/pay";
+        // $salt="099eb0cd-02cf-4e2a-8aca-3e6c6aff0399";
+        // $merchant_id = "PGTESTPAYUAT";
+        // $index=1;
+        // $url = "https://api-preprod.phonepe.com/apis/merchant-simulator/pg/v1/pay";
 
 
         // live
-        // $salt = "021d2301-661d-4d5a-97c4-1c298ad19f66";
-        // $merchant_id = "TAVAONLINE";
-        // $index = 1;
-        // $url = "https://api.phonepe.com/apis/hermes/pg/v1/status/";
+        $salt = "021d2301-661d-4d5a-97c4-1c298ad19f66";
+        $merchant_id = "TAVAONLINE";
+        $index = 1;
+        $url = "https://api.phonepe.com/apis/hermes/pg/v1/status/";
 
 
 
 
-
+        
          $records = PhonePe::
             where("code", "=", "PAYMENT_INITIATED")->
             orWhere("code", "=", "PAYMENT_PENDING")->
             get();
 
 
-        foreach ($records as $key => $record)
+        foreach ($records as $key => $record) 
         {
             $transaction_id = $record->merchantTransactionId;
             $sha256 = hash('sha256', "/pg/v1/status/" . $merchant_id . '/' . $transaction_id . $salt) . '###' . $index;
@@ -188,20 +191,24 @@ class PhonePeController extends Controller
             ]);
 
             // $request = ($response->getBody());
+            Log::info($response->getBody());
+
              $request = json_decode($response->getBody());
 
-            if ($request->code == "PAYMENT_SUCCESS")
+
+            if ($request->code == "PAYMENT_SUCCESS") 
             {
                 $flag = PhonePe::where('merchantTransactionId', $request->data->merchantTransactionId)->where('code', 'PAYMENT_SUCCESS')->doesntExist();
                 if ($flag) {
+
                     $phonepe = PhonePe::where('merchantTransactionId', $request->data->merchantTransactionId)->first();
                     $phonepe->amount = $request->data->amount / 100;
                     $phonepe->providerReferenceId = $request->data->transactionId;
                     $phonepe->code = $request->code;
                     $phonepe->checksum = $request->checksum??"";
 
-                    $phonepe->percent = env('PHONEPE_CHARGE');
-                    $phonepe->tax = env("TAX");
+                    $phonepe->percent = env('PHONEPE_CHARGE') ?? 2;
+                    $phonepe->tax = env("TAX") ?? "1.8";
                     $phonepe->total_deduction = (($request->data->amount / 100) * (env('PHONEPE_CHARGE') / 100)) * env("TAX");
                     $phonepe->actual_amount = ($request->data->amount / 100) - (($request->data->amount / 100) * (env('PHONEPE_CHARGE') / 100)) * env("TAX");
 
@@ -209,13 +216,15 @@ class PhonePeController extends Controller
                     $phonepe->cardType = isset($request->data->paymentInstrument->cardType)  ? $request->data->paymentInstrument->cardType : "";
 
                     $phonepe->save();
+                    $is_subscribed_plan = TopupMaster::find($phonepe->plan);
                     $user = User::find($phonepe->user_id);
 
-                    if ($phonepe->plan == 1) {
+                    if ($is_subscribed_plan->is_subscription_plan == 1) {
                         $user->is_subscribed = 1;
                         $user->expiry_date = Carbon::now()->addDays(365);
                     } else {
 
+                        Log::info(json_encode($request));
                         $user->points = $user->points + $request->data->amount / 100;
                     }
                     $user->save();
@@ -226,8 +235,8 @@ class PhonePeController extends Controller
 
 
                 }
-            }
-            else
+            } 
+            else 
             {
                 $phonepe = PhonePe::where('merchantTransactionId', $request->data->merchantTransactionId)->first();
                 $phonepe->amount = $request->data->amount / 100;

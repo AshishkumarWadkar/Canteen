@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Expenses;
 use Illuminate\Http\Request;
-use App\Models\User;
-use Auth;
-
 
 class ExpensesController extends Controller
 {
@@ -104,18 +101,5 @@ class ExpensesController extends Controller
     public function destroy(Expenses $expenses)
     {
         //
-    }
-
-    public function low_balence()
-    {
-        // return "hiii";
-        try {
-
-            $low_balence = User::where('points','<',200)->where('created_by',Auth::id())->get(['name','email','points']);
-
-            return view('expenses.low_balence',compact('low_balence'));
-        } catch (\Throwable $th) {
-            return $th->getMessage();
-        }
     }
 }

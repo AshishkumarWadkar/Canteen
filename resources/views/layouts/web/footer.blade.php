@@ -8,6 +8,7 @@
                 <a class="btn btn-link" href="">Reservation</a> --}}
                 <a class="btn btn-link" role="button" data-bs-toggle="modal" data-bs-target="#Privacy">Privacy Policy</a>
                 <a class="btn btn-link" role="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Terms & Condition</a>
+                <a class="btn btn-link" href="{{route('refund-policy')}}">Refund Policy</a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>

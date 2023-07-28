@@ -56,9 +56,8 @@
                                 </table>
 
 
-                                <div class="form-group my-2 d-flex justify-content-between">
+                                <div class="form-group my-2 ">
                                     <button type="submit" class="btn btn-block btn-success">Save</button>
-                                    <a href="{{route('weekly_menu.index')}}" class="btn btn-block btn-primary">Back</a>
                                 </div>
                             </form>
                         </div>
@@ -67,4 +66,7 @@
             </div>
         </div>
     </div>
+
+    <script src="../assets/js/core/bootstrap.min.js"></script>
+    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
 @endsection

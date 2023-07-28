@@ -52,7 +52,12 @@ class BookingController extends Controller
             return response()->json([], 200, []);
         }
 
+        
         $now = Carbon::now();
+        if(0 == Carbon::now()->dayOfWeek)
+        {
+            $now = Carbon::now()->addDay(1);
+        }
         $booking_date =Carbon::parse($now->startOfWeek())->addDays($request->day-1);
 
         if(PreBooking::where("user_id",\Auth::id())->where('menu_id',$request->menu)->whereDate('booking_date',$booking_date)->doesntExist())
@@ -140,6 +145,10 @@ class BookingController extends Controller
         $menu  = MenuMaster::find($request->menu);
 
         $now = Carbon::now();
+        if(0 == Carbon::now()->dayOfWeek)
+        {
+            $now = Carbon::now()->addDay(1);
+        }
         $booking_date =Carbon::parse($now->startOfWeek())->addDays($request->day-1);
         $exists= PreBooking::where("user_id",\Auth::id())->where('menu_id',$request->menu)->whereDate('booking_date',$booking_date)->first() ?? [];
         $data['success'] = true;
@@ -150,7 +159,18 @@ class BookingController extends Controller
         $carbon_date = Carbon::parse($date);
         $carbon_date->addHours(23)->addMinutes(59)->subDay(1);
 
-       $can_book = $carbon_date->lt(Carbon::now());
+       $carbon_date = date_format($carbon_date, "d/m/Y H:i:s");
+       $current_date = date_format(Carbon::now(), "d/m/Y H:i:s");
+
+        $can_book = '';
+        if ( $carbon_date > $current_date) {
+            $can_book = true;
+        }
+        else{
+          $can_book = false;
+        }
+    //    return $can_book;
+    //    return $can_book = $carbon_date->lt(Carbon::now());
        $data["can_book"] = $can_book;
 
         return response()->json($data, 200);
@@ -168,5 +188,9 @@ class BookingController extends Controller
             sweetalert()->addError("Something went wrong");
         }
         return response()->json([], 200, []);
+    }
+    function booking_status(Request $request)
+    {
+        
     }
 }

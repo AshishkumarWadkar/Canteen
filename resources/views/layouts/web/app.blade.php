@@ -23,11 +23,6 @@
     <link href="{{ asset('assets/css/material-dashboard.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet"> --}}
-
-    <script src="{{ asset('assets/js/core/jquery.js') }}"></script>
-    <script src="{{ asset('assets/js/core/bootstrap.bundle.min.js') }}"></script>
-
-
     {{-- css --}}
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,7 +57,7 @@
 
 <body>
     <div id="app">
-
+        <main class="">
             <div class="container-xxl bg-white p-0">
                 <!-- Spinner Start -->
                 <div id="spinner"
@@ -87,6 +82,8 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+
+        </main>
     </div>
 
     <script src="{{ asset('assets/home_1/lib/wow/wow.min.js') }}"></script>

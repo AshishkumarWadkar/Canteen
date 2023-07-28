@@ -1,6 +1,9 @@
 @extends('layouts.user.app')
 
 @section('content')
+@php
+use Carbon\Carbon;
+@endphp
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10">
@@ -54,7 +57,7 @@
                                                     <form action="{{ route("leave.index") }}" method="POST">
                                                         @csrf
                                                     <div class="col-3">
-                                                        <input type="date" name="date" id="date" class="date form-control" required min="{{ Carbon\Carbon::now()->addDays(1)->format("Y-m-d") }}">
+                                                        <input type="date" name="date" id="date" class="date form-control" required min="{{ Carbon::now()->addDays(1)->format("Y-m-d") }}">
                                                     </div>
                                                     <div class="col-6">
                                                         <button type="submit" class="btn btn-sm btn-success">Mark</button>
@@ -77,7 +80,7 @@
                                                                     <th scope="row">{{ $key + 1 }}</th>
                                                                     <td>{{ $lv->leave_date }}</td>
                                                                     <td>{{ $lv->created_at }}</td>
-                                                                    <td>@if(Carbon\Carbon::now()->lt($lv->leave_date)) <a class="btn btn-sm btn-warning" href="{{ route('leave.edit',$lv->id) }}">Delete</a>@endif</td>
+                                                                    <td>@if(Carbon::now()->lt($lv->leave_date)) <a class="btn btn-sm btn-warning" href="{{ route('leave.edit',$lv->id) }}">Delete</a>@endif</td>
 
 
 
@@ -426,7 +429,7 @@
                                                                     </td>
                                                                     <td class="align-middle">
                                                                         <p class="text-xs font-weight-bold mb-0">
-                                                                            {{ \Carbon\Carbon::parse($tp->created_at)->format('d-m-Y') }}
+                                                                            {{ Carbon::parse($tp->created_at)->format('d-m-Y') }}
 
                                                                         </p>
 
@@ -439,6 +442,88 @@
 
                                                         </tbody>
                                                     </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="container-fluid py-2">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card my-4">
+                                            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 collapseable">
+                                                <div class="bg-gradient-primary shadow-primary border-radius-lg pt-1 pb-1">
+                                                    <h6 class="text-white text-capitalize ps-3 text-center">Open Item History
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                            <div class="card-body px-0 pb-2 collapse">
+                                                <div class="card-body pb-2">
+                                                    <div class="table-responsive">
+                                                        <table class="table text-center mb-0 datatable">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th
+                                                                        class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                        #</th>
+                                                                    <th
+                                                                        class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                        Name</th>
+                                                                    <th
+                                                                        class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                                        Time</th>
+                                                                    <th
+                                                                        class="text-start text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                                                        Open Item Name</th>
+                                                                    <th
+                                                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                       diduction Points</th>
+                                                                    <th
+                                                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                                        Balence</th>
+                            
+                            
+                                                                </tr>
+                                                            </thead>
+                            
+                                                            <tbody>
+                                                                @foreach ($oihs as $key => $soih)
+                                                                    <tr>
+                                                                        <td>
+                                                                            <p class="text-start text-xs font-weight-bold mb-0">{{ $key + 1 }}
+                                                                            </p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="text-start text-xs font-weight-bold mb-0">{{ $soih->user_name }}
+                                                                            </p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="text-start text-xs font-weight-bold mb-0">
+                                                                                {{ \Carbon\Carbon::parse($soih->punch_time)->format('d-m-Y h:m A') }}
+                                                                            </p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="text-start text-xs font-weight-bold mb-0">{{ $soih->opi_name }}
+                                                                            </p>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="text-xs font-weight-bold mb-0">{{ $soih->deduction_point }}
+                                                                            </p>
+                                                                        </td>
+                                                                        <td class="align-middle text-center text-sm">
+                                                                            <p class="text-xs font-weight-bold mb-0">{{ $soih->user_points }}
+                                                                            </p>
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                            
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -560,6 +645,12 @@
                         $("#modal_menu_name").html(response.data.name);
                         $("#modal_menu_desc").html(response.data.description);
                         $("#modal_menu_desc").html(response.data.description);
+                         if(response.can_book)
+                        {
+                            // console.log("response.can_book",response.can_book);
+                            $("#booking_now").show();
+                            $("#cancel_booking_now").hide();
+                        }
                         if(response.exists.status == 1)
                         {
                             $("#booking_now").hide();
@@ -570,17 +661,28 @@
                             $("#booking_now").show();
                             $("#cancel_booking_now").hide();
                         }
+                        
+                        // if(response.exists.status == 1)
+                        // {
+                        //     $("#booking_now").hide();
+                        //     $("#cancel_booking_now").show();
+                        // }
+                        // else
+                        // {
+                        //     $("#booking_now").show();
+                        //     $("#cancel_booking_now").hide();
+                        // }
 
-                        if({{ Carbon\Carbon::now()->dayOfWeekIso}} > day)
-                        {
-                            $("#booking_now").hide();
-                            $("#cancel_booking_now").hide();
-                        }
-                        if(response.can_book)
-                        {
-                            $("#booking_now").hide();
-                            $("#cancel_booking_now").hide();
-                        }
+                        // if({{ Carbon::now()->dayOfWeekIso}} > day)
+                        // {
+                        //     $("#booking_now").hide();
+                        //     $("#cancel_booking_now").hide();
+                        // }
+                        // if(response.can_book)
+                        // {
+                        //     $("#booking_now").show();
+                        //     // $("#cancel_booking_now").show();
+                        // }
                         $("#booking_modal").show();
                     },
                     error: function(response) {}
@@ -632,6 +734,24 @@
                 // $(".collapse").collapse('toggle');
                 $(this).next().collapse('toggle');
             });
+        });
+
+        $('.booking_modal').each(function(i, obj) {
+            console.log(obj);
+            
+            $.ajax({
+                    url: "{{ route('booking_status') }}",
+                    type: 'get',
+                    data: {
+                        id: id,
+                    },
+
+                    success: function(response) {
+                        location.reload();
+                    },
+                    error: function(response) {}
+                });
+
         });
     </script>
 

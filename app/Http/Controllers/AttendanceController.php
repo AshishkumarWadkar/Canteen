@@ -6,6 +6,8 @@ use App\Models\Deductions;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Attendance;
+use App\Models\OpenItemMaster;
+use App\Models\OpenItem;
 use Carbon\Carbon;
 
 class AttendanceController extends Controller
@@ -19,12 +21,25 @@ class AttendanceController extends Controller
     {
         //
         $todays_punch = [];
-        $todays_punch = Attendance::join('users','attendance.user_id','users.id','deduction_point')
-        ->where('users.created_by',\Auth::id())
-        ->whereDate('punch_time', Carbon::today())
-        ->orderBy('attendance.id','desc')->get(['attendance.id','name','punch_time','meal_type','deduction_point','points']);
+       $todays_punch = Attendance::join('users','attendance.user_id','users.id')
+                                    ->where('users.created_by',\Auth::id())
+                                    ->whereDate('attendance.punch_time', Carbon::today())
+                                    ->orderBy('attendance.id','desc')
+                                    // ->groupBy('attendance.punch_time')
+                                    ->get(['attendance.id','name','attendance.punch_time','attendance.meal_type','attendance.deduction_point','points',
+                                    'users.id as user_id']);
 
-        return view('mess.attendance',compact('todays_punch'));
+       $todays_opent_item_punch = OpenItem::join('users','open_item.user_id','users.id')
+                                            ->join('open_item_master','open_item.item_id','open_item_master.id')
+                                            ->orderBy('open_item.id', 'DESC')
+                                            ->get(['open_item.*','users.name as user_name','users.points as user_point','open_item_master.name as item_name']);
+
+                                                // get(['open_item.*','open_item_master.name as item_name']);
+
+        $open_items = OpenItemMaster::where('mess_id',\Auth::id())
+                    ->get();
+
+        return view('mess.attendance',compact('todays_punch','open_items','todays_opent_item_punch'));
     }
 
     /**

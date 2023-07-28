@@ -10,6 +10,7 @@ use App\Models\Topup;
 use App\Models\WeeklyMenu;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\OpenItem;
 use Carbon\Carbon;
 use Auth;
 class HomeController extends Controller
@@ -31,12 +32,14 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         if(Auth::guard('admin')->check())
         {
             return view('admin.dashobard');
         }
         elseif(Auth::guard('mess')->check())
         {
+            // return "system under maitainace";
             $todays_points = Attendance::whereDate('punch_time', Carbon::today())
             ->where('created_by',\Auth::id())->sum('deduction_point');
 
@@ -48,10 +51,14 @@ class HomeController extends Controller
             $total_users = User::where('created_by',\Auth::id())->count();
 
             $tran =User::where('created_by',\Auth::id())->join('phonepe','phonepe.user_id','users.id')->where('plan','!=',1)->whereDate('phonepe.created_at', Carbon::today())->where('code','PAYMENT_SUCCESS')->sum('amount');
-            $low_count = User::where('points','<',200)->where('created_by',Auth::id())->count('id');
-            return view('mess.dashboard',compact('low_count','todays_points','total_users','visit','tran'));
+            $low = User::where('points','<',200)->where('created_by',Auth::id())->get(['name','email','points']);
+            return view('mess.dashboard',compact('low','todays_points','total_users','visit','tran'));
         }
         else{
+            // if (Auth::id() != 366) {
+            //     # code...
+            //     return "System In Maitainance";
+            // }
             $students = User::find(Auth::id());
             // $topups = Topup::where('user_id',Auth::id())
             // ->join('topup_master','topup_master.id','topup.topup_id')
@@ -64,23 +71,45 @@ class HomeController extends Controller
             ->whereDate('punch_time', Carbon::today())
             ->get();
             $all_punch = Attendance::where('user_id',Auth::id())->orderBy('id','Desc')->get();
-
             $now = Carbon::now()->toDateString();
-            if(1 == Carbon::now()->dayOfWeekIso)
+
+            // return Carbon::now()->dayOfWeek;
+            if(0 == Carbon::now()->dayOfWeek)
             {
-                // $now = Carbon::now()->addDays(7)->toDateString();
+                $now = Carbon::now()->addDay(1)->toDateString();
             }
-            $week_menus = WeeklyMenu::
+            // return $now;
+             $week_menus = WeeklyMenu::
             whereRaw("start_date <=  date('$now')")
             ->whereRaw("end_date >=  date('$now')")
             ->where('created_by',\Auth::user()->created_by)
            ->first();
 
+
+           $oihs = OpenItem::select('open_item.*','users.name as user_name', 'users.points as user_points','open_item_master.name as opi_name')
+                                ->join('open_item_master','open_item_master.id','open_item.item_id')
+                               ->join('users', 'users.id','open_item.user_id')
+                               ->where('open_item.user_id',\Auth::id())
+                               // ->where('open_item.mess_id',\Auth::id())
+                               ->orderBy('open_item.id','desc');
+   
+        //    if(isset($request->from) && isset($request->to))
+        //    {
+        //            $oihs = $oihs->whereDate('open_item.created_at', '>=', $request->from);
+        //            $oihs = $oihs->whereDate('open_item.created_at', '<=', $request->to);
+        //    }
+            $oihs =  $oihs->get();
+        //    $fromdate = $request->from;
+        //    $todate = $request->to;
+        //    return  $oihs;
+
+
            $prebooking = PreBooking::where("user_id",\Auth::id())->join("menu_master",'menu_master.id',"menu_id")->orderBy('booking_date','DESC')->get();
 
            $leave = Leave::where('user_id',\Auth::id())->orderBy('leave_date','DESC')->get();
-        //    sweetalert()->timer(100000)->addWarning("Please note that Pre-Booking of meals is compulsory. Food will be served to pre-booked students only");
-           return view('userdashobard',compact('students','topups','todays_punch','all_punch','week_menus','prebooking','leave'));
+           sweetalert()->timer(100000)->addWarning("Please note that Pre-Booking of meals is compulsory. Food will be served to pre-booked students only");
+
+           return view('userdashobard',compact('students','topups','todays_punch','all_punch','week_menus','prebooking','leave','oihs'));
         }
     }
 }
