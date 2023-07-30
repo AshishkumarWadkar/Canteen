@@ -149,7 +149,7 @@
                                             <a href="{{ route('weekly_menu.edit', $wm->id) }}">
                                                 <button class="btn btn-xs btn-primary py-0 mx-2"><i class="fa fa-pen"></i></button>
                                             </a>
-                                               <a> <button class="btn btn-xs btn-danger py-0"><i class="fa fa-trash"></i></button></a>
+                                               {{-- <a> <button class="btn btn-xs btn-danger py-0"><i class="fa fa-trash"></i></button></a> --}}
                                         </td>
                                     </tr>
                                     @endforeach

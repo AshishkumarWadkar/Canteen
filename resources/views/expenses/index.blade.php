@@ -64,6 +64,17 @@
                                             name="date" value="<?php echo date("Y-m-d"); ?>">
                                     </div>
                                 </div>
+                                <div class="col-6">
+                                    <div class="input-group input-group-outline mb-3">
+                                        <label class="col-5" for="class">Payment Mode :</label>
+                                        <select class="form-control" id="payment_mode" name="payment_mode" required>
+                                            <option value=""selected>Select</option>
+                                            <option value="Cash" >Cash</option>
+                                            <option value="UPI">UPI</option>
+                                            <option value="Khata">Khata</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="input-group input-group-outline mb-3 d-flex justify-content-between">
                                         <a href="{{ route('mess_dashboard') }}"><button type="button"
@@ -85,7 +96,7 @@
                     <div class="card my-4">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                                <h6 class="text-white text-capitalize ps-3">All Transaction History
+                                <h6 class="text-white text-capitalize ps-3">All Expenses History
                                 </h6>
                             </div>
                         </div>
@@ -113,6 +124,9 @@
                                                 Amount</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Mode</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Date</th>
                                             {{-- <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -126,8 +140,9 @@
                                             <tr>
                                                 <td scope="row text-center">{{ $key + 1 }}</td>
                                                 <td class="text-start">{{ $ms->item_name }}</td>
-                                                <td class="text-center">{{ $ms->quantity }} {{ $ms->unit }}</td>
+                                                <td class="text-start">{{ $ms->quantity }} {{ $ms->unit }}</td>
                                                 <td class="text-center">{{ $ms->amount }}</td>
+                                                <td class="text-center">{{ $ms->payment_mode }}</td>
                                                 <td class="text-center">{{  \Carbon\Carbon::parse($ms->date)->format('d-m-Y') }}</td>
                                             </tr>
                                         @endforeach

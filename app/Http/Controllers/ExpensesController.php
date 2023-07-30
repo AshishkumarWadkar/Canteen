@@ -16,7 +16,7 @@ class ExpensesController extends Controller
     {
         try {
 
-            $expenses = Expenses::get()->where('mess_id',\Auth::id());
+            $expenses = Expenses::where('mess_id',\Auth::id())->orderBy('id','DESC')->get('*');
 
             return view('expenses.index',compact('expenses'));
         } catch (\Throwable $th) {
@@ -50,6 +50,7 @@ class ExpensesController extends Controller
         $expenses->unit         = $request->unit;
         $expenses->amount       = $request->amount;
         $expenses->date         = $request->date;
+        $expenses->payment_mode         = $request->payment_mode;
 
         $expenses->save();
         toastr()

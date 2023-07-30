@@ -40,9 +40,11 @@
                                 </div>
                                 <label for="description" class="form-label">Description: </label>
                                 <div class="input-group input-group-outline mb-3 d-flex">
-                                    <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                                    <textarea class="form-control" id="description" rows="3" name="description" style="height: 115px;"></textarea>
                                 </div>
                                 <div class="form-group my-2 ">
+                                    <a href="{{ url()->previous() }}"><button type="button"
+                                        class="btn btn-block btn-primary">Back</button></a>&nbsp;&nbsp
                                     <button type="submit" class="btn btn-block btn-success">Save</button>
                                 </div>
                             </form>

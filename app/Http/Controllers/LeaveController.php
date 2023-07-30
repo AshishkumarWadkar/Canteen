@@ -14,17 +14,21 @@ class LeaveController extends Controller
      */
     public function index(Request $request)
     {
-        //
+        $tommrow = \Carbon\Carbon::tomorrow()->toDateString();
         $leaves = Leave::join('users','users.id','user_id')->where('created_by',\Auth::id());
         if($request->date)
         {
             $leaves = $leaves->whereDate('leave_date',$request->date);
         }
+        else
+        {
+            $leaves = $leaves->whereDate("leave_date",$tommrow);
+        }
 
 
         $leaves = $leaves->get();
         $count = $leaves->count();
-        $date = $request->date ?? "";
+        $date = $request->date ??  $tommrow;
         return view('leaves.index',compact('leaves','count','date'));
     }
 

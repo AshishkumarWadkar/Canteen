@@ -23,7 +23,8 @@ class TransactionController extends Controller
         //SELECT SUM(topup.amount) FROM `users` INNER join topup on users.id = topup.user_id where created_by = 2 and topup.order_completed = 1 and topup.topup_id != 1;
 
         //  $tran = User::join('topup','users.id','topup.user_id')->where('created_by',\Auth::id())->where('topup_id','!=',1)->get(['name','email','amount','order_id','rzp_paymentid','payment_status']);
-         $tran = User::join('phonepe','users.id','phonepe.user_id')->where('created_by',\Auth::id())
+        $today = \Carbon\Carbon::now()->toDateString();
+        $tran = User::join('phonepe','users.id','phonepe.user_id')->where('created_by',\Auth::id())
          ->where('plan','!=',1)
          ;
 
@@ -32,8 +33,13 @@ class TransactionController extends Controller
                  $tran = $tran->whereDate('phonepe.created_at', '>=', $request->from);
                  $tran = $tran->whereDate('phonepe.created_at', '<=', $request->to);
          }
-         $from = $request->from ?? "";
-         $to = $request->to ?? "";
+         else{
+
+            $tran = $tran->whereDate('phonepe.created_at', '>=', $today);
+            $tran = $tran->whereDate('phonepe.created_at', '<=', $today);
+         }
+         $from = $request->from ?? $today;
+         $to = $request->to ?? $today;
          $tran = $tran->get(['name','email','amount','providerReferenceId','code','phonepe.created_at']);
          $sum = $tran->where('code','PAYMENT_SUCCESS')->sum("amount");
        return view('transactions.index',compact('tran','sum','from','to'));

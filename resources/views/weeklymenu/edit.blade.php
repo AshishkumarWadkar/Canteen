@@ -7,7 +7,7 @@
                 <div class="card my-4">
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                         <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                            <h6 class="text-white text-capitalize ps-3">{{ __('Add Weekly  Menus ') }}</h6>
+                            <h6 class="text-white text-capitalize ps-3">{{ __('Edit Weekly Menu ') }}</h6>
                         </div>
                     </div>
                     <div class="card-body px-0 pb-2">
@@ -166,6 +166,8 @@
                                         </select>
                                     </div>
                                     <div class="form-group my-2 ">
+                                        <a href="{{ url()->previous() }}"><button type="button"
+                                            class="btn btn-block btn-primary">Back</button></a>&nbsp;&nbsp
                                         <button type="submit" class="btn btn-block btn-success">Update</button>
                                     </div>
                                 </form>
