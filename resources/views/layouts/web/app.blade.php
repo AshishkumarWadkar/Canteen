@@ -50,6 +50,9 @@
     <script src="{{asset('assets/home_1/lib/tempusdominus/js/moment-timezone.min.js')}}"></script>
     <script src="{{asset('assets/home_1/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 
+    <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/core/jquery.js') }}"></script>
+
       <!-- Template Javascript -->
       {{-- <script src="js/main.js"></script> --}}
     <script src="{{asset('assets/home_1/js/main.js')}}"></script>

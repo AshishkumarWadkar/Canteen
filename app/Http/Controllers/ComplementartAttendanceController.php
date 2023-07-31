@@ -14,15 +14,25 @@ class ComplementartAttendanceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
         $event = ComplementaryMeal::all()->where('mess_id',\Auth::id());
         $todays_punch = ComplementaryAttendance::join('users','user_id','users.id')
-        ->join('complementary_meal','complementary_meal.id','complementary_attendance.event_id')
-        ->get(['users.name','complementary_meal.event_name','complementary_attendance.created_at']);
+        ->join('complementary_meal','complementary_meal.id','complementary_attendance.event_id');
 
-        return view('complementary_attendance.index',compact('event','todays_punch'));
+
+        if(isset($request->from) && isset($request->to))
+        {
+                $todays_punch = $todays_punch->whereDate('complementary_meal.created_at', '>=', $request->from);
+                $todays_punch = $todays_punch->whereDate('complementary_meal.created_at', '<=', $request->to);
+        }
+
+       $fromdate   = $request->from;
+       $todate     = $request->to;
+       $todays_punch   = $todays_punch->get(['users.name','complementary_meal.event_name','complementary_attendance.created_at']);
+
+        return view('complementary_attendance.index',compact('event','todays_punch','fromdate','todate'));
     }
 
     /**

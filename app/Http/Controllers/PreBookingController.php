@@ -20,10 +20,10 @@ class PreBookingController extends Controller
                                         ->join('menu_master','menu_master.id','prebooking.menu_id')
                                         ->where('users.created_by',\Auth::id())
                                         ->where('prebooking.status',1);
-                                        if($request->date)
-                                        {
-                                            $prebookings = $prebookings->whereDate("booking_date",$request->date);
-                                        }
+        if($request->date)
+        {
+            $prebookings = $prebookings->whereDate("booking_date",$request->date);
+        }
 
         $prebookings = $prebookings->get();
 

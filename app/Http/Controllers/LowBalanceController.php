@@ -2,10 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Expenses;
 use Illuminate\Http\Request;
 
-class ExpensesController extends Controller
+use App\Models\Attendance;
+use App\Models\Leave;
+use App\Models\PhonePe;
+use App\Models\PreBooking;
+use App\Models\Topup;
+use App\Models\WeeklyMenu;
+use App\Models\User;
+use App\Models\OpenItem;
+use Carbon\Carbon;
+use App\Models\Expenses;
+use Auth;
+
+class LowBalanceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,23 +27,24 @@ class ExpensesController extends Controller
     {
         try {
 
-            $expenses = Expenses::where('mess_id',\Auth::id());
+            $low = User::where('points','<',200)->where('created_by',Auth::id());
 
 
             if(isset($request->from) && isset($request->to))
             {
-                    $expenses = $expenses->whereDate('expenses.created_at', '>=', $request->from);
-                    $expenses = $expenses->whereDate('expenses.created_at', '<=', $request->to);
+                    $low = $low->whereDate('expenses.created_at', '>=', $request->from);
+                    $low = $low->whereDate('expenses.created_at', '<=', $request->to);
             }
 
-            $expenses   = $expenses->get();
+            $low   = $low->get(['name','email','points']);
             $fromdate   = $request->from;
             $todate     = $request->to;
 
-            return view('expenses.index',compact('expenses','fromdate','todate'));
+            return view('lowbalance.index',compact('low','fromdate','todate'));
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
+
     }
 
     /**
@@ -54,28 +66,15 @@ class ExpensesController extends Controller
     public function store(Request $request)
     {
         //
-        $expenses               = new Expenses;
-        $expenses->mess_id      = \Auth::id();
-        $expenses->item_name    = $request->item_name;
-        $expenses->quantity     = $request->quantity;
-        $expenses->unit         = $request->unit;
-        $expenses->amount       = $request->amount;
-        $expenses->date         = $request->date;
-
-        $expenses->save();
-        toastr()
-    ->positionClass('toast-top-center')
-    ->addSuccess('Expenses Saved Succefully');
-    return redirect()->back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Expenses  $expenses
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Expenses $expenses)
+    public function show($id)
     {
         //
     }
@@ -83,10 +82,10 @@ class ExpensesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Expenses  $expenses
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Expenses $expenses)
+    public function edit($id)
     {
         //
     }
@@ -95,10 +94,10 @@ class ExpensesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Expenses  $expenses
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Expenses $expenses)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -106,10 +105,10 @@ class ExpensesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Expenses  $expenses
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Expenses $expenses)
+    public function destroy($id)
     {
         //
     }

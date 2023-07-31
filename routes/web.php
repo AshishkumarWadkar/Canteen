@@ -20,6 +20,7 @@ use App\Http\Controllers\WeeklyMenuController;
 use App\Http\Controllers\PreBookingController;
 use App\Http\Controllers\MissleaniousController;
 use App\Http\Controllers\ExpensesController;
+use App\Http\Controllers\LowBalanceController;
 use App\Http\Controllers\ComplementaryMealController;
 use App\Models\Deductions;
 use App\Models\WeeklyMenu;
@@ -113,6 +114,8 @@ Route::group(['prefix' => 'mess',  'middleware' => 'auth:mess'], function()
 
     Route::resource('expenses',ExpensesController::class);
     Route::get("low_balence",[ExpensesController::class,'low_balence'])->name('low_balence');
+
+    Route::resource('lowBalance',LowBalanceController::class);
 
     Route::resource('complementary_meal',ComplementaryMealController::class);
     Route::resource('complementary_attendance',ComplementartAttendanceController::class);

@@ -116,7 +116,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/attendance') || request()->is('mess/attendance/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('attendance.index') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">receipt_long</i>
+                                <i class="material-icons opacity-10">assignment</i>
                             </div>
                             <span class="nav-link-text ms-1">Attendance</span>
                         </a>
@@ -125,7 +125,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/students_open_item_history') || request()->is('mess/students_open_item_history/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('students_open_item_history') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">receipt_long</i>
+                                <i class="material-icons opacity-10">bookmark_border</i>
                             </div>
                             <span class="nav-link-text ms-1">Open Item Attendance</span>
                         </a>
@@ -143,7 +143,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/menu_master') || request()->is('mess/menu_master/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('menu_master.index') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">restaurant_menu</i>
                             </div>
                             <span class="nav-link-text ms-1">Menus Master</span>
                         </a>
@@ -161,7 +161,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/missleanious') || request()->is('mess/missleanious/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('missleanious.index') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">format_list_bulleted</i>
                             </div>
                             <span class="nav-link-text ms-1">Miscellaneous</span>
                         </a>
@@ -170,7 +170,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/expenses') || request()->is('mess/expenses/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('expenses.index') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">explicit</i>
                             </div>
                             <span class="nav-link-text ms-1">Expenses</span>
                         </a>
@@ -179,7 +179,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/complementary_meal') || request()->is('mess/complementary_meal/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('complementary_meal.index') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">library_books</i>
                             </div>
                             <span class="nav-link-text ms-1">Complimentary Meal</span>
                         </a>
@@ -188,7 +188,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/complementary_attendance') || request()->is('mess/complementary_attendance/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('complementary_attendance.index') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">done_all</i>
                             </div>
                             <span class="nav-link-text ms-1">Complimentary Marking</span>
                         </a>
@@ -198,7 +198,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/leaves') || request()->is('mess/leaves/*') ? 'active bg-gradient-primary' : '' }}" href="{{ route('leaves.index') }}">
                             <div
                                 class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">event_busy</i>
                             </div>
                             <span class="nav-link-text ms-1">Leaves</span>
                         </a>
@@ -216,7 +216,7 @@
                         <a class="nav-link text-white {{ request()->is('mess/deductions') || request()->is('mess/deductions/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('deductions.index') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">business_center</i>
                             </div>
                             <span class="nav-link-text ms-1">Deductions</span>
                         </a>
@@ -225,9 +225,18 @@
                         <a class="nav-link text-white {{ request()->is('mess/transactions') || request()->is('mess/transactions/*') ? 'active bg-gradient-primary' : '' }}"
                             href="{{ route('transactions.index') }}">
                             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <i class="material-icons opacity-10">person</i>
+                                <i class="material-icons opacity-10">assignment</i>
                             </div>
                             <span class="nav-link-text ms-1">Recharge History</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white {{ request()->is('mess/lowBalance') || request()->is('mess/lowBalance/*') ? 'active bg-gradient-primary' : '' }}"
+                            href="{{ route('lowBalance.index') }}">
+                            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                                <i class="material-icons opacity-10">account_balance</i>
+                            </div>
+                            <span class="nav-link-text ms-1">Low Balence</span>
                         </a>
                     </li>
                     <li class="nav-item">

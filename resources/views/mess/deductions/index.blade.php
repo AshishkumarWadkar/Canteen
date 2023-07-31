@@ -1,8 +1,7 @@
+@extends('layouts.mess.app')
 
- @extends('layouts.mess.app')
-
- @section('content')
- <div class="container-fluid py-4">
+@section('content')
+    <div class="container-fluid py-4">
         <div class="row">
             <div class="col-12">
                 <div class="card my-4">
@@ -32,32 +31,53 @@
                                     <tbody>
                                         <tr>
                                             <th scope="row">I - IV Students </th>
-                                            <td><input type="number" class="form-control" id="b_kids_price" name="b_kids_price" value="{{ isset($ded->b_kids_price) ? $ded->b_kids_price :  0 }}" placeholder="Enter Value to Deduct"
-                                                required ></td>
-                                            <td><input type="number" class="form-control" id="m_kids_price" name="m_kids_price" value="{{ isset($ded->m_kids_price) ? $ded->m_kids_price :  0 }}" placeholder="Enter Value to Deduct"
-                                                required ></td>
+                                            <td><input type="number" class="form-control" id="b_kids_price"
+                                                    name="b_kids_price"
+                                                    value="{{ isset($ded->b_kids_price) ? $ded->b_kids_price : 0 }}"
+                                                    placeholder="Enter Value to Deduct" required></td>
+                                            <td><input type="number" class="form-control" id="m_kids_price"
+                                                    name="m_kids_price"
+                                                    value="{{ isset($ded->m_kids_price) ? $ded->m_kids_price : 0 }}"
+                                                    placeholder="Enter Value to Deduct" required></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">V - XII Students </th>
-                                            <td><input type="number" class="form-control" id="b_student_price" name="b_student_price" value="{{ isset($ded->b_student_price) ? $ded->b_student_price :  0 }}" placeholder="Enter Value to Deduct"
-                                                required ></td>
-                                            <td><input type="number" class="form-control" id="m_student_price" name="m_student_price" value="{{ isset($ded->m_student_price) ? $ded->m_student_price :  0 }}" placeholder="Enter Value to Deduct"
-                                                required ></td>
+                                            <td><input type="number" class="form-control" id="b_student_price"
+                                                    name="b_student_price"
+                                                    value="{{ isset($ded->b_student_price) ? $ded->b_student_price : 0 }}"
+                                                    placeholder="Enter Value to Deduct" required></td>
+                                            <td><input type="number" class="form-control" id="m_student_price"
+                                                    name="m_student_price"
+                                                    value="{{ isset($ded->m_student_price) ? $ded->m_student_price : 0 }}"
+                                                    placeholder="Enter Value to Deduct" required></td>
                                         </tr>
                                         <tr>
                                             <th scope="row">Staff Member</th>
-                                            <td><input type="number" class="form-control" id="b_teacher_price" name="b_teacher_price" value="{{ isset($ded->b_teacher_price) ? $ded->b_teacher_price :  0 }}" placeholder="Enter Value to Deduct"
-                                                required ></td>
-                                            <td><input type="number" class="form-control" id="m_teacher_price" name="m_teacher_price" value="{{ isset($ded->m_teacher_price) ? $ded->m_teacher_price :  0 }}" placeholder="Enter Value to Deduct"
-                                                required ></td>
+                                            <td><input type="number" class="form-control" id="b_teacher_price"
+                                                    name="b_teacher_price"
+                                                    value="{{ isset($ded->b_teacher_price) ? $ded->b_teacher_price : 0 }}"
+                                                    placeholder="Enter Value to Deduct" required></td>
+                                            <td><input type="number" class="form-control" id="m_teacher_price"
+                                                    name="m_teacher_price"
+                                                    value="{{ isset($ded->m_teacher_price) ? $ded->m_teacher_price : 0 }}"
+                                                    placeholder="Enter Value to Deduct" required></td>
                                         </tr>
 
                                     </tbody>
                                 </table>
 
-
-                                <div class="form-group my-2 ">
-                                    <button type="submit" class="btn btn-block btn-success">Save</button>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group my-2 ">
+                                            <button type="submit" class="btn btn-block btn-success">Save</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <div class="form-group my-2 ">
+                                            <a href="{{ url()->previous() }}"></a><button type="submit"
+                                                class="btn btn-block btn-primary">Back</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -66,7 +86,4 @@
             </div>
         </div>
     </div>
-
-    <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
 @endsection

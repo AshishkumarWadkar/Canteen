@@ -43,13 +43,41 @@
                                             name="quantity" required>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                {{-- <div class="col-6">
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="col-5" for="unit">Unit : </label>
                                         <input type="text" class="form-control" id="unit" placeholder="[g, Ml, Kg, L, Pieces, Dozen]"
                                             name="unit" required>
                                     </div>
+                                </div> --}}
+
+                                <div class="d-flex">
+                                    <div class="col-6">
+                                        <div class="input-group input-group-outline mb-3">
+                                            <label class="col-5" for="class">Unit: </label>
+                                            <select class="form-control" id="type" name="unit" required>
+                                                <option value="" selected>Select unit </option>
+                                                <option value="gm">gm</option>
+                                                <option value="kg">kg</option>
+                                                <option value="ltr">ltr</option>
+                                                <option value="ml">ml</option>
+                                                <option value="pcs">pcs</option>
+                                                <option value="bags">bags</option>
+                                                <option value="pack">pack</option>
+                                                <option value="unit">unit</option>
+                                                <option value="nug">nug</option>
+                                                <option value="cup">cup</option>
+                                                <option value="bunch">bunch</option>
+                                                <option value="roll">roll</option>
+                                                <option value="inch">inch</option>
+                                                <option value="pages">pages</option>
+                                                <option value="mtr">mtr</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
+
                                 <div class="col-6">
                                     <div class="input-group input-group-outline mb-3">
                                         <label class="col-5" for="amount">Amount : </label>
@@ -90,7 +118,13 @@
                             </div>
                         </div>
                         <div class="text-end mx-3 my-2 row align-item-center">
-
+                            <form action="{{ route('expenses.index') }}">
+                                <label class="text-uppercase text-secondary font-weight-bolder" for="from" aria-autocomplete="false">From</label>
+                                <input type="date" class="" id="from" name="from"  value="{{ isset($fromdate) ? $fromdate : "" }}">
+                                <label class="text-uppercase text-secondary font-weight-bolder" for="to">To</label>
+                                <input type="date" class="" id="to" name="to"  value="{{ isset($todate) ? $todate : "" }}">
+                                <button class="btn btn-sm btn-success mt-2" type="submit">Filter</button>
+                            </form>
                         </div>
 
                         <div class="card-body pb-2">
@@ -113,6 +147,9 @@
                                                 Amount</th>
                                             <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                                Paid Status</th>
+                                            <th
+                                                class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                 Date</th>
                                             {{-- <th
                                                 class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -128,6 +165,10 @@
                                                 <td class="text-start">{{ $ms->item_name }}</td>
                                                 <td class="text-center">{{ $ms->quantity }} {{ $ms->unit }}</td>
                                                 <td class="text-center">{{ $ms->amount }}</td>
+                                                <td class="text-center ">
+                                                    <span
+                                                        class="badge badge-sm bg-gradient-{{ $ms->paid_status == 1 ? 'success' : 'primary' }}">{{ $ms->paid_status == 1 ? 'Paid' : 'Unpaid' }}</span>
+                                                </td>
                                                 <td class="text-center">{{  \Carbon\Carbon::parse($ms->date)->format('d-m-Y') }}</td>
                                             </tr>
                                         @endforeach

@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\OpenItem;
 use Carbon\Carbon;
+use App\Models\Expenses;
 use Auth;
 class HomeController extends Controller
 {
@@ -50,9 +51,24 @@ class HomeController extends Controller
 
             $total_users = User::where('created_by',\Auth::id())->count();
 
+            $leaves_count = Leave::join('users','users.id','user_id')
+                            ->where('created_by',\Auth::id())
+                            ->where('leave_date',Carbon::today())
+                            ->count();
+
+
+            $todays_expenses_sum = Expenses::where('mess_id',\Auth::id())->where('created_at',Carbon::today())->sum('amount');
+
+           $prebookings_count = PreBooking::join('users','users.id','prebooking.user_id')
+                                        ->where('users.created_by',\Auth::id())
+                                        ->where('booking_date',Carbon::today())
+                                        ->where('prebooking.status',1)
+                                        ->count();
+
+
             $tran =User::where('created_by',\Auth::id())->join('phonepe','phonepe.user_id','users.id')->where('plan','!=',1)->whereDate('phonepe.created_at', Carbon::today())->where('code','PAYMENT_SUCCESS')->sum('amount');
             $low = User::where('points','<',200)->where('created_by',Auth::id())->get(['name','email','points']);
-            return view('mess.dashboard',compact('low','todays_points','total_users','visit','tran'));
+            return view('mess.dashboard',compact('low','todays_points','total_users','visit','tran','leaves_count','todays_expenses_sum','prebookings_count'));
         }
         else{
             // if (Auth::id() != 366) {
@@ -92,7 +108,7 @@ class HomeController extends Controller
                                ->where('open_item.user_id',\Auth::id())
                                // ->where('open_item.mess_id',\Auth::id())
                                ->orderBy('open_item.id','desc');
-   
+
         //    if(isset($request->from) && isset($request->to))
         //    {
         //            $oihs = $oihs->whereDate('open_item.created_at', '>=', $request->from);

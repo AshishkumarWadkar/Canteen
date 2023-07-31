@@ -60,6 +60,17 @@
                                 placeholder="First Name Middle Name Last Name" name="name"
                                 value="{{ isset($student) && isset($student->name) ? $student->name : '' }}" readonly>
                         </div>
+                        <form action="{{ route('complementary_attendance.index') }}">
+                            <label class="text-uppercase text-secondary font-weight-bolder" for="from"
+                                aria-autocomplete="false">From</label>
+                            <input type="date" class="" id="from" name="from" required
+                                value="{{ isset($fromdate) ? $fromdate : '' }}">
+                            <label class="text-uppercase text-secondary font-weight-bolder"
+                                for="to">To</label>
+                            <input type="date" class="" id="to" name="to" required
+                                value="{{ isset($todate) ? $todate : '' }}">
+                            <button class="btn btn-sm btn-success mt-2 mx-1" type="submit">Filter</button>
+                        </form>
                         <div class="row">
                             <div class="col-12">
                                 <div class="card">

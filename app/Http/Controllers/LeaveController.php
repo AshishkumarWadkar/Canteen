@@ -16,6 +16,7 @@ class LeaveController extends Controller
     {
         //
         $leaves = Leave::join('users','users.id','user_id')->where('created_by',\Auth::id());
+
         if($request->date)
         {
             $leaves = $leaves->whereDate('leave_date',$request->date);

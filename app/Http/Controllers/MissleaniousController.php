@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Missleanious;
+use Carbon\Carbon;
 
 class MissleaniousController extends Controller
 {
@@ -12,14 +13,22 @@ class MissleaniousController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $missleanious       = Missleanious::where('mess_id',\Auth::id())->get();
-        $missleanious_paid_sum   = $missleanious->where('paid_status',1)->sum("amount");
-        $missleanious_unpaid_sum   = $missleanious->where('paid_status',0)->sum("amount");
+        $missleanious       = Missleanious::where('mess_id',\Auth::id());
+        if(isset($request->from) && isset($request->to))
+        {
+                $missleanious = $missleanious->whereDate('missleanious.created_at', '>=', $request->from);
+                $missleanious = $missleanious->whereDate('missleanious.created_at', '<=', $request->to);
+        }
+        $fromdate   = $request->from;
+        $todate     = $request->to;
+       $missleanious   = $missleanious->get();
+       $missleanious_paid_sum   = $missleanious->where('paid_status',1)->sum("amount");
+       $missleanious_unpaid_sum   = $missleanious->where('paid_status',0)->sum("amount");
 
-        return view('missleanious.index', compact('missleanious','missleanious_paid_sum','missleanious_unpaid_sum'));
+        return view('missleanious.index', compact('missleanious','missleanious_paid_sum','missleanious_unpaid_sum','fromdate','todate'));
     }
 
     /**
@@ -106,6 +115,7 @@ class MissleaniousController extends Controller
 
         $missleanious               =  Missleanious::findorfail($id);
         $missleanious->paid_status  = 1;
+        $missleanious->updated_at   = Carbon::now();;
         $missleanious->save();
         toastr()
     ->positionClass('toast-top-center')

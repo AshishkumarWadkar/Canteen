@@ -13,6 +13,19 @@
                 <div class="text-end mx-3 mt-2">
                 <a href="{{ route('complementary_meal.create') }}"><button class="btn btn-info mb-0">Add New Complementary Meal</button></a>
                 </div>
+                <div class="col-12 text-end">
+                <form action="{{ route('complementary_meal.index') }}">
+                    <label class="text-uppercase text-secondary font-weight-bolder" for="from"
+                        aria-autocomplete="false">From</label>
+                    <input type="date" class="" id="from" name="from" required
+                        value="{{ isset($fromdate) ? $fromdate : '' }}">
+                    <label class="text-uppercase text-secondary font-weight-bolder"
+                        for="to">To</label>
+                    <input type="date" class="" id="to" name="to" required
+                        value="{{ isset($todate) ? $todate : '' }}">
+                    <button class="btn btn-sm btn-success mt-2 mx-1" type="submit">Filter</button>
+                </form>
+                </div>
                 <div class="card-body pt-0">
                   <div class="table-responsive">
                     <table class="table text-center mb-0 datatable">
