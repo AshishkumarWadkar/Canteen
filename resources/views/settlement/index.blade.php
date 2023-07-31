@@ -36,6 +36,11 @@
                                         <input type="text" class="form-control" id="amount" name="amount"
                                             value="{{ isset($amount) ? $amount : '' }}">
                                     </div>
+                                    <div class="col-3"><label class="text-uppercase text-secondary font-weight-bolder"
+                                            for="amount">Total Payable Amount</label>
+                                        <input type="text" class="form-control" id="payable" name="payable"
+                                            value="{{ isset($payable) ? $payable : '' }}">
+                                    </div>
 
                                     {{-- <div class="col-3"><label class="text-uppercase text-secondary font-weight-bolder"
                                             for="to">Payable</label>

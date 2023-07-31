@@ -17,7 +17,7 @@ class WeeklyMenuController extends Controller
     public function index()
     {
         //
-         $weeklyMenu = WeeklyMenu::all()->where('created_by',\Auth::id());
+         $weeklyMenu = WeeklyMenu::orderBy('id','DESC')->where('created_by',\Auth::id())->get();
         return view('weeklymenu.index',compact('weeklyMenu'));
     }
 

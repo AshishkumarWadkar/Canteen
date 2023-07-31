@@ -37,7 +37,7 @@
                             Breakfast Booking : {{ $breakfastcount }}
                         </div>
                         <div class="col-3">
-                            Meal Booking : {{ $meal_count }}
+                            Lunch Booking : {{ $meal_count }}
                         </div>
 
                     </div>

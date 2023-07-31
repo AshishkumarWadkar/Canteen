@@ -97,7 +97,7 @@ class PhonePeController extends Controller
                 $phonepe->checksum = $request->checksum;
 
                 $phonepe->percent = env('PHONEPE_CHARGE')??2;
-                $phonepe->tax = env("TAX")??"1.8";
+                $phonepe->tax = env("TAX")?? 1.18;
                 $phonepe->total_deduction = (($request->amount / 100) * (env('PHONEPE_CHARGE') / 100)) * env("TAX");
                 $phonepe->actual_amount = ($request->amount / 100) - (($request->amount / 100) * (env('PHONEPE_CHARGE') / 100)) * env("TAX");
 
@@ -168,14 +168,14 @@ class PhonePeController extends Controller
 
 
 
-        
+
          $records = PhonePe::
             where("code", "=", "PAYMENT_INITIATED")->
             orWhere("code", "=", "PAYMENT_PENDING")->
             get();
 
 
-        foreach ($records as $key => $record) 
+        foreach ($records as $key => $record)
         {
             $transaction_id = $record->merchantTransactionId;
             $sha256 = hash('sha256', "/pg/v1/status/" . $merchant_id . '/' . $transaction_id . $salt) . '###' . $index;
@@ -196,7 +196,7 @@ class PhonePeController extends Controller
              $request = json_decode($response->getBody());
 
 
-            if ($request->code == "PAYMENT_SUCCESS") 
+            if ($request->code == "PAYMENT_SUCCESS")
             {
                 $flag = PhonePe::where('merchantTransactionId', $request->data->merchantTransactionId)->where('code', 'PAYMENT_SUCCESS')->doesntExist();
                 if ($flag) {
@@ -235,8 +235,8 @@ class PhonePeController extends Controller
 
 
                 }
-            } 
-            else 
+            }
+            else
             {
                 $phonepe = PhonePe::where('merchantTransactionId', $request->data->merchantTransactionId)->first();
                 $phonepe->amount = $request->data->amount / 100;

@@ -16,7 +16,7 @@ class ExpensesController extends Controller
     {
         try {
 
-            $expenses = Expenses::where('mess_id',\Auth::id());
+            $expenses = Expenses::where('mess_id',\Auth::id())->orderBy('id','DESC')->get('*');
 
 
             if(isset($request->from) && isset($request->to))
@@ -61,6 +61,7 @@ class ExpensesController extends Controller
         $expenses->unit         = $request->unit;
         $expenses->amount       = $request->amount;
         $expenses->date         = $request->date;
+        $expenses->payment_mode         = $request->payment_mode;
 
         $expenses->save();
         toastr()

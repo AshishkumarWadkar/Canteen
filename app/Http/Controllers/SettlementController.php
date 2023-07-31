@@ -13,7 +13,7 @@ class SettlementController extends Controller
     {
         $from_date = $request->from ?? null;
         $to_date = $request->to ?? null;
-        $tran = User::join('phonepe','users.id','phonepe.user_id')->where('created_by',\Auth::id())->where('plan','!=',1)->where('phonepe.code','PAYMENT_SUCCESS')
+        $tran = User::join('phonepe','users.id','phonepe.user_id')->join('topup_master','topup_master.id','plan')->where('users.created_by',\Auth::id())->where('is_subscription_plan','!=',1)->where('phonepe.code','PAYMENT_SUCCESS')
         ;
         $amount=0;
         $payable=0;
@@ -22,7 +22,7 @@ class SettlementController extends Controller
         {
             $tran = $tran->whereDate('phonepe.created_at', '>=', $request->from);
             $tran = $tran->whereDate('phonepe.created_at', '<=', $request->to);
-            $amount = $tran->where('code','PAYMENT_SUCCESS')->sum("amount");
+            $amount = $tran->where('code','PAYMENT_SUCCESS')->sum("phonepe.amount");
             $payable = $tran->where('code','PAYMENT_SUCCESS')->sum("actual_amount");
         }
         $stlmnt = Settlement::all()->where('mess_id',\Auth::id());

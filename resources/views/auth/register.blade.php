@@ -211,7 +211,7 @@
                                                 class="col-6 col-form-label ">{{ __('Select Role') }}</label>
 
                                             <div class="col-md-5">
-                                                <select class="form-control" id="role" name="role" required>
+                                                <select class="form-control" id="role" name="role" required onchange="checkrole()">
                                                     <option selected value="0">Select Role</option>
                                                     <option value="1">Student</option>
                                                     <option value="2">Teacher</option>
@@ -225,7 +225,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="input-group input-group-outline mb-3 d-flex ">
+                                        <div class="input-group input-group-outline mb-3 d-flex class_details ">
                                             <label for="role" class="col-6 col-form-label ">{{ __('Class') }}</label>
                                             @php
                                                 $class = \DB::table('class')->get(['id', 'name']);
@@ -245,7 +245,7 @@
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="input-group input-group-outline mb-3 d-flex ">
+                                        <div class="input-group input-group-outline mb-3 d-flex class_details ">
                                             <label for="role"
                                                 class="col-6 col-form-label ">{{ __('Division') }}</label>
                                             @php
@@ -308,12 +308,38 @@
     </main>
 
     <script>
-        function myFunction() {
+        function myFunction()
+        {
             var checkBox = document.getElementById("flexCheckDefault");
             if (checkBox.checked == true) {
                 document.getElementById("submit").disabled = false;
             } else {
                 document.getElementById("submit").disabled = true;            }
         }
+    </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script>
+
+        function checkrole()
+        {
+
+            let role = document.getElementById("role");
+            console.log(role.value);
+            if(role.value == 2)
+            {
+
+                $(".class_details").addClass("d-none");
+
+            }
+            else
+            {
+                $(".class_details").removeClass("d-none");
+
+            }
+
+        }
+
+
     </script>
 @endsection

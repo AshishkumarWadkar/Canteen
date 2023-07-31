@@ -50,6 +50,8 @@
 
 
                             <div class="form-group my-2 ">
+                                <a href="{{ url()->previous() }}"><button type="button"
+                                    class="btn btn-block btn-primary">Back</button></a>&nbsp;&nbsp
                                 <button type="submit" class="btn btn-block btn-success">Save</button>
                             </div>
 

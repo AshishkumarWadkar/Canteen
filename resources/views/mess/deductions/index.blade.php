@@ -66,18 +66,10 @@
                                     </tbody>
                                 </table>
 
-                                <div class="row">
-                                    <div class="col-6">
-                                        <div class="form-group my-2 ">
-                                            <button type="submit" class="btn btn-block btn-success">Save</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-6 text-end">
-                                        <div class="form-group my-2 ">
-                                            <a href="{{ url()->previous() }}"></a><button type="submit"
-                                                class="btn btn-block btn-primary">Back</button>
-                                        </div>
-                                    </div>
+
+                                <div class="form-group my-2 ">                                <a href="{{ url()->previous() }}"><button type="button"
+                                    class="btn btn-block btn-primary">Back</button></a>&nbsp;&nbsp
+                                    <button type="submit" class="btn btn-block btn-success">Save</button>
                                 </div>
                             </form>
                         </div>

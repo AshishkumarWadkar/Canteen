@@ -15,15 +15,20 @@ class PreBookingController extends Controller
      */
     public function index(Request $request)
     {
+       $tommrow = \Carbon\Carbon::tomorrow()->toDateString();
        $prebookings = PreBooking::select('prebooking.*','users.name as user_name','menu_master.name as menu_name','menu_master.type as type','users.email')
                                         ->join('users','users.id','prebooking.user_id')
                                         ->join('menu_master','menu_master.id','prebooking.menu_id')
                                         ->where('users.created_by',\Auth::id())
                                         ->where('prebooking.status',1);
-        if($request->date)
-        {
-            $prebookings = $prebookings->whereDate("booking_date",$request->date);
-        }
+                                        if($request->date)
+                                        {
+                                            $prebookings = $prebookings->whereDate("booking_date",$request->date);
+                                        }
+                                        else
+                                        {
+                                            $prebookings = $prebookings->whereDate("booking_date",$tommrow);
+                                        }
 
         $prebookings = $prebookings->get();
 
@@ -37,6 +42,10 @@ class PreBookingController extends Controller
                                 {
                                     $breakfastcount = $breakfastcount->whereDate("booking_date",$request->date);
                                 }
+                                else
+                                {
+                                    $breakfastcount = $breakfastcount->whereDate("booking_date",$tommrow);
+                                }
         $breakfastcount = $breakfastcount->where("menu_master.type",0)->count();
 
         $meal_count  = PreBooking::select('prebooking.*','users.name as user_name','menu_master.name as menu_name','menu_master.type as type')
@@ -49,13 +58,17 @@ class PreBookingController extends Controller
                                 if($request->date)
                                 {
                                     $meal_count = $meal_count->whereDate("booking_date",$request->date);
-                                };
+                                }
+                                else
+                                {
+                                    $meal_count = $meal_count->whereDate("booking_date",$tommrow);
+                                }
 
         $meal_count = $meal_count->where("menu_master.type",1)->count();
 
         $allcount  = $prebookings->count();
 
-        $date = $request->date ?? "";
+        $date = $request->date ?? $tommrow;
 
         return view('prebooking.index',compact('prebookings','breakfastcount','meal_count','allcount','date'));
     }
