@@ -28,11 +28,14 @@ class AdminController extends Controller
     {
 
 
-        $tran = User::select('users.*','phonepe.*','messes.name as mess')->join('phonepe','users.id','phonepe.user_id')
-        ->join('messes','messes.id','users.created_by')
-        // ->where('created_by',\Auth::id())
-        ->where('plan','=',1)
-        ;
+        $tran = User::select('users.*','phonepe.*','messes.name as mess')
+                        ->join('phonepe','users.id','phonepe.user_id')
+                        ->join('messes','messes.id','users.created_by')
+                        ->join('topup_master','topup_master.id','phonepe.plan')
+                        ->where('topup_master.is_subscription_plan','=',1)
+                        // ->where('created_by',\Auth::id())
+                        // ->where('plan','=',1)
+                        ;
 
         if(isset($request->from) && isset($request->to))
         {
@@ -57,7 +60,11 @@ class AdminController extends Controller
     {
         $from_date = $request->from ?? null;
         $to_date = $request->to ?? null;
-        $tran = User::join('phonepe','users.id','phonepe.user_id')->where('plan','!=',1)->where('phonepe.code','PAYMENT_SUCCESS');
+        $tran = User::join('phonepe','users.id','phonepe.user_id')
+                    // ->where('plan','!=',1)
+                    ->join('topup_master','topup_master.id','phonepe.plan')
+                    ->where('topup_master.is_subscription_plan','!=',1)
+                    ->where('phonepe.code','PAYMENT_SUCCESS');
         $amount=0;
         $payable=0;
 
@@ -68,12 +75,12 @@ class AdminController extends Controller
         }
         if(isset($request->mess_id))
         {
-                $tran = $tran->where('created_by', $request->mess_id);
+                $tran = $tran->where('users.created_by', $request->mess_id);
 
         }
 
-        $amount = $tran->where('code','PAYMENT_SUCCESS')->sum("amount");
-        $payable = $tran->where('code','PAYMENT_SUCCESS')->sum("actual_amount");
+        $amount = $tran->where('code','PAYMENT_SUCCESS')->sum("phonepe.amount");
+        $payable = $tran->where('code','PAYMENT_SUCCESS')->sum("phonepe.actual_amount");
         $stlmnt = new Settlement;
 
         if(isset($request->mess_id) && $request->mess_id != 0)

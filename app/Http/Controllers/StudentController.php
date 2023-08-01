@@ -100,8 +100,22 @@ class StudentController extends Controller
         $class = Classes::all();
         $division = Division::all();
         $student = User::find($id);
-        $student_recharge_histotry = Phonepe::with('user')->where('user_id', $id)->where('plan', '!=', 1)->where('plan', '!=', 6)->where('plan', '!=', 11)->where('plan', '!=', 16)->orderBy('id', 'DESC')->get();
-        $student_recharge_histotry_sum = Phonepe::with('user')->where('user_id', $id)->where('plan', '!=', 1)->where('plan', '!=', 6)->where('plan', '!=', 11)->where('plan', '!=', 16)->where('code','PAYMENT_SUCCESS')->sum('amount');
+        // $student_recharge_histotry = Phonepe::with('user')->where('user_id', $id)->where('plan', '!=', 1)->where('plan', '!=', 6)->where('plan', '!=', 11)->where('plan', '!=', 16)->orderBy('id', 'DESC')->get();
+         $student_recharge_histotry = Phonepe::with('user')
+                                                    ->where('user_id', $id)
+                                                    ->join('topup_master','topup_master.id','phonepe.plan')
+                                                    ->where('topup_master.is_subscription_plan','!=',1)
+                                                    ->orderBy('phonepe.id', 'DESC')
+                                                    ->get(['phonepe.*','topup_master.is_subscription_plan as is_subscription_plan']);
+        //  $student_recharge_histotry_sum = Phonepe::with('user')->where('user_id', $id)->where('plan', '!=', 1)->where('plan', '!=', 6)->where('plan', '!=', 11)->where('plan', '!=', 16)->where('code','PAYMENT_SUCCESS')->sum('amount');
+       $student_recharge_histotry_sum = Phonepe::with('user')
+                                                ->where('user_id', $id)
+                                                ->join('topup_master','topup_master.id','phonepe.plan')
+                                                ->where('topup_master.is_subscription_plan','!=',1)
+                                                ->orderBy('phonepe.id', 'DESC')
+                                                ->where('phonepe.code','PAYMENT_SUCCESS')
+                                                ->sum('phonepe.amount');
+
         $prev_point = PreviousPoints::where('user_id',$id)->get();
         return view('mess.update_student',compact('student','class','division','student_recharge_histotry','student_recharge_histotry_sum','prev_point'));
 

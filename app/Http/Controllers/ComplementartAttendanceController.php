@@ -19,7 +19,8 @@ class ComplementartAttendanceController extends Controller
         //
         $event = ComplementaryMeal::all()->where('mess_id',\Auth::id());
         $todays_punch = ComplementaryAttendance::join('users','user_id','users.id')
-        ->join('complementary_meal','complementary_meal.id','complementary_attendance.event_id');
+        ->join('complementary_meal','complementary_meal.id','complementary_attendance.event_id')
+        ->where('mess_id',\Auth::id());
 
 
         if(isset($request->from) && isset($request->to))

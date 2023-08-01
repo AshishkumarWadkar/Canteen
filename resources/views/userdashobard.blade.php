@@ -485,11 +485,11 @@ use Carbon\Carbon;
                                                                     <th
                                                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                                                         Balence</th>
-                            
-                            
+
+
                                                                 </tr>
                                                             </thead>
-                            
+
                                                             <tbody>
                                                                 @foreach ($oihs as $key => $soih)
                                                                     <tr>
@@ -520,7 +520,7 @@ use Carbon\Carbon;
                                                                         </td>
                                                                     </tr>
                                                                 @endforeach
-                            
+
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -661,7 +661,7 @@ use Carbon\Carbon;
                             $("#booking_now").show();
                             $("#cancel_booking_now").hide();
                         }
-                        
+
                         // if(response.exists.status == 1)
                         // {
                         //     $("#booking_now").hide();
@@ -738,7 +738,7 @@ use Carbon\Carbon;
 
         $('.booking_modal').each(function(i, obj) {
             console.log(obj);
-            
+
             $.ajax({
                     url: "{{ route('booking_status') }}",
                     type: 'get',

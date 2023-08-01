@@ -66,7 +66,14 @@ class HomeController extends Controller
                                         ->count();
 
 
-            $tran =User::where('created_by',\Auth::id())->join('phonepe','phonepe.user_id','users.id')->where('plan','!=',1)->whereDate('phonepe.created_at', Carbon::today())->where('code','PAYMENT_SUCCESS')->sum('amount');
+            $tran =User::where('created_by',\Auth::id())
+                        ->join('phonepe','phonepe.user_id','users.id')
+                        // ->where('plan','!=',1)
+                        ->join('topup_master','topup_master.id','phonepe.plan')
+                        ->where('topup_master.is_subscription_plan','!=',1)
+                        ->whereDate('phonepe.created_at', Carbon::today())
+                        ->where('code','PAYMENT_SUCCESS')
+                        ->sum('amount');
             $low = User::where('points','<',200)->where('created_by',Auth::id())->get(['name','email','points']);
             return view('mess.dashboard',compact('low','todays_points','total_users','visit','tran','leaves_count','todays_expenses_sum','prebookings_count'));
         }
