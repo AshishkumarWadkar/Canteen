@@ -106,16 +106,19 @@ class PhonePeController extends Controller
 
                 $phonepe->save();
                 $user = User::find($phonepe->user_id);
+                $is_subscribed_plan = TopupMaster::find($phonepe->plan);
 
 
-
-                if ($phonepe->plan == 1) {
+                if ($is_subscribed_plan->is_subscription_plan == 1) {
                     $user->is_subscribed = 1;
                     $user->expiry_date = Carbon::now()->addDays(365);
                 } else {
 
-                    $user->points = $user->points + $request->amount / 100;
+                    Log::info(json_encode($request));
+                    $user->points = $user->points + $request->data->amount / 100;
                 }
+
+
                 $user->save();
                 sweetalert("Payment Done Successfully");
 
